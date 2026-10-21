@@ -1,16 +1,14 @@
 # IYKYK --- Architecture
 
-## 01. Purpose
+# 01. Purpose
 
 This document defines the implementation architecture for the IYKYK
 pre-launch experience.
 
 It translates the rules in:
 
--   `design.md` --- visual, interaction, responsive and technical design
-    principles
--   `storyboard.md` --- narrative sequence, scenes, meter states, clock
-    states and transitions
+-   `design.md` --- visual identity, art direction, composition rules, motion aesthetics, and asset strategy
+-   `storyboard.md` --- narrative sequence, story beats, scene script, meter progression, and copy
 
 into a practical frontend structure.
 
@@ -200,26 +198,36 @@ of responsibilities should not.
 
 ------------------------------------------------------------------------
 
-# 06. Application Shell
+# 06. Application Shell & Component Hierarchy
 
-The application should have a very small top-level structure.
+The application has a lightweight top-level shell that coordinates scroll
+and narrative scenes:
 
 ``` text
 App
 └── ExperienceShell
     ├── LenisProvider / ScrollController
-    ├── Experience
-    │   ├── Scene
-    │   ├── Scene
-    │   ├── ...
-    │   └── Reveal
-    └── Global UI if required
+    ├── GlobalOverlay / DebugLayer (dev only)
+    └── Experience
+        ├── Scene (plan, first-drink, buzzed, drunk, party-peak, passed-out)
+        │   ├── Composition (fixed | crop | layered)
+        │   │   ├── ResponsiveFrame
+        │   │   ├── Panel[]
+        │   │   └── Layer[] (background, environment, character, objects, texture)
+        │   ├── Clock (digital | analog | oversized)
+        │   ├── Meter (story mode | rebuild mode)
+        │   └── TypographyLayer
+        ├── QuestionScene (graphic interruption)
+        ├── RebuildScene (reconstruction sequence)
+        └── RevealScene (IYKYK brand payoff & CTA)
 ```
 
 There should not be a traditional multi-page navigation system unless
 the final product requirements introduce one.
 
-The primary experience is one continuous scroll journey.
+The primary experience is one continuous scroll journey. All scenes are
+mapped declaratively from the scene registry, keeping presentation and
+narrative concerns decoupled.
 
 ------------------------------------------------------------------------
 
@@ -255,13 +263,13 @@ hard-coding every visual property into JSX.
 
 # 08. Scene Types
 
-Use three primary composition modes.
-
-## Fixed
+Use three primary composition modes:
 
 ``` ts
-type CompositionMode = "fixed";
+type CompositionMode = "fixed" | "crop" | "layered";
 ```
+
+## Fixed (`"fixed"`)
 
 A complete illustration scales within the viewport.
 
@@ -271,11 +279,7 @@ Use for:
 -   graphic interruptions
 -   final reveal
 
-## Oversized Crop
-
-``` ts
-type CompositionMode = "crop";
-```
+## Oversized Crop (`"crop"`)
 
 The artwork is larger than the viewport and the visible frame reveals
 only part of it.
@@ -286,11 +290,7 @@ Use for:
 -   distorted drunk state
 -   artistic mobile/desktop differences
 
-## Layered
-
-``` ts
-type CompositionMode = "layered";
-```
+## Layered (`"layered"`)
 
 The composition consists of independently positioned elements.
 
@@ -398,8 +398,11 @@ assets/
 │   ├── protagonist-ready.webp
 │   ├── protagonist-drink.webp
 │   ├── protagonist-buzzed.webp
+│   ├── protagonist-drunk.webp
 │   ├── protagonist-dance.webp
-│   └── protagonist-passed-out.webp
+│   ├── protagonist-exhausted.webp
+│   ├── protagonist-passed-out.webp
+│   └── protagonist-reassembled.webp
 │
 ├── environments/
 │   ├── bedroom.webp
@@ -1078,17 +1081,14 @@ system.
 
 ## Images
 
--   Use modern image formats.
--   Resize assets to realistic maximum display sizes.
--   Avoid loading desktop-resolution artwork when mobile does not need
-    it.
--   Use responsive image sources where useful.
+-   Use modern image formats (WebP, AVIF) with fallback.
+-   Resize assets to realistic maximum display sizes; never serve 4K desktop artwork to mobile viewports.
+-   Avoid duplicate art exports; prefer responsive viewport cropping of master compositions.
+-   Use responsive image sources (`srcset` / `<picture>`) where practical.
 
 ## Scene loading
 
-Heavy assets should be loaded close to when they are needed.
-
-Possible strategy:
+Heavy assets should be loaded close to when they are needed:
 
 ``` text
 Initial load
@@ -1104,17 +1104,17 @@ preload Scene 03
 ...
 ```
 
-Do not aggressively preload the entire experience if it creates a large
-initial payload.
+Do not aggressively preload the entire experience upfront if it creates a large
+initial network payload.
 
-## Animation
+## Animation & GPU Compositing
 
-Prefer:
-
--   `transform`
--   `opacity`
-
-Avoid animating expensive layout properties unless necessary.
+-   **Composited properties only:** Animate strictly with `transform` (`x`, `y`, `scale`, `rotation`) and `opacity`.
+-   **Zero layout thrashing:** Never animate geometric layout properties (`width`, `height`, `top`, `left`, `margin`, `padding`) during scroll.
+-   **Layer budget:** Cap independently animated DOM elements per scene (aim for <= 8 animated nodes per viewport) to keep GPU compositing memory within mobile browser limits.
+-   **No continuous idle loops:** ScrollTrigger pins and scrubs should remain idle when the user is not actively scrolling. Avoid continuous background canvas or requestAnimationFrame loops that drain battery.
+-   **Ticker & Scroll sync:** Use `gsap.ticker.lagSmoothing(0)` to prevent visual stuttering and jumping when scrolling resumes.
+-   **Lifecycle cleanup:** Guarantee every GSAP timeline is created within a `gsap.context()` and reverted on unmount to eliminate memory leaks.
 
 ------------------------------------------------------------------------
 
@@ -1127,13 +1127,19 @@ sufficiently close to the current scene.
 
 The exact threshold should be tested rather than guessed.
 
-A lightweight asset manifest can support this:
+A lightweight asset manifest keyed by canonical scene ID (see Section 27) can support this:
 
 ``` ts
-const sceneAssets = {
-  plan: [...],
-  firstDrink: [...],
-  buzzed: [...],
+const sceneAssets: Record<SceneId, AssetReference[]> = {
+  'plan': [...],
+  'first-drink': [...],
+  'buzzed': [...],
+  'drunk': [...],
+  'party-peak': [...],
+  'passed-out': [...],
+  'question': [...],
+  'rebuild': [...],
+  'reveal': [...],
 };
 ```
 
@@ -1188,18 +1194,18 @@ happens to have a breakpoint.**
 
 Test every major scene on:
 
-### Mobile
+## Mobile
 
 -   narrow phone
 -   larger phone
 -   portrait orientation
 
-### Tablet
+## Tablet
 
 -   portrait
 -   landscape
 
-### Desktop
+## Desktop
 
 -   laptop
 -   large desktop

@@ -1,6 +1,6 @@
 # IYKYK --- Storyboard
 
-## 01. Overview
+# 01. Overview
 
 IYKYK is a mobile-first, scroll-driven pre-launch experience designed to
 feel like an interactive illustrated film rather than a conventional
@@ -28,20 +28,19 @@ from beginning to end. The story changes; the visual system does not.
 ### The experience should feel like
 
 -   A cinematic illustrated story experienced through scrolling.
--   A comic/snapshot sequence rather than a traditional video.
--   A collage that becomes increasingly chaotic as the night progresses.
--   A visual representation of how the night feels, not a literal
-    documentary timeline.
--   Mobile-first, while still feeling intentionally composed on desktop.
+-   A subjective journey representing how the night feels, not a literal documentary timeline.
+-   Escalating chaos that mirrors increasing intoxication and loss of control.
+-   A stark emotional contrast between the euphoria of the party peak and the cold reality of the morning aftermath.
+-   A transformative turning point that reverses the descent and restores agency.
 
 ### The experience should not feel like
 
--   A conventional landing page.
--   A slideshow of unrelated images.
--   Realistic video footage.
--   Full 3D.
--   A persistent dashboard/HUD.
--   Separate visual styles for different stages of the story.
+-   A conventional corporate landing page or product sales pitch.
+-   A preachy moral lecture or clinical public-health warning.
+-   A collection of disconnected vignettes without cause and effect.
+-   A generic video reel or passive media clip.
+
+For visual styling rules and technical architecture constraints, see `design.md` and `architecture.md`.
 
 ------------------------------------------------------------------------
 
@@ -80,130 +79,94 @@ probability measurement.
 
 ------------------------------------------------------------------------
 
-# 04. Visual Storytelling System
+# 04. Narrative Progression Devices
 
-The storyboard combines four recurring systems.
+The narrative arc is anchored by four storytelling devices:
 
-## 4.1 Comic / Snapshot Panels
+## 4.1 The Energy / Control Meter (100% → 0% → 100%)
 
-Scenes are constructed from individual illustrated compositions/panels.
+The meter is a storytelling metaphor representing the protagonist's stamina, sobriety, and hold on tomorrow's academic responsibilities. It is not a clinical or scientific measurement.
 
-Panels can:
-
--   slide into the composition
--   overlap
--   tear apart
--   reveal layers
--   change crop
--   scale
--   rotate slightly
--   move behind or in front of other elements
--   become partially obscured
--   rearrange between scenes
-
-The panels should feel like one continuously evolving collage.
-
-------------------------------------------------------------------------
-
-## 4.2 Horizontal Floating Meter
-
-The meter is horizontal, textured, imperfect and slightly floaty.
-
-It is not a conventional website progress indicator.
-
-### Story states
+### Narrative states
 
 ``` text
-100%
+100% (The Plan)
 ████████████████████
 
-80%
+80% (First Drink)
 ████████████████
 
-60%
+60% (Buzzed)
 ████████████
 
-40%
+40% (Drunk)
 ████████
 
-20%
+20% (Party Peak)
 ████
 
-0%
+0% (Passed Out)
 ```
 
-During the first half of the story it progressively drains.
+During the night's descent, the meter drains step by step. At 0%, college tomorrow is lost.
 
-At the rebuild sequence it becomes a major visual event:
+During the rebuild sequence, the meter becomes the dramatic catalyst for recovery:
 
 ``` text
 0% → 20% → 40% → 60% → 80% → 100%
 ```
 
-The fill animation should be clearly visible on screen rather than
-happening invisibly in the background.
+For meter visual design, physical textures, and integration rules, see `design.md` Section 12. For component implementation, see `architecture.md` Sections 20–21.
 
 ------------------------------------------------------------------------
 
-## 4.3 Recurring Clock
+## 4.2 Chronological Progression (The Night Clock)
 
-The clock establishes the passage of the night.
+The recurring clock grounds the narrative in the relentless forward march of the night, highlighting the contrast between subjective perception and objective time:
 
-It should appear and disappear as part of the composition rather than
-remaining permanently fixed in a corner.
+-   **9:30 PM (Scene 01):** Calm preparation; tomorrow is completely intact.
+-   **10:15 PM (Scene 02):** The night begins; the first social drink.
+-   **11:40 PM (Scene 03):** Buzzed; energy accelerates; the party takes hold.
+-   **1:20 AM (Scene 04):** Drunk; time and perception distort.
+-   **3:17 AM (Scene 05):** Peak chaos; euphoria masks how late it has become.
+-   **7:58 AM (Scene 06):** Morning arrives; the alarm rings; 0% energy; college tomorrow is ruined.
+-   **Morning Payoff (Scene 08):** Post-rebuild clarity; confidence restored.
 
-Suggested story times:
-
--   9:30 PM
--   10:15 PM
--   11:40 PM
--   1:20 AM
--   3:17 AM
--   7:58 AM
-
-The exact times can be adjusted during production, but the progression
-should remain obvious.
-
-The clock can change treatment between scenes:
-
--   analog
--   digital
--   oversized
--   partially obscured
--   layered into collage
--   embedded in artwork
+For clock visual styling, analog/digital variants, and collage embedding, see `design.md` Section 13. For code architecture, see `architecture.md` Section 22.
 
 ------------------------------------------------------------------------
 
-## 4.4 World Disintegration / Reconstruction
+## 4.3 The Graphic Interruption (The Question)
 
-The visual world begins relatively controlled.
+Between the total collapse of Scene 06 and the turnaround of Scene 07, the narrative stops dead:
 
-As drinking progresses:
+> **WHAT IF YOU DIDN'T HAVE TO MISS COLLEGE TOMORROW?**
 
--   compositions become denser
--   panels overlap
--   objects become oversized
--   perspective becomes less stable
--   typography becomes more intrusive
--   textures accumulate
--   collage pieces shift
--   the clock becomes more prominent
--   the meter becomes increasingly fragile
+This is not a continuation of party noise. It is an editorial pause that forces the viewer to confront the consequence before offering redemption.
 
-At 0%, the visual world is exhausted and quiet.
+For graphic interruption design and typography impact, see `design.md` Section 17. For component architecture, see `architecture.md` Section 24.
 
-After the question, the meter rebuild becomes the trigger for
-reconstruction.
+------------------------------------------------------------------------
 
-The world should not simply reverse the exact previous animation. It
-should reorganize into a **cleaner, more confident final composition**.
+## 4.4 The Rebuild Arc & Resolution
+
+The turnaround is not a rewind; it is an active reconstruction.
+
+-   The meter recharges from 0% to 100%.
+-   The protagonist transitions from incapacitated to reassembled and confident.
+-   The narrative resolves into the IYKYK brand reveal and the final CTA: **KNOW MORE →**.
+
+For visual world disintegration and reconstruction rules, see `design.md` Section 09. For GSAP timeline implementation, see `architecture.md` Section 25.
 
 ------------------------------------------------------------------------
 
 # 05. Scene-by-Scene Storyboard
 
 ## Scene 01 --- THE PLAN
+
+### Scene ID
+
+`plan`
 
 ### Time
 
@@ -244,7 +207,11 @@ itself.
 
 ------------------------------------------------------------------------
 
-# Scene 02 --- FIRST DRINK
+## Scene 02 --- FIRST DRINK
+
+### Scene ID
+
+`first-drink`
 
 ### Time
 
@@ -285,7 +252,11 @@ A panel slide or crop shift introduces the next scene.
 
 ------------------------------------------------------------------------
 
-# Scene 03 --- BUZZED
+## Scene 03 --- BUZZED
+
+### Scene ID
+
+`buzzed`
 
 ### Time
 
@@ -323,7 +294,11 @@ previous panel.
 
 ------------------------------------------------------------------------
 
-# Scene 04 --- DRUNK
+## Scene 04 --- DRUNK
+
+### Scene ID
+
+`drunk`
 
 ### Time
 
@@ -357,19 +332,17 @@ unstable.
 
 **Drunk. Loud. Distorted. Chaotic.**
 
-### Important technique
+### Framing & Viewport Focus
 
-This is a strong candidate for the **oversized artwork + viewport crop**
-technique.
-
-The same large composition can be deliberately cropped differently for:
-
--   Mobile: tighter, character-focused crop
--   Desktop: wider environmental crop
+Tight subjective framing focusing on character distortion and disorientation on mobile; wider chaotic room environment revealed on desktop (see `design.md` Section 10).
 
 ------------------------------------------------------------------------
 
-# Scene 05 --- PARTY PEAK
+## Scene 05 --- PARTY PEAK
+
+### Scene ID
+
+`party-peak`
 
 ### Time
 
@@ -410,7 +383,11 @@ The clock tells us how late it actually is.
 
 ------------------------------------------------------------------------
 
-# Scene 06 --- PASSED OUT
+## Scene 06 --- PASSED OUT
+
+### Scene ID
+
+`passed-out`
 
 ### Time
 
@@ -455,7 +432,21 @@ Everything stops.
 
 ------------------------------------------------------------------------
 
-# 06.5 --- THE QUESTION
+## Scene 06.5 --- THE QUESTION
+
+### Scene ID
+
+`question`
+
+### Time
+
+— (Temporal pause)
+
+### Meter
+
+**0%**
+
+### Story
 
 This is a graphic interruption rather than a normal scene.
 
@@ -477,9 +468,21 @@ No explanatory paragraph.
 
 Just the question.
 
+### Mood
+
+**Interruption. Stark. Contemplative.**
+
 ------------------------------------------------------------------------
 
-# 07 --- THE TURN
+## Scene 07 --- THE TURN (REBUILD)
+
+### Scene ID
+
+`rebuild`
+
+### Time
+
+— (Transition to morning)
 
 ### Meter
 
@@ -487,57 +490,29 @@ Just the question.
 
 ### Story
 
-The meter returns.
+The turnaround begins.
 
-It begins visibly filling across the screen.
+The meter returns and begins visibly filling across the screen from 0% to 100%.
 
-This is not a subtle transition.
+This is not a subtle transition; it is an event. The protagonist regains agency, the chaotic night is redeemed, and readiness for college tomorrow is restored.
 
-It is an event.
+For visual world reconstruction rules, see `design.md` Section 09. For GSAP timeline implementation, see `architecture.md` Section 25.
 
-### Animation
+### Mood
 
-``` text
-0%
-→
-20%
-→
-40%
-→
-60%
-→
-80%
-→
-100%
-```
-
-The bar can:
-
--   expand
--   stretch
--   move across the screen
--   change scale
--   pass through the composition
--   pull collage elements back together
-
-### World transformation
-
-As the meter fills:
-
--   torn pieces reconnect
--   scattered elements realign
--   typography settles
--   textures become more controlled
--   the clock changes state
--   the composition becomes clearer
--   the visual world feels rebuilt
-
-At 100%, the new composition should feel **cleaner and more confident**,
-not simply identical to Scene 01.
+**Turning point. Rebuilding. Rising confidence.**
 
 ------------------------------------------------------------------------
 
-# 08 --- THE REVEAL
+## Scene 08 --- THE REVEAL
+
+### Scene ID
+
+`reveal`
+
+### Time
+
+**Morning**
 
 ### Meter
 
@@ -547,16 +522,20 @@ not simply identical to Scene 01.
 
 The final composition introduces IYKYK.
 
-This is the payoff.
+This is the payoff. The protagonist is reassembled, confident, and ready for tomorrow.
 
 ### Visual
 
 -   Clean, impactful composition
 -   IYKYK becomes the dominant brand element
--   Same visual system
--   Purple / green / black / cream
+-   Same visual system (Ink Black, Warm Paper, Electric Purple, Acid Green)
+-   Protagonist in confident, composed posture
 -   Product treatment only if approved assets exist
 -   Minimal supporting copy
+
+### Mood
+
+**Confident. Clear. Resolved.**
 
 ### CTA
 
@@ -567,285 +546,36 @@ website button.
 
 ------------------------------------------------------------------------
 
-# 09. Panel & Composition Rules
+# 06. Narrative Progression Summary
 
-## Use three composition types
+The complete story arc mapped to its narrative markers:
 
-### A. Fixed Composition
-
-A self-contained illustration or collage that scales responsively.
-
-Use for simpler scenes and graphic interruptions.
-
-### B. Oversized Crop
-
-Create artwork larger than the viewport.
-
-The viewport acts as a frame.
-
-The same artwork is intentionally cropped differently depending on
-screen size.
-
-Use this for artistic effect and high-impact scenes.
-
-### C. Layered Composition
-
-Separate assets are animated independently.
-
-Possible layers:
-
--   background
--   paper
--   environment
--   character
--   objects
--   clock
--   meter
--   typography
--   texture
--   graphic accents
-
-Use this selectively for major cinematic moments.
+| Scene | Scene ID | Time | Meter | Character State | Mood | Narrative Action |
+|:---|:---|:---|:---|:---|:---|:---|
+| **Scene 01** | `plan` | 9:30 PM | 100% | Sober, getting ready | Sober. Controlled. Expectant. | Quiet bedroom prep; college tomorrow is fully intact. |
+| **Scene 02** | `first-drink` | 10:15 PM | 80% | Holding drink, socialising | Excited. Social. Composed. | The night begins; first drink; "JUST ONE MORE?" |
+| **Scene 03** | `buzzed` | 11:40 PM | 60% | Buzzed, socialising | Buzzed. Energetic. Fun. | Stimulation increases; energy builds across panels. |
+| **Scene 04** | `drunk` | 1:20 AM | 40% | Drunk, unstable | Loud. Distorted. Chaotic. | Perception skews; oversized artwork crops tighten. |
+| **Scene 05** | `party-peak` | 3:17 AM | 20% | Dancing, euphoric | Peak energy. Chaotic. | Maximum chaos; character feels invincible, clock says 3:17 AM. |
+| **Scene 06** | `passed-out` | 7:58 AM | 0% | Passed out on bed | Exhausted. Empty. Still. | Morning arrives; alarm triggers; college tomorrow is lost. |
+| **Scene 06.5** | `question` | — | 0% | Graphic pause | Interruption. Contemplative. | Screen stops: *"WHAT IF YOU DIDN'T HAVE TO MISS COLLEGE TOMORROW?"* |
+| **Scene 07** | `rebuild` | — | 0% → 100% | Reconstructing | Turning point. Rebuilding. | Meter visibly recharges; fragments reassemble into order. |
+| **Scene 08** | `reveal` | Morning | 100% | Reassembled, confident | Confident. Clear. Resolved. | IYKYK brand reveal + final panel CTA: **KNOW MORE →** |
 
 ------------------------------------------------------------------------
 
-# 10. Responsive Strategy
+# 07. Implementation & Design Boundaries
 
-The site is **mobile-first**, but desktop should feel like an
-intentional expansion of the same experience.
+This document defines the **narrative sequence, story beats, and script**.
 
-Do not create completely separate artwork for every breakpoint.
+Detailed visual, responsive, and technical systems are defined in the companion documents:
 
-Prefer:
-
-``` text
-ONE LARGE COMPOSITION
-        ↓
-VIEWPORT FRAME
-        ↓
-DIFFERENT CROP / POSITION
-        ↓
-MOBILE OR DESKTOP
-```
-
-### Mobile
-
--   Portrait-focused
--   Stronger character framing
--   Fewer visible secondary elements
--   More vertical composition
--   Larger typography relative to viewport
-
-### Desktop
-
--   Wider environmental context
--   Multiple panels visible simultaneously when appropriate
--   More negative space
--   More surrounding collage elements
--   Wider crop of the same artwork
+-   **Visual design & art direction:** See `design.md` for colour tokens, typography scales, texture layers, collage composition rules, responsive cropping, motion aesthetics, and creative guardrails.
+-   **Technical implementation & code architecture:** See `architecture.md` for React component structure, GSAP/ScrollTrigger timelines, Lenis smooth-scroll setup, TypeScript scene contracts, asset directories, and performance architecture.
 
 ------------------------------------------------------------------------
 
-# 11. Scroll & Motion Direction
-
-The experience should feel scroll-driven but not like a video scrubber.
-
-Use scroll as a trigger for **composition changes**.
-
-Preferred rhythm:
-
-``` text
-SCENE
-↓
-MOTION
-↓
-COMPOSITION SETTLES
-↓
-GRAPHIC INTERRUPTION
-↓
-NEXT SCENE
-```
-
-Not every element needs continuous movement tied directly to every pixel
-of scroll.
-
-Use:
-
--   panel slides
--   layer reveals
--   scale changes
--   crop movement
--   controlled rotations
--   opacity changes
--   paper tears
--   typography entrances
--   meter movement
--   clock changes
-
-The motion should remain deliberate and editorial.
-
-------------------------------------------------------------------------
-
-# 12. Transition Language
-
-Approved transition types include:
-
-### Panel Slide
-
-A new panel pushes into the composition.
-
-### Layer Reveal
-
-Individual elements appear independently.
-
-### Paper Tear
-
-A torn edge reveals the next scene.
-
-### Crop Shift
-
-The camera/viewpoint moves within oversized artwork.
-
-### Graphic Interruption
-
-A full composition is temporarily replaced by typography or graphic
-information.
-
-Transitions should feel like part of the collage language rather than
-generic web animations.
-
-------------------------------------------------------------------------
-
-# 13. Key Recurring Assets
-
-## Character
-
-Anonymous/faceless protagonist.
-
-Required states:
-
--   getting ready
--   holding drink
--   socialising
--   buzzed
--   drinking/partying
--   dancing
--   exhausted
--   passed out
-
-## Recurring objects
-
--   drinks / cups
--   phone
--   speakers
--   books
--   college bag
--   desk objects
--   bed
--   alarm clock
--   party objects
-
-## Graphic objects
-
--   horizontal meter
--   clock
--   arrows
--   stars
--   scribbles
--   tape
--   torn paper
--   halftone
--   photocopy textures
--   abstract purple/green shapes
--   oversized typography
-
-------------------------------------------------------------------------
-
-# 14. Technical Direction
-
-## Stack
-
--   React
--   Vite
--   TypeScript
--   GSAP
--   ScrollTrigger
--   **Lenis** for smooth scrolling
--   CSS / SVG for interface and graphic elements
-
-## Asset approach
-
--   Illustrations
--   SVG graphics
--   Raster textures
--   Reusable collage elements
--   No full 3D environment
--   No realistic video required
-
-## Animation
-
-GSAP should control:
-
--   scene transitions
--   meter progression
--   clock states
--   panel movement
--   layer reveals
--   crop movement
--   typography
--   reconstruction sequence
-
-Lenis handles the smooth scrolling layer.
-
-------------------------------------------------------------------------
-
-# 15. Performance Rules
-
-The experience is visually heavy, so performance needs to be designed
-into the system.
-
--   Reuse assets aggressively.
--   Avoid exporting duplicate mobile/desktop artwork unless genuinely
-    necessary.
--   Prefer SVG for simple graphic elements.
--   Compress raster artwork.
--   Lazy-load scenes/assets where practical.
--   Avoid unnecessary continuous animations.
--   Animate transforms and opacity where possible.
--   Keep the number of independently animated layers reasonable.
--   Do not introduce full 3D unless the project scope changes.
-
-------------------------------------------------------------------------
-
-# 16. Creative Guardrails
-
-The visual language must remain consistent from beginning to end.
-
-### Always
-
--   Purple / green / black / cream system
--   Collage-driven composition
--   Imperfect edges
--   Grain / halftone / photocopy character
--   Anonymous/faceless protagonist
--   Bold editorial typography
--   Strong compositional changes
--   Cinematic scroll rhythm
-
-### Avoid
-
--   Switching into realistic footage
--   Sudden clean corporate UI
--   Generic gradients
--   Separate visual styles for different story acts
--   Conventional dashboard UI
--   Excessive 3D
--   Overly literal medical/product claims
--   Making the meter look like a scientifically measured probability
-
-------------------------------------------------------------------------
-
-# 17. Final Experience in One Line
+# 08. Final Experience in One Line
 
 **One night. One plan for tomorrow. A meter that drains as the night
 takes over, a world that falls apart at 0%, a question that changes the
