@@ -1,0 +1,131 @@
+/* -------------------------------------------------------------------------- */
+/* Typography Classes & Utilities (design.md Section 04)                      */
+/* -------------------------------------------------------------------------- */
+
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 0.88;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+  letter-spacing: 0.02em;
+}
+
+/* Editorial Headline Scales */
+.headline-monumental {
+  font-family: var(--font-display);
+  font-size: var(--text-monumental);
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+}
+
+.headline-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: 0.03em;
+}
+
+.headline-lg {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+}
+
+.headline-md {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+}
+
+.headline-sm {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+/* Body Scales */
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.4;
+}
+
+.body-base {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-paper-muted);
+}
+
+.body-xs {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Expressive Annotations & Handwritten Marginalia */
+.handwritten-accent {
+  font-family: var(--font-handwriting);
+  font-size: var(--text-lg);
+  color: var(--color-purple);
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+
+.handwritten-note {
+  font-family: var(--font-handwriting);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  line-height: 1.2;
+}
+
+/* Graphic Tape & Stamp Typography */
+.badge-tape {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(var(--tape-tilt));
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.badge-purple {
+  background-color: var(--color-purple);
+  color: var(--color-paper);
+}
+
+.badge-green {
+  background-color: var(--color-green);
+  color: var(--color-ink);
+  font-weight: 700;
+}
