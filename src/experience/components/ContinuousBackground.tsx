@@ -124,7 +124,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             setAtmosphere('radial-gradient(circle at 50% 40%, rgba(122, 59, 255, 0.52) 0%, rgba(57, 239, 136, 0.26) 70%, rgba(11, 11, 11, 0.50) 100%)');
           } else if (sy >= pos.drunk) {
             setPlate(speakers, 1.0);
-            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(57, 239, 136, 0.18) 65%, rgba(11, 11, 11, 0.68) 100%)');
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(11, 11, 11, 0.68) 100%)');
           } else if (sy >= pos.buzzed) {
             setPlate(livingRoom, 1.0);
             setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.34) 0%, rgba(11, 11, 11, 0.65) 100%)');
@@ -246,11 +246,17 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           }
         } else if (sy >= positions.partyPeak) {
           // ================================================================
-          // SCENE 05: PARTY PEAK (Maximum density -> sudden emotional collapse)
-          // Pacing: ~0.9 vh hold with single smooth breath pulse, ~1.1 vh collapse sequence
+          // SCENE 05: PARTY PEAK (Dance floor & sticker arrival synchronization)
+          // Beat A (offset <= 30px): Stable base arrival (no stickers yet)
+          // Beat B (offset 30-80px): First sticker begins to arrive -> color shift begins
+          // Beat C (offset 80-380px): Stickers burst & scale -> background color develops
+          // Beat D (offset 380-650px): Composition settles -> full party-peak color hold
+          // Collapse (offset 650-850px): Sudden emotional collapse into ink black
+          // Blackout (offset 850-1000px): Pure void pause before morning
+          // Emergence (offset > 1000px): Cold morning messy emerges
           // ================================================================
-          const dist = Math.max(1, positions.passedOut - positions.partyPeak);
-          const p = Math.min(1, Math.max(0, (sy - positions.partyPeak) / dist));
+          const offset = sy - positions.partyPeak;
+          const distPeak = Math.max(1, positions.passedOut - positions.partyPeak);
 
           setPlate(bedroom, 0);
           setPlate(hallway, 0);
@@ -258,43 +264,54 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(speakers, 0, 'rotate(2deg) scale(1.14)');
           setPlate(tidy, 0);
 
-          if (p < 0.46) {
-            // Peak energy buildup & single smooth breathing pulse
-            // Starts exactly at scale(1.00), arcs to 1.025 at mid-point, returns to 1.00 at 0.46
-            const tPulse = p / 0.46;
+          if (offset <= 30) {
+            // Beat A: Environment arrival hold in stable base color (zero stickers arrived)
+            setPlate(crowd, 1.0, 'none');
+            setPlate(messy, 0, 'scale(1.02)');
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(11, 11, 11, 0.68) 100%)');
+          } else if (offset <= 380) {
+            // Beats B & C: Synchronized with sticker arrival (timeline 0.03 -> 0.38)
+            // Color transforms progressively as stickers burst in from edges and settle
+            const tSticker = (offset - 30) / 350;
+            const alphaP = 0.42 + 0.10 * tSticker;     // 0.42 -> 0.52
+            const alphaG = 0.26 * tSticker;            // 0.00 -> 0.26
+            const alphaRim = 0.68 - 0.18 * tSticker;   // 0.68 -> 0.50
+            const cy = 45 - 5 * tSticker;              // 45% -> 40%
+
+            setPlate(crowd, 1.0, 'none');
+            setPlate(messy, 0, 'scale(1.02)');
+            setAtmosphere(`radial-gradient(circle at 50% ${cy.toFixed(1)}%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(57, 239, 136, ${alphaG.toFixed(2)}) 70%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
+          } else if (offset <= 650) {
+            // Beat D: Final composition settled hold with subtle breathing pulse
+            const tPulse = (offset - 380) / 270;
             const pulse = 1.0 + 0.025 * Math.sin(tPulse * Math.PI);
             setPlate(crowd, 1.0, `scale(${pulse})`);
             setPlate(messy, 0, 'scale(1.02)');
             setAtmosphere('radial-gradient(circle at 50% 40%, rgba(122, 59, 255, 0.52) 0%, rgba(57, 239, 136, 0.26) 70%, rgba(11, 11, 11, 0.50) 100%)');
-          } else if (p < 0.64) {
-            // Sudden emotional rupture / collapse into ink black
-            const t = (p - 0.46) / 0.18;
+          } else if (offset <= 850) {
+            // Sudden emotional rupture / collapse into ink black (timeline 0.65 -> 0.85)
+            const t = (offset - 650) / 200;
             const crowdOp = Math.max(0, 1 - t);
             const crowdScale = 1.0 - 0.08 * t;
             const crowdY = 6 * t;
             setPlate(crowd, crowdOp, `translate(0%, ${crowdY}%) scale(${crowdScale})`);
             setPlate(messy, 0, 'scale(1.02)');
             setAtmosphere('rgba(11, 11, 11, 1)');
-          } else if (p < 0.74) {
+          } else if (offset <= 1000) {
             // Blackout pause hold in pure void
             setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
             setPlate(messy, 0, 'scale(1.02)');
             setAtmosphere('rgba(11, 11, 11, 1)');
-          } else if (p < 0.94) {
-            // Cold morning messy emerges
-            const t = (p - 0.74) / 0.20;
+          } else {
+            // Cold morning messy emerges beyond pin spacer towards passed out
+            const t = Math.min(1, (offset - 1000) / Math.max(1, distPeak - 1000));
             setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
             setPlate(messy, t, `scale(${1.02 - 0.02 * t})`);
             setAtmosphere(`linear-gradient(180deg, rgba(185, 205, 225, ${(0.16 * t).toFixed(2)}) 0%, rgba(11, 11, 11, 0.72) 100%)`);
-          } else {
-            // Morning messy settled into stable composition
-            setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
-            setPlate(messy, 1.0, 'none');
-            setAtmosphere('linear-gradient(180deg, rgba(185, 205, 225, 0.16) 0%, rgba(11, 11, 11, 0.72) 100%)');
           }
         } else if (sy >= positions.drunk) {
           // ================================================================
-          // SCENE 04: DRUNK (Tight distorted crop -> crowd explosion)
+          // SCENE 04: DRUNK (Tight distorted crop -> crowd arrival)
           // Pacing: ~0.5 vh distortion hold, ~1.34 vh transition to crowd
           // ================================================================
           const dist = Math.max(1, positions.partyPeak - positions.drunk);
@@ -314,7 +331,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const sc = 1.04 + 0.02 * tHold;
             setPlate(speakers, 1.0, `rotate(${rot}deg) scale(${sc})`);
             setPlate(crowd, 0, 'scale(0.94)');
-            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(57, 239, 136, 0.18) 65%, rgba(11, 11, 11, 0.68) 100%)');
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(11, 11, 11, 0.68) 100%)');
           } else {
             // Transition: Departure -> Overlap -> Handoff -> Arrival
             const t = (p - 0.28) / 0.72;
@@ -330,11 +347,9 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const crowdSc = 0.94 + 0.06 * Math.min(1, t);
             setPlate(crowd, crowdOp, `scale(${crowdSc})`);
 
-            // Smooth atmosphere deepening towards Party Peak
-            const alphaP = 0.42 + 0.10 * t;
-            const alphaG = 0.18 + 0.08 * t;
-            const cy = 45 - 5 * t;
-            setAtmosphere(`radial-gradient(circle at 50% ${cy.toFixed(1)}%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(57, 239, 136, ${alphaG.toFixed(2)}) 68%, rgba(11, 11, 11, 0.60) 100%)`);
+            // Beat A: Dance-floor background arrives with stable base party color
+            // ZERO early color shift: keeps stable purple (0.42) and deep rim (0.68)
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(11, 11, 11, 0.68) 100%)');
           }
         } else if (sy >= positions.buzzed) {
           // ================================================================
