@@ -39,7 +39,7 @@ const SCENES = [
   { id: 'passed-out', name: 'Scene 06: Passed Out', charSelector: '.passed-character img', sectionId: 'scene-passed-out' },
   { id: 'question', name: 'Scene 07: The Question', charSelector: null, sectionId: 'scene-question' },
   { id: 'rebuild', name: 'Scene 08: The Turn (Rebuild)', charSelector: '.rebuild-protagonist-wrapper img', sectionId: 'scene-rebuild' },
-  { id: 'reveal', name: 'Scene 09: The Reveal', charSelector: '.reveal-protagonist-wrapper img', sectionId: 'scene-reveal' },
+  { id: 'reveal', name: 'Scene 09: The Reveal', charSelector: '.reveal-protagonist-wrapper > img', sectionId: 'scene-reveal' },
 ];
 
 async function run() {

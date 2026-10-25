@@ -281,17 +281,20 @@
   filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.55));
 }
 
+.art-card,
 .scene-vertical-pass .art-card {
   position: absolute;
   display: block;
   margin: 0;
+  padding: 0;
   overflow: visible;
 }
 
+.art-card img,
 .scene-vertical-pass .art-card img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: none;
   object-fit: contain;
   object-position: center;
@@ -1036,154 +1039,360 @@
   object-fit: contain;
 }
 
-.reveal-protagonist-wrapper {
-  position: absolute;
-  right: clamp(1rem, 6vw, 6rem);
-  bottom: 0;
-  width: clamp(380px, 34vw, 540px);
-  z-index: 20;
-  pointer-events: none;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.5));
-}
-
-.reveal-protagonist-wrapper img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 80vh;
-}
-
-.scene-reveal .scene-section,
-.scene-reveal > div,
-.scene-reveal > header,
-.scene-reveal > footer {
-  position: relative;
-}
-
-.scene-reveal > div[style*="z-index"] {
-  z-index: var(--z-typography) !important;
-}
-
 .scene-rebuild .rebuild-canvas {
   position: relative;
   z-index: 2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Scene 09: THE REVEAL — Confident Brand Resolution & Action Lockup          */
+/* -------------------------------------------------------------------------- */
+.scene-reveal {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+}
+
+.scene-reveal .texture-halftone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: radial-gradient(rgba(237, 228, 217, 0.15) 1px, transparent 1px);
+  background-size: 8px 8px;
+  z-index: 0;
+}
+
+.scene-reveal .scene-hud {
+  position: absolute;
+  top: clamp(1.2rem, 3vh, 2.2rem);
+  left: clamp(1.5rem, 5vw, 4rem);
+  right: clamp(1.5rem, 5vw, 4rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.scene-reveal .scene-footer {
+  position: absolute;
+  bottom: clamp(1rem, 2.5vh, 1.8rem);
+  left: clamp(2.5rem, 6.5vw, 7.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 50;
+  font-size: clamp(0.65rem, 0.8vw, 0.78rem);
+  color: rgba(237, 228, 217, 0.5);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.scene-reveal .scene-footer .footer-divider {
+  display: inline;
+  color: rgba(237, 228, 217, 0.35);
+}
+
+/* Dedicated Layout Column for Scene 09 Brand Billboard (Centering without transform clash) */
+.reveal-content-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(2.5rem, 6.5vw, 7.5rem);
+  width: min(52vw, 640px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.reveal-content-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+/* Card-integrated Risograph & Tactile Collage Accents */
+.reveal-content-card .reveal-halftone {
+  position: absolute;
+  left: -24px;
+  top: -30px;
+  width: clamp(360px, 32vw, 460px);
+  height: auto;
+  opacity: 0.14;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: -1;
+  filter: drop-shadow(0 0 30px rgba(99, 32, 238, 0.3));
+}
+
+.reveal-badge-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.reveal-badge-wrapper .reveal-tape {
+  position: absolute;
+  left: -16px;
+  top: -14px;
+  width: clamp(65px, 5.5vw, 85px);
+  height: auto;
+  transform: rotate(-14deg);
+  opacity: 0.82;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.paper-badge-lockup {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-1.5deg);
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.65));
+}
+
+.paper-badge-bg {
+  display: block;
+  width: clamp(180px, 15vw, 220px);
+  height: auto;
+}
+
+.paper-badge-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 0.82vw, 0.8rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #1a0f30;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+
+.reveal-badge-wrapper .reveal-bracket {
+  position: relative;
+  width: clamp(55px, 4.5vw, 70px);
+  height: auto;
+  transform: rotate(8deg);
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+.reveal-badge-wrapper .reveal-bracket img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reveal-content-card .headline-monumental {
+  font-size: clamp(5.2rem, 8.8vw, 8.5rem);
+  line-height: 0.84;
+  letter-spacing: 0.02em;
+  color: var(--color-paper);
+  text-shadow: 0 0 35px rgba(123, 75, 255, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.85);
+  margin: 0.1rem 0;
+}
+
+.reveal-content-card .reveal-subhead {
+  color: var(--color-green);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.45vw, 1.4rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(46, 248, 160, 0.4), 0 2px 4px #000;
+  font-weight: 800;
+  margin: 0.2rem 0;
+}
+
+.reveal-content-card .reveal-description {
+  color: #EDE4D9;
+  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
+  line-height: 1.55;
+  max-width: 480px;
+  margin: 0.4rem 0 1.35rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px #000;
+  font-weight: 450;
+}
+
+.reveal-content-card .reveal-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  z-index: var(--z-cta);
+}
+
+.reveal-cta-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.reveal-cta-action-row .art-card.reveal-barcode-stamp {
+  position: static !important;
+  margin: 0;
+  padding: 0;
+  width: 105px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
+.reveal-barcode-stamp img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reveal-content-card .reveal-microcopy {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 228, 217, 0.6);
+  font-weight: 700;
+}
+
+.reveal-protagonist-wrapper {
+  position: absolute;
+  right: clamp(2rem, 5.5vw, 6.5rem);
+  bottom: 0;
+  width: clamp(440px, 34vw, 560px);
+  height: min(88vh, 800px);
+  z-index: 15;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.7));
+}
+
+.reveal-protagonist-wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+.reveal-protagonist-wrapper .reveal-stars {
+  position: absolute;
+  right: 6%;
+  top: 8%;
+  width: clamp(90px, 8vw, 130px);
+  height: auto;
+  pointer-events: none;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 0 12px rgba(46, 248, 160, 0.5));
 }
 
 /* Rebuild Reconnecting Fragments */
 .rebuild-collage-fragments {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
+}
+.rebuild-collage-fragments .art-card {
+  position: absolute;
+  margin: 0;
+  padding: 0;
 }
 .rebuild-collage-fragments .rebuild-fiber {
-  left: 3%;
-  top: 5%;
-  width: clamp(280px, 26vw, 420px);
+  position: absolute;
+  left: 2%;
+  top: 4%;
+  width: clamp(240px, 20vw, 320px);
   opacity: 0.35;
 }
 .rebuild-collage-fragments .rebuild-scanlines {
-  right: 4%;
-  top: 5%;
-  width: clamp(260px, 24vw, 380px);
+  position: absolute;
+  right: 2%;
+  top: 4%;
+  width: clamp(240px, 20vw, 320px);
   opacity: 0.3;
 }
 .rebuild-collage-fragments .rebuild-textbook {
-  left: 5%;
-  bottom: 10%;
-  width: clamp(160px, 14vw, 220px);
-  transform: rotate(-6deg);
-}
-.rebuild-collage-fragments .rebuild-notebook {
-  left: 18%;
-  bottom: 6%;
-  width: clamp(150px, 13vw, 200px);
-  transform: rotate(4deg);
-}
-.rebuild-collage-fragments .rebuild-stationery {
-  right: 6%;
+  position: absolute;
+  left: 4%;
   bottom: 8%;
-  width: clamp(140px, 12vw, 190px);
+  width: clamp(140px, 12vw, 180px);
   transform: rotate(-8deg);
 }
+.rebuild-collage-fragments .rebuild-notebook {
+  position: absolute;
+  left: 16%;
+  bottom: 4%;
+  width: clamp(130px, 11vw, 170px);
+  transform: rotate(5deg);
+}
+.rebuild-collage-fragments .rebuild-stationery {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  width: clamp(130px, 11vw, 170px);
+  transform: rotate(-6deg);
+}
 .rebuild-collage-fragments .rebuild-folded-paper {
-  right: 19%;
-  bottom: 6%;
-  width: clamp(130px, 11vw, 180px);
-  transform: rotate(6deg);
+  position: absolute;
+  right: 16%;
+  bottom: 4%;
+  width: clamp(120px, 10vw, 160px);
+  transform: rotate(8deg);
 }
 .rebuild-collage-fragments .rebuild-arrow {
-  right: 10%;
-  top: 18%;
-  width: clamp(120px, 10vw, 160px);
+  position: absolute;
+  right: 6%;
+  top: 16%;
+  width: clamp(100px, 8vw, 130px);
   transform: rotate(-15deg);
 }
 .rebuild-collage-fragments .rebuild-stars {
-  left: 8%;
-  top: 20%;
-  width: clamp(130px, 11vw, 170px);
-  transform: rotate(10deg);
+  position: absolute;
+  left: 6%;
+  top: 18%;
+  width: clamp(110px, 9vw, 140px);
+  transform: rotate(12deg);
 }
 .rebuild-collage-fragments .rebuild-bracket {
-  left: 16%;
-  top: 9%;
-  width: clamp(130px, 11vw, 170px);
+  position: absolute;
+  left: 14%;
+  top: 8%;
+  width: clamp(110px, 9vw, 140px);
   transform: rotate(-12deg);
 }
 .rebuild-collage-fragments .rebuild-tape {
-  right: 16%;
-  top: 10%;
-  width: clamp(140px, 12vw, 180px);
+  position: absolute;
+  right: 14%;
+  top: 8%;
+  width: clamp(120px, 10vw, 150px);
   transform: rotate(8deg);
 }
 
-/* Reveal Brand Resolution Elements */
-.reveal-collage-elements {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-.reveal-collage-elements .reveal-halftone {
-  right: 2%;
-  top: 5%;
-  width: clamp(320px, 28vw, 440px);
-  opacity: 0.35;
-}
-.reveal-collage-elements .reveal-badge {
-  left: clamp(2rem, 8vw, 8rem);
-  top: clamp(4rem, 14vh, 10rem);
-  width: clamp(140px, 13vw, 200px);
-  transform: rotate(-8deg);
-}
-.reveal-collage-elements .reveal-stars {
-  right: clamp(2rem, 8vw, 8rem);
-  top: clamp(5rem, 16vh, 11rem);
-  width: clamp(130px, 12vw, 180px);
-  transform: rotate(12deg);
-}
-.reveal-collage-elements .reveal-tape {
-  left: clamp(3rem, 12vw, 12rem);
-  bottom: clamp(4rem, 12vh, 8rem);
-  width: clamp(140px, 12vw, 180px);
-  transform: rotate(6deg);
-}
-.reveal-collage-elements .reveal-bracket {
-  right: clamp(3rem, 12vw, 12rem);
-  bottom: clamp(4rem, 12vh, 8rem);
-  width: clamp(130px, 11vw, 170px);
-  transform: rotate(-10deg);
-}
-.reveal-collage-elements .reveal-barcode {
-  left: 6%;
-  bottom: 6%;
-  width: clamp(150px, 13vw, 200px);
-  transform: rotate(-4deg);
-}
 
 @media (max-width: 720px) {
   .scene-vertical-pass {
@@ -1385,15 +1594,6 @@
     width: 78vw;
     opacity: 0;
   }
-
-  .reveal-protagonist-wrapper {
-    right: auto;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 78vw;
-    opacity: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1434,15 +1634,153 @@
     margin-top: 1rem !important;
   }
 
+  /* Scene 09 Mobile Redesign */
   .scene-reveal {
-    height: auto !important;
-    min-height: 100svh;
-    padding-top: 6rem !important;
-    padding-bottom: 5rem !important;
+    height: 100svh !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    overflow: hidden !important;
   }
 
-  .scene-reveal .headline-monumental {
-    font-size: clamp(4rem, 18vw, 7rem) !important;
+  .scene-reveal .scene-hud {
+    top: 0.8rem !important;
+    left: 0.85rem !important;
+    right: 0.85rem !important;
+    z-index: 50 !important;
+  }
+
+  .scene-reveal .scene-footer {
+    bottom: 0.7rem !important;
+    left: 0.85rem !important;
+    right: 0.85rem !important;
+    justify-content: center !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.1em !important;
+    z-index: 50 !important;
+  }
+
+  .scene-reveal .scene-footer .footer-divider {
+    display: inline !important;
+    margin: 0 0.35rem !important;
+    color: rgba(237, 228, 217, 0.4) !important;
+  }
+
+  /* Centered layout column for mobile (no transform clash) */
+  .reveal-content-container {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    padding: 0 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    z-index: 30 !important;
+  }
+
+  .reveal-content-card {
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+    gap: 0.35rem !important;
+  }
+
+  .reveal-badge-wrapper {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .reveal-badge-wrapper .reveal-tape {
+    display: none !important;
+  }
+
+  .paper-badge-bg {
+    width: 175px !important;
+  }
+
+  .paper-badge-text {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .reveal-badge-wrapper .reveal-bracket {
+    display: none !important;
+  }
+
+  .reveal-content-card .headline-monumental {
+    font-size: clamp(3.8rem, 16vw, 5.2rem) !important;
+    line-height: 0.86 !important;
+    margin: 0 !important;
+  }
+
+  .reveal-content-card .reveal-subhead {
+    font-size: 0.86rem !important;
+    letter-spacing: 0.1em !important;
+    margin: 0.15rem 0 !important;
+  }
+
+  .reveal-content-card .reveal-description {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    max-width: 310px !important;
+    margin: 0.2rem auto 0.65rem auto !important;
+  }
+
+  .reveal-content-card .reveal-cta-group {
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.45rem !important;
+  }
+
+  .reveal-cta-action-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.45rem !important;
+  }
+
+  .reveal-cta-action-row .brand-cta {
+    width: 100% !important;
+    max-width: 270px !important;
+    justify-content: center !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .reveal-barcode-stamp {
+    width: 95px !important;
+    opacity: 0.75 !important;
+    margin: 0.1rem auto !important;
+  }
+
+  .reveal-content-card .reveal-microcopy {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .reveal-protagonist-wrapper {
+    right: auto !important;
+    left: 50% !important;
+    bottom: 0 !important;
+    transform: translateX(-50%) !important;
+    width: clamp(240px, 75vw, 320px) !important;
+    height: 50vh !important;
+    z-index: 2 !important;
+    opacity: 0.22 !important;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4)) grayscale(50%) !important;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 95%) !important;
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0) 95%) !important;
+  }
+
+  .reveal-protagonist-wrapper > img {
+    object-position: bottom center !important;
+  }
+
+  .reveal-protagonist-wrapper .reveal-stars {
+    display: none !important;
   }
 
   /* Mobile Rebuild Fragments */
@@ -1457,11 +1795,16 @@
   .rebuild-collage-fragments .rebuild-bracket { left: 14%; top: 10%; width: 18vw; height: auto; }
   .rebuild-collage-fragments .rebuild-tape { right: 14%; top: 10%; width: 19vw; height: auto; }
 
-  /* Mobile Reveal Elements */
-  .reveal-collage-elements .reveal-halftone { right: 0; top: 4%; width: 42vw; opacity: 0.25; }
-  .reveal-collage-elements .reveal-badge { left: 4%; top: 12%; width: 22vw; height: auto; }
-  .reveal-collage-elements .reveal-stars { right: 4%; top: 14%; width: 20vw; height: auto; }
-  .reveal-collage-elements .reveal-tape { left: 4%; bottom: 10%; width: 22vw; height: auto; }
-  .reveal-collage-elements .reveal-bracket { right: 4%; bottom: 10%; width: 20vw; height: auto; }
-  .reveal-collage-elements .reveal-barcode { left: 18%; bottom: 5%; width: 22vw; height: auto; }
+  /* Mobile Reveal Ambient Collage */
+  .reveal-content-card .reveal-halftone {
+    left: -10% !important;
+    top: -15% !important;
+    width: 120% !important;
+    opacity: 0.12 !important;
+  }
+  .reveal-content-card .reveal-tape,
+  .reveal-content-card .reveal-badge,
+  .reveal-content-card .reveal-bracket {
+    display: none !important;
+  }
 }

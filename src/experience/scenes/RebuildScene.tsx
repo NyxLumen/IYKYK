@@ -168,7 +168,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
       id={`scene-${id}`}
       data-scene-id={id}
       aria-label="Scene 08: The Turn — Active Reconstruction"
-      className="scene-section scene-rebuild"
+      className="scene-section scene-vertical-pass scene-rebuild"
       style={{
         position: 'relative',
         width: '100%',
