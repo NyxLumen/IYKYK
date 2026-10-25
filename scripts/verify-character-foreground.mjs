@@ -18,6 +18,18 @@ const PAD_RATIOS = {
   reveal: 0.856,
 };
 
+const TARGET_DENSITY = {
+  plan: { min: 6, max: 9, description: 'Ordered maximalism' },
+  'first-drink': { min: 8, max: 12, description: 'Emerging social chaos' },
+  buzzed: { min: 12, max: 16, description: 'Denser, diagonal energy' },
+  drunk: { min: 14, max: 20, description: 'Distorted & fragmented' },
+  'party-peak': { min: 18, max: 24, description: 'Maximum collision & energy' },
+  'passed-out': { min: 8, max: 12, description: 'Scattered aftermath' },
+  question: { min: 0, max: 0, description: 'Stark black pause' },
+  rebuild: { min: 8, max: 12, description: 'Familiar fragments reconnecting' },
+  reveal: { min: 5, max: 8, description: 'Confident brand resolution' },
+};
+
 const SCENES = [
   { id: 'plan', name: 'Scene 01: The Plan', charSelector: '.plan-character img', sectionId: 'scene-plan' },
   { id: 'first-drink', name: 'Scene 02: First Drink', charSelector: '.drink-character img', sectionId: 'scene-first-drink' },
@@ -31,7 +43,7 @@ const SCENES = [
 ];
 
 async function run() {
-  console.log('🚀 Starting browser acceptance verification on Vite dev server (port 5173)...\n');
+  console.log('🚀 Starting Task 03B browser verification on Vite dev server (port 5173)...\n');
   const browser = await chromium.launch({
     headless: true,
     executablePath: '/home/lumen/.cache/ms-playwright/chromium-1248/chrome-linux64/chrome',
@@ -71,34 +83,67 @@ async function run() {
         console.log(`  📸 ${scene.name}:`);
         console.log(`     Asset: ${src}`);
         console.log(`     Rendered Box: ${box.width.toFixed(1)}px x ${box.height.toFixed(1)}px at (${box.x.toFixed(1)}, ${box.y.toFixed(1)})`);
-        console.log(`     Visible Art Width %: ${visibleWidthPct}% (Target: 50–60%) [Box Width %: ${boxWidthPct}%]`);
+        console.log(`     Visible Art Width %: ${visibleWidthPct}% (Target: 50–60%) [Box: ${boxWidthPct}%]`);
       }
     } else {
-      console.log(`  📸 ${scene.name}: Graphic pause (no character as specified in storyboard)`);
+      console.log(`  📸 ${scene.name}: Graphic pause (no character)`);
     }
 
-    // Inspect planes in current scene
-    const planes = await deskPage.evaluate((secId) => {
+    // Inspect density & elements in current scene
+    const sceneAnalysis = await deskPage.evaluate((secId) => {
       const sec = document.getElementById(secId);
       if (!sec) return null;
-      const getB = (sel) => {
-        const el = sec.querySelector(sel);
-        if (!el) return null;
-        const rect = el.getBoundingClientRect();
-        const style = window.getComputedStyle(el);
-        return {
-          rect: { x: rect.x.toFixed(1), y: rect.y.toFixed(1), w: rect.width.toFixed(1), h: rect.height.toFixed(1) },
-          transform: style.transform,
-          zIndex: style.zIndex,
-        };
+
+      // Count secondary elements
+      let secondaryElements = 0;
+      let secondaryList = [];
+      const planes = {
+        planeB: sec.querySelectorAll('.scene-plane-b .art-card').length,
+        planeC: sec.querySelectorAll('.scene-plane-c .art-card').length,
+        planeD: sec.querySelectorAll('.scene-plane-d .art-card').length,
+        planeE: sec.querySelectorAll('.scene-plane-e .art-card').length,
       };
+
+      if (secId === 'scene-question') {
+        secondaryElements = 0;
+      } else if (secId === 'scene-rebuild') {
+        const frags = sec.querySelectorAll('.rebuild-fragment');
+        secondaryElements = frags.length;
+        secondaryList = Array.from(frags).map((f) => f.className);
+      } else if (secId === 'scene-reveal') {
+        const layers = sec.querySelectorAll('.reveal-layer');
+        secondaryElements = layers.length;
+        secondaryList = Array.from(layers).map((l) => l.className);
+      } else {
+        const cards = sec.querySelectorAll('.scene-plane-b .art-card, .scene-plane-d .art-card, .scene-plane-e .art-card');
+        secondaryElements = cards.length;
+        secondaryList = Array.from(cards).map((c) => c.className);
+      }
+
+      // Check copy position and alignment
+      const copyEl = sec.querySelector('.scene-copy');
+      const copyStyle = copyEl ? window.getComputedStyle(copyEl) : null;
+      const copyInfo = copyStyle ? {
+        textAlign: copyStyle.textAlign,
+        transform: copyStyle.transform,
+        left: copyStyle.left,
+        right: copyStyle.right,
+      } : null;
+
       return {
-        planeB: getB('.scene-plane-b'),
-        planeC: getB('.scene-plane-c'),
-        planeD: getB('.scene-plane-d'),
-        planeE: getB('.scene-plane-e'),
+        secondaryElements,
+        secondaryList,
+        planes,
+        copyInfo,
       };
     }, scene.sectionId);
+
+    const target = TARGET_DENSITY[scene.id];
+    const densityPass = sceneAnalysis.secondaryElements >= target.min && sceneAnalysis.secondaryElements <= target.max;
+    console.log(`     Secondary Elements: ${sceneAnalysis.secondaryElements} (Target: ${target.min}–${target.max}) [${densityPass ? 'PASS' : 'OUT-OF-RANGE'}]`);
+    if (sceneAnalysis.copyInfo) {
+      console.log(`     Typography Alignment: ${sceneAnalysis.copyInfo.textAlign} | Transform: ${sceneAnalysis.copyInfo.transform}`);
+    }
 
     const shotPath = path.join(SCREENSHOT_DIR, `desktop-${scene.id}.png`);
     await deskPage.screenshot({ path: shotPath });
@@ -107,12 +152,14 @@ async function run() {
       scene: scene.id,
       name: scene.name,
       charData,
-      planes,
+      analysis: sceneAnalysis,
+      targetDensity: target,
+      densityPass,
       screenshot: shotPath,
     });
   }
 
-  // Test Reverse Scroll Determinism on Desktop
+  // Reverse Scroll Determinism Test on Desktop
   console.log('\n  🔄 Testing reverse scroll determinism on desktop...');
   const scrollTotal = await deskPage.evaluate(() => document.documentElement.scrollHeight);
   for (let y = scrollTotal; y >= 0; y -= 600) {
@@ -163,10 +210,10 @@ async function run() {
         console.log(`  📱 ${scene.name}:`);
         console.log(`     Asset: ${src}`);
         console.log(`     Rendered Box: ${box.width.toFixed(1)}px x ${box.height.toFixed(1)}px at (${box.x.toFixed(1)}, ${box.y.toFixed(1)})`);
-        console.log(`     Visible Art Width %: ${visibleWidthPct}% (Target: ~80%) [Box Width %: ${boxWidthPct}%]`);
+        console.log(`     Visible Art Width %: ${visibleWidthPct}% (Target: ~80%) [Box: ${boxWidthPct}%]`);
       }
     } else {
-      console.log(`  📱 ${scene.name}: Graphic pause (no character as specified in storyboard)`);
+      console.log(`  📱 ${scene.name}: Graphic pause (no character)`);
     }
 
     const shotPath = path.join(SCREENSHOT_DIR, `mobile-${scene.id}.png`);

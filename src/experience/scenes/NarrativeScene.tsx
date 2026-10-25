@@ -59,7 +59,7 @@ export const NarrativeScene: React.FC<NarrativeSceneProps> = ({ sceneId }) => {
         )}
       </header>
 
-      <div className="scene-copy">
+      <div className={`scene-copy scene-copy-${sceneId}`}>
         <span className={`badge-tape ${scene.meter && scene.meter.value <= 20 ? 'badge-green' : 'badge-purple'}`}>
           SCENE {scene.sceneNumber} // {scene.time ?? scene.title} // {scene.meter?.value ?? 0}%
         </span>

@@ -3,6 +3,9 @@ import { useSceneTimeline } from '../animation/useSceneTimeline';
 import { Meter } from '../components/Meter';
 import { Clock } from '../components/Clock';
 import { CTA } from '../components/CTA';
+import { ASSET_MANIFEST } from '../data/assets';
+
+const assetSrc = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id)?.src ?? '';
 
 export interface RevealSceneProps {
   id?: string;
@@ -51,6 +54,17 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           { y: 0, opacity: 0.88, scale: 1, duration: 0.5, ease: 'power2.out' },
           0.2
         );
+      }
+      if (containerRef.current) {
+        const revealLayers = Array.from(containerRef.current.querySelectorAll<HTMLElement>('.reveal-layer'));
+        revealLayers.forEach((layer, idx) => {
+          tl.fromTo(
+            layer,
+            { scale: 1.8, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(1.8)' },
+            0.25 + (idx * 0.05)
+          );
+        });
       }
       if (ctaContainerRef.current) {
         tl.fromTo(
@@ -192,6 +206,28 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
       >
         ONE NIGHT // ONE STORY // IYKYK © 2026
       </footer>
+
+      {/* Plane B & E: 6 Resolved Brand Resolution Elements */}
+      <div className="reveal-collage-elements" aria-hidden="true">
+        <figure className="art-card reveal-layer reveal-halftone" data-plane="B">
+          <img src={assetSrc('textures.colorHalftone01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card reveal-layer reveal-badge" data-plane="E">
+          <img src={assetSrc('graphics.paperBadge')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card reveal-layer reveal-stars" data-plane="E">
+          <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card reveal-layer reveal-tape" data-plane="E">
+          <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card reveal-layer reveal-bracket" data-plane="E">
+          <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card reveal-layer reveal-barcode" data-plane="E">
+          <img src={assetSrc('graphics.barcodePurpleGreen')} alt="" loading="lazy" />
+        </figure>
+      </div>
 
       {/* Confident Protagonist DOM Figure */}
       <div ref={protagonistRef} className="reveal-protagonist-wrapper" aria-hidden="true">

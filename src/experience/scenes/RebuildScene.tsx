@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
 import { Panel } from '../components/Panel';
+import { ASSET_MANIFEST } from '../data/assets';
+
+const assetSrc = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id)?.src ?? '';
 
 export interface RebuildSceneProps {
   id?: string;
@@ -86,6 +89,23 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
           { y: 0, rotation: 0, opacity: 1, duration: 0.3, ease: 'power3.out' },
           0.4
         );
+      }
+
+      // Reconnecting secondary narrative fragments snap into order around protagonist
+      if (containerRef.current) {
+        const fragments = Array.from(containerRef.current.querySelectorAll<HTMLElement>('.rebuild-fragment'));
+        fragments.forEach((frag, idx) => {
+          const fromX = (idx % 2 === 0 ? -1 : 1) * (140 + idx * 25);
+          const fromY = (idx % 3 === 0 ? -1 : 1) * (90 + idx * 20);
+          const rot = (idx % 2 === 0 ? -1 : 1) * (20 + idx * 8);
+          tl.fromTo(
+            frag,
+            { x: fromX, y: fromY, rotation: rot, opacity: 0, scale: 0.7 },
+            { x: 0, y: 0, rotation: 0, opacity: 1, scale: 1, duration: 0.34, ease: 'power3.out' },
+            0.22 + (idx * 0.04)
+          );
+          tl.to(frag, { opacity: 0.35, y: -15, duration: 0.12, ease: 'power1.in' }, 0.9);
+        });
       }
 
       // Protagonist materializes and reassembles as panels connect (0.25 → 0.75)
@@ -244,6 +264,40 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
             0%
           </div>
         </div>
+      </div>
+
+      {/* Plane B & D & E: 10 Reconnecting Secondary Collage Elements */}
+      <div className="rebuild-collage-fragments" aria-hidden="true">
+        <figure className="art-card rebuild-fragment rebuild-fiber" data-plane="B">
+          <img src={assetSrc('textures.paperFiber01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-scanlines" data-plane="B">
+          <img src={assetSrc('textures.scanLines01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-textbook" data-plane="D">
+          <img src={assetSrc('objects.textbook01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-notebook" data-plane="D">
+          <img src={assetSrc('objects.notebook01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-stationery" data-plane="D">
+          <img src={assetSrc('objects.stationery01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-folded-paper" data-plane="D">
+          <img src={assetSrc('objects.foldedPaper01')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-arrow" data-plane="E">
+          <img src={assetSrc('graphics.arrowGreen')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-stars" data-plane="E">
+          <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-bracket" data-plane="E">
+          <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+        </figure>
+        <figure className="art-card rebuild-fragment rebuild-tape" data-plane="E">
+          <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+        </figure>
       </div>
 
       {/* Reassembled Protagonist DOM Figure */}
