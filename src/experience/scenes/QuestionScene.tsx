@@ -8,24 +8,51 @@ export interface QuestionSceneProps {
 /**
  * QuestionScene implements the pivotal graphic pause (storyboard.md Sec 4.3, architecture.md Sec 24).
  * Strips all ambient UI/HUD and commands maximum typographic focus.
+ * Connects causally from the passed-out scene's emptying exit into stark interruption.
  */
 export const QuestionScene: React.FC<QuestionSceneProps> = ({ id = 'question' }) => {
   const containerRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const stampRef = useRef<HTMLDivElement>(null);
 
   useSceneTimeline(containerRef, {
     sceneId: id,
     pin: true,
     start: 'top top',
-    end: '+=1000',
+    end: '+=1200',
     scrub: 0.6,
+    anticipatePin: 1,
     buildTimeline: (tl) => {
-      if (!cardRef.current) return;
-      tl.fromTo(
-        cardRef.current,
-        { scale: 0.85, opacity: 0, y: 40 },
-        { scale: 1, opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-      );
+      // Phase 1: Hold on emptiness — deliberate pause after passed-out collapse (0 → 0.25)
+      // No animation — the screen stays dark, building tension
+
+      // Phase 2: Card materializes from the void (0.25 → 0.6)
+      if (cardRef.current) {
+        tl.fromTo(
+          cardRef.current,
+          { scale: 0.8, opacity: 0, y: 50, rotation: -2 },
+          { scale: 1, opacity: 1, y: 0, rotation: -0.8, duration: 0.35, ease: 'power3.out' },
+          0.25
+        );
+      }
+
+      // Phase 3: Stamp appears — editorial punctuation (0.55 → 0.7)
+      if (stampRef.current) {
+        tl.fromTo(
+          stampRef.current,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.15, ease: 'power2.out' },
+          0.55
+        );
+      }
+
+      // Phase 4: Hold for contemplation (0.7 → 0.85)
+      // Intentionally empty — let the question breathe
+
+      // Phase 5: Card recedes as we prepare for the rebuild (0.85 → 1.0)
+      if (cardRef.current) {
+        tl.to(cardRef.current, { scale: 0.92, opacity: 0.4, y: -20, duration: 0.15, ease: 'power2.in' }, 0.85);
+      }
     },
   });
 
@@ -65,6 +92,7 @@ export const QuestionScene: React.FC<QuestionSceneProps> = ({ id = 'question' })
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.9)',
           textAlign: 'center',
           transform: 'rotate(-0.8deg)',
+          opacity: 0,
         }}
       >
         {/* Collage tape strips */}
@@ -82,11 +110,12 @@ export const QuestionScene: React.FC<QuestionSceneProps> = ({ id = 'question' })
             margin: 0,
           }}
         >
-          WHAT IF YOU DIDN'T HAVE TO MISS COLLEGE TOMORROW?
+          WHAT IF YOU DIDN&apos;T HAVE TO MISS COLLEGE TOMORROW?
         </h2>
 
         {/* Small editorial stamp */}
         <div
+          ref={stampRef}
           style={{
             marginTop: 'var(--space-lg)',
             display: 'inline-block',
@@ -98,6 +127,7 @@ export const QuestionScene: React.FC<QuestionSceneProps> = ({ id = 'question' })
             color: 'var(--color-purple)',
             borderTop: '2px solid var(--color-purple)',
             paddingTop: 'var(--space-xs)',
+            opacity: 0,
           }}
         >
           // THE QUESTION THAT CHANGES THE NIGHT

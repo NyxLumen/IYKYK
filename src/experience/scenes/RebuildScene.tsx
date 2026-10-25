@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
-import { Meter } from '../components/Meter';
 import { Panel } from '../components/Panel';
 
 export interface RebuildSceneProps {
@@ -10,78 +9,120 @@ export interface RebuildSceneProps {
 /**
  * RebuildScene executes the 8-step reconstruction sequence (storyboard.md Sec 4.4, architecture.md Sec 25).
  * The meter visibly charges from 0% → 100%, reassembling scattered fragments into order.
+ *
+ * Performance: Uses direct DOM mutation for the meter value instead of React setState
+ * to avoid triggering re-renders on every scroll tick (architecture.md Sec 35).
  */
 export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) => {
   const containerRef = useRef<HTMLElement>(null);
   const meterWrapperRef = useRef<HTMLDivElement>(null);
+  const meterFillRef = useRef<HTMLDivElement>(null);
+  const meterLabelRef = useRef<HTMLDivElement>(null);
   const panel1Ref = useRef<HTMLDivElement>(null);
   const panel2Ref = useRef<HTMLDivElement>(null);
   const panel3Ref = useRef<HTMLDivElement>(null);
   const typographyRef = useRef<HTMLDivElement>(null);
 
-  const [meterValue, setMeterValue] = useState<number>(0);
-
   useSceneTimeline(containerRef, {
     sceneId: id,
     pin: true,
     start: 'top top',
-    end: '+=1600',
+    end: '+=2200',
     scrub: 0.5,
+    anticipatePin: 1,
     buildTimeline: (tl) => {
-      // 1. Meter expands and charges 0% → 100%
+      // Phase 0: Brief darkness hold connecting from question exit (0 → 0.08)
+      // Intentionally empty — causal pause
+
+      // Phase 1: Meter appears and begins charging 0% → 100% (0.08 → 0.65)
       const meterTracker = { val: 0 };
       tl.to(meterTracker, {
         val: 100,
-        duration: 3,
-        ease: 'none',
+        duration: 0.57,
+        ease: 'power1.inOut',
         onUpdate: () => {
-          setMeterValue(Math.round(meterTracker.val));
+          const rounded = Math.round(meterTracker.val);
+          // Direct DOM mutation — no React re-render
+          if (meterFillRef.current) {
+            meterFillRef.current.style.width = `${rounded}%`;
+          }
+          if (meterLabelRef.current) {
+            meterLabelRef.current.textContent = `${rounded}%`;
+          }
         },
-      }, 0);
+      }, 0.08);
 
       if (meterWrapperRef.current) {
         tl.fromTo(
           meterWrapperRef.current,
-          { scale: 0.8, opacity: 0.5 },
-          { scale: 1.15, opacity: 1, duration: 1.5, ease: 'power2.out' },
-          0
+          { scale: 0.7, opacity: 0, y: 20 },
+          { scale: 1.1, opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' },
+          0.08
         );
       }
 
-      // 2. Collage fragments move & 3. Panels reconnect
+      // Phase 2: Collage fragments move & panels reconnect (0.2 → 0.6)
       if (panel1Ref.current) {
         tl.fromTo(
           panel1Ref.current,
-          { x: -160, y: 60, rotation: -18, opacity: 0.2 },
-          { x: 0, y: 0, rotation: -2, opacity: 1, duration: 2, ease: 'power3.out' },
-          0.4
+          { x: -160, y: 60, rotation: -18, opacity: 0 },
+          { x: 0, y: 0, rotation: -2, opacity: 1, duration: 0.3, ease: 'power3.out' },
+          0.2
         );
       }
       if (panel2Ref.current) {
         tl.fromTo(
           panel2Ref.current,
-          { x: 180, y: -70, rotation: 22, opacity: 0.2 },
-          { x: 0, y: 0, rotation: 1.5, opacity: 1, duration: 2, ease: 'power3.out' },
-          0.6
+          { x: 180, y: -70, rotation: 22, opacity: 0 },
+          { x: 0, y: 0, rotation: 1.5, opacity: 1, duration: 0.3, ease: 'power3.out' },
+          0.3
         );
       }
       if (panel3Ref.current) {
         tl.fromTo(
           panel3Ref.current,
-          { y: 120, rotation: -8, opacity: 0.2 },
-          { y: 0, rotation: 0, opacity: 1, duration: 2, ease: 'power3.out' },
-          0.8
+          { y: 120, rotation: -8, opacity: 0 },
+          { y: 0, rotation: 0, opacity: 1, duration: 0.3, ease: 'power3.out' },
+          0.4
         );
       }
 
-      // 4. Typography settles into coherent resolution
+      // Phase 3: Meter reaches 100%, scales to emphasis (0.65 → 0.75)
+      if (meterWrapperRef.current) {
+        tl.to(meterWrapperRef.current, {
+          scale: 1.2,
+          duration: 0.1,
+          ease: 'back.out(1.7)',
+        }, 0.65);
+        tl.to(meterWrapperRef.current, {
+          scale: 1,
+          duration: 0.08,
+          ease: 'power1.out',
+        }, 0.75);
+      }
+
+      // Phase 4: Typography settles into coherent resolution (0.7 → 0.85)
       if (typographyRef.current) {
         tl.fromTo(
           typographyRef.current,
           { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
-          2
+          { opacity: 1, y: 0, duration: 0.15, ease: 'power2.out' },
+          0.7
         );
+      }
+
+      // Phase 5: Scene prepares to flow into reveal (0.88 → 1.0)
+      if (panel1Ref.current) {
+        tl.to(panel1Ref.current, { opacity: 0.3, y: -15, duration: 0.12, ease: 'power1.in' }, 0.88);
+      }
+      if (panel2Ref.current) {
+        tl.to(panel2Ref.current, { opacity: 0.3, y: -15, duration: 0.12, ease: 'power1.in' }, 0.9);
+      }
+      if (panel3Ref.current) {
+        tl.to(panel3Ref.current, { opacity: 0.3, y: -15, duration: 0.12, ease: 'power1.in' }, 0.92);
+      }
+      if (typographyRef.current) {
+        tl.to(typographyRef.current, { opacity: 0, y: -10, duration: 0.1, ease: 'power1.in' }, 0.92);
       }
     },
   });
@@ -117,6 +158,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
           zIndex: 'var(--z-meter)',
           marginBottom: 'var(--space-xl)',
           transformOrigin: 'center center',
+          opacity: 0,
         }}
       >
         <span
@@ -130,7 +172,63 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         >
           RECONSTRUCTION SEQUENCE
         </span>
-        <Meter value={meterValue} mode="rebuild" visible={true} />
+        {/* Inline meter — direct DOM for performance */}
+        <div
+          className="narrative-meter-wrapper"
+          role="progressbar"
+          aria-valuenow={0}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Narrative control meter — rebuilding"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 'var(--space-md)',
+            background: 'rgba(11, 11, 11, 0.85)',
+            padding: '0.4rem 0.8rem',
+            border: '1px solid rgba(237, 228, 217, 0.25)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.6)',
+          }}
+        >
+          <div
+            className="meter-bar-track"
+            style={{
+              width: 'clamp(140px, 24vw, 240px)',
+              height: '16px',
+              background: 'rgba(237, 228, 217, 0.1)',
+              border: '1px solid var(--color-paper-muted)',
+              borderRadius: '12px',
+              padding: '2px',
+              overflow: 'hidden',
+              position: 'relative',
+            }}
+          >
+            <div
+              ref={meterFillRef}
+              className="meter-bar-fill"
+              style={{
+                height: '100%',
+                width: '0%',
+                background: 'linear-gradient(90deg, var(--color-purple) 0%, var(--color-green) 100%)',
+                borderRadius: '8px',
+                boxShadow: '0 0 10px var(--color-green-glow)',
+              }}
+            />
+          </div>
+          <div
+            ref={meterLabelRef}
+            className="meter-bar-label font-display"
+            style={{
+              fontSize: 'var(--text-lg)',
+              color: 'var(--color-paper)',
+              minWidth: '4ch',
+              textAlign: 'right',
+              letterSpacing: '0.04em',
+            }}
+          >
+            0%
+          </div>
+        </div>
       </div>
 
       {/* Reassembling Panels Canvas */}
@@ -148,7 +246,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         }}
       >
         {/* Panel 1: Restored Agency */}
-        <div ref={panel1Ref} style={{ flex: '1', maxWidth: '280px' }}>
+        <div ref={panel1Ref} style={{ flex: '1', maxWidth: '280px', opacity: 0 }}>
           <Panel variant="paper" tape={true} torn="top" style={{ padding: 'var(--space-lg)' }}>
             <span className="body-xs" style={{ color: 'var(--color-purple)' }}>STATE: RESTORING</span>
             <h3 className="headline-sm" style={{ marginTop: 'var(--space-xs)' }}>
@@ -161,7 +259,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         </div>
 
         {/* Panel 2: Clarity & Order */}
-        <div ref={panel2Ref} style={{ flex: '1', maxWidth: '280px' }}>
+        <div ref={panel2Ref} style={{ flex: '1', maxWidth: '280px', opacity: 0 }}>
           <Panel variant="ink" tape={true} style={{ padding: 'var(--space-lg)', border: '1px solid var(--color-green)' }}>
             <span className="body-xs" style={{ color: 'var(--color-green)' }}>CLOCK: RESOLVED</span>
             <h3 className="headline-sm" style={{ marginTop: 'var(--space-xs)', color: 'var(--color-paper)' }}>
@@ -174,7 +272,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         </div>
 
         {/* Panel 3: Coherence */}
-        <div ref={panel3Ref} style={{ flex: '1', maxWidth: '280px' }}>
+        <div ref={panel3Ref} style={{ flex: '1', maxWidth: '280px', opacity: 0 }}>
           <Panel variant="paper" tape={true} torn="bottom" style={{ padding: 'var(--space-lg)' }}>
             <span className="body-xs" style={{ color: 'var(--color-purple)' }}>SYSTEM: 100%</span>
             <h3 className="headline-sm" style={{ marginTop: 'var(--space-xs)' }}>
@@ -194,6 +292,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
           marginTop: 'var(--space-lg)',
           textAlign: 'center',
           zIndex: 'var(--z-typography)',
+          opacity: 0,
         }}
       >
         <div

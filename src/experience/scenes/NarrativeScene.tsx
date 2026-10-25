@@ -5,6 +5,7 @@ import { SCENE_REGISTRY } from '../data/scenes';
 import type { SceneId } from '../data/types';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
 import { SceneArtwork } from './SceneArtwork';
+import { SCENE_CHOREOGRAPHY } from '../animation/sceneChoreography';
 
 type StorySceneId = Extract<SceneId, 'plan' | 'first-drink' | 'buzzed' | 'drunk' | 'party-peak' | 'passed-out'>;
 
@@ -12,26 +13,27 @@ interface NarrativeSceneProps {
   sceneId: StorySceneId;
 }
 
-/** Shared composition shell for the six narrative states before the question pause. */
+/**
+ * Shared composition shell for the six narrative states before the question pause.
+ * Each scene receives differentiated scroll choreography from sceneChoreography.ts
+ * to create causally connected transitions across the complete arc.
+ */
 export const NarrativeScene: React.FC<NarrativeSceneProps> = ({ sceneId }) => {
   const containerRef = useRef<HTMLElement>(null);
   const collageRef = useRef<HTMLDivElement>(null);
   const scene = SCENE_REGISTRY.find((item) => item.id === sceneId);
+  const choreography = SCENE_CHOREOGRAPHY[sceneId];
 
   useSceneTimeline(containerRef, {
     sceneId,
-    start: 'top 75%',
-    end: 'bottom 20%',
-    scrub: 0.8,
-    buildTimeline: (timeline) => {
-      if (!collageRef.current) return;
-      const startState = sceneId === 'drunk' || sceneId === 'party-peak'
-        ? { y: 18, rotation: 1.5, scale: 0.97, opacity: 0.78 }
-        : { y: 24, opacity: 0.72 };
-      const endState = sceneId === 'drunk' || sceneId === 'party-peak'
-        ? { y: 0, rotation: 0, scale: 1, opacity: 1, duration: 1, ease: 'power2.out' }
-        : { y: 0, opacity: 1, duration: 1, ease: 'power2.out' };
-      timeline.fromTo(collageRef.current, startState, endState);
+    pin: choreography.scroll.pin,
+    pinSpacing: choreography.scroll.pinSpacing,
+    start: choreography.scroll.start,
+    end: choreography.scroll.end,
+    scrub: choreography.scroll.scrub,
+    anticipatePin: choreography.scroll.anticipatePin,
+    buildTimeline: (timeline, container) => {
+      choreography.buildTimeline(timeline, container, collageRef.current);
     },
   });
 

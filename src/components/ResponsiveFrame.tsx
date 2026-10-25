@@ -30,6 +30,21 @@ export const ResponsiveFrame: React.FC<ResponsiveFrameProps> = ({
   desktop = { scale: 1, x: 0, y: 0, rotation: 0 },
   overflow = 'hidden',
 }) => {
+  const frameStyle: React.CSSProperties = {
+    '--rf-mob-x': typeof mobile.x === 'number' ? `${mobile.x}px` : (mobile.x || '0px'),
+    '--rf-mob-y': typeof mobile.y === 'number' ? `${mobile.y}px` : (mobile.y || '0px'),
+    '--rf-mob-scale': mobile.scale ?? 1,
+    '--rf-mob-rot': `${mobile.rotation || 0}deg`,
+    '--rf-mob-origin': mobile.origin || 'center center',
+
+    '--rf-desk-x': typeof desktop.x === 'number' ? `${desktop.x}px` : (desktop.x || '0px'),
+    '--rf-desk-y': typeof desktop.y === 'number' ? `${desktop.y}px` : (desktop.y || '0px'),
+    '--rf-desk-scale': desktop.scale ?? 1,
+    '--rf-desk-rot': `${desktop.rotation || 0}deg`,
+    '--rf-desk-origin': desktop.origin || 'center center',
+    ...style,
+  } as React.CSSProperties;
+
   return (
     <div
       className={`responsive-frame ${className}`}
@@ -38,19 +53,10 @@ export const ResponsiveFrame: React.FC<ResponsiveFrameProps> = ({
         width: '100%',
         height: '100%',
         overflow,
-        ...style,
+        ...frameStyle,
       }}
     >
-      <div
-        className="responsive-frame-content"
-        style={{
-          width: '100%',
-          height: '100%',
-          transformOrigin: mobile.origin || desktop.origin || 'center center',
-          transition: 'transform 0.4s var(--ease-editorial)',
-          transform: `translate(${mobile.x || 0}px, ${mobile.y || 0}px) scale(${mobile.scale ?? 1}) rotate(${mobile.rotation || 0}deg)`,
-        }}
-      >
+      <div className="responsive-frame-content">
         {children}
       </div>
     </div>

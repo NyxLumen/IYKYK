@@ -12,6 +12,7 @@ export interface SceneTimelineOptions {
   scrub?: boolean | number;
   start?: string;
   end?: string;
+  anticipatePin?: number;
   buildTimeline?: (tl: gsap.core.Timeline, target: HTMLElement) => void;
 }
 
@@ -40,11 +41,30 @@ export const useSceneTimeline = (
           pin: !isReducedMotion && (options.pin ?? false),
           pinSpacing: options.pinSpacing ?? true,
           scrub: isReducedMotion ? false : (options.scrub ?? 0.8),
+          anticipatePin: options.anticipatePin ?? 0,
           invalidateOnRefresh: true,
         },
       });
 
       timelineRef.current = tl;
+
+      if (isReducedMotion) {
+        // Reduced motion: ensure all narrative copy, cards, and CTA are immediately visible and readable
+        gsap.set(el.querySelectorAll('.art-card, .scene-copy, .scene-hud, .question-card, .rebuild-canvas > div, .scene-typography-content, .brand-cta, header, footer, .meter-bar-fill, .meter-bar-label'), {
+          opacity: 1,
+          visibility: 'visible',
+          clearProps: 'transform',
+        });
+        const rebuildFill = el.querySelector<HTMLElement>('.meter-bar-fill');
+        if (rebuildFill && options.sceneId === 'rebuild') {
+          rebuildFill.style.width = '100%';
+        }
+        const rebuildLabel = el.querySelector<HTMLElement>('.meter-bar-label');
+        if (rebuildLabel && options.sceneId === 'rebuild') {
+          rebuildLabel.textContent = '100%';
+        }
+        return;
+      }
 
       if (options.buildTimeline) {
         options.buildTimeline(tl, el);

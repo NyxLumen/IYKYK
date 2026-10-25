@@ -10,32 +10,53 @@ export interface RevealSceneProps {
 
 /**
  * RevealScene delivers the confident resolution and IYKYK brand reveal (storyboard.md Sec 05 Scene 08).
+ * Connected to the rebuild's exit via scrub-based scroll animation.
  * Strictly honors anti-drift rules: No invented packshots, claims, or packaging.
  */
 export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
   const containerRef = useRef<HTMLElement>(null);
   const wordmarkRef = useRef<HTMLDivElement>(null);
   const ctaContainerRef = useRef<HTMLDivElement>(null);
+  const hudRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
 
   useSceneTimeline(containerRef, {
     sceneId: id,
     start: 'top 80%',
-    end: 'bottom bottom',
-    scrub: false,
+    end: 'top 10%',
+    scrub: 1,
     buildTimeline: (tl) => {
+      // Entrance connected from rebuild's exit — elements emerge with confidence
+      if (hudRef.current) {
+        tl.fromTo(
+          hudRef.current,
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' },
+          0
+        );
+      }
       if (wordmarkRef.current) {
         tl.fromTo(
           wordmarkRef.current,
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 1, ease: 'power2.out' }
+          { scale: 0.88, opacity: 0, y: 40 },
+          { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+          0.1
         );
       }
       if (ctaContainerRef.current) {
         tl.fromTo(
           ctaContainerRef.current,
           { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' },
-          '-=0.4'
+          { y: 0, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' },
+          0.5
+        );
+      }
+      if (footerRef.current) {
+        tl.fromTo(
+          footerRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.2, ease: 'power1.out' },
+          0.7
         );
       }
     },
@@ -67,6 +88,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
 
       {/* Top Narrative Context HUD */}
       <header
+        ref={hudRef}
         style={{
           position: 'absolute',
           top: 'var(--space-md)',
@@ -76,6 +98,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           zIndex: 'var(--z-meter)',
+          opacity: 0,
         }}
       >
         <Clock time="MORNING" variant="digital" visible={true} />
@@ -90,6 +113,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           zIndex: 'var(--z-typography)',
           maxWidth: '960px',
           width: '100%',
+          opacity: 0,
         }}
       >
         <div className="badge-tape badge-purple" style={{ marginBottom: 'var(--space-md)' }}>
@@ -130,12 +154,12 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
             color: 'var(--color-paper-muted)',
           }}
         >
-          The night took everything, but the story didn't end there. Ready for college tomorrow with full clarity and control.
+          The night took everything, but the story didn&apos;t end there. Ready for college tomorrow with full clarity and control.
         </p>
       </div>
 
       {/* CTA Button Action */}
-      <div ref={ctaContainerRef} style={{ zIndex: 'var(--z-cta)' }}>
+      <div ref={ctaContainerRef} style={{ zIndex: 'var(--z-cta)', opacity: 0 }}>
         <CTA
           label="KNOW MORE →"
           onClick={() => {
@@ -146,6 +170,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
 
       {/* Editorial Footnote */}
       <footer
+        ref={footerRef}
         style={{
           position: 'absolute',
           bottom: 'var(--space-md)',
@@ -153,6 +178,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           color: 'rgba(237, 228, 217, 0.4)',
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
+          opacity: 0,
         }}
       >
         ONE NIGHT // ONE STORY // IYKYK © 2026

@@ -1,4 +1,4 @@
-/* IYKYK full-arc vertical pass: first-pass composition, not final scene polish. */
+/* IYKYK continuous film scroll experience */
 .scene-vertical-pass {
   position: relative;
   display: block;
@@ -9,7 +9,23 @@
   isolation: isolate;
   background: var(--color-ink);
   color: var(--color-paper);
-  border-bottom: 1px solid rgba(237, 228, 217, 0.12);
+  border-bottom: none;
+}
+
+/* Responsive Frame Content: Viewport Cropping Engine */
+.responsive-frame-content {
+  width: 100%;
+  height: 100%;
+  transform-origin: var(--rf-mob-origin, center center);
+  transition: transform 0.4s var(--ease-editorial);
+  transform: translate(var(--rf-mob-x, 0), var(--rf-mob-y, 0)) scale(var(--rf-mob-scale, 1)) rotate(var(--rf-mob-rot, 0deg));
+}
+
+@media (min-width: 769px) {
+  .responsive-frame-content {
+    transform-origin: var(--rf-desk-origin, center center);
+    transform: translate(var(--rf-desk-x, 0), var(--rf-desk-y, 0)) scale(var(--rf-desk-scale, 1)) rotate(var(--rf-desk-rot, 0deg));
+  }
 }
 
 .scene-vertical-pass .scene-environment {
