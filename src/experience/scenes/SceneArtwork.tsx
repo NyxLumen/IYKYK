@@ -6,9 +6,12 @@ const assetSrc = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id)
 
 type StorySceneId = Extract<SceneId, 'plan' | 'first-drink' | 'buzzed' | 'drunk' | 'party-peak' | 'passed-out'>;
 
-type ArtworkLayer = {
+export type DepthPlane = 'B' | 'C' | 'D' | 'E';
+
+export type ArtworkLayer = {
   assetId: string;
   className: string;
+  plane: DepthPlane;
   alt?: string;
 };
 
@@ -17,67 +20,74 @@ type ArtworkConfig = {
   layers: ArtworkLayer[];
 };
 
-/** Approved production artwork arranged into the first-pass collage grammar. */
+/**
+ * Approved production artwork arranged into the 5-plane depth system:
+ * - Plane A: Continuous Environment Plate (rendered separately in ContinuousBackground)
+ * - Plane B: Distant collage material (marks, paper backings, texture prints)
+ * - Plane C: Protagonist (oversized approved close-up shots exclusively)
+ * - Plane D: Secondary props and narrative objects
+ * - Plane E: Near-field collage fragments (stickers, foreground shards, paper scraps)
+ */
 const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
   plan: {
     environment: 'environments.bedroomStudyNight',
     layers: [
-      { assetId: 'characters.full.gettingReady', className: 'plan-character', alt: 'Faceless protagonist getting ready' },
-      { assetId: 'objects.booksStack01', className: 'plan-books' },
-      { assetId: 'objects.collegeBag01', className: 'plan-bag' },
-      { assetId: 'objects.timetable01', className: 'plan-timetable', alt: 'College timetable' },
-      { assetId: 'graphics.barcodePurpleGreen', className: 'plan-mark' },
+      { assetId: 'graphics.barcodePurpleGreen', className: 'plan-mark', plane: 'B' },
+      { assetId: 'characters.close.gettingReady', className: 'plan-character', plane: 'C', alt: 'Faceless protagonist getting ready' },
+      { assetId: 'objects.booksStack01', className: 'plan-books', plane: 'D' },
+      { assetId: 'objects.collegeBag01', className: 'plan-bag', plane: 'D' },
+      { assetId: 'objects.timetable01', className: 'plan-timetable', plane: 'E', alt: 'College timetable' },
     ],
   },
   'first-drink': {
     environment: 'environments.partyHallwayEntrance',
     layers: [
-      { assetId: 'characters.full.firstDrink', className: 'drink-character', alt: 'Faceless protagonist with their first drink' },
-      { assetId: 'objects.redCup01', className: 'drink-cup' },
-      { assetId: 'objects.bottleGlass01', className: 'drink-bottle' },
-      { assetId: 'graphics.speechBubble', className: 'drink-sticker', alt: 'Just one more?' },
-      { assetId: 'graphics.brushPurple', className: 'drink-mark' },
+      { assetId: 'graphics.brushPurple', className: 'drink-mark', plane: 'B' },
+      { assetId: 'characters.close.firstDrink', className: 'drink-character', plane: 'C', alt: 'Faceless protagonist with their first drink' },
+      { assetId: 'objects.bottleGlass01', className: 'drink-bottle', plane: 'D' },
+      { assetId: 'objects.redCup01', className: 'drink-cup', plane: 'D' },
+      { assetId: 'graphics.speechBubble', className: 'drink-sticker', plane: 'E', alt: 'Just one more?' },
     ],
   },
   buzzed: {
     environment: 'environments.partyLivingRoomMaster',
     layers: [
-      { assetId: 'characters.full.socialising', className: 'buzzed-character', alt: 'Faceless protagonist socialising' },
-      { assetId: 'characters.close.buzzed', className: 'buzzed-close' },
-      { assetId: 'objects.speakerVibration01', className: 'buzzed-speaker' },
-      { assetId: 'graphics.swirlPurpleGreen', className: 'buzzed-mark' },
-      { assetId: 'textures.tapeLayered01', className: 'buzzed-tape' },
+      { assetId: 'textures.tapeLayered01', className: 'buzzed-tape', plane: 'B' },
+      { assetId: 'graphics.swirlPurpleGreen', className: 'buzzed-mark', plane: 'B' },
+      { assetId: 'characters.close.buzzed', className: 'buzzed-character', plane: 'C', alt: 'Faceless protagonist socialising' },
+      { assetId: 'objects.speakerVibration01', className: 'buzzed-speaker', plane: 'D' },
+      { assetId: 'graphics.splatterPurpleGreen', className: 'buzzed-splatter', plane: 'E' },
     ],
   },
   drunk: {
     environment: 'environments.partyNearSpeakers',
     layers: [
-      { assetId: 'characters.full.drunk', className: 'drunk-character', alt: 'Faceless protagonist with a disoriented posture' },
-      { assetId: 'characters.close.drunk', className: 'drunk-close' },
-      { assetId: 'objects.clockFragment01', className: 'drunk-clock' },
-      { assetId: 'graphics.splatterPurpleGreen', className: 'drunk-mark' },
-      { assetId: 'textures.tornPaperLarge01', className: 'drunk-torn' },
+      { assetId: 'textures.tornPaperLarge01', className: 'drunk-torn', plane: 'B' },
+      { assetId: 'graphics.splatterPurpleGreen', className: 'drunk-mark', plane: 'B' },
+      { assetId: 'characters.close.drunk', className: 'drunk-character', plane: 'C', alt: 'Faceless protagonist with a disoriented posture' },
+      { assetId: 'objects.clockFragment01', className: 'drunk-clock', plane: 'D' },
+      { assetId: 'textures.tapeLayered01', className: 'drunk-tape', plane: 'E' },
     ],
   },
   'party-peak': {
     environment: 'environments.partyCrowdPeak',
     layers: [
-      { assetId: 'characters.full.dancing', className: 'peak-character', alt: 'Faceless protagonist dancing' },
-      { assetId: 'characters.close.partyPeak', className: 'peak-close' },
-      { assetId: 'objects.discoBall01', className: 'peak-disco' },
-      { assetId: 'graphics.smileyGreen', className: 'peak-smiley' },
-      { assetId: 'graphics.crownGreen', className: 'peak-crown' },
-      { assetId: 'objects.streamers01', className: 'peak-streamers' },
+      { assetId: 'objects.discoBall01', className: 'peak-disco', plane: 'B' },
+      { assetId: 'characters.close.partyPeak', className: 'peak-character', plane: 'C', alt: 'Faceless protagonist dancing euphoric' },
+      { assetId: 'graphics.crownGreen', className: 'peak-crown', plane: 'D' },
+      { assetId: 'objects.streamers01', className: 'peak-streamers', plane: 'E' },
+      { assetId: 'graphics.smileyGreen', className: 'peak-smiley', plane: 'E' },
     ],
   },
   'passed-out': {
     environment: 'environments.bedroomMorningMessy',
     layers: [
-      { assetId: 'characters.full.passedOut', className: 'passed-character', alt: 'Faceless protagonist passed out on the bed' },
-      { assetId: 'objects.alarmDigital0758', className: 'passed-alarm', alt: 'Alarm clock at 7:58 AM' },
-      { assetId: 'objects.phoneNotification01', className: 'passed-phone' },
-      { assetId: 'graphics.crossGreen', className: 'passed-cross' },
-      { assetId: 'textures.crumpledPaper01', className: 'passed-paper' },
+      { assetId: 'textures.crumpledPaper01', className: 'passed-paper', plane: 'B' },
+      { assetId: 'graphics.crossGreen', className: 'passed-cross', plane: 'B' },
+      { assetId: 'characters.close.passedOut', className: 'passed-character', plane: 'C', alt: 'Faceless protagonist passed out on the bed' },
+      { assetId: 'objects.alarmDigital0758', className: 'passed-alarm', plane: 'D', alt: 'Alarm clock at 7:58 AM' },
+      { assetId: 'objects.phoneNotification01', className: 'passed-phone', plane: 'D' },
+      { assetId: 'textures.tapeLayered01', className: 'passed-tape', plane: 'E' },
     ],
   },
 };
@@ -91,21 +101,39 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
   const artwork = SCENE_ARTWORK[sceneId];
   const eager = sceneId === 'plan';
 
+  const planeBLayers = artwork.layers.filter((l) => l.plane === 'B');
+  const planeCLayers = artwork.layers.filter((l) => l.plane === 'C');
+  const planeDLayers = artwork.layers.filter((l) => l.plane === 'D');
+  const planeELayers = artwork.layers.filter((l) => l.plane === 'E');
+
+  const renderCard = (layer: ArtworkLayer) => (
+    <figure className={`art-card ${layer.className}`} key={layer.assetId} data-plane={layer.plane}>
+      <img
+        src={assetSrc(layer.assetId)}
+        alt={layer.alt ?? ''}
+        loading={eager ? 'eager' : 'lazy'}
+      />
+    </figure>
+  );
+
   return (
     <div
       ref={compositionRef}
       className={`scene-composition scene-collage scene-collage-${sceneId}`}
       aria-label="Illustrated scene composition"
     >
-      {artwork.layers.map((layer) => (
-        <figure className={`art-card ${layer.className}`} key={layer.assetId}>
-          <img
-            src={assetSrc(layer.assetId)}
-            alt={layer.alt ?? ''}
-            loading={eager ? 'eager' : 'lazy'}
-          />
-        </figure>
-      ))}
+      <div className="scene-plane scene-plane-b" data-plane="B">
+        {planeBLayers.map(renderCard)}
+      </div>
+      <div className="scene-plane scene-plane-c" data-plane="C">
+        {planeCLayers.map(renderCard)}
+      </div>
+      <div className="scene-plane scene-plane-d" data-plane="D">
+        {planeDLayers.map(renderCard)}
+      </div>
+      <div className="scene-plane scene-plane-e" data-plane="E">
+        {planeELayers.map(renderCard)}
+      </div>
     </div>
   );
 };

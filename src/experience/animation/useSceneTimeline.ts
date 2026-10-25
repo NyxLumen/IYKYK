@@ -50,7 +50,7 @@ export const useSceneTimeline = (
 
       if (isReducedMotion) {
         // Reduced motion: ensure all narrative copy, cards, and CTA are immediately visible and readable
-        gsap.set(el.querySelectorAll('.art-card, .scene-copy, .scene-hud, .question-card, .rebuild-canvas > div, .scene-typography-content, .brand-cta, header, footer, .meter-bar-fill, .meter-bar-label'), {
+        gsap.set(el.querySelectorAll('.art-card, .scene-plane, .rebuild-protagonist-wrapper, .reveal-protagonist-wrapper, .scene-copy, .scene-hud, .question-card, .rebuild-canvas > div, .scene-typography-content, .brand-cta, header, footer, .meter-bar-fill, .meter-bar-label'), {
           opacity: 1,
           visibility: 'visible',
           clearProps: 'transform',

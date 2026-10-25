@@ -19,6 +19,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
   const ctaContainerRef = useRef<HTMLDivElement>(null);
   const hudRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const protagonistRef = useRef<HTMLDivElement>(null);
 
   useSceneTimeline(containerRef, {
     sceneId: id,
@@ -41,6 +42,14 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           { scale: 0.88, opacity: 0, y: 40 },
           { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
           0.1
+        );
+      }
+      if (protagonistRef.current) {
+        tl.fromTo(
+          protagonistRef.current,
+          { y: 50, opacity: 0, scale: 0.95 },
+          { y: 0, opacity: 0.88, scale: 1, duration: 0.5, ease: 'power2.out' },
+          0.2
         );
       }
       if (ctaContainerRef.current) {
@@ -183,6 +192,14 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
       >
         ONE NIGHT // ONE STORY // IYKYK © 2026
       </footer>
+
+      {/* Confident Protagonist DOM Figure */}
+      <div ref={protagonistRef} className="reveal-protagonist-wrapper" aria-hidden="true">
+        <img
+          src="/production/source/assetsReady/characters/full/protagonist-full-neutral.png"
+          alt="Confident protagonist ready for tomorrow"
+        />
+      </div>
     </section>
   );
 };

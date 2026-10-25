@@ -22,6 +22,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
   const panel2Ref = useRef<HTMLDivElement>(null);
   const panel3Ref = useRef<HTMLDivElement>(null);
   const typographyRef = useRef<HTMLDivElement>(null);
+  const protagonistRef = useRef<HTMLDivElement>(null);
 
   useSceneTimeline(containerRef, {
     sceneId: id,
@@ -87,6 +88,17 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         );
       }
 
+      // Protagonist materializes and reassembles as panels connect (0.25 → 0.75)
+      if (protagonistRef.current) {
+        tl.fromTo(
+          protagonistRef.current,
+          { scale: 0.88, opacity: 0, y: 30 },
+          { scale: 1, opacity: 0.65, y: 0, duration: 0.4, ease: 'power2.out' },
+          0.25
+        );
+        tl.to(protagonistRef.current, { opacity: 0.82, duration: 0.15, ease: 'power1.out' }, 0.65);
+      }
+
       // Phase 3: Meter reaches 100%, scales to emphasis (0.65 → 0.75)
       if (meterWrapperRef.current) {
         tl.to(meterWrapperRef.current, {
@@ -123,6 +135,9 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
       }
       if (typographyRef.current) {
         tl.to(typographyRef.current, { opacity: 0, y: -10, duration: 0.1, ease: 'power1.in' }, 0.92);
+      }
+      if (protagonistRef.current) {
+        tl.to(protagonistRef.current, { scale: 0.96, opacity: 0.4, y: -15, duration: 0.12, ease: 'power1.in' }, 0.9);
       }
     },
   });
@@ -229,6 +244,14 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
             0%
           </div>
         </div>
+      </div>
+
+      {/* Reassembled Protagonist DOM Figure */}
+      <div ref={protagonistRef} className="rebuild-protagonist-wrapper" aria-hidden="true">
+        <img
+          src="/production/source/assetsReady/characters/rebuild/protagonist-reassembled.png"
+          alt="Protagonist reassembled"
+        />
       </div>
 
       {/* Reassembling Panels Canvas */}
