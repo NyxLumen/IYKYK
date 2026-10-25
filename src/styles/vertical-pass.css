@@ -7,7 +7,7 @@
   height: max(100svh, 720px);
   overflow: hidden;
   isolation: isolate;
-  background: var(--color-ink);
+  background: transparent;
   color: var(--color-paper);
   border-bottom: none;
 }
@@ -26,6 +26,100 @@
     transform-origin: var(--rf-desk-origin, center center);
     transform: translate(var(--rf-desk-x, 0), var(--rf-desk-y, 0)) scale(var(--rf-desk-scale, 1)) rotate(var(--rf-desk-rot, 0deg));
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Continuous Background Environment System (Task 02A)                        */
+/* -------------------------------------------------------------------------- */
+.continuous-background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--color-ink);
+  isolation: isolate;
+}
+
+.env-plates-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.env-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform, opacity;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.env-plate img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* Mobile responsive framing per environment plate */
+@media (max-width: 720px) {
+  .env-plate-hallway img {
+    object-position: 65% center;
+  }
+  .env-plate-speakers img {
+    object-position: 35% center;
+  }
+  .env-plate-crowd img {
+    object-position: 50% 35%;
+  }
+  .env-plate-messy img {
+    object-position: 55% 50%;
+  }
+}
+
+.env-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s ease;
+  will-change: opacity, background;
+}
+
+.env-texture-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url('/production/source/assetsReady/textures/texture-paper-fiber-01.png');
+  background-repeat: repeat;
+  background-size: 540px;
+}
+
+.env-texture-halftone {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.05;
+  mix-blend-mode: color-dodge;
+  background-image: url('/production/source/assetsReady/textures/texture-halftone-dots-01.png');
+  background-repeat: repeat;
+  background-size: 320px;
 }
 
 .scene-vertical-pass .scene-environment {
@@ -225,23 +319,10 @@
   overflow: hidden;
 }
 
-.scene-rebuild::before,
-.scene-reveal::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: url('/production/source/assetsReady/environments/env-bedroom-morning-tidy.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.32;
-  pointer-events: none;
-}
-
 .scene-rebuild::after {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   left: 50%;
   top: 22%;
   width: min(33vw, 360px);

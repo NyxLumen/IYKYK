@@ -92,26 +92,20 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
   const eager = sceneId === 'plan';
 
   return (
-    <>
-      <div className="scene-environment" aria-hidden="true">
-        <img
-          src={assetSrc(artwork.environment)}
-          alt=""
-          loading={eager ? 'eager' : 'lazy'}
-          fetchPriority={eager ? 'high' : 'auto'}
-        />
-      </div>
-      <div ref={compositionRef} className={`scene-composition scene-collage scene-collage-${sceneId}`} aria-label="Illustrated scene composition">
-        {artwork.layers.map((layer) => (
-          <figure className={`art-card ${layer.className}`} key={layer.assetId}>
-            <img
-              src={assetSrc(layer.assetId)}
-              alt={layer.alt ?? ''}
-              loading={eager ? 'eager' : 'lazy'}
-            />
-          </figure>
-        ))}
-      </div>
-    </>
+    <div
+      ref={compositionRef}
+      className={`scene-composition scene-collage scene-collage-${sceneId}`}
+      aria-label="Illustrated scene composition"
+    >
+      {artwork.layers.map((layer) => (
+        <figure className={`art-card ${layer.className}`} key={layer.assetId}>
+          <img
+            src={assetSrc(layer.assetId)}
+            alt={layer.alt ?? ''}
+            loading={eager ? 'eager' : 'lazy'}
+          />
+        </figure>
+      ))}
+    </div>
   );
 };

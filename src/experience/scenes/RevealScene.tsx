@@ -77,7 +77,7 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'var(--color-ink)',
+        backgroundColor: 'transparent',
         overflow: 'hidden',
         padding: 'var(--space-2xl) var(--space-md)',
         textAlign: 'center',

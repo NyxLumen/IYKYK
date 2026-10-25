@@ -1,4 +1,5 @@
 import React from 'react';
+import { ContinuousBackground } from './components/ContinuousBackground';
 import { Scene01Plan } from './scenes/Scene01Plan';
 import { Scene02FirstDrink } from './scenes/Scene02FirstDrink';
 import { Scene03Buzzed } from './scenes/Scene03Buzzed';
@@ -11,6 +12,7 @@ import { RevealScene } from './scenes/RevealScene';
 
 /**
  * Experience maps the complete 9-scene narrative progression (architecture.md Section 06 & 26).
+ * Integrates the continuous background-environment system (Task 02A).
  * Scene Order:
  * 1. plan (9:30 PM, 100%)
  * 2. first-drink (10:15 PM, 80%)
@@ -25,15 +27,21 @@ import { RevealScene } from './scenes/RevealScene';
 export const Experience: React.FC = () => {
   return (
     <div className="iykyk-experience" style={{ width: '100%', position: 'relative' }}>
-      <Scene01Plan />
-      <Scene02FirstDrink />
-      <Scene03Buzzed />
-      <Scene04Drunk />
-      <Scene05PartyPeak />
-      <Scene06PassedOut />
-      <QuestionScene />
-      <RebuildScene />
-      <RevealScene />
+      {/* Narrative Foreground Scene Stack */}
+      <div className="iykyk-scenes" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
+        <Scene01Plan />
+        <Scene02FirstDrink />
+        <Scene03Buzzed />
+        <Scene04Drunk />
+        <Scene05PartyPeak />
+        <Scene06PassedOut />
+        <QuestionScene />
+        <RebuildScene />
+        <RevealScene />
+      </div>
+
+      {/* Persistent Continuous Background Environment System */}
+      <ContinuousBackground />
     </div>
   );
 };

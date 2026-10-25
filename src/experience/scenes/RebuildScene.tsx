@@ -142,7 +142,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'var(--color-ink)',
+        backgroundColor: 'transparent',
         overflow: 'hidden',
         padding: 'var(--space-md)',
       }}

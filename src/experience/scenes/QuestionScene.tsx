@@ -70,7 +70,7 @@ export const QuestionScene: React.FC<QuestionSceneProps> = ({ id = 'question' })
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'var(--color-ink)',
+        backgroundColor: 'transparent',
         overflow: 'hidden',
         padding: 'var(--space-xl)',
       }}
