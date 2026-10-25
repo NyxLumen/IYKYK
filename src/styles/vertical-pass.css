@@ -72,6 +72,80 @@
   display: block;
 }
 
+.env-plate img.env-plate-art {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.env-plate img.env-texture-plate {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Stable plate-specific tonal correction for wide party living room (Task 02C)
+ * Calibrates the naturally high-key white wallpaper to seamlessly bridge
+ * hallway entrance (mean lum ~135) and near speakers (mean lum ~86).
+ * Persists 100% of the time the plate is mounted. */
+.env-plate-livingroom img.env-plate-art {
+  filter: brightness(0.85) contrast(1.08) saturate(1.06);
+}
+
+/* Art-directed individual physical print textures (Task 02C)
+ * Embedded inside each environment plate so textures scale, translate,
+ * and crossfade synchronously with the artwork. Non-repeating full-bleed print scans. */
+.env-texture-paper-fiber {
+  mix-blend-mode: overlay;
+  opacity: 0.14;
+}
+
+.env-texture-photocopy-grime {
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+
+.env-texture-halftone-dots {
+  mix-blend-mode: color-dodge;
+  opacity: 0.10;
+}
+
+.env-texture-ink-speckle {
+  mix-blend-mode: multiply;
+  opacity: 0.15;
+}
+
+.env-texture-photocopy-edge {
+  mix-blend-mode: overlay;
+  opacity: 0.10;
+}
+
+.env-texture-ink-contamination {
+  mix-blend-mode: multiply;
+  opacity: 0.20;
+}
+
+.env-texture-surface-scratches {
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+.env-texture-color-halftone {
+  mix-blend-mode: screen;
+  opacity: 0.12;
+}
+
+.env-texture-paper-recycled {
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+}
+
+.env-texture-paper-fiber-clean {
+  mix-blend-mode: overlay;
+  opacity: 0.08;
+}
+
 /* Mobile responsive framing per environment plate */
 @media (max-width: 720px) {
   .env-plate-hallway img {
@@ -88,38 +162,21 @@
   }
 }
 
-.env-atmosphere {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: multiply;
-  transition: opacity 0.3s ease;
-  will-change: opacity, background;
-}
-
-.env-texture-layer {
+.env-darkening-scrim {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 3;
-  opacity: 0.12;
-  mix-blend-mode: overlay;
-  background-image: url('/production/source/assetsReady/textures/texture-paper-fiber-01.png');
-  background-repeat: repeat;
-  background-size: 540px;
+  background-color: rgba(11, 11, 11, 0.24);
 }
 
-.env-texture-halftone {
+.env-atmosphere {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 4;
-  opacity: 0.05;
-  mix-blend-mode: color-dodge;
-  background-image: url('/production/source/assetsReady/textures/texture-halftone-dots-01.png');
-  background-repeat: repeat;
-  background-size: 320px;
+  mix-blend-mode: multiply;
+  will-change: opacity, background;
 }
 
 .scene-vertical-pass .scene-environment {

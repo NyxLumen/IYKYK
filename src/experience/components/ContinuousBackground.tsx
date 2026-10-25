@@ -10,20 +10,25 @@ export interface ContinuousBackgroundProps {
 }
 
 /**
- * ContinuousBackground establishes the shared, persistent background-environment system (Task 02A).
- * Features:
- * - Persistent #0B0B0B ink-black base field
- * - 7 approved narrative environment plates layered above base
- * - Controlled atmospheric colour washes (amber -> purple -> chaotic green -> cold blue -> black -> warm clarity)
- * - Restrained, continuous paper/print texture that does not reset across scene boundaries
- * - Deliberate graphic interruption reducing the environment to pure black during Scene 06.5 (The Question)
- * - Seamless continuation of the tidy morning bedroom between Rebuild (Scene 07) and Reveal (Scene 08)
- * - Deterministic, idempotent state projection that prevents tween collisions and sticking in reverse scroll
+ * ContinuousBackground establishes the shared, persistent background-environment system.
+ *
+ * Task 02C Refinements:
+ * 1. Party wide-shot brightness & color continuity:
+ *    - Stable, environment-specific tonal correction (.env-plate-livingroom img.env-plate-art)
+ *      balances living room highlights to bridge hallway entrance and near speakers.
+ *    - Harmonized radial atmospheric progression removes sudden linear-gradient jumps or hue flashes.
+ * 2. Seamless transition handoffs (C0 continuity):
+ *    - Strictly continuous transform and opacity values across all scene boundaries.
+ *    - Outgoing plates maintain their exit transforms during adjacent holds, preventing snap on reverse scroll.
+ * 3. Individual physical print textures:
+ *    - Completely eliminated tiled/repeating textures.
+ *    - Embedded art-directed, non-repeating physical print scans into each environment plate
+ *      so textures translate, scale, and crossfade in lockstep with the environment.
+ *    - Question pause is pure ink-black with zero textures mounted.
  */
 export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ className = '' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const atmosphereRef = useRef<HTMLDivElement>(null);
-  const textureRef = useRef<HTMLDivElement>(null);
 
   // Plate Refs
   const plateBedroomRef = useRef<HTMLDivElement>(null);
@@ -49,7 +54,6 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
       const messy = plateMessyRef.current;
       const tidy = plateTidyRef.current;
       const atmosphere = atmosphereRef.current;
-      const texture = textureRef.current;
 
       if (!bedroom || !hallway || !livingRoom || !speakers || !crowd || !messy || !tidy || !atmosphere) {
         return;
@@ -67,12 +71,6 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
       const setAtmosphere = (bg: string, opacity: number = 1) => {
         atmosphere.style.background = bg;
         atmosphere.style.opacity = opacity.toFixed(2);
-      };
-
-      const setTexture = (opacity: number) => {
-        if (texture) {
-          texture.style.opacity = opacity.toFixed(2);
-        }
       };
 
       const getScenePositions = () => {
@@ -111,32 +109,31 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(tidy, 0);
 
           if (sy >= pos.reveal) {
-            setPlate(tidy, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(tidy, 0.48);
+            setAtmosphere('radial-gradient(circle at 75% 75%, rgba(57, 239, 136, 0.08) 0%, rgba(237, 228, 217, 0.16) 45%, rgba(11, 11, 11, 0.68) 100%)');
           } else if (sy >= pos.rebuild) {
-            setPlate(tidy, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(tidy, 0.44);
+            setAtmosphere('linear-gradient(180deg, rgba(237, 228, 217, 0.14) 0%, rgba(11, 11, 11, 0.68) 100%)');
           } else if (sy >= pos.question) {
-            // Graphic pause - pure black
             setAtmosphere('rgba(11, 11, 11, 1)');
           } else if (sy >= pos.passedOut) {
-            setPlate(messy, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(messy, 1.0);
+            setAtmosphere('linear-gradient(180deg, rgba(185, 205, 225, 0.16) 0%, rgba(11, 11, 11, 0.72) 100%)');
           } else if (sy >= pos.partyPeak) {
-            setPlate(crowd, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(crowd, 1.0);
+            setAtmosphere('radial-gradient(circle at 50% 40%, rgba(122, 59, 255, 0.52) 0%, rgba(57, 239, 136, 0.26) 70%, rgba(11, 11, 11, 0.50) 100%)');
           } else if (sy >= pos.drunk) {
-            setPlate(speakers, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(speakers, 1.0);
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(57, 239, 136, 0.18) 65%, rgba(11, 11, 11, 0.68) 100%)');
           } else if (sy >= pos.buzzed) {
-            setPlate(livingRoom, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(livingRoom, 1.0);
+            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.34) 0%, rgba(11, 11, 11, 0.65) 100%)');
           } else if (sy >= pos.firstDrink) {
-            setPlate(hallway, 0.5);
-            setAtmosphere('rgba(11, 11, 11, 0.7)');
+            setPlate(hallway, 1.0);
+            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.28) 0%, rgba(11, 11, 11, 0.62) 100%)');
           } else {
-            setPlate(bedroom, 0.6);
-            setAtmosphere('rgba(11, 11, 11, 0.6)');
+            setPlate(bedroom, 1.0);
+            setAtmosphere('radial-gradient(circle at center, rgba(11, 11, 11, 0.42) 0%, rgba(11, 11, 11, 0.75) 100%)');
           }
         };
 
@@ -155,9 +152,9 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         const sy = window.scrollY;
 
         if (sy >= positions.reveal) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 08: THE REVEAL (Persistent tidy morning continues + refines)
-          // ----------------------------------------------------------------
+          // ================================================================
           const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight - positions.reveal);
           const p = Math.min(1, Math.max(0, (sy - positions.reveal) / maxScroll));
           const tidyOp = 0.44 + 0.04 * p;
@@ -169,15 +166,14 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(livingRoom, 0);
           setPlate(speakers, 0);
           setPlate(crowd, 0);
-          setPlate(messy, 0);
+          setPlate(messy, 0, 'translate(0%, 3%) scale(0.97)');
           setPlate(tidy, tidyOp, `translate(0%, ${tidyY}%) scale(${tidyScale})`);
 
           setAtmosphere('radial-gradient(circle at 75% 75%, rgba(57, 239, 136, 0.08) 0%, rgba(237, 228, 217, 0.16) 45%, rgba(11, 11, 11, 0.68) 100%)');
-          setTexture(0.10);
         } else if (sy >= positions.rebuild) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 07: REBUILD (Tidy morning reconstructs into place)
-          // ----------------------------------------------------------------
+          // ================================================================
           const dist = Math.max(1, positions.reveal - positions.rebuild);
           const p = Math.min(1, Math.max(0, (sy - positions.rebuild) / dist));
 
@@ -186,12 +182,11 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(livingRoom, 0);
           setPlate(speakers, 0);
           setPlate(crowd, 0);
-          setPlate(messy, 0);
+          setPlate(messy, 0, 'translate(0%, 3%) scale(0.97)');
 
           if (p < 0.08) {
-            setPlate(tidy, 0);
+            setPlate(tidy, 0, 'translate(0%, 6%) scale(0.96)');
             setAtmosphere('rgba(11, 11, 11, 1)');
-            setTexture(0.04);
           } else {
             const t = Math.min(1, (p - 0.08) / 0.65);
             const tidyOp = 0.44 * t;
@@ -199,27 +194,27 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const tidyY = 6 * (1 - t);
             setPlate(tidy, tidyOp, `translate(0%, ${tidyY}%) scale(${tidyScale})`);
 
-            setAtmosphere('linear-gradient(180deg, rgba(237, 228, 217, 0.14) 0%, rgba(11, 11, 11, 0.68) 100%)');
-            setTexture(0.04 + 0.06 * t);
+            const alphaAtm = 0.14 * t;
+            setAtmosphere(`linear-gradient(180deg, rgba(237, 228, 217, ${alphaAtm.toFixed(2)}) 0%, rgba(11, 11, 11, 0.68) 100%)`);
           }
         } else if (sy >= positions.question) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 06.5: THE QUESTION (Pivotal graphic pause - pure ink-black field)
-          // ----------------------------------------------------------------
+          // ================================================================
           setPlate(bedroom, 0);
           setPlate(hallway, 0);
           setPlate(livingRoom, 0);
           setPlate(speakers, 0);
           setPlate(crowd, 0);
-          setPlate(messy, 0);
-          setPlate(tidy, 0);
+          setPlate(messy, 0, 'translate(0%, 3%) scale(0.97)');
+          setPlate(tidy, 0, 'translate(0%, 6%) scale(0.96)');
 
           setAtmosphere('rgba(11, 11, 11, 1)');
-          setTexture(0.04);
         } else if (sy >= positions.passedOut) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 06: PASSED OUT (Cold morning bed stillness -> empties to black)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.7 vh stillness hold, ~1.05 vh transition to black
+          // ================================================================
           const dist = Math.max(1, positions.question - positions.passedOut);
           const p = Math.min(1, Math.max(0, (sy - positions.passedOut) / dist));
 
@@ -227,186 +222,206 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(hallway, 0);
           setPlate(livingRoom, 0);
           setPlate(speakers, 0);
-          setPlate(crowd, 0);
+          setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
           setPlate(tidy, 0);
 
-          if (p < 0.30) {
-            // Cold morning bed stillness
+          if (p < 0.40) {
+            // Beat 1: Cold morning bed stillness hold
             setPlate(messy, 1.0, 'none');
             setAtmosphere('linear-gradient(180deg, rgba(185, 205, 225, 0.16) 0%, rgba(11, 11, 11, 0.72) 100%)');
-            setTexture(0.12);
-          } else if (p < 0.48) {
-            // Empties into pure black void
-            const t = (p - 0.30) / 0.18;
+          } else if (p < 0.88) {
+            // Beat 2: Departure & Fade into pure black void
+            const t = (p - 0.40) / 0.48;
             const messyOp = Math.max(0, 1 - t);
             const messyScale = 1 - 0.03 * t;
-            const messyY = 4 * t;
+            const messyY = 3 * t;
             setPlate(messy, messyOp, `translate(0%, ${messyY}%) scale(${messyScale})`);
 
-            setAtmosphere('rgba(11, 11, 11, 1)');
-            setTexture(Math.max(0.04, 0.12 - 0.08 * t));
+            const alphaAtm = Math.max(0.72, 0.72 + 0.28 * t);
+            setAtmosphere(`linear-gradient(180deg, rgba(185, 205, 225, ${(0.16 * (1 - t)).toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaAtm.toFixed(2)}) 100%)`);
           } else {
-            // Screen has emptied completely before question
-            setPlate(messy, 0);
+            // Beat 3: Total blackout void pause before question card appears
+            setPlate(messy, 0, 'translate(0%, 3%) scale(0.97)');
             setAtmosphere('rgba(11, 11, 11, 1)');
-            setTexture(0.04);
           }
         } else if (sy >= positions.partyPeak) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 05: PARTY PEAK (Maximum density -> sudden emotional collapse)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.9 vh hold with single smooth breath pulse, ~1.1 vh collapse sequence
+          // ================================================================
           const dist = Math.max(1, positions.passedOut - positions.partyPeak);
           const p = Math.min(1, Math.max(0, (sy - positions.partyPeak) / dist));
 
           setPlate(bedroom, 0);
           setPlate(hallway, 0);
           setPlate(livingRoom, 0);
-          setPlate(speakers, 0);
+          setPlate(speakers, 0, 'rotate(2deg) scale(1.14)');
           setPlate(tidy, 0);
 
-          if (p < 0.35) {
-            // Peak chaos pulse
-            const pulse = 1.08 + 0.04 * Math.sin(p * Math.PI * 6);
+          if (p < 0.46) {
+            // Peak energy buildup & single smooth breathing pulse
+            // Starts exactly at scale(1.00), arcs to 1.025 at mid-point, returns to 1.00 at 0.46
+            const tPulse = p / 0.46;
+            const pulse = 1.0 + 0.025 * Math.sin(tPulse * Math.PI);
             setPlate(crowd, 1.0, `scale(${pulse})`);
-            setPlate(messy, 0);
-            setAtmosphere('radial-gradient(circle at 50% 40%, rgba(122, 59, 255, 0.52) 0%, rgba(57, 239, 136, 0.28) 70%, rgba(11, 11, 11, 0.5) 100%)');
-            setTexture(0.28);
-          } else if (p < 0.46) {
-            // Emotional rupture / collapse into ink black
-            const t = (p - 0.35) / 0.11;
+            setPlate(messy, 0, 'scale(1.02)');
+            setAtmosphere('radial-gradient(circle at 50% 40%, rgba(122, 59, 255, 0.52) 0%, rgba(57, 239, 136, 0.26) 70%, rgba(11, 11, 11, 0.50) 100%)');
+          } else if (p < 0.64) {
+            // Sudden emotional rupture / collapse into ink black
+            const t = (p - 0.46) / 0.18;
             const crowdOp = Math.max(0, 1 - t);
-            const crowdScale = 1.12 - 0.24 * t;
-            const crowdY = 8 * t;
+            const crowdScale = 1.0 - 0.08 * t;
+            const crowdY = 6 * t;
             setPlate(crowd, crowdOp, `translate(0%, ${crowdY}%) scale(${crowdScale})`);
-            setPlate(messy, 0);
+            setPlate(messy, 0, 'scale(1.02)');
             setAtmosphere('rgba(11, 11, 11, 1)');
-            setTexture(Math.max(0.05, 0.28 - 0.23 * t));
-          } else if (p < 0.55) {
-            // Cold morning messy cuts in
-            const t = (p - 0.46) / 0.09;
-            setPlate(crowd, 0);
+          } else if (p < 0.74) {
+            // Blackout pause hold in pure void
+            setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
+            setPlate(messy, 0, 'scale(1.02)');
+            setAtmosphere('rgba(11, 11, 11, 1)');
+          } else if (p < 0.94) {
+            // Cold morning messy emerges
+            const t = (p - 0.74) / 0.20;
+            setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
             setPlate(messy, t, `scale(${1.02 - 0.02 * t})`);
-            setAtmosphere('linear-gradient(180deg, rgba(185, 205, 225, 0.16) 0%, rgba(11, 11, 11, 0.72) 100%)');
-            setTexture(0.12);
+            setAtmosphere(`linear-gradient(180deg, rgba(185, 205, 225, ${(0.16 * t).toFixed(2)}) 0%, rgba(11, 11, 11, 0.72) 100%)`);
           } else {
-            // Cold morning messy settled
-            setPlate(crowd, 0);
+            // Morning messy settled into stable composition
+            setPlate(crowd, 0, 'translate(0%, 6%) scale(0.92)');
             setPlate(messy, 1.0, 'none');
             setAtmosphere('linear-gradient(180deg, rgba(185, 205, 225, 0.16) 0%, rgba(11, 11, 11, 0.72) 100%)');
-            setTexture(0.12);
           }
         } else if (sy >= positions.drunk) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 04: DRUNK (Tight distorted crop -> crowd explosion)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.5 vh distortion hold, ~1.34 vh transition to crowd
+          // ================================================================
           const dist = Math.max(1, positions.partyPeak - positions.drunk);
           const p = Math.min(1, Math.max(0, (sy - positions.drunk) / dist));
 
           setPlate(bedroom, 0);
           setPlate(hallway, 0);
-          setPlate(livingRoom, 0);
+          setPlate(livingRoom, 0, 'translate(-12%, -4%) scale(1.08)');
           setPlate(messy, 0);
           setPlate(tidy, 0);
 
-          if (p < 0.34) {
-            const rot = -0.5 + 1.5 * (p / 0.34);
-            const sc = 1.08 + 0.06 * (p / 0.34);
+          if (p < 0.28) {
+            // Stable hold: tight distorted crop with subtle drunken tilt
+            // Starts precisely at 0.0deg and scale 1.04 matching arrival from Buzzed
+            const tHold = p / 0.28;
+            const rot = 0.0 + 0.8 * tHold;
+            const sc = 1.04 + 0.02 * tHold;
             setPlate(speakers, 1.0, `rotate(${rot}deg) scale(${sc})`);
-            setPlate(crowd, 0);
-            setAtmosphere('radial-gradient(circle at 50% 35%, rgba(122, 59, 255, 0.46) 0%, rgba(57, 239, 136, 0.22) 65%, rgba(11, 11, 11, 0.6) 100%)');
-            setTexture(0.24);
-          } else if (p < 0.50) {
-            const t = (p - 0.34) / 0.16;
-            const spkOp = Math.max(0.15, 1 - 0.85 * t);
-            const spkSc = 1.14 + 0.11 * t;
-            const spkRot = 1 + 1.5 * t;
+            setPlate(crowd, 0, 'scale(0.94)');
+            setAtmosphere('radial-gradient(circle at 50% 45%, rgba(122, 59, 255, 0.42) 0%, rgba(57, 239, 136, 0.18) 65%, rgba(11, 11, 11, 0.68) 100%)');
+          } else {
+            // Transition: Departure -> Overlap -> Handoff -> Arrival
+            const t = (p - 0.28) / 0.72;
+
+            // Speakers spins and fades out smoothly (1.0 -> 0.0)
+            const spkOp = Math.max(0, 1 - t * 1.15);
+            const spkSc = 1.06 + 0.08 * t;
+            const spkRot = 0.8 + 1.2 * t;
             setPlate(speakers, spkOp, `rotate(${spkRot}deg) scale(${spkSc})`);
 
-            const crowdOp = t;
-            const crowdSc = 0.9 + 0.18 * t;
+            // Crowd scales in from 0.94 and reaches exactly scale(1.00) at t = 1.0
+            const crowdOp = Math.min(1, t * 1.25);
+            const crowdSc = 0.94 + 0.06 * Math.min(1, t);
             setPlate(crowd, crowdOp, `scale(${crowdSc})`);
 
-            setAtmosphere('radial-gradient(circle at 50% 35%, rgba(122, 59, 255, 0.46) 0%, rgba(57, 239, 136, 0.22) 65%, rgba(11, 11, 11, 0.6) 100%)');
-            setTexture(0.24 + 0.04 * t);
-          } else {
-            setPlate(speakers, 0);
-            setPlate(crowd, 1.0, 'none');
-            setAtmosphere('radial-gradient(circle at 50% 35%, rgba(122, 59, 255, 0.46) 0%, rgba(57, 239, 136, 0.22) 65%, rgba(11, 11, 11, 0.6) 100%)');
-            setTexture(0.28);
+            // Smooth atmosphere deepening towards Party Peak
+            const alphaP = 0.42 + 0.10 * t;
+            const alphaG = 0.18 + 0.08 * t;
+            const cy = 45 - 5 * t;
+            setAtmosphere(`radial-gradient(circle at 50% ${cy.toFixed(1)}%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(57, 239, 136, ${alphaG.toFixed(2)}) 68%, rgba(11, 11, 11, 0.60) 100%)`);
           }
         } else if (sy >= positions.buzzed) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 03: BUZZED (Living room expands -> shifts toward speakers)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.55 vh hold, ~1.29 vh transition into speakers
+          // ================================================================
           const dist = Math.max(1, positions.drunk - positions.buzzed);
           const p = Math.min(1, Math.max(0, (sy - positions.buzzed) / dist));
 
           setPlate(bedroom, 0);
-          setPlate(hallway, 0);
+          setPlate(hallway, 0, 'translate(-18%, 0%) scale(1.06)');
           setPlate(crowd, 0);
           setPlate(messy, 0);
           setPlate(tidy, 0);
 
-          if (p < 0.45) {
+          if (p < 0.30) {
+            // Stable hold in living room
             setPlate(livingRoom, 1.0, 'none');
-            setPlate(speakers, 0);
-            setAtmosphere('linear-gradient(135deg, rgba(122, 59, 255, 0.38) 0%, rgba(57, 239, 136, 0.12) 50%, rgba(11, 11, 11, 0.68) 100%)');
-            setTexture(0.20);
+            setPlate(speakers, 0, 'rotate(-1.2deg) scale(1.08)');
+            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.34) 0%, rgba(11, 11, 11, 0.65) 100%)');
           } else {
-            const t = (p - 0.45) / 0.55;
-            const livOp = Math.max(0.18, 1 - 0.82 * t);
+            // Transition: Departure -> Overlap -> Handoff -> Arrival
+            const t = (p - 0.30) / 0.70;
+
+            // Living room shifts left and tilts
+            const livOp = Math.max(0, 1 - t * 1.15);
             const livX = -12 * t;
             const livY = -4 * t;
-            const livSc = 1 + 0.12 * t;
+            const livSc = 1 + 0.08 * t;
             setPlate(livingRoom, livOp, `translate(${livX}%, ${livY}%) scale(${livSc})`);
 
-            const spkOp = t;
-            const spkSc = 1.2 - 0.12 * t;
-            const spkRot = -2 * (1 - t) - 0.5 * t;
+            // Speakers enters from bottom-left angle and arrives cleanly at rotate(0deg) scale(1.04)
+            const spkOp = Math.min(1, t * 1.25);
+            const spkSc = 1.08 - 0.04 * Math.min(1, t);
+            const spkRot = -1.2 * (1 - t);
             setPlate(speakers, spkOp, `rotate(${spkRot}deg) scale(${spkSc})`);
 
-            setAtmosphere('linear-gradient(135deg, rgba(122, 59, 255, 0.38) 0%, rgba(57, 239, 136, 0.12) 50%, rgba(11, 11, 11, 0.68) 100%)');
-            setTexture(0.20);
+            // Seamless atmosphere evolution into Drunk
+            const alphaP = 0.34 + 0.08 * t;
+            const cy = 50 - 5 * t;
+            setAtmosphere(`radial-gradient(circle at 50% ${cy.toFixed(1)}%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, 0.68) 100%)`);
           }
         } else if (sy >= positions.firstDrink) {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 02: FIRST DRINK (Hallway shifts into living room)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.55 vh hold, ~1.29 vh transition into living room
+          // ================================================================
           const dist = Math.max(1, positions.buzzed - positions.firstDrink);
           const p = Math.min(1, Math.max(0, (sy - positions.firstDrink) / dist));
 
+          setPlate(bedroom, 0, 'translate(-14%, 0%) scale(1.04)');
           setPlate(speakers, 0);
           setPlate(crowd, 0);
           setPlate(messy, 0);
           setPlate(tidy, 0);
 
-          const bedOp = Math.max(0, 0.15 * (1 - p * 3));
-          setPlate(bedroom, bedOp, `translate(-14%, 0%) scale(1.04)`);
-
-          if (p < 0.45) {
+          if (p < 0.30) {
+            // Stable hold in party hallway
             setPlate(hallway, 1.0, 'none');
-            setPlate(livingRoom, 0);
-            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.32) 0%, rgba(11, 11, 11, 0.6) 100%)');
-            setTexture(0.16);
+            setPlate(livingRoom, 0, 'translate(6%, 0%) scale(1.06)');
+            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.28) 0%, rgba(11, 11, 11, 0.62) 100%)');
           } else {
-            const t = (p - 0.45) / 0.55;
-            const halOp = Math.max(0.12, 1 - 0.88 * t);
+            // Transition: Departure -> Overlap -> Handoff -> Arrival
+            const t = (p - 0.30) / 0.70;
+
+            // Hallway moves left and expands
+            const halOp = Math.max(0, 1 - t * 1.15);
             const halX = -18 * t;
-            const halSc = 1 + 0.08 * t;
+            const halSc = 1 + 0.06 * t;
             setPlate(hallway, halOp, `translate(${halX}%, 0%) scale(${halSc})`);
 
-            const livOp = t;
+            // Living room expands into view from right-center and settles at (0, 0) scale(1)
+            const livOp = Math.min(1, t * 1.25);
             const livX = 6 * (1 - t);
-            const livSc = 1.1 - 0.1 * t;
+            const livSc = 1.06 - 0.06 * Math.min(1, t);
             setPlate(livingRoom, livOp, `translate(${livX}%, 0%) scale(${livSc})`);
 
-            setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.32) 0%, rgba(11, 11, 11, 0.6) 100%)');
-            setTexture(0.16);
+            // Seamless atmosphere transition into Buzzed
+            const alphaP = 0.28 + 0.06 * t;
+            const alphaRim = 0.62 + 0.03 * t;
+            setAtmosphere(`radial-gradient(circle at 50% 50%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
           }
         } else {
-          // ----------------------------------------------------------------
+          // ================================================================
           // SCENE 01: THE PLAN (Bedroom study calm composition -> shifts to hallway)
-          // ----------------------------------------------------------------
+          // Pacing: ~0.72 vh hold, ~1.12 vh transition into hallway
+          // ================================================================
           const dist = Math.max(1, positions.firstDrink - positions.plan);
           const p = Math.min(1, Math.max(0, (sy - positions.plan) / dist));
 
@@ -417,29 +432,30 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(tidy, 0);
 
           if (p < 0.38) {
+            // Stable hold in bedroom study
             setPlate(bedroom, 1.0, 'none');
-            setPlate(hallway, 0);
+            setPlate(hallway, 0, 'translate(12%, 0%) scale(1.06)');
             setAtmosphere('radial-gradient(circle at center, rgba(11, 11, 11, 0.42) 0%, rgba(11, 11, 11, 0.75) 100%)');
-            setTexture(0.10);
-          } else if (p < 0.55) {
-            const t = (p - 0.38) / 0.17;
-            const bedOp = Math.max(0.15, 1 - 0.85 * t);
+          } else {
+            // Transition: Departure -> Overlap -> Handoff -> Arrival
+            const t = (p - 0.38) / 0.62;
+
+            // Bedroom drifts left
+            const bedOp = Math.max(0, 1 - t * 1.15);
             const bedX = -14 * t;
             const bedSc = 1 + 0.04 * t;
             setPlate(bedroom, bedOp, `translate(${bedX}%, 0%) scale(${bedSc})`);
 
-            const halOp = t;
+            // Hallway enters directionally from right and arrives at (0, 0) scale(1)
+            const halOp = Math.min(1, t * 1.25);
             const halX = 12 * (1 - t);
-            const halSc = 1.06 - 0.06 * t;
+            const halSc = 1.06 - 0.06 * Math.min(1, t);
             setPlate(hallway, halOp, `translate(${halX}%, 0%) scale(${halSc})`);
 
-            setAtmosphere('radial-gradient(circle at 65% 45%, rgba(122, 59, 255, 0.22) 0%, rgba(11, 11, 11, 0.65) 100%)');
-            setTexture(0.10 + 0.05 * t);
-          } else {
-            setPlate(bedroom, 0.15, `translate(-14%, 0%) scale(1.04)`);
-            setPlate(hallway, 1.0, 'none');
-            setAtmosphere('radial-gradient(circle at 65% 45%, rgba(122, 59, 255, 0.22) 0%, rgba(11, 11, 11, 0.65) 100%)');
-            setTexture(0.15);
+            // Atmosphere shifts towards party purple
+            const alphaP = 0.0 + 0.28 * t;
+            const alphaRim = 0.75 - 0.13 * t;
+            setAtmosphere(`radial-gradient(circle at 50% 50%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
           }
         }
       };
@@ -475,85 +491,157 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
       className={`continuous-background ${className}`}
       aria-hidden="true"
     >
-      {/* Narrative Environment Plates Stack */}
+      {/* Narrative Environment Plates Stack with Art-Directed Physical Print Textures */}
       <div className="env-plates-container">
-        {/* 1. Bedroom (Plan) */}
+        {/* 1. Bedroom (Plan) - restrained physical paper fibers */}
         <div ref={plateBedroomRef} className="env-plate env-plate-bedroom">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-bedroom-study-night.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-paper-fiber"
+            src="/production/source/assetsReady/textures/texture-paper-fiber-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 2. Party Hallway (First Drink) */}
+        {/* 2. Party Hallway (First Drink) - expressive photocopy grain & halftone dots */}
         <div ref={plateHallwayRef} className="env-plate env-plate-hallway">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-party-hallway-entrance.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-photocopy-grime"
+            src="/production/source/assetsReady/textures/texture-photocopy-grime-01.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="env-texture-plate env-texture-halftone-dots"
+            src="/production/source/assetsReady/textures/texture-halftone-dots-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 3. Living Room (Buzzed) */}
+        {/* 3. Living Room (Buzzed) - paper ink speckles & photocopy edge wear */}
         <div ref={plateLivingRoomRef} className="env-plate env-plate-livingroom">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-party-living-room-master.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-ink-speckle"
+            src="/production/source/assetsReady/textures/texture-paper-ink-speckle-01.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="env-texture-plate env-texture-photocopy-edge"
+            src="/production/source/assetsReady/textures/texture-photocopy-edge-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 4. Near Speakers (Drunk) */}
+        {/* 4. Near Speakers (Drunk) - heavy ink contamination bleed & surface scratches */}
         <div ref={plateSpeakersRef} className="env-plate env-plate-speakers">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-party-near-speakers.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-ink-contamination"
+            src="/production/source/assetsReady/textures/texture-ink-contamination-01.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="env-texture-plate env-texture-surface-scratches"
+            src="/production/source/assetsReady/textures/texture-surface-scratches-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 5. Crowd Peak (Party Peak) */}
+        {/* 5. Crowd Peak (Party Peak) - high photocopy distress & color halftone screen */}
         <div ref={plateCrowdRef} className="env-plate env-plate-crowd">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-party-crowd-peak.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-photocopy-grime"
+            src="/production/source/assetsReady/textures/texture-photocopy-grime-01.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="env-texture-plate env-texture-color-halftone"
+            src="/production/source/assetsReady/textures/texture-color-halftone-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 6. Morning Messy (Passed Out) */}
+        {/* 6. Morning Messy (Passed Out) - cold recycled paper fiber */}
         <div ref={plateMessyRef} className="env-plate env-plate-messy">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-bedroom-morning-messy.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-paper-recycled"
+            src="/production/source/assetsReady/textures/texture-paper-recycled-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
 
-        {/* 7. Morning Tidy (Rebuild & Reveal) - Persistent across both */}
+        {/* 7. Morning Tidy (Rebuild & Reveal) - clean, stable physical paper surfaces */}
         <div ref={plateTidyRef} className="env-plate env-plate-tidy">
           <img
+            className="env-plate-art"
             src="/production/source/assetsReady/environments/env-bedroom-morning-tidy.png"
             alt=""
             loading="eager"
             decoding="async"
           />
+          <img
+            className="env-texture-plate env-texture-paper-fiber-clean"
+            src="/production/source/assetsReady/textures/texture-paper-fiber-01.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
       </div>
 
+      {/* Persistent Background Darkening Scrim (Task 02B) */}
+      <div className="env-darkening-scrim" aria-hidden="true" />
+
       {/* Atmospheric Hue & Vignette Overlay */}
       <div ref={atmosphereRef} className="env-atmosphere" />
-
-      {/* Shared Restrained Print Texture Overlay */}
-      <div ref={textureRef} className="env-texture-layer" />
-      <div className="env-texture-halftone" />
     </div>
   );
 };

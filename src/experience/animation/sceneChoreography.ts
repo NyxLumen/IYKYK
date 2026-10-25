@@ -91,16 +91,17 @@ const planChoreography: SceneChoreography = {
 
 /* ------------------------------------------------------------------ */
 /* Scene 02 — FIRST DRINK                                              */
-/* Panel slide entrance. Natural flow, no pin.                         */
+/* Panel slide entrance. Pinned for deliberate pacing.                 */
 /* ------------------------------------------------------------------ */
 
 const firstDrinkChoreography: SceneChoreography = {
   scroll: {
-    pin: false,
+    pin: true,
     pinSpacing: true,
-    start: 'top 85%',
-    end: 'bottom 15%',
+    start: 'top top',
+    end: '+=900',
     scrub: 0.8,
+    anticipatePin: 1,
   },
   buildTimeline(tl, container, collage) {
     const cards = collage ? selectAll(collage, '.art-card') : [];
@@ -139,16 +140,17 @@ const firstDrinkChoreography: SceneChoreography = {
 
 /* ------------------------------------------------------------------ */
 /* Scene 03 — BUZZED                                                   */
-/* Composition expands outward. Energy builds.                         */
+/* Composition expands outward. Pinned for deliberate pacing.          */
 /* ------------------------------------------------------------------ */
 
 const buzzedChoreography: SceneChoreography = {
   scroll: {
-    pin: false,
+    pin: true,
     pinSpacing: true,
-    start: 'top 80%',
-    end: 'bottom 15%',
+    start: 'top top',
+    end: '+=900',
     scrub: 0.8,
+    anticipatePin: 1,
   },
   buildTimeline(tl, container, collage) {
     const cards = collage ? selectAll(collage, '.art-card') : [];
@@ -189,7 +191,7 @@ const drunkChoreography: SceneChoreography = {
     pin: true,
     pinSpacing: true,
     start: 'top top',
-    end: '+=700',
+    end: '+=900',
     scrub: 0.6,
     anticipatePin: 1,
   },
@@ -238,7 +240,7 @@ const partyPeakChoreography: SceneChoreography = {
     pin: true,
     pinSpacing: true,
     start: 'top top',
-    end: '+=900',
+    end: '+=1000',
     scrub: 0.6,
     anticipatePin: 1,
   },
@@ -293,7 +295,7 @@ const passedOutChoreography: SceneChoreography = {
     pin: true,
     pinSpacing: true,
     start: 'top top',
-    end: '+=700',
+    end: '+=800',
     scrub: 0.5,
     anticipatePin: 1,
   },
