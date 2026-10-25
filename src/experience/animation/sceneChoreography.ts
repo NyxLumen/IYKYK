@@ -1,5 +1,5 @@
 import type { SceneId } from '../data/types';
-import type { DepthPlane, EntranceStyle } from '../scenes/SceneArtwork';
+import type { DepthPlane, EntranceStyle, ExitStyle } from '../scenes/SceneArtwork';
 
 /**
  * Per-scene scroll choreography configuration.
@@ -8,11 +8,17 @@ import type { DepthPlane, EntranceStyle } from '../scenes/SceneArtwork';
  *
  * Depth Plane Mapping:
  * - Plane A: Continuous Environment Plate (untouched, in ContinuousBackground)
- * - Plane B: Distant collage material (slow drift ~0.3x)
+ * - Plane B: Distant collage material & integrated textures (slow drift ~0.3x)
  * - Plane C: Protagonist Hero (independent narrative movement ~1.0x)
- * - Plane D: Secondary props and narrative objects (responsive movement ~1.4x)
- * - Plane E: Near-field collage fragments (rapid foreground parallax ~2.2x)
+ * - Plane D: Secondary props and narrative objects (responsive movement ~1.6x)
+ * - Plane E: Near-field collage fragments & stickers (rapid foreground parallax ~2.4x)
  * - Independent HUD & Typography layers
+ *
+ * Art-Direction Rules (Task 03B.1):
+ * - NO circular or continuous rotation during scroll parallax
+ * - Parallax is purely positional (x, y displacement across depth planes)
+ * - Deliberate exit choreography for all elements (slide-down, slide-left, slide-right, slide-up, scatter)
+ * - Textures enter/exit as integrated material washes (fade-material), never as cartoon stickers
  */
 
 type StorySceneId = Extract<SceneId, 'plan' | 'first-drink' | 'buzzed' | 'drunk' | 'party-peak' | 'passed-out'>;
@@ -43,8 +49,8 @@ const select = (el: HTMLElement, selector: string) =>
   el.querySelector<HTMLElement>(selector);
 
 /**
- * Animate tactile physical collage entrances for all secondary cards
- * based on their data-entrance and data-plane attributes.
+ * Animate tactile physical collage entrances for all secondary elements
+ * based on their data-entrance and data-role attributes.
  */
 const animateCardsEntrance = (
   tl: GSAPTimeline,
@@ -52,62 +58,153 @@ const animateCardsEntrance = (
   planeDelayMap: { B: number; C: number; D: number; E: number } = { B: 0.06, C: 0.1, D: 0.16, E: 0.22 },
   durationScale = 1.0
 ) => {
-  const cards = Array.from(container.querySelectorAll<HTMLElement>('.art-card'));
-  cards.forEach((card, i) => {
-    const entrance = (card.dataset.entrance as EntranceStyle) || 'slide';
-    const plane = (card.dataset.plane as DepthPlane) || 'D';
-    if (plane === 'C') return; // Protagonist handled individually with custom narrative posture
+  const elements = Array.from(container.querySelectorAll<HTMLElement>('.scene-layer'));
+  elements.forEach((el, i) => {
+    const role = el.dataset.role || 'object';
+    if (role === 'protagonist') return; // Protagonist handled individually per scene
+
+    const entrance = (el.dataset.entrance as EntranceStyle) || (role === 'texture' ? 'fade-material' : 'slide');
+    const plane = (el.dataset.plane as DepthPlane) || 'D';
 
     const baseTime = planeDelayMap[plane] ?? 0.15;
     const startTime = baseTime + ((i % 5) * 0.035);
 
+    // Textures enter softly as ambient material washes (never bouncy stickers)
+    if (role === 'texture' || entrance === 'fade-material') {
+      tl.fromTo(
+        el,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.35 * durationScale, ease: 'power1.out' },
+        startTime
+      );
+      return;
+    }
+
     switch (entrance) {
       case 'stamp':
         tl.fromTo(
-          card,
-          { scale: 2.1, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.28 * durationScale, ease: 'back.out(2)' },
+          el,
+          { scale: 1.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.26 * durationScale, ease: 'back.out(1.8)' },
           startTime
         );
         break;
       case 'drop':
         tl.fromTo(
-          card,
-          { y: -80, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.3 * durationScale, ease: 'power3.out' },
+          el,
+          { y: -70, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.28 * durationScale, ease: 'power3.out' },
           startTime
         );
         break;
       case 'paper':
         tl.fromTo(
-          card,
-          { x: -70, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.34 * durationScale, ease: 'power2.out' },
+          el,
+          { x: -60, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.32 * durationScale, ease: 'power2.out' },
           startTime
         );
         break;
       case 'burst':
         tl.fromTo(
-          card,
-          { scale: 0.2, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.25 * durationScale, ease: 'back.out(1.8)' },
+          el,
+          { scale: 0.3, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.24 * durationScale, ease: 'back.out(1.6)' },
           startTime
         );
         break;
       case 'whip':
         tl.fromTo(
-          card,
-          { x: 90, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.3 * durationScale, ease: 'power3.out' },
+          el,
+          { x: 80, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.28 * durationScale, ease: 'power3.out' },
           startTime
         );
         break;
       case 'slide':
       default:
         tl.fromTo(
-          card,
-          { y: 45, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.28 * durationScale, ease: 'power2.out' },
+          el,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.26 * durationScale, ease: 'power2.out' },
+          startTime
+        );
+        break;
+    }
+  });
+};
+
+/**
+ * Animate deliberate exit choreography for all secondary elements
+ * based on their data-exit attribute (slide-down, slide-left, slide-right, slide-up, scatter, fade-material).
+ */
+const animateCardsExit = (
+  tl: GSAPTimeline,
+  container: HTMLElement,
+  exitStart = 0.72,
+  durationScale = 1.0
+) => {
+  const elements = Array.from(container.querySelectorAll<HTMLElement>('.scene-layer'));
+  elements.forEach((el, i) => {
+    const role = el.dataset.role || 'object';
+    if (role === 'protagonist') return; // Protagonist handled individually
+
+    const exit = (el.dataset.exit as ExitStyle) || (role === 'texture' ? 'fade-material' : 'slide-down');
+    const plane = (el.dataset.plane as DepthPlane) || 'D';
+
+    // Stagger exits: near-field stickers leave first, props second, distant textures last
+    const planeOffset = plane === 'E' ? 0 : plane === 'D' ? 0.03 : 0.06;
+    const startTime = exitStart + planeOffset + ((i % 4) * 0.02);
+
+    if (role === 'texture' || exit === 'fade-material') {
+      tl.to(
+        el,
+        { opacity: 0, duration: 0.22 * durationScale, ease: 'power1.in' },
+        startTime
+      );
+      return;
+    }
+
+    switch (exit) {
+      case 'slide-left':
+        tl.to(
+          el,
+          { x: -80, opacity: 0, duration: 0.22 * durationScale, ease: 'power2.in' },
+          startTime
+        );
+        break;
+      case 'slide-right':
+        tl.to(
+          el,
+          { x: 80, opacity: 0, duration: 0.22 * durationScale, ease: 'power2.in' },
+          startTime
+        );
+        break;
+      case 'slide-up':
+        tl.to(
+          el,
+          { y: -70, opacity: 0, duration: 0.22 * durationScale, ease: 'power2.in' },
+          startTime
+        );
+        break;
+      case 'scatter':
+        tl.to(
+          el,
+          {
+            x: i % 2 === 0 ? 100 : -100,
+            y: i % 3 === 0 ? -70 : 80,
+            opacity: 0,
+            duration: 0.25 * durationScale,
+            ease: 'power3.in',
+          },
+          startTime
+        );
+        break;
+      case 'slide-down':
+      default:
+        tl.to(
+          el,
+          { y: 80, opacity: 0, duration: 0.22 * durationScale, ease: 'power2.in' },
           startTime
         );
         break;
@@ -117,7 +214,7 @@ const animateCardsEntrance = (
 
 /* ------------------------------------------------------------------ */
 /* Scene 01 — THE PLAN                                                 */
-/* Calm, structured, sober preparation. Protagonist commands focus.    */
+/* Calm, structured study collage. Character right, typography left.  */
 /* ------------------------------------------------------------------ */
 
 const planChoreography: SceneChoreography = {
@@ -137,58 +234,50 @@ const planChoreography: SceneChoreography = {
     const copy = select(container, '.scene-copy');
     const hud = select(container, '.scene-hud');
 
-    // Phase 1: Staggered Entrance by Depth Plane (0.0 → 0.42)
+    // Phase 1: Staggered Entrance (0.0 → 0.40)
     if (hud) {
       tl.fromTo(hud, { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out' }, 0.05);
     }
     if (planeC) {
-      // Protagonist rises with weight and composure
-      tl.fromTo(planeC, { opacity: 0, y: 35, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power2.out' }, 0.1);
+      tl.fromTo(planeC, { opacity: 0, y: 35, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power2.out' }, 0.08);
     }
-    animateCardsEntrance(tl, container, { B: 0.06, C: 0.1, D: 0.16, E: 0.22 });
+    animateCardsEntrance(tl, container, { B: 0.06, C: 0.08, D: 0.14, E: 0.20 });
     if (copy) {
-      tl.fromTo(copy, { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.24);
+      tl.fromTo(copy, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.20);
     }
 
-    // Phase 2: Independent Multiplane Scrubbed Parallax Hold (0.42 → 0.72)
+    // Phase 2: True Positional Multiplane Parallax Hold (0.40 → 0.72)
+    // Pure linear displacements, zero rotation
     if (planeB) {
-      tl.to(planeB, { y: -8, ease: 'none', duration: 0.3 }, 0.42); // 0.3x
+      tl.to(planeB, { y: -8, ease: 'none', duration: 0.32 }, 0.40); // 0.3x
     }
     if (planeC) {
-      tl.to(planeC, { y: -20, ease: 'none', duration: 0.3 }, 0.42); // 1.0x (Hero reference)
+      tl.to(planeC, { y: -22, ease: 'none', duration: 0.32 }, 0.40); // 1.0x (Hero anchor)
     }
     if (planeD) {
-      tl.to(planeD, { y: -32, ease: 'none', duration: 0.3 }, 0.42); // 1.6x
+      tl.to(planeD, { y: -36, ease: 'none', duration: 0.32 }, 0.40); // 1.6x
     }
     if (planeE) {
-      tl.to(planeE, { y: -48, x: 6, ease: 'none', duration: 0.3 }, 0.42); // 2.4x
+      tl.to(planeE, { y: -54, ease: 'none', duration: 0.32 }, 0.40); // 2.4x
     }
 
-    // Phase 3: Staggered Exit (0.72 → 1.0)
-    if (planeE) {
-      tl.to(planeE, { y: -30, opacity: 0, rotation: 8, duration: 0.18, ease: 'power2.in' }, 0.72);
-    }
-    if (planeD) {
-      tl.to(planeD, { y: 20, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.75);
-    }
+    // Phase 3: Deliberate Exit Choreography (0.72 → 1.0)
+    animateCardsExit(tl, container, 0.72);
     if (copy) {
-      tl.to(copy, { y: -20, opacity: 0, duration: 0.18, ease: 'power2.in' }, 0.76);
+      tl.to(copy, { x: -40, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.75);
     }
     if (planeC) {
-      tl.to(planeC, { x: -30, opacity: 0.15, scale: 0.98, duration: 0.22, ease: 'power2.in' }, 0.78);
-    }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
+      tl.to(planeC, { x: -40, opacity: 0.15, scale: 0.98, duration: 0.24, ease: 'power2.in' }, 0.76);
     }
     if (hud) {
-      tl.to(hud, { opacity: 0, duration: 0.15, ease: 'power1.in' }, 0.84);
+      tl.to(hud, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
     }
   },
 };
 
 /* ------------------------------------------------------------------ */
 /* Scene 02 — FIRST DRINK                                              */
-/* Social arrival. Holding drink close-up. Glassware & sticker enter.  */
+/* Social arrival. Character left, glassware & typography right.      */
 /* ------------------------------------------------------------------ */
 
 const firstDrinkChoreography: SceneChoreography = {
@@ -213,49 +302,44 @@ const firstDrinkChoreography: SceneChoreography = {
       tl.fromTo(hud, { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.2, ease: 'power1.out' }, 0.05);
     }
     if (planeC) {
-      tl.fromTo(planeC, { opacity: 0, y: 35, x: 20 }, { opacity: 1, y: 0, x: 0, duration: 0.38, ease: 'power2.out' }, 0.08);
+      tl.fromTo(planeC, { opacity: 0, y: 35, x: -20 }, { opacity: 1, y: 0, x: 0, duration: 0.36, ease: 'power2.out' }, 0.08);
     }
-    animateCardsEntrance(tl, container, { B: 0.06, C: 0.08, D: 0.15, E: 0.22 });
+    animateCardsEntrance(tl, container, { B: 0.06, C: 0.08, D: 0.14, E: 0.20 });
     if (copy) {
-      tl.fromTo(copy, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out' }, 0.24);
+      tl.fromTo(copy, { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: 'power2.out' }, 0.22);
     }
 
-    // Parallax Hold
+    // Parallax Hold: Positional only, zero rotation
     if (planeB) {
-      tl.to(planeB, { y: -10, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeB, { y: -10, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeC) {
-      tl.to(planeC, { y: -24, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeC, { y: -24, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeD) {
-      tl.to(planeD, { y: -36, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeD, { y: -40, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeE) {
-      tl.to(planeE, { y: -54, x: -8, rotation: 10, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeE, { y: -60, ease: 'none', duration: 0.32 }, 0.40);
     }
 
-    // Exit
-    if (planeE) {
-      tl.to(planeE, { scale: 0.8, opacity: 0, y: -25, duration: 0.18, ease: 'power2.in' }, 0.72);
-    }
-    if (planeD) {
-      tl.to(planeD, { y: 25, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.75);
-    }
+    // Exit: Staggered physical departures
+    animateCardsExit(tl, container, 0.72);
     if (copy) {
-      tl.to(copy, { opacity: 0, y: -15, duration: 0.18, ease: 'power1.in' }, 0.76);
+      tl.to(copy, { x: 40, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.75);
     }
     if (planeC) {
-      tl.to(planeC, { scale: 1.04, opacity: 0.2, y: -20, duration: 0.22, ease: 'power2.in' }, 0.78);
+      tl.to(planeC, { x: 30, scale: 1.03, opacity: 0.2, duration: 0.24, ease: 'power2.in' }, 0.76);
     }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
+    if (hud) {
+      tl.to(hud, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
     }
   },
 };
 
 /* ------------------------------------------------------------------ */
 /* Scene 03 — BUZZED                                                   */
-/* Energy rises. Looser posture. Vibrations & graphic swirls.         */
+/* Energy rises. High-right character, left sound system, angled text. */
 /* ------------------------------------------------------------------ */
 
 const buzzedChoreography: SceneChoreography = {
@@ -280,49 +364,44 @@ const buzzedChoreography: SceneChoreography = {
       tl.fromTo(hud, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.05);
     }
     if (planeC) {
-      tl.fromTo(planeC, { opacity: 0, scale: 0.92, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0.08);
+      tl.fromTo(planeC, { opacity: 0, scale: 0.94, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0.08);
     }
-    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.14, E: 0.20 });
+    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.13, E: 0.18 });
     if (copy) {
-      tl.fromTo(copy, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out' }, 0.24);
+      tl.fromTo(copy, { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.26, ease: 'power2.out' }, 0.22);
     }
 
-    // Parallax Hold
+    // Parallax Hold: Positional only, zero rotation
     if (planeB) {
-      tl.to(planeB, { y: -12, rotation: 2, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeB, { y: -12, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeC) {
-      tl.to(planeC, { y: -26, x: 8, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeC, { y: -26, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeD) {
-      tl.to(planeD, { y: -42, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeD, { y: -44, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeE) {
-      tl.to(planeE, { y: -62, x: 12, rotation: 18, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeE, { y: -64, ease: 'none', duration: 0.32 }, 0.40);
     }
 
     // Exit
-    if (planeE) {
-      tl.to(planeE, { opacity: 0, scale: 0.7, y: -25, duration: 0.18, ease: 'power2.in' }, 0.72);
-    }
-    if (planeD) {
-      tl.to(planeD, { y: 30, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.75);
-    }
+    animateCardsExit(tl, container, 0.72);
     if (copy) {
-      tl.to(copy, { opacity: 0, y: -15, duration: 0.18, ease: 'power1.in' }, 0.76);
+      tl.to(copy, { opacity: 0, y: -20, duration: 0.18, ease: 'power1.in' }, 0.75);
     }
     if (planeC) {
-      tl.to(planeC, { rotation: 2, scale: 1.05, opacity: 0.22, duration: 0.22, ease: 'power2.in' }, 0.78);
+      tl.to(planeC, { x: -30, scale: 1.04, opacity: 0.2, duration: 0.24, ease: 'power2.in' }, 0.76);
     }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
+    if (hud) {
+      tl.to(hud, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
     }
   },
 };
 
 /* ------------------------------------------------------------------ */
 /* Scene 04 — DRUNK                                                    */
-/* Asymmetric overlaps, distortion, clock fragments intrude.          */
+/* Asymmetric overlaps, distortion, shattered clocks tumble outwards.  */
 /* ------------------------------------------------------------------ */
 
 const drunkChoreography: SceneChoreography = {
@@ -344,62 +423,47 @@ const drunkChoreography: SceneChoreography = {
 
     // Entrance
     if (hud) {
-      tl.fromTo(hud, { opacity: 0, rotation: -2 }, { opacity: 1, rotation: -0.5, duration: 0.2, ease: 'power1.out' }, 0.05);
+      tl.fromTo(hud, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power1.out' }, 0.05);
     }
     if (planeC) {
-      tl.fromTo(planeC, { opacity: 0, y: 40, rotation: -6 }, { opacity: 1, y: 0, rotation: -3, duration: 0.36, ease: 'power3.out' }, 0.08);
+      tl.fromTo(planeC, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.36, ease: 'power3.out' }, 0.08);
     }
-    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.14, E: 0.19 });
+    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.13, E: 0.18 });
     if (copy) {
-      tl.fromTo(copy, { y: 25, opacity: 0, rotation: 1 }, { y: 0, opacity: 1, rotation: 0, duration: 0.25, ease: 'power2.out' }, 0.26);
+      tl.fromTo(copy, { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.26, ease: 'power2.out' }, 0.24);
     }
 
-    // Parallax Hold: Clock fragments tumble continuously
+    // Parallax Hold: Positional displacement only, zero rotating planes
     if (planeB) {
-      tl.to(planeB, { y: -14, rotation: -2, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeB, { y: -14, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeC) {
-      tl.to(planeC, { y: -22, rotation: -1, scale: 1.02, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeC, { y: -26, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeD) {
-      tl.to(planeD, { y: -44, rotation: -22, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeD, { y: -48, ease: 'none', duration: 0.32 }, 0.40);
     }
     if (planeE) {
-      tl.to(planeE, { y: -68, x: -10, rotation: 20, ease: 'none', duration: 0.3 }, 0.42);
+      tl.to(planeE, { y: -68, ease: 'none', duration: 0.32 }, 0.40);
     }
 
-    // Specific narrative tumbling holds
-    const clock1 = select(container, '.drunk-clock-1');
-    if (clock1) {
-      tl.to(clock1, { rotation: '+=20', y: -24, ease: 'none', duration: 0.3 }, 0.42);
-    }
-    const clock2 = select(container, '.drunk-clock-2');
-    if (clock2) {
-      tl.to(clock2, { rotation: '-=25', y: -18, ease: 'none', duration: 0.3 }, 0.42);
-    }
-
-    // Exit
-    if (planeE) {
-      tl.to(planeE, { opacity: 0, y: -30, duration: 0.18, ease: 'power2.in' }, 0.72);
-    }
-    if (planeD) {
-      tl.to(planeD, { y: 40, rotation: -30, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.74);
-    }
+    // Exit: Clocks and shards scatter outward, bottles drop
+    animateCardsExit(tl, container, 0.72);
     if (copy) {
-      tl.to(copy, { opacity: 0, y: -15, duration: 0.18, ease: 'power1.in' }, 0.76);
+      tl.to(copy, { opacity: 0, y: -20, duration: 0.18, ease: 'power1.in' }, 0.75);
     }
     if (planeC) {
-      tl.to(planeC, { rotation: 4, scale: 1.08, opacity: 0.2, duration: 0.24, ease: 'power2.in' }, 0.76);
+      tl.to(planeC, { y: 35, scale: 1.05, opacity: 0.2, duration: 0.24, ease: 'power2.in' }, 0.76);
     }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
+    if (hud) {
+      tl.to(hud, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.82);
     }
   },
 };
 
 /* ------------------------------------------------------------------ */
 /* Scene 05 — PARTY PEAK                                               */
-/* Euphoric dancing. Maximum foreground energy. Sudden collapse.      */
+/* Monumental center dancing hero. Confetti frame. Collapse into morning. */
 /* ------------------------------------------------------------------ */
 
 const partyPeakChoreography: SceneChoreography = {
@@ -419,67 +483,49 @@ const partyPeakChoreography: SceneChoreography = {
     const copy = select(container, '.scene-copy');
     const hud = select(container, '.scene-hud');
 
-    // Entrance: Explosive burst across all collage planes
+    // Entrance
     if (hud) {
       tl.fromTo(hud, { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.05);
     }
     if (planeC) {
-      tl.fromTo(planeC, { opacity: 0, scale: 0.85, y: 35 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.4)' }, 0.08);
+      tl.fromTo(planeC, { opacity: 0, scale: 0.88, y: 35 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.4)' }, 0.08);
     }
     animateCardsEntrance(tl, container, { B: 0.04, C: 0.08, D: 0.12, E: 0.16 });
     if (copy) {
-      tl.fromTo(copy, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: 'back.out(1.3)' }, 0.22);
+      tl.fromTo(copy, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: 'back.out(1.3)' }, 0.22);
     }
 
-    // Parallax Hold: Peak energy and floating confetti/streamers
+    // Parallax Hold: High energy positional drift
     if (planeB) {
-      tl.to(planeB, { y: -12, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeB, { y: -12, ease: 'none', duration: 0.3 }, 0.40);
     }
     if (planeC) {
-      tl.to(planeC, { y: -28, scale: 1.03, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeC, { y: -28, scale: 1.02, ease: 'none', duration: 0.3 }, 0.40);
     }
     if (planeD) {
-      tl.to(planeD, { y: -45, rotation: -18, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeD, { y: -48, ease: 'none', duration: 0.3 }, 0.40);
     }
     if (planeE) {
-      tl.to(planeE, { y: -72, x: 12, ease: 'none', duration: 0.28 }, 0.42);
-    }
-
-    // Dynamic streamers drift and confetti float
-    const streamers = select(container, '.peak-streamers');
-    if (streamers) {
-      tl.to(streamers, { x: -32, rotation: 6, ease: 'none', duration: 0.28 }, 0.42);
-    }
-    const confetti = select(container, '.peak-confetti');
-    if (confetti) {
-      tl.to(confetti, { y: -55, scale: 1.05, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeE, { y: -72, ease: 'none', duration: 0.3 }, 0.40);
     }
 
     // Exit: Hard Sudden Collapse into Morning
-    if (planeE) {
-      tl.to(planeE, { y: 60, opacity: 0, duration: 0.22, ease: 'power3.in' }, 0.70);
-    }
-    if (planeD) {
-      tl.to(planeD, { y: 50, opacity: 0, duration: 0.22, ease: 'power3.in' }, 0.72);
-    }
+    animateCardsExit(tl, container, 0.70);
     if (planeC) {
-      tl.to(planeC, { y: 70, scale: 0.9, opacity: 0, duration: 0.25, ease: 'power3.in' }, 0.74);
+      tl.to(planeC, { y: 70, scale: 0.9, opacity: 0, duration: 0.24, ease: 'power3.in' }, 0.74);
     }
     if (copy) {
-      tl.to(copy, { y: 30, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.76);
+      tl.to(copy, { y: 30, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0.75);
     }
     if (hud) {
       tl.to(hud, { opacity: 0, y: -10, duration: 0.15, ease: 'power1.in' }, 0.78);
-    }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.80);
     }
   },
 };
 
 /* ------------------------------------------------------------------ */
 /* Scene 06 — PASSED OUT                                               */
-/* Exhaustion, stillness. Heavy downward settle. Morning interruption. */
+/* Exhaustion, stillness. Character low on bed. Alarms blaring.        */
 /* ------------------------------------------------------------------ */
 
 const passedOutChoreography: SceneChoreography = {
@@ -499,57 +545,42 @@ const passedOutChoreography: SceneChoreography = {
     const copy = select(container, '.scene-copy');
     const hud = select(container, '.scene-hud');
 
-    // Entrance: Cold reality arrival
+    // Entrance
     if (hud) {
       tl.fromTo(hud, { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.05);
     }
     if (planeC) {
-      // Protagonist motionless close-up on bed
       tl.fromTo(planeC, { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power1.out' }, 0.08);
     }
-    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.14, E: 0.18 });
+    animateCardsEntrance(tl, container, { B: 0.05, C: 0.08, D: 0.13, E: 0.18 });
     if (copy) {
-      tl.fromTo(copy, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.25, ease: 'power1.out' }, 0.24);
+      tl.fromTo(copy, { opacity: 0, x: -25 }, { opacity: 1, x: 0, duration: 0.25, ease: 'power1.out' }, 0.22);
     }
 
-    // Parallax Hold: Character remains motionless (0.0x), alarm clock vibrates
+    // Parallax Hold: Stillness on character, subtle alarm displacement
     if (planeC) {
-      tl.to(planeC, { y: -4, ease: 'none', duration: 0.28 }, 0.42); // Stillness
+      tl.to(planeC, { y: -4, ease: 'none', duration: 0.3 }, 0.40); // Motionless focal point
     }
     if (planeB) {
-      tl.to(planeB, { y: -8, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeB, { y: -8, ease: 'none', duration: 0.3 }, 0.40);
     }
     if (planeD) {
-      tl.to(planeD, { y: -18, rotation: 3, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeD, { y: -22, ease: 'none', duration: 0.3 }, 0.40);
     }
     if (planeE) {
-      tl.to(planeE, { y: -25, ease: 'none', duration: 0.28 }, 0.42);
-    }
-
-    // Alarm clock vibration
-    const alarm = select(container, '.passed-alarm');
-    if (alarm) {
-      tl.to(alarm, { x: 3, rotation: -4, ease: 'none', duration: 0.28 }, 0.42);
+      tl.to(planeE, { y: -32, ease: 'none', duration: 0.3 }, 0.40);
     }
 
     // Exit: Screen empties into the void for Scene 07 Question pause
-    if (planeD) {
-      tl.to(planeD, { y: 25, opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.70);
-    }
-    if (planeE) {
-      tl.to(planeE, { opacity: 0, duration: 0.18, ease: 'power1.in' }, 0.73);
-    }
+    animateCardsExit(tl, container, 0.70);
     if (planeC) {
-      tl.to(planeC, { opacity: 0, y: 15, duration: 0.25, ease: 'power2.in' }, 0.75);
+      tl.to(planeC, { opacity: 0, y: 25, duration: 0.25, ease: 'power2.in' }, 0.74);
     }
     if (copy) {
-      tl.to(copy, { opacity: 0, y: 10, duration: 0.15, ease: 'power1.in' }, 0.78);
+      tl.to(copy, { opacity: 0, y: 15, duration: 0.18, ease: 'power1.in' }, 0.76);
     }
     if (hud) {
       tl.to(hud, { opacity: 0, duration: 0.15 }, 0.80);
-    }
-    if (planeB) {
-      tl.to(planeB, { opacity: 0, duration: 0.2, ease: 'power1.in' }, 0.82);
     }
   },
 };
