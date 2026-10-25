@@ -13,6 +13,46 @@ export type SceneId =
 
 export type CompositionMode = 'fixed' | 'crop' | 'layered';
 
+export type AssetCategory =
+  | 'character'
+  | 'environment'
+  | 'object'
+  | 'graphic'
+  | 'texture'
+  | 'brand';
+
+export type AssetVariant =
+  | 'close'
+  | 'full'
+  | 'rebuild'
+  | 'default';
+
+export interface AssetDimensions {
+  width: number;
+  height: number;
+  aspectRatio: number;
+}
+
+export interface AssetDefinition {
+  id: string;
+  kebabId: string;
+  slug: string;
+  src: string;
+  category: AssetCategory;
+  variant?: AssetVariant;
+  description?: string;
+  format: string;
+  dimensions: AssetDimensions;
+  width: number;
+  height: number;
+  hasAlpha: boolean;
+  hasTransparency: boolean;
+  fileSizeBytes: number;
+  fileSizeKB: number;
+  preload: boolean;
+  sceneIds: SceneId[];
+}
+
 export type LayerType =
   | 'background'
   | 'environment'
@@ -40,6 +80,7 @@ export interface LayerTransform {
 export interface LayerConfig {
   id: string;
   type: LayerType;
+  assetId?: string;
   label?: string;
   content?: string;
   position?: {
