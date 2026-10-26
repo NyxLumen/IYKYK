@@ -20,6 +20,17 @@
   --color-green-alpha: rgba(57, 239, 136, 0.2);
   --color-green-glow: rgba(57, 239, 136, 0.5);
 
+  /* Scrollbar Design Tokens (Custom Thin & Elongated Purple Scrollbar) */
+  --scrollbar-width: 6px;
+  --scrollbar-width-mobile: 3px;
+  --scrollbar-thumb-min-length: 96px;
+  --scrollbar-thumb-min-length-mobile: 60px;
+  --scrollbar-track-bg: transparent;
+  --scrollbar-track-hover: transparent;
+  --scrollbar-thumb-bg: var(--color-purple);
+  --scrollbar-thumb-hover: #9258ff;
+  --scrollbar-thumb-active: #a978ff;
+
   /* Typography Stacks (design.md Section 04) */
   --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
   --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;

@@ -1,0 +1,190 @@
+/**
+ * Custom Purple Scrollbar Stylesheet
+ * 
+ * Replaces default browser scrollbars across the entire application with a thin,
+ * elongated purple pill scrollbar sticking to the right edge with zero background container.
+ */
+
+@import './tokens.css';
+
+/* -------------------------------------------------------------------------- */
+/* 1. Global Standard CSS Scrollbar Replacement (Firefox, Chrome 121+, Safari 18.2+) */
+/* -------------------------------------------------------------------------- */
+
+:root,
+html,
+body,
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg, var(--color-purple)) transparent;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. WebKit / Chromium Engine Custom Scrollbars (Chrome, Safari, Edge, Brave, Opera) */
+/* -------------------------------------------------------------------------- */
+
+/* Custom width: thin (6px) directly on the edge */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width, 6px);
+  height: var(--scrollbar-width, 6px);
+}
+
+/* Scrollbar Track: fully transparent - only the purple pill is visible */
+::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: transparent !important;
+}
+
+/* Scrollbar Thumb: purple pill, elongated with min-height */
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg, var(--color-purple));
+  background-clip: padding-box;
+  border-radius: 9999px;
+  min-height: var(--scrollbar-thumb-min-length, 96px); /* Elongated pill */
+  min-width: var(--scrollbar-thumb-min-length, 96px);
+  border: 1px solid rgba(122, 59, 255, 0.4);
+  box-shadow: 0 0 8px var(--color-purple-alpha);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover state: amplified energy and purple neon glow */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover, #9258ff);
+  border-color: rgba(122, 59, 255, 0.7);
+  box-shadow: 0 0 14px var(--color-purple-glow);
+}
+
+/* Active / Dragging state */
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active, #a978ff);
+  border-color: rgba(122, 59, 255, 0.95);
+  box-shadow: 0 0 18px var(--color-purple-glow);
+}
+
+/* Corner junction */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Utility class for hiding native scrollbar when interactive overlay is active */
+/* -------------------------------------------------------------------------- */
+
+html.has-custom-scrollbar,
+html.has-custom-scrollbar body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html.has-custom-scrollbar::-webkit-scrollbar,
+html.has-custom-scrollbar body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Interactive Custom Overlay Scrollbar Component Styles                   */
+/* -------------------------------------------------------------------------- */
+
+/* Sticks directly to the right edge with zero background container */
+.custom-scrollbar-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--scrollbar-width, 6px);
+  z-index: var(--z-debug, 9999);
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.custom-scrollbar-overlay.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Transparent track - zero enclosing background */
+.custom-scrollbar-track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+  pointer-events: auto;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Only the purple pill is visible */
+.custom-scrollbar-thumb {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: var(--scrollbar-thumb-min-length, 96px);
+  background-color: var(--scrollbar-thumb-bg, var(--color-purple));
+  border-radius: 9999px;
+  border: 1px solid rgba(122, 59, 255, 0.4);
+  box-shadow: 0 0 8px var(--color-purple-alpha);
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-scrollbar-thumb:hover,
+.custom-scrollbar-thumb.is-hovered {
+  background-color: var(--scrollbar-thumb-hover, #9258ff);
+  border-color: rgba(122, 59, 255, 0.7);
+  box-shadow: 0 0 14px var(--color-purple-glow);
+}
+
+.custom-scrollbar-thumb:active,
+.custom-scrollbar-thumb.is-dragging {
+  cursor: grabbing;
+  background-color: var(--scrollbar-thumb-active, #a978ff);
+  border-color: rgba(122, 59, 255, 0.95);
+  box-shadow: 0 0 20px var(--color-purple-glow);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Mobile Responsiveness: Thinner profile on mobile viewports (<= 768px)    */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  :root {
+    --scrollbar-width: 3px;
+    --scrollbar-thumb-min-length: 60px;
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-width, 3px);
+    height: var(--scrollbar-width, 3px);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-height: var(--scrollbar-thumb-min-length, 60px);
+    min-width: var(--scrollbar-thumb-min-length, 60px);
+    border: none;
+    box-shadow: 0 0 6px var(--color-purple-glow);
+  }
+
+  .custom-scrollbar-overlay {
+    width: var(--scrollbar-width, 3px);
+  }
+
+  .custom-scrollbar-thumb {
+    min-height: var(--scrollbar-thumb-min-length, 60px);
+    border: none;
+    box-shadow: 0 0 6px var(--color-purple-glow);
+  }
+}
+

@@ -5,13 +5,13 @@ import { AnalogClockSvg } from './AnalogClockSvg';
 import { BatterySvg } from './BatterySvg';
 
 export const ComponentVerificationView: React.FC = () => {
-  const [tab, setTab] = useState<'all' | 'battery' | 'clocks' | 'closeup'>('all');
+  const [tab, setTab] = useState<'all' | 'battery' | 'clocks' | 'closeup' | 'scrollbar'>('all');
   const rebuildProgress = 54;
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const view = params.get('verify') || params.get('view');
-    if (view === 'battery' || view === 'clocks' || view === 'closeup') {
+    if (view === 'battery' || view === 'clocks' || view === 'closeup' || view === 'scrollbar') {
       setTab(view);
     }
   }, []);
@@ -54,7 +54,7 @@ export const ComponentVerificationView: React.FC = () => {
 
           {/* Navigation Tabs */}
           <nav style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            {(['all', 'battery', 'clocks', 'closeup'] as const).map((t) => (
+            {(['all', 'battery', 'clocks', 'closeup', 'scrollbar'] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
@@ -298,6 +298,121 @@ export const ComponentVerificationView: React.FC = () => {
                 <li><strong>Acid Green (#39EF88):</strong> Center registration pin & 12 o'clock crosshair mark.</li>
                 <li><strong>Editorial Zine Labels:</strong> Crisp IYKYK / COLLAGE LAB typographic details.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 5: CUSTOM PURPLE SCROLLBAR VERIFICATION */}
+      {(tab === 'all' || tab === 'scrollbar') && (
+        <section style={{ marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-display, 'Bebas Neue', Anton, sans-serif)",
+                fontSize: '1.8rem',
+                margin: 0,
+                color: '#39EF88',
+              }}
+            >
+              CUSTOM PURPLE SCROLLBAR SYSTEM
+            </h2>
+            <span className="badge-tape badge-purple">GLOBAL CSS & OVERLAY REPLACEMENT</span>
+          </div>
+
+          <p style={{ color: 'rgba(237, 228, 217, 0.75)', marginBottom: '1.5rem', maxWidth: '800px', lineHeight: 1.6 }}>
+            Replaces the default gray browser scrollbars with a custom, thin (6px), elongated (96px min thumb),
+            electric-purple (<code style={{ color: '#7A3BFF', background: 'rgba(122,59,255,0.15)', padding: '0.1rem 0.4rem', borderRadius: '2px' }}>var(--color-purple) = #7A3BFF</code>) scrollbar across all views and containers.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            {/* Scrollable Container 1: Narrative Log */}
+            <div
+              style={{
+                background: '#141414',
+                border: '1px solid rgba(237, 228, 217, 0.25)',
+                borderRadius: '6px',
+                padding: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <span className="badge-tape badge-purple">VERTICAL SCROLLER TEST</span>
+                <span style={{ fontSize: '0.8rem', color: '#7A3BFF' }}>WIDTH: 6PX | MIN-HEIGHT: 96PX</span>
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'rgba(237, 228, 217, 0.7)', marginBottom: '1rem' }}>
+                Scroll the container below to test the thin purple scrollbar, track padding, and hover/active states:
+              </p>
+              <div
+                style={{
+                  height: '240px',
+                  overflowY: 'auto',
+                  background: '#0B0B0B',
+                  border: '1px solid rgba(122, 59, 255, 0.3)',
+                  borderRadius: '4px',
+                  padding: '1rem',
+                }}
+              >
+                {Array.from({ length: 14 }).map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      padding: '0.65rem 0.85rem',
+                      marginBottom: '0.5rem',
+                      background: i % 2 === 0 ? 'rgba(237, 228, 217, 0.04)' : 'rgba(122, 59, 255, 0.08)',
+                      borderLeft: `3px solid ${i % 2 === 0 ? '#39EF88' : '#7A3BFF'}`,
+                      borderRadius: '2px',
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    <div style={{ fontFamily: "var(--font-display, 'Bebas Neue', Anton, sans-serif)", fontSize: '1rem', color: '#EDE4D9' }}>
+                      SCENE ITEM {String(i + 1).padStart(2, '0')} — CHAPTER {i + 1}
+                    </div>
+                    <div style={{ color: 'rgba(237, 228, 217, 0.65)', fontSize: '0.78rem' }}>
+                      Collage timeline slice verification. Scroll thumb retains elongated minimum height and vibrant #7A3BFF tone.
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Scrollable Container 2: Design Tokens & Specifications */}
+            <div
+              style={{
+                background: '#141414',
+                border: '1px solid rgba(237, 228, 217, 0.25)',
+                borderRadius: '6px',
+                padding: '1.5rem',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <span className="badge-tape badge-green">SPECIFICATIONS & TOKENS</span>
+                <span style={{ fontSize: '0.8rem', color: '#39EF88' }}>CANONICAL #7A3BFF</span>
+              </div>
+              <ul style={{ fontSize: '0.85rem', color: 'rgba(237, 228, 217, 0.85)', lineHeight: 1.8, paddingLeft: '1.2rem', margin: 0 }}>
+                <li><strong>Profile Width:</strong> <code style={{ color: '#7A3BFF' }}>6px Desktop / 3px Mobile</code> (Thinner hairline profile on screens &le; 768px)</li>
+                <li><strong>Thumb Length:</strong> <code style={{ color: '#7A3BFF' }}>96px min (Desktop) / 60px min (Mobile)</code></li>
+                <li><strong>Thumb Color:</strong> <code style={{ color: '#7A3BFF' }}>#7A3BFF</code> (<code style={{ color: '#39EF88' }}>var(--color-purple)</code> from <code style={{ color: '#EDE4D9' }}>tokens.css</code>)</li>
+                <li><strong>Hover State:</strong> <code style={{ color: '#9258ff' }}>#9258FF</code> with <code style={{ color: '#7A3BFF' }}>rgba(122, 59, 255, 0.5)</code> neon glow</li>
+                <li><strong>Active / Drag:</strong> <code style={{ color: '#a978ff' }}>#A978FF</code> with increased glow</li>
+                <li><strong>Track:</strong> <code style={{ color: '#EDE4D9' }}>transparent</code> (zero enclosing background container, only the pill is visible)</li>
+                <li><strong>Placement:</strong> Flush against right viewport edge (<code style={{ color: '#39EF88' }}>right: 0</code>)</li>
+                <li><strong>Cross-Browser:</strong> W3C standard + WebKit / Blink engine pseudo-elements</li>
+              </ul>
+
+              <div style={{ marginTop: '1.25rem', padding: '0.85rem', background: '#0B0B0B', borderRadius: '4px', border: '1px solid rgba(237, 228, 217, 0.15)' }}>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(237, 228, 217, 0.6)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  PURPLE PALETTE VERIFICATION
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                  <div style={{ width: '36px', height: '36px', background: '#7A3BFF', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.2)' }} />
+                  <div>
+                    <div style={{ fontWeight: 'bold', fontSize: '0.9rem', color: '#EDE4D9' }}>--color-purple: #7A3BFF</div>
+                    <div style={{ fontSize: '0.75rem', color: 'rgba(237, 228, 217, 0.6)' }}>Canonical purple defined in tokens.css line 10</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
