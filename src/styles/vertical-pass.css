@@ -1129,11 +1129,20 @@
 .scene-reveal {
   position: relative;
   width: 100%;
+  height: auto;
+  min-height: 100svh;
+  overflow: visible;
+  isolation: isolate;
+  background: transparent;
+}
+
+.reveal-morning-frame {
+  position: relative;
+  width: 100%;
   height: 100svh;
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-  background: transparent;
 }
 
 .scene-reveal .texture-halftone {
@@ -1384,6 +1393,493 @@
   pointer-events: none;
   transform: rotate(10deg);
   filter: drop-shadow(0 0 12px rgba(46, 248, 160, 0.5));
+}
+
+/* -------------------------------------------------------------------------- */
+/* Scroll cue in Morning Frame                                               */
+/* -------------------------------------------------------------------------- */
+.reveal-scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  background: rgba(237, 228, 217, 0.08);
+  border: 1px solid rgba(237, 228, 217, 0.28);
+  border-radius: 9999px;
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.reveal-scroll-cue:hover {
+  background: rgba(57, 239, 136, 0.12);
+  border-color: var(--color-green);
+  color: var(--color-green);
+  transform: translateY(2px);
+}
+
+.reveal-scroll-cue svg {
+  animation: cueBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes cueBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Distinctive Pill CTA Control (Task 04A)                                    */
+/* -------------------------------------------------------------------------- */
+.brand-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 0.35rem 0.45rem 0.35rem 1.75rem;
+  background-color: var(--color-ink);
+  border: 2px solid var(--color-paper);
+  border-radius: 9999px;
+  gap: 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  outline: none;
+  user-select: none;
+}
+
+.brand-cta-pill:focus-visible {
+  outline: 2.5px solid var(--color-green);
+  outline-offset: 4px;
+}
+
+.brand-cta-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-paper);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.95), 0 0 35px var(--color-green-glow);
+}
+
+.brand-cta-pill-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.4vw, 1.55rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-cta-pill-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  color: var(--color-ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.brand-cta-pill:hover .brand-cta-pill-circle {
+  transform: scale(1.05);
+}
+
+.brand-cta-pill:hover .brand-cta-pill-arrow {
+  transform: translateX(3px);
+}
+
+.brand-cta-pill-arrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-cta-pill--purple .brand-cta-pill-circle {
+  background-color: var(--color-purple);
+  color: var(--color-paper);
+}
+
+/* -------------------------------------------------------------------------- */
+/* BEAT 2: BOLD EDITORIAL END CARD & FOOTER FRAME                             */
+/* -------------------------------------------------------------------------- */
+.reveal-endcard-frame {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background-color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 30;
+  border-top: 1px solid rgba(237, 228, 217, 0.2);
+  box-shadow: 0 -40px 80px rgba(11, 11, 11, 0.95);
+}
+
+/* Top Boundary Frame: Checkerboard Strip & Timeline Ruler Motif */
+.endcard-ruler-motif {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--color-ink);
+}
+
+.endcard-checkerboard {
+  width: 100%;
+  height: 14px;
+  background-image: conic-gradient(
+    #ede4d9 90deg,
+    #0b0b0b 90deg 180deg,
+    #ede4d9 180deg 270deg,
+    #0b0b0b 270deg
+  );
+  background-size: 14px 14px;
+}
+
+.endcard-ruler-scale {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid rgba(237, 228, 217, 0.35);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.ruler-milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+}
+
+.ruler-tick {
+  width: 1px;
+  background-color: rgba(237, 228, 217, 0.5);
+}
+
+.ruler-tick--major {
+  height: 14px;
+  background-color: var(--color-paper);
+}
+
+.ruler-tick--medium {
+  height: 9px;
+  background-color: rgba(237, 228, 217, 0.4);
+}
+
+.ruler-tick--minor {
+  height: 6px;
+  background-color: rgba(237, 228, 217, 0.25);
+}
+
+.ruler-tick--green {
+  background-color: var(--color-green);
+  width: 2px;
+}
+
+.ruler-subticks {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex: 1;
+  padding-top: 0;
+}
+
+.ruler-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: rgba(237, 228, 217, 0.65);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ruler-label--green {
+  color: var(--color-green);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ruler-milestone.active-marker {
+  position: relative;
+}
+
+.ruler-dot-green {
+  position: absolute;
+  right: -10px;
+  top: 1px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  box-shadow: 0 0 10px var(--color-green-glow);
+}
+
+/* Central Editorial Billboard */
+.endcard-billboard {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(1.2rem, 3vh, 3rem) clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.75rem, 1.8vh, 1.8rem);
+  position: relative;
+  flex: 1;
+  justify-content: center;
+}
+
+.endcard-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.35vw, 1.5rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  font-weight: 700;
+}
+
+.endcard-headline-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+.endcard-monumental-headline {
+  font-family: var(--font-display);
+  font-size: clamp(8.5rem, 22vw, 18.5rem);
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  margin: 0;
+  text-shadow: 0 0 50px rgba(122, 59, 255, 0.25), 6px 6px 0px rgba(0, 0, 0, 0.95);
+  user-select: none;
+}
+
+.endcard-cta-lockup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Section Anchor Navigation */
+.endcard-section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.85rem, 1.8vw, 1.8rem);
+  margin-top: 0.25rem;
+  z-index: 5;
+}
+
+.endcard-nav-link {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  transition: color 0.15s ease, transform 0.15s ease;
+  line-height: 1;
+}
+
+.endcard-nav-link:hover {
+  color: var(--color-green);
+  transform: translateY(-1px);
+}
+
+.endcard-nav-link:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.endcard-nav-star {
+  color: var(--color-green);
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Compact Editorial Footer */
+.endcard-footer {
+  width: 100%;
+  border-top: 1px solid rgba(237, 228, 217, 0.25);
+  background-color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Upper Tier: Split Grid */
+.endcard-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(237, 228, 217, 0.2);
+}
+
+.footer-grid-cell {
+  padding: clamp(0.9rem, 1.5vh, 1.35rem) clamp(1.5rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+}
+
+.footer-grid-left {
+  border-right: 1px solid rgba(237, 228, 217, 0.2);
+}
+
+.footer-narrative-quote {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.85vw, 0.9rem);
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(237, 228, 217, 0.8);
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-grid-right {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.footer-ticker-track {
+  display: flex;
+  gap: 2rem;
+  animation: footerTicker 25s linear infinite;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.1vw, 1.25rem);
+  letter-spacing: 0.1em;
+  color: var(--color-paper);
+  text-transform: uppercase;
+}
+
+@keyframes footerTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Lower Tier: Anchor Bar */
+.endcard-footer-anchor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.75rem, 1.2vh, 1rem) clamp(1.5rem, 4vw, 3.5rem);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(237, 228, 217, 0.65);
+}
+
+.footer-anchor-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-paper);
+}
+
+.footer-globe-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-purple);
+}
+
+.footer-brand-tag {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.footer-anchor-center {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-pill-button {
+  background: transparent;
+  border: 1px solid rgba(237, 228, 217, 0.35);
+  border-radius: 9999px;
+  padding: 0.32rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.footer-pill-button:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+  background-color: rgba(57, 239, 136, 0.08);
+}
+
+.footer-pill-button:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 3px;
+}
+
+.footer-anchor-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-signature {
+  font-size: 0.72rem;
+  color: rgba(237, 228, 217, 0.6);
+}
+
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-paper);
+  letter-spacing: 0.12em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-cta-pill,
+  .brand-cta-pill-circle,
+  .brand-cta-pill-arrow,
+  .footer-ticker-track,
+  .reveal-scroll-cue svg {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* Rebuild Reconnecting Fragments */
@@ -1727,10 +2223,18 @@
 
   /* Scene 09 Mobile Redesign */
   .scene-reveal {
+    height: auto !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .reveal-morning-frame {
     height: 100svh !important;
     min-height: 100svh !important;
     padding: 0 !important;
     overflow: hidden !important;
+    position: relative !important;
   }
 
   .scene-reveal .scene-hud {
@@ -1872,6 +2376,137 @@
 
   .reveal-protagonist-wrapper .reveal-stars {
     display: none !important;
+  }
+
+  /* End Card Mobile Overrides (Task 04A) */
+  .reveal-endcard-frame {
+    min-height: 100svh !important;
+    height: auto !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .endcard-checkerboard {
+    height: 10px !important;
+    background-size: 10px 10px !important;
+  }
+
+  .endcard-ruler-scale {
+    padding: 0 0.85rem !important;
+    height: 32px !important;
+  }
+
+  .endcard-ruler-scale .ruler-subticks,
+  .endcard-ruler-scale .milestone-drink,
+  .endcard-ruler-scale .milestone-buzzed,
+  .endcard-ruler-scale .milestone-drunk {
+    display: none !important;
+  }
+
+  .endcard-billboard {
+    padding: 1.8rem 1rem 1.2rem 1rem !important;
+    gap: 1.1rem !important;
+  }
+
+  .endcard-kicker {
+    flex-direction: column !important;
+    gap: 0.15rem !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .endcard-headline-stage {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    width: 100% !important;
+    margin: 0.25rem 0 0.5rem 0 !important;
+  }
+
+  .endcard-monumental-headline {
+    font-size: clamp(5.4rem, 25vw, 7.5rem) !important;
+    line-height: 0.84 !important;
+    margin: 0 !important;
+  }
+
+  .endcard-cta-lockup {
+    position: static !important;
+    transform: none !important;
+    margin: 0.85rem auto 0 auto !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .brand-cta-pill {
+    min-height: 48px !important;
+    padding: 0.35rem 0.45rem 0.35rem 1.35rem !important;
+    gap: 0.95rem !important;
+    max-width: 290px !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .brand-cta-pill-label {
+    font-size: 1.15rem !important;
+  }
+
+  .brand-cta-pill-circle {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .endcard-section-nav {
+    flex-wrap: wrap !important;
+    gap: 0.4rem 0.75rem !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+
+  .endcard-nav-link {
+    font-size: 0.88rem !important;
+    padding: 0.2rem 0.35rem !important;
+  }
+
+  .endcard-footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-grid-left {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(237, 228, 217, 0.2) !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  .footer-narrative-quote {
+    font-size: 0.74rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+
+  .footer-grid-right {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .endcard-footer-anchor {
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    text-align: center !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  .footer-anchor-center {
+    justify-content: center !important;
+    gap: 0.45rem !important;
+  }
+
+  .footer-pill-button {
+    font-size: 0.68rem !important;
+    padding: 0.35rem 0.75rem !important;
+    min-height: 38px !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   /* Mobile Rebuild Fragments */
