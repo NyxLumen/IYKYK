@@ -9,13 +9,12 @@ export interface CTAProps {
 }
 
 /**
- * Editorial CTA Control (Task 04A: IYKYK Editorial CTA & Footer).
- * Inspired by high-contrast editorial poster reference:
- * - Pill-shaped outlined label with warm-paper border (#EDE4D9)
- * - Ink-black tactile pill background (#0B0B0B)
- * - Separate circular arrow element attached on the right
- * - High-impact Acid Green (#39EF88) or Electric Purple (#7A3BFF) circle accent
- * - Fully accessible keyboard focus and reduced-motion compliant
+ * Editorial Dual-Pill CTA Control (Task 04A/04B Redesign).
+ * Directly matches the reference's nested dual-pill architecture:
+ * - Outer capsule container (#0B0B0B with subtle border)
+ * - Distinct inner pill outlining the label text (#EDE4D9 border)
+ * - Separate circular arrow element attached on the right (#39EF88 solid disc with arrow)
+ * - Accessible keyboard focus, tactile hover transitions, reduced-motion compliant
  */
 export const CTA: React.FC<CTAProps> = ({
   label = 'KNOW MORE',
@@ -47,14 +46,16 @@ export const CTA: React.FC<CTAProps> = ({
         }
       }}
     >
-      <span className="brand-cta-pill-label">{cleanLabel}</span>
+      <span className="brand-cta-word-pill">
+        <span className="brand-cta-pill-label">{cleanLabel}</span>
+      </span>
       <span className="brand-cta-pill-circle" aria-hidden="true">
         <svg
           className="brand-cta-pill-arrow"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2.75"
+          strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         >

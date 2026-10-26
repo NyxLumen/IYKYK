@@ -1441,18 +1441,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 54px;
-  padding: 0.35rem 0.45rem 0.35rem 1.75rem;
   background-color: var(--color-ink);
-  border: 2px solid var(--color-paper);
+  border: 1.5px solid rgba(237, 228, 217, 0.4);
   border-radius: 9999px;
-  gap: 1.25rem;
+  gap: 12px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 4px 4px 0px rgba(0, 0, 0, 0.95);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
   outline: none;
   user-select: none;
+  padding: 6px 8px 6px 6px;
 }
 
 .brand-cta-pill:focus-visible {
@@ -1462,43 +1461,59 @@
 
 .brand-cta-pill:hover {
   transform: translateY(-2px);
-  border-color: var(--color-paper);
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.95), 0 0 35px var(--color-green-glow);
+  border-color: rgba(237, 228, 217, 0.8);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.95), 0 0 25px rgba(57, 239, 136, 0.25);
+}
+
+/* Distinct Inner Word Pill */
+.brand-cta-word-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.75px solid var(--color-paper);
+  border-radius: 9999px;
+  padding: 0.65rem 2.6rem;
+  background-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.brand-cta-pill:hover .brand-cta-word-pill {
+  background-color: rgba(237, 228, 217, 0.06);
+  border-color: #FFFFFF;
 }
 
 .brand-cta-pill-label {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 1.4vw, 1.55rem);
+  font-family: var(--font-body);
+  font-size: clamp(1.35rem, 1.7vw, 1.85rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-paper);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
 }
 
+/* Distinct Attached Arrow Circle */
 .brand-cta-pill-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
   border-radius: 50%;
   background-color: var(--color-green);
   color: var(--color-ink);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
   flex-shrink: 0;
 }
 
 .brand-cta-pill:hover .brand-cta-pill-circle {
-  transform: scale(1.05);
-}
-
-.brand-cta-pill:hover .brand-cta-pill-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px) scale(1.04);
+  background-color: #3DFF92;
+  box-shadow: 0 0 20px rgba(57, 239, 136, 0.6);
 }
 
 .brand-cta-pill-arrow {
+  width: 32px;
+  height: 32px;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1698,26 +1713,40 @@
 
 /* Prominent Editorial CTA Scaling */
 .endcard-cta-lockup .brand-cta-pill {
-  width: clamp(480px, 38vw, 580px);
-  min-height: 96px;
-  padding: 0.55rem 0.65rem 0.55rem 2.8rem;
-  border: 3px solid var(--color-paper);
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.95), 0 0 45px rgba(0, 0, 0, 0.9);
+  width: auto;
+  max-width: 580px;
+  min-height: 88px;
+  padding: 7px 9px 7px 7px;
+  border: 1.75px solid rgba(237, 228, 217, 0.45);
+  box-shadow: 0 4px 35px rgba(0, 0, 0, 0.95), 6px 6px 0px rgba(0, 0, 0, 0.95);
+  gap: 12px;
+}
+
+.endcard-cta-lockup .brand-cta-word-pill {
+  height: 74px;
+  padding: 0.65rem clamp(2.2rem, 2.8vw, 3.5rem);
+  border: 2px solid var(--color-paper);
 }
 
 .endcard-cta-lockup .brand-cta-pill-label {
-  font-size: clamp(2.2rem, 2.7vw, 2.9rem);
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 1.9vw, 1.95rem);
   letter-spacing: 0.12em;
   color: var(--color-paper);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1;
 }
 
 .endcard-cta-lockup .brand-cta-pill-circle {
-  width: 78px;
-  height: 78px;
+  width: 74px;
+  height: 74px;
   background-color: var(--color-green);
   color: var(--color-ink);
+}
+
+.endcard-cta-lockup .brand-cta-pill-arrow {
+  width: 34px;
+  height: 34px;
 }
 
 /* Section Anchor Navigation */
@@ -2494,22 +2523,36 @@
   }
 
   .endcard-cta-lockup .brand-cta-pill {
-    width: clamp(270px, 78vw, 310px) !important;
-    min-height: 60px !important;
-    padding: 0.35rem 0.45rem 0.35rem 1.5rem !important;
-    gap: 0.75rem !important;
-    border: 2px solid var(--color-paper) !important;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.9) !important;
+    width: auto !important;
+    max-width: 320px !important;
+    min-height: 58px !important;
+    padding: 5px 6px 5px 5px !important;
+    gap: 8px !important;
+    border: 1.5px solid rgba(237, 228, 217, 0.45) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 4px 4px 0px rgba(0, 0, 0, 0.95) !important;
+  }
+
+  .endcard-cta-lockup .brand-cta-word-pill {
+    height: 48px !important;
+    padding: 0.35rem 1.4rem !important;
+    border: 1.5px solid var(--color-paper) !important;
   }
 
   .endcard-cta-lockup .brand-cta-pill-label {
-    font-size: 1.5rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 1.15rem !important;
     letter-spacing: 0.1em !important;
+    font-weight: 500 !important;
   }
 
   .endcard-cta-lockup .brand-cta-pill-circle {
     width: 48px !important;
     height: 48px !important;
+  }
+
+  .endcard-cta-lockup .brand-cta-pill-arrow {
+    width: 22px !important;
+    height: 22px !important;
   }
 
   .endcard-section-nav {
