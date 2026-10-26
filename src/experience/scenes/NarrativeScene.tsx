@@ -62,14 +62,18 @@ export const NarrativeScene: React.FC<NarrativeSceneProps> = ({ sceneId }) => {
         )}
       </header>
 
-      <div className={`scene-copy scene-copy-${sceneId}`}>
-        <span className={`badge-tape ${scene.meter && scene.meter.value <= 20 ? 'badge-green' : 'badge-purple'}`}>
-          SCENE {scene.sceneNumber} // {scene.time ?? scene.title} // {scene.meter?.value ?? 0}%
-        </span>
-        <h2 className="headline-hero font-display">{scene.copy?.headline ?? scene.title}</h2>
-        {scene.copy?.note && <p className="scene-note">{scene.copy.note}</p>}
-        <p className="scene-description">{scene.storyAction}</p>
-      </div>
+      {sceneId !== 'first-drink' ? (
+        <div className={`scene-copy scene-copy-${sceneId}`}>
+          <span className={`badge-tape ${scene.meter && scene.meter.value <= 20 ? 'badge-green' : 'badge-purple'}`}>
+            SCENE {scene.sceneNumber} // {scene.time ?? scene.title} // {scene.meter?.value ?? 0}%
+          </span>
+          <h2 className="headline-hero font-display">{scene.copy?.headline ?? scene.title}</h2>
+          {scene.copy?.note && <p className="scene-note">{scene.copy.note}</p>}
+          <p className="scene-description">{scene.storyAction}</p>
+        </div>
+      ) : (
+        <h2 className="sr-only">JUST ONE.</h2>
+      )}
       <span className="scene-edge-mark" aria-hidden="true">IYKYK / {scene.id.toUpperCase()}</span>
     </section>
   );

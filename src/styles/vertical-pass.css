@@ -635,88 +635,199 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Scene 02: FIRST DRINK — Social Arrival & Glassware Sprawl                  */
-/* Protagonist holding drink close-up (Plane C: ~54vw Desktop, ~82vw Mobile)  */
+/* Scene 02: JUST ONE — Rebuilt Editorial Collage Composition                 */
+/* Visual hierarchy: Protagonist (anchor) > JUST ONE brush > party objects   */
 /* -------------------------------------------------------------------------- */
-.scene-collage-first-drink .drink-smear {
-  right: -2%;
-  top: 0%;
-  width: clamp(620px, 58vw, 900px);
-  height: clamp(420px, 50vh, 700px);
-  mix-blend-mode: multiply;
-  opacity: 0.4;
-  mask-image: linear-gradient(to bottom left, black 25%, transparent 85%);
-  -webkit-mask-image: linear-gradient(to bottom left, black 25%, transparent 85%);
-  pointer-events: none;
-}
-.scene-collage-first-drink .drink-mark {
-  left: 4%;
-  top: 10%;
-  width: clamp(160px, 14vw, 220px);
-  transform: rotate(-8deg);
-}
 .scene-collage-first-drink .drink-character {
-  left: 36%;
-  top: 48%;
-  transform: translate(-50%, -46%);
-  width: clamp(620px, 54vw, 840px);
+  left: 51%;
+  bottom: 0;
+  top: auto;
+  transform: translateX(-50%);
+  height: 94vh;
+  max-height: 950px;
+  width: auto;
+  z-index: var(--z-character);
 }
+
 .scene-collage-first-drink .drink-character img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(4px 0 0 #ffffff)
+          drop-shadow(-4px 0 0 #ffffff)
+          drop-shadow(0 4px 0 #ffffff)
+          drop-shadow(0 -4px 0 #ffffff)
+          drop-shadow(3px 3px 0 #ffffff)
+          drop-shadow(-3px -3px 0 #ffffff)
+          drop-shadow(3px -3px 0 #ffffff)
+          drop-shadow(-3px 3px 0 #ffffff)
+          drop-shadow(0 22px 38px rgba(0, 0, 0, 0.65));
+}
+
+.scene-collage-first-drink .drink-brush-green {
+  left: -2%;
+  top: 24%;
+  width: clamp(380px, 46vw, 680px);
+  transform: rotate(-9deg);
+  z-index: 20;
+}
+
+.scene-collage-first-drink .drink-brush-green img {
   width: 100%;
   height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
 }
-.scene-collage-first-drink .drink-bottle {
-  left: 4%;
-  bottom: 6%;
-  width: clamp(150px, 13vw, 200px);
-  transform: rotate(-6deg);
+
+.scene-collage-first-drink .drink-brush-green .art-card-overlay-text {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 4.4vw, 4.6rem);
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: #0b0b0b;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.15);
 }
-.scene-collage-first-drink .drink-cocktail {
-  left: 17%;
-  bottom: 5%;
-  width: clamp(130px, 11vw, 170px);
-  transform: rotate(6deg);
+
+.scene-collage-first-drink .drink-paper-strip {
+  left: 1.5%;
+  top: 2%;
+  width: clamp(180px, 22vw, 320px);
+  transform: rotate(-13deg);
+  z-index: 40;
 }
-.scene-collage-first-drink .drink-cup {
-  right: 8%;
-  bottom: 8%;
-  width: clamp(160px, 14vw, 220px);
-  transform: rotate(10deg);
+
+.scene-collage-first-drink .drink-paper-strip img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
 }
+
+.scene-collage-first-drink .drink-globe {
+  right: 3%;
+  top: 2%;
+  width: clamp(190px, 22vw, 330px);
+  transform: rotate(3deg);
+  z-index: 40;
+}
+
+.scene-collage-first-drink .drink-globe img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.42));
+}
+
 .scene-collage-first-drink .drink-phone {
-  right: 22%;
-  bottom: 6%;
-  width: clamp(125px, 11vw, 170px);
-  transform: rotate(-10deg);
-}
-.scene-collage-first-drink .drink-flyer {
-  right: 34%;
-  bottom: 8%;
-  width: clamp(150px, 13vw, 200px);
-  transform: rotate(8deg);
-}
-.scene-collage-first-drink .drink-sticker {
-  right: 6%;
-  top: 12%;
-  width: clamp(170px, 15vw, 240px);
-  transform: rotate(6deg);
-}
-.scene-collage-first-drink .drink-sticker figcaption {
-  right: -4%;
-  bottom: 0;
-  transform: rotate(-4deg);
-}
-.scene-collage-first-drink .drink-arrow {
-  right: 22%;
-  top: 26%;
-  width: clamp(120px, 10vw, 160px);
+  left: 67%;
+  top: 44%;
+  width: clamp(130px, 15vw, 220px);
   transform: rotate(-16deg);
+  z-index: 40;
 }
-.scene-collage-first-drink .drink-tape {
-  right: 36%;
-  top: 10%;
-  width: clamp(140px, 12vw, 180px);
-  transform: rotate(10deg);
+
+.scene-collage-first-drink .drink-phone img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(3.5px 0 0 #ffffff)
+          drop-shadow(-3.5px 0 0 #ffffff)
+          drop-shadow(0 3.5px 0 #ffffff)
+          drop-shadow(0 -3.5px 0 #ffffff)
+          drop-shadow(2.5px 2.5px 0 #ffffff)
+          drop-shadow(-2.5px -2.5px 0 #ffffff)
+          drop-shadow(2.5px -2.5px 0 #ffffff)
+          drop-shadow(-2.5px 2.5px 0 #ffffff)
+          drop-shadow(0 14px 24px rgba(0, 0, 0, 0.5));
+}
+
+.scene-collage-first-drink .drink-target-green {
+  left: 47%;
+  bottom: 0%;
+  width: clamp(380px, 46vw, 680px);
+  transform: rotate(-3deg);
+  z-index: 45;
+  pointer-events: none;
+}
+
+.scene-collage-first-drink .drink-target-green img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.scene-collage-first-drink .drink-cup {
+  right: 2%;
+  bottom: 12%;
+  width: clamp(140px, 16vw, 240px);
+  transform: rotate(-15deg);
+  z-index: 50;
+}
+
+.scene-collage-first-drink .drink-cup img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(3.5px 0 0 #ffffff)
+          drop-shadow(-3.5px 0 0 #ffffff)
+          drop-shadow(0 3.5px 0 #ffffff)
+          drop-shadow(0 -3.5px 0 #ffffff)
+          drop-shadow(2.5px 2.5px 0 #ffffff)
+          drop-shadow(-2.5px -2.5px 0 #ffffff)
+          drop-shadow(2.5px -2.5px 0 #ffffff)
+          drop-shadow(-2.5px 2.5px 0 #ffffff)
+          drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+}
+
+.scene-collage-first-drink .drink-earbuds {
+  left: 18.5%;
+  bottom: 8%;
+  width: clamp(170px, 19vw, 290px);
+  transform: rotate(-4deg);
+  z-index: 50;
+}
+
+.scene-collage-first-drink .drink-earbuds img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(3.5px 0 0 #ffffff)
+          drop-shadow(-3.5px 0 0 #ffffff)
+          drop-shadow(0 3.5px 0 #ffffff)
+          drop-shadow(0 -3.5px 0 #ffffff)
+          drop-shadow(2.5px 2.5px 0 #ffffff)
+          drop-shadow(-2.5px -2.5px 0 #ffffff)
+          drop-shadow(2.5px -2.5px 0 #ffffff)
+          drop-shadow(-2.5px 2.5px 0 #ffffff)
+          drop-shadow(0 16px 26px rgba(0, 0, 0, 0.55));
+}
+
+.scene-collage-first-drink .drink-glass {
+  left: 2%;
+  bottom: 2%;
+  width: clamp(120px, 13vw, 190px);
+  transform: rotate(-8deg);
+  z-index: 50;
+}
+
+.scene-collage-first-drink .drink-glass img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(3.5px 0 0 #ffffff)
+          drop-shadow(-3.5px 0 0 #ffffff)
+          drop-shadow(0 3.5px 0 #ffffff)
+          drop-shadow(0 -3.5px 0 #ffffff)
+          drop-shadow(2.5px 2.5px 0 #ffffff)
+          drop-shadow(-2.5px -2.5px 0 #ffffff)
+          drop-shadow(2.5px -2.5px 0 #ffffff)
+          drop-shadow(-2.5px 2.5px 0 #ffffff)
+          drop-shadow(0 16px 24px rgba(0, 0, 0, 0.55));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2251,18 +2362,17 @@
   .scene-collage-plan .plan-bag { right: -2%; bottom: 1%; width: 22vw; height: auto; transform: rotate(8deg); }
   .scene-collage-plan .plan-stationery { left: auto !important; right: 2%; bottom: 15%; width: 18vw; height: auto; transform: rotate(-6deg); }
 
-  /* Scene 02: First Drink Mobile */
-  .scene-collage-first-drink .drink-character { left: 50%; top: 43%; transform: translate(-50%, -43%); width: 78vw; }
-  .scene-collage-first-drink .drink-smear { right: 0; top: 0; width: 100vw; height: 50vh; opacity: 0.28; }
-  .scene-collage-first-drink .drink-mark { left: 2%; top: 11%; width: 22vw; height: auto; }
-  .scene-collage-first-drink .drink-sticker { right: 2%; top: 11%; width: 22vw; height: auto; }
-  .scene-collage-first-drink .drink-flyer { left: 3%; top: 21%; width: 19vw; height: auto; }
-  .scene-collage-first-drink .drink-arrow { right: 3%; top: 21%; width: 17vw; height: auto; }
-  .scene-collage-first-drink .drink-tape { left: 18%; top: 10%; width: 17vw; height: auto; }
-  .scene-collage-first-drink .drink-bottle { left: -2%; bottom: 1%; width: 19vw; height: auto; transform: rotate(-5deg); }
-  .scene-collage-first-drink .drink-cocktail { left: 2%; bottom: 15%; width: 16vw; height: auto; transform: rotate(8deg); }
-  .scene-collage-first-drink .drink-cup { right: -2%; bottom: 1%; width: 19vw; height: auto; transform: rotate(10deg); }
-  .scene-collage-first-drink .drink-phone { right: 2%; bottom: 15%; width: 16vw; height: auto; transform: rotate(-12deg); }
+  /* Scene 02: JUST ONE Mobile */
+  .scene-collage-first-drink .drink-character { left: 50%; bottom: 0; top: auto; transform: translateX(-50%); height: 82vh; width: auto; }
+  .scene-collage-first-drink .drink-brush-green { left: -10%; top: 16%; width: 68vw; transform: rotate(-8deg); }
+  .scene-collage-first-drink .drink-brush-green .art-card-overlay-text { font-size: clamp(1.6rem, 5.5vw, 2.4rem); }
+  .scene-collage-first-drink .drink-paper-strip { left: 2%; top: 2%; width: 34vw; transform: rotate(-12deg); }
+  .scene-collage-first-drink .drink-globe { right: 2%; top: 3%; width: 32vw; transform: rotate(3deg); }
+  .scene-collage-first-drink .drink-phone { left: 72%; top: 40%; width: 22vw; transform: rotate(-15deg); }
+  .scene-collage-first-drink .drink-target-green { left: 35%; bottom: 1%; width: 68vw; transform: rotate(-3deg); }
+  .scene-collage-first-drink .drink-cup { right: 2%; bottom: 8%; width: 25vw; transform: rotate(-14deg); }
+  .scene-collage-first-drink .drink-earbuds { left: 6%; bottom: 10%; width: 30vw; transform: rotate(-4deg); }
+  .scene-collage-first-drink .drink-glass { left: 2%; bottom: 2%; width: 20vw; transform: rotate(-8deg); }
 
   /* Scene 03: Buzzed Mobile */
   .scene-collage-buzzed .buzzed-character { left: 50%; top: 43%; transform: translate(-50%, -43%); width: 78vw; }

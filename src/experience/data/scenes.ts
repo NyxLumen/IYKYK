@@ -29,16 +29,16 @@ export const SCENE_REGISTRY: SceneConfig[] = [
   {
     id: 'first-drink',
     sceneNumber: '02',
-    title: 'FIRST DRINK',
+    title: 'JUST ONE',
     time: '10:15 PM',
     meter: { value: 80, visible: true, mode: 'story' },
     clock: { time: '10:15 PM', variant: 'digital', visible: true },
     mood: 'Excited. Social. Still composed.',
     storyAction: 'The night begins. First drink. Everything still feels normal and exciting.',
     copy: {
-      headline: 'FIRST DRINK',
+      headline: 'JUST ONE.',
       subhead: '10:15 PM // 80% CONTROL',
-      note: 'JUST ONE MORE?',
+      note: '',
     },
     composition: {
       mode: 'layered',
@@ -47,9 +47,15 @@ export const SCENE_REGISTRY: SceneConfig[] = [
     },
     layers: [
       { id: 'l2-env', type: 'environment', label: 'Party Entrance & Ambient Crowds', zIndex: 20 },
-      { id: 'l2-char', type: 'character', label: 'Protagonist Holding Drink', zIndex: 30 },
-      { id: 'l2-obj', type: 'object', label: 'Red Solo Cup / Glassware', zIndex: 40 },
-      { id: 'l2-note', type: 'typography', label: 'Sticky Note: JUST ONE MORE?', zIndex: 80 },
+      { id: 'l2-brush', type: 'graphic', label: 'Graphic Brush Green: JUST ONE', zIndex: 20 },
+      { id: 'l2-char', type: 'character', label: 'Protagonist Holding First Drink', zIndex: 30 },
+      { id: 'l2-globe', type: 'graphic', label: 'Graphic Globe Purple', zIndex: 40 },
+      { id: 'l2-paper', type: 'texture', label: 'Crumpled Paper Strip', zIndex: 40 },
+      { id: 'l2-phone', type: 'object', label: 'Phone Angle', zIndex: 40 },
+      { id: 'l2-target', type: 'graphic', label: 'Graphic Target Green Brush', zIndex: 45 },
+      { id: 'l2-earbuds', type: 'object', label: 'Earbuds', zIndex: 50 },
+      { id: 'l2-glass', type: 'object', label: 'Glass', zIndex: 50 },
+      { id: 'l2-cup', type: 'object', label: 'Red Cup 02', zIndex: 50 },
     ],
   },
   {
