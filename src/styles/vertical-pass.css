@@ -1129,11 +1129,12 @@
 .scene-reveal {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100svh;
   min-height: 100svh;
-  overflow: visible;
+  max-height: 100svh;
+  overflow: hidden;
   isolation: isolate;
-  background: transparent;
+  background-color: var(--color-ink);
 }
 
 .reveal-morning-frame {
@@ -2257,10 +2258,11 @@
 
   /* Scene 09 Mobile Redesign */
   .scene-reveal {
-    height: auto !important;
+    height: 100svh !important;
     min-height: 100svh !important;
+    max-height: 100svh !important;
     padding: 0 !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   .reveal-morning-frame {
