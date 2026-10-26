@@ -1512,7 +1512,9 @@
 .reveal-endcard-frame {
   position: relative;
   width: 100%;
+  height: 100svh;
   min-height: 100svh;
+  max-height: 100svh;
   background-color: var(--color-ink);
   display: flex;
   flex-direction: column;
@@ -1536,21 +1538,21 @@
 
 .endcard-checkerboard {
   width: 100%;
-  height: 14px;
+  height: 12px;
   background-image: conic-gradient(
     #ede4d9 90deg,
     #0b0b0b 90deg 180deg,
     #ede4d9 180deg 270deg,
     #0b0b0b 270deg
   );
-  background-size: 14px 14px;
+  background-size: 12px 12px;
 }
 
 .endcard-ruler-scale {
   position: relative;
   width: 100%;
-  height: 40px;
-  border-bottom: 1px solid rgba(237, 228, 217, 0.35);
+  height: 32px;
+  border-bottom: 1px solid rgba(237, 228, 217, 0.3);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -1561,28 +1563,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   position: relative;
 }
 
 .ruler-tick {
   width: 1px;
-  background-color: rgba(237, 228, 217, 0.5);
+  background-color: rgba(237, 228, 217, 0.4);
 }
 
 .ruler-tick--major {
-  height: 14px;
+  height: 12px;
   background-color: var(--color-paper);
 }
 
 .ruler-tick--medium {
-  height: 9px;
-  background-color: rgba(237, 228, 217, 0.4);
+  height: 8px;
+  background-color: rgba(237, 228, 217, 0.35);
 }
 
 .ruler-tick--minor {
-  height: 6px;
-  background-color: rgba(237, 228, 217, 0.25);
+  height: 5px;
+  background-color: rgba(237, 228, 217, 0.2);
 }
 
 .ruler-tick--green {
@@ -1601,7 +1603,7 @@
 .ruler-label {
   font-family: var(--font-body);
   font-size: 0.65rem;
-  color: rgba(237, 228, 217, 0.65);
+  color: rgba(237, 228, 217, 0.6);
   letter-spacing: 0.08em;
   font-weight: 500;
   white-space: nowrap;
@@ -1609,8 +1611,8 @@
 
 .ruler-label--green {
   color: var(--color-green);
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .ruler-milestone.active-marker {
@@ -1633,12 +1635,11 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(1.2rem, 3vh, 3rem) clamp(1.5rem, 5vw, 5rem);
+  padding: 0.4rem clamp(1.5rem, 4vw, 4rem) 0.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(0.75rem, 1.8vh, 1.8rem);
   position: relative;
   flex: 1;
   justify-content: center;
@@ -1650,11 +1651,15 @@
   justify-content: center;
   gap: 0.75rem;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.35vw, 1.5rem);
-  letter-spacing: 0.2em;
+  font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-paper);
+  opacity: 0.85;
   font-weight: 700;
+  margin-bottom: clamp(4.5rem, 7.5vh, 5.5rem);
+  position: relative;
+  z-index: 5;
 }
 
 .endcard-headline-stage {
@@ -1663,19 +1668,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.25rem 0;
 }
 
 .endcard-monumental-headline {
   font-family: var(--font-display);
-  font-size: clamp(8.5rem, 22vw, 18.5rem);
+  font-size: min(34vw, 54vh);
   line-height: 0.8;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.14em;
+  margin-right: -0.14em;
+  transform: scaleY(1.24);
+  transform-origin: center;
   text-transform: uppercase;
-  color: var(--color-paper);
+  color: var(--color-green);
   margin: 0;
-  text-shadow: 0 0 50px rgba(122, 59, 255, 0.25), 6px 6px 0px rgba(0, 0, 0, 0.95);
+  text-shadow: 4px 4px 0px #000000;
   user-select: none;
+  display: inline-block;
 }
 
 .endcard-cta-lockup {
@@ -1684,6 +1692,31 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  pointer-events: auto;
+}
+
+/* Prominent Editorial CTA Scaling */
+.endcard-cta-lockup .brand-cta-pill {
+  width: clamp(480px, 38vw, 580px);
+  min-height: 96px;
+  padding: 0.55rem 0.65rem 0.55rem 2.8rem;
+  border: 3px solid var(--color-paper);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.95), 0 0 45px rgba(0, 0, 0, 0.9);
+}
+
+.endcard-cta-lockup .brand-cta-pill-label {
+  font-size: clamp(2.2rem, 2.7vw, 2.9rem);
+  letter-spacing: 0.12em;
+  color: var(--color-paper);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.endcard-cta-lockup .brand-cta-pill-circle {
+  width: 78px;
+  height: 78px;
+  background-color: var(--color-green);
+  color: var(--color-ink);
 }
 
 /* Section Anchor Navigation */
@@ -1691,8 +1724,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.85rem, 1.8vw, 1.8rem);
-  margin-top: 0.25rem;
+  gap: clamp(1rem, 1.8vw, 1.8rem);
+  margin-top: clamp(3.2rem, 5.5vh, 4.2rem);
+  position: relative;
   z-index: 5;
 }
 
@@ -2378,11 +2412,15 @@
     display: none !important;
   }
 
-  /* End Card Mobile Overrides (Task 04A) */
+  /* End Card Mobile Overrides (Task 04B) */
   .reveal-endcard-frame {
+    height: 100svh !important;
     min-height: 100svh !important;
-    height: auto !important;
-    padding-bottom: 2rem !important;
+    max-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding-bottom: 0.25rem !important;
   }
 
   .endcard-checkerboard {
@@ -2392,7 +2430,7 @@
 
   .endcard-ruler-scale {
     padding: 0 0.85rem !important;
-    height: 32px !important;
+    height: 28px !important;
   }
 
   .endcard-ruler-scale .ruler-subticks,
@@ -2403,69 +2441,84 @@
   }
 
   .endcard-billboard {
-    padding: 1.8rem 1rem 1.2rem 1rem !important;
-    gap: 1.1rem !important;
-  }
-
-  .endcard-kicker {
-    flex-direction: column !important;
-    gap: 0.15rem !important;
-    font-size: 0.95rem !important;
-    letter-spacing: 0.16em !important;
-  }
-
-  .endcard-headline-stage {
+    padding: 0.35rem 0.85rem !important;
+    gap: 0.25rem !important;
+    flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    position: relative !important;
-    width: 100% !important;
-    margin: 0.25rem 0 0.5rem 0 !important;
   }
 
-  .endcard-monumental-headline {
-    font-size: clamp(5.4rem, 25vw, 7.5rem) !important;
-    line-height: 0.84 !important;
+  .endcard-kicker {
+    flex-direction: column !important;
+    gap: 0.1rem !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 1.6rem !important;
+  }
+
+  .endcard-headline-stage {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     margin: 0 !important;
   }
 
+  .endcard-monumental-headline {
+    font-size: clamp(5.8rem, 38vw, 8.4rem) !important;
+    line-height: 0.8 !important;
+    letter-spacing: 0.08em !important;
+    margin-right: -0.08em !important;
+    transform: scaleY(1.22) !important;
+    transform-origin: center !important;
+    margin: 0 !important;
+    color: var(--color-green) !important;
+    text-shadow: 3px 3px 0px #000000 !important;
+  }
+
   .endcard-cta-lockup {
-    position: static !important;
-    transform: none !important;
-    margin: 0.85rem auto 0 auto !important;
-    width: 100% !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    width: auto !important;
     display: flex !important;
     justify-content: center !important;
   }
 
-  .brand-cta-pill {
-    min-height: 48px !important;
-    padding: 0.35rem 0.45rem 0.35rem 1.35rem !important;
-    gap: 0.95rem !important;
-    max-width: 290px !important;
-    width: 100% !important;
-    justify-content: space-between !important;
+  .endcard-cta-lockup .brand-cta-pill {
+    width: clamp(280px, 80vw, 320px) !important;
+    min-height: 64px !important;
+    padding: 0.35rem 0.45rem 0.35rem 1.6rem !important;
+    gap: 0.85rem !important;
+    border: 2.5px solid var(--color-paper) !important;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.9) !important;
   }
 
-  .brand-cta-pill-label {
-    font-size: 1.15rem !important;
+  .endcard-cta-lockup .brand-cta-pill-label {
+    font-size: 1.55rem !important;
+    letter-spacing: 0.12em !important;
   }
 
-  .brand-cta-pill-circle {
-    width: 38px !important;
-    height: 38px !important;
+  .endcard-cta-lockup .brand-cta-pill-circle {
+    width: 52px !important;
+    height: 52px !important;
   }
 
   .endcard-section-nav {
     flex-wrap: wrap !important;
-    gap: 0.4rem 0.75rem !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
+    gap: 0.35rem 0.65rem !important;
+    max-width: 320px !important;
+    margin: 1.6rem auto 0.4rem auto !important;
   }
 
   .endcard-nav-link {
-    font-size: 0.88rem !important;
+    font-size: 0.92rem !important;
     padding: 0.2rem 0.35rem !important;
   }
 
@@ -2476,35 +2529,35 @@
   .footer-grid-left {
     border-right: none !important;
     border-bottom: 1px solid rgba(237, 228, 217, 0.2) !important;
-    padding: 1rem 1.25rem !important;
+    padding: 0.65rem 1rem !important;
   }
 
   .footer-narrative-quote {
-    font-size: 0.74rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.7rem !important;
+    line-height: 1.35 !important;
     text-align: center !important;
   }
 
   .footer-grid-right {
-    padding: 0.75rem 1rem !important;
+    padding: 0.45rem 1rem !important;
   }
 
   .endcard-footer-anchor {
     flex-direction: column !important;
-    gap: 0.85rem !important;
+    gap: 0.5rem !important;
     text-align: center !important;
-    padding: 1rem 1.25rem !important;
+    padding: 0.55rem 1rem !important;
   }
 
   .footer-anchor-center {
     justify-content: center !important;
-    gap: 0.45rem !important;
+    gap: 0.4rem !important;
   }
 
   .footer-pill-button {
     font-size: 0.68rem !important;
-    padding: 0.35rem 0.75rem !important;
-    min-height: 38px !important;
+    padding: 0.3rem 0.75rem !important;
+    min-height: 34px !important;
     display: inline-flex !important;
     align-items: center !important;
   }
