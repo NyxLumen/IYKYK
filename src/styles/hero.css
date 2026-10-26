@@ -1,0 +1,348 @@
+/* -------------------------------------------------------------------------- */
+/* IYKYK Opening Hero Section (Cover / Film Poster)                            */
+/* Calibrated 1:1 against production reference comp (1024 x 661)               */
+/* -------------------------------------------------------------------------- */
+
+.scene-hero {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-ink, #0b0b0b);
+  border-bottom: none;
+  z-index: 10;
+}
+
+/* Ink-black poster field backdrop */
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-ink, #0b0b0b);
+  z-index: 1;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Subtle physical photocopy grime wash */
+.hero-texture-wash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  background-image: url('/production/source/assetsReady/textures/texture-photocopy-grime-01.png');
+  background-size: cover;
+  background-position: center center;
+  pointer-events: none;
+}
+
+/* 1. Monumental Headline: Behind Protagonist
+ * Reference Match: Top = 10.9vh (y=78px), Width = 74.2vw (x=[130, 890]), Height = 24.6vh
+ */
+.hero-headline-layer {
+  position: absolute;
+  top: 10.9vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-monumental-headline {
+  font-family: 'Space Grotesk', var(--font-body, sans-serif);
+  font-size: clamp(3rem, 12.6vw, 11rem);
+  font-weight: 700;
+  -webkit-text-stroke: 1.5px var(--color-green, #39ef88);
+  color: var(--color-green, #39ef88);
+  line-height: 0.85;
+  letter-spacing: 0.012em;
+  word-spacing: -0.015em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 35px rgba(57, 239, 136, 0.22));
+  will-change: transform, opacity;
+}
+
+/* 2. Main Character: Cutout waist-up crop centered in front of typography
+ * Reference Match:
+ * Width = 66.5vw (asset w=680px, scale=1.55x, cream border width = 661px, x=[180, 840])
+ * Top = 10.4vh (y=69px, top of cream border = y=78px)
+ * Bottom = 0 (flush to lower edge, y=660)
+ */
+.hero-character-wrap {
+  position: absolute;
+  top: 10.4vh;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(380px, 66.5vw, 980px);
+  max-width: 98vw;
+  height: 89.6vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero-character-img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+}
+
+/* 3. Sparse Collage Graphic Marks */
+.hero-graphic {
+  position: absolute;
+  pointer-events: none;
+  z-index: 15;
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-graphic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+/* Upper-left Lightning Bolt: Reference Left = 4.6vw (artwork x=47px), Top = 22.5vh, Width = 13.5vw */
+.hero-graphic-lightning {
+  left: 3.1vw;
+  top: 22.5vh;
+  width: clamp(60px, 13.5vw, 180px);
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+}
+
+/* Lower-left Eye Graphic: Reference Left = 3.3vw (artwork x=34px), Bottom = 14.8vh (artwork y=433-555), Width = 21.5vw */
+.hero-graphic-eye {
+  left: 2.1vw;
+  bottom: 14.8vh;
+  width: clamp(110px, 21.5vw, 300px);
+  transform: rotate(-6deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+}
+
+/* Right Smiley Graphic: Reference Right = 4.9vw (artwork x=833-974), Top = 41.2vh (artwork y=272-414), Width = 15.8vw */
+.hero-graphic-smiley {
+  right: 4.1vw;
+  top: 41.2vh;
+  width: clamp(85px, 15.8vw, 225px);
+  transform: rotate(10deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+}
+
+/* Controls Layer */
+.hero-controls-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Lower Scroll Cue */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: clamp(0.75rem, 1.8vh, 1.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: auto;
+  background: rgba(11, 11, 11, 0.9);
+  border: 1px solid rgba(237, 228, 217, 0.28);
+  border-radius: 2px;
+  color: var(--color-paper, #ede4d9);
+  opacity: 0.95;
+  cursor: pointer;
+  padding: 0.35rem 0.95rem;
+  outline: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-scroll-label {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: clamp(0.68rem, 0.78vw, 0.75rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-paper, #ede4d9);
+  white-space: nowrap;
+}
+
+.hero-scroll-arrow {
+  display: inline-block;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-green, #39ef88);
+  animation: heroArrowGlide 2.2s ease-in-out infinite;
+}
+
+.hero-scroll-cue:hover {
+  opacity: 1;
+  color: var(--color-green, #39ef88);
+  border-color: var(--color-green, #39ef88);
+  transform: translateX(-50%) translateY(2px);
+}
+
+.hero-scroll-cue:focus-visible {
+  outline: 2px solid var(--color-green, #39ef88);
+  outline-offset: 4px;
+}
+
+/* Secondary Action: Jump to Reveal (Subtle Editorial Navigation) */
+.hero-skip-cue {
+  position: absolute;
+  bottom: clamp(0.75rem, 1.8vh, 1.75rem);
+  right: clamp(1.25rem, 3.5vw, 3rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: auto;
+  background: rgba(11, 11, 11, 0.7);
+  border: none;
+  border-bottom: 1px solid rgba(237, 228, 217, 0.3);
+  border-radius: 0;
+  padding: 0.25rem 0.2rem;
+  color: rgba(237, 228, 217, 0.7);
+  cursor: pointer;
+  outline: none;
+  will-change: transform, opacity;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-skip-label {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: clamp(0.65rem, 0.72vw, 0.72rem);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.hero-skip-arrow {
+  display: inline-block;
+  color: var(--color-green, #39ef88);
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.hero-skip-cue:hover {
+  color: var(--color-paper, #ede4d9);
+  border-bottom-color: var(--color-green, #39ef88);
+}
+
+.hero-skip-cue:hover .hero-skip-arrow {
+  transform: translate(2px, -2px);
+}
+
+.hero-skip-cue:focus-visible {
+  outline: 2px solid var(--color-green, #39ef88);
+  outline-offset: 4px;
+}
+
+/* Subtle Physical Arrow Movement */
+@keyframes heroArrowGlide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Responsive: Mobile Layout */
+@media (max-width: 768px) {
+  .hero-headline-layer {
+    top: 13vh;
+  }
+
+  .hero-monumental-headline {
+    font-size: clamp(2.8rem, 15.5vw, 4.2rem);
+    letter-spacing: 0.01em;
+    padding: 0 0.5rem;
+  }
+
+  .hero-character-wrap {
+    width: clamp(440px, 125vw, 640px);
+    max-width: none;
+    height: 74vh;
+    bottom: 0;
+  }
+
+  .hero-character-img {
+    width: 100%;
+    height: auto;
+    object-position: top center;
+  }
+
+  .hero-graphic-lightning {
+    left: 4%;
+    top: 24%;
+    width: 42px;
+  }
+
+  .hero-graphic-eye {
+    left: 3%;
+    bottom: 14%;
+    width: 82px;
+  }
+
+  .hero-graphic-smiley {
+    right: 3%;
+    top: 32%;
+    width: 58px;
+  }
+
+  /* Relocate skip cue to top right on mobile to maximize negative space */
+  .hero-skip-cue {
+    bottom: auto;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .hero-scroll-cue {
+    bottom: 1.25rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(11, 11, 11, 0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-arrow {
+    animation: none !important;
+  }
+}

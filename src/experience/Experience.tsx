@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContinuousBackground } from './components/ContinuousBackground';
+import { HeroSection } from './scenes/HeroSection';
 import { Scene01Plan } from './scenes/Scene01Plan';
 import { Scene02FirstDrink } from './scenes/Scene02FirstDrink';
 import { Scene03Buzzed } from './scenes/Scene03Buzzed';
@@ -29,6 +30,7 @@ export const Experience: React.FC = () => {
     <div className="iykyk-experience" style={{ width: '100%', position: 'relative' }}>
       {/* Narrative Foreground Scene Stack */}
       <div className="iykyk-scenes" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
+        <HeroSection />
         <Scene01Plan />
         <Scene02FirstDrink />
         <Scene03Buzzed />
