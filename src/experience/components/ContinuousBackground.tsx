@@ -131,9 +131,12 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           } else if (sy >= pos.firstDrink) {
             setPlate(hallway, 1.0);
             setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.28) 0%, rgba(11, 11, 11, 0.62) 100%)');
-          } else {
+          } else if (sy >= pos.plan) {
             setPlate(bedroom, 1.0);
             setAtmosphere('radial-gradient(circle at center, rgba(11, 11, 11, 0.42) 0%, rgba(11, 11, 11, 0.75) 100%)');
+          } else {
+            setPlate(bedroom, 0);
+            setAtmosphere('rgba(11, 11, 11, 1)');
           }
         };
 
@@ -432,7 +435,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const alphaRim = 0.62 + 0.03 * t;
             setAtmosphere(`radial-gradient(circle at 50% 50%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
           }
-        } else {
+        } else if (sy >= positions.plan) {
           // ================================================================
           // SCENE 01: THE PLAN (Bedroom study calm composition -> shifts to hallway)
           // Pacing: ~0.72 vh hold, ~1.12 vh transition into hallway
@@ -471,6 +474,30 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const alphaP = 0.0 + 0.28 * t;
             const alphaRim = 0.75 - 0.13 * t;
             setAtmosphere(`radial-gradient(circle at 50% 50%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
+          }
+        } else {
+          // ================================================================
+          // HERO: OPENING COVER POSTER (Pure Ink-Black field -> transition to bedroom)
+          // ================================================================
+          setPlate(hallway, 0);
+          setPlate(livingRoom, 0);
+          setPlate(speakers, 0);
+          setPlate(crowd, 0);
+          setPlate(messy, 0);
+          setPlate(tidy, 0);
+
+          const heroDist = Math.max(1, positions.plan);
+          const pHero = Math.min(1, Math.max(0, sy / heroDist));
+
+          if (pHero < 0.45) {
+            // Pure ink-black poster field
+            setPlate(bedroom, 0);
+            setAtmosphere('rgba(11, 11, 11, 1)');
+          } else {
+            // Crossfade bedroom plate in as poster camera transitions into film
+            const t = (pHero - 0.45) / 0.55;
+            setPlate(bedroom, t, 'none');
+            setAtmosphere(`radial-gradient(circle at center, rgba(11, 11, 11, ${(0.42 * t).toFixed(2)}) 0%, rgba(11, 11, 11, ${(1 - 0.25 * t).toFixed(2)}) 100%)`);
           }
         }
       };
