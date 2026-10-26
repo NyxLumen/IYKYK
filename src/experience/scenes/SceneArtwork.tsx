@@ -112,7 +112,7 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
       {
         assetId: 'graphics.targetGreen',
         className: 'drink-target-green',
-        plane: 'D',
+        plane: 'B',
         role: 'graphic',
         entrance: 'slide',
         exit: 'slide-right',
