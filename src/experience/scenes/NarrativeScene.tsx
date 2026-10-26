@@ -4,6 +4,7 @@ import { Meter } from '../components/Meter';
 import { SCENE_REGISTRY } from '../data/scenes';
 import type { SceneId } from '../data/types';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
+import { useCollageMotion } from '../animation/useCollageMotion';
 import { SceneArtwork } from './SceneArtwork';
 import { SCENE_CHOREOGRAPHY } from '../animation/sceneChoreography';
 
@@ -36,6 +37,8 @@ export const NarrativeScene: React.FC<NarrativeSceneProps> = ({ sceneId }) => {
       choreography.buildTimeline(timeline, container, collageRef.current);
     },
   });
+
+  useCollageMotion(containerRef, sceneId);
 
   if (!scene) return null;
 

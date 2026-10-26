@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
+import { useCollageMotion } from '../animation/useCollageMotion';
 import { Panel } from '../components/Panel';
 import { ASSET_MANIFEST } from '../data/assets';
 
@@ -162,6 +163,8 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
     },
   });
 
+  useCollageMotion(containerRef, 'rebuild');
+
   return (
     <section
       ref={containerRef}
@@ -268,35 +271,75 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
 
       {/* Plane B & D & E: 10 Reconnecting Secondary Collage Elements */}
       <div className="rebuild-collage-fragments" aria-hidden="true">
-        <figure className="art-card rebuild-fragment rebuild-fiber" data-plane="B">
-          <img src={assetSrc('textures.paperFiber01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-fiber" data-plane="B" data-role="texture">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('textures.paperFiber01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-scanlines" data-plane="B">
-          <img src={assetSrc('textures.scanLines01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-scanlines" data-plane="B" data-role="texture">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('textures.scanLines01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-textbook" data-plane="D">
-          <img src={assetSrc('objects.textbook01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-textbook" data-plane="D" data-role="object">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('objects.textbook01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-notebook" data-plane="D">
-          <img src={assetSrc('objects.notebook01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-notebook" data-plane="D" data-role="object">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('objects.notebook01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-stationery" data-plane="D">
-          <img src={assetSrc('objects.stationery01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-stationery" data-plane="D" data-role="object">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('objects.stationery01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-folded-paper" data-plane="D">
-          <img src={assetSrc('objects.foldedPaper01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-folded-paper" data-plane="D" data-role="paper">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('objects.foldedPaper01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-arrow" data-plane="E">
-          <img src={assetSrc('graphics.arrowGreen')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-arrow" data-plane="E" data-role="graphic">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('graphics.arrowGreen')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-stars" data-plane="E">
-          <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-stars" data-plane="E" data-role="graphic">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-bracket" data-plane="E">
-          <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-bracket" data-plane="E" data-role="graphic">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
-        <figure className="art-card rebuild-fragment rebuild-tape" data-plane="E">
-          <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+        <figure className="art-card rebuild-fragment rebuild-tape" data-plane="E" data-role="paper">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
       </div>
 

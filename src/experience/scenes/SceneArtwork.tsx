@@ -225,11 +225,15 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
         data-entrance={layer.entrance ?? 'slide'}
         data-exit={layer.exit ?? 'slide-down'}
       >
-        <img
-          src={assetSrc(layer.assetId)}
-          alt={layer.alt ?? ''}
-          loading={eager ? 'eager' : 'lazy'}
-        />
+        <div className="motion-pointer-layer">
+          <div className="motion-ambient-layer">
+            <img
+              src={assetSrc(layer.assetId)}
+              alt={layer.alt ?? ''}
+              loading={eager ? 'eager' : 'lazy'}
+            />
+          </div>
+        </div>
       </figure>
     );
   };

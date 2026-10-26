@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
+import { useCollageMotion } from '../animation/useCollageMotion';
 import { Meter } from '../components/Meter';
 import { Clock } from '../components/Clock';
 import { CTA } from '../components/CTA';
@@ -90,6 +91,8 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
     },
   });
 
+  useCollageMotion(containerRef, 'reveal');
+
   return (
     <section
       ref={containerRef}
@@ -113,8 +116,12 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
           src="/production/source/assetsReady/characters/full/protagonist-full-neutral.png"
           alt="Confident protagonist ready for tomorrow"
         />
-        <figure className="art-card reveal-layer reveal-stars" data-plane="E">
-          <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+        <figure className="art-card reveal-layer reveal-stars" data-plane="E" data-role="graphic">
+          <div className="motion-pointer-layer">
+            <div className="motion-ambient-layer">
+              <img src={assetSrc('graphics.starsGreen')} alt="" loading="lazy" />
+            </div>
+          </div>
         </figure>
       </div>
 
@@ -122,21 +129,33 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
       <div className="reveal-content-container">
         <div ref={cardRef} className="reveal-content-card">
           {/* Halftone risograph wash behind brand headline */}
-          <figure className="art-card reveal-layer reveal-halftone" data-plane="B" aria-hidden="true">
-            <img src={assetSrc('textures.colorHalftone01')} alt="" loading="lazy" />
+          <figure className="art-card reveal-layer reveal-halftone" data-plane="B" data-role="texture" aria-hidden="true">
+            <div className="motion-pointer-layer">
+              <div className="motion-ambient-layer">
+                <img src={assetSrc('textures.colorHalftone01')} alt="" loading="lazy" />
+              </div>
+            </div>
           </figure>
 
           {/* Authentic Torn Paper Badge with Clear Tape */}
           <div className="reveal-badge-wrapper">
-            <figure className="art-card reveal-layer reveal-tape" data-plane="E" aria-hidden="true">
-              <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+            <figure className="art-card reveal-layer reveal-tape" data-plane="E" data-role="paper" aria-hidden="true">
+              <div className="motion-pointer-layer">
+                <div className="motion-ambient-layer">
+                  <img src={assetSrc('textures.clearTape01')} alt="" loading="lazy" />
+                </div>
+              </div>
             </figure>
             <div className="paper-badge-lockup">
               <img src={assetSrc('graphics.paperBadge')} alt="" className="paper-badge-bg" aria-hidden="true" />
               <span className="paper-badge-text font-display">PRE-LAUNCH EXPERIENCE</span>
             </div>
-            <figure className="art-card reveal-layer reveal-bracket" data-plane="E" aria-hidden="true">
-              <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+            <figure className="art-card reveal-layer reveal-bracket" data-plane="E" data-role="graphic" aria-hidden="true">
+              <div className="motion-pointer-layer">
+                <div className="motion-ambient-layer">
+                  <img src={assetSrc('graphics.bracketGreenPurple')} alt="" loading="lazy" />
+                </div>
+              </div>
             </figure>
           </div>
 
@@ -160,8 +179,12 @@ export const RevealScene: React.FC<RevealSceneProps> = ({ id = 'reveal' }) => {
                   alert('IYKYK — Pre-launch waitlist registration opening soon.');
                 }}
               />
-              <figure className="art-card reveal-layer reveal-barcode-stamp" data-plane="E" aria-hidden="true">
-                <img src={assetSrc('graphics.barcodePurpleGreen')} alt="Barcode" loading="lazy" />
+              <figure className="art-card reveal-layer reveal-barcode-stamp" data-plane="E" data-role="graphic" aria-hidden="true">
+                <div className="motion-pointer-layer">
+                  <div className="motion-ambient-layer">
+                    <img src={assetSrc('graphics.barcodePurpleGreen')} alt="Barcode" loading="lazy" />
+                  </div>
+                </div>
               </figure>
             </div>
             <span className="reveal-microcopy">
