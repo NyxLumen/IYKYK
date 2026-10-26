@@ -31,9 +31,10 @@ export const AnimationProvider: React.FC<AnimationProviderProps> = ({ children }
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Check user preference for reduced motion
+    // Check user preference for reduced motion or verification parameter
+    const isParamReduced = typeof window !== 'undefined' && window.location.search.includes('reduced=true');
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(motionQuery.matches);
+    setIsReducedMotion(isParamReduced || motionQuery.matches);
 
     const handleMotionChange = (e: MediaQueryListEvent) => {
       setIsReducedMotion(e.matches);

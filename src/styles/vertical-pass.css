@@ -227,6 +227,93 @@
   transform: rotate(-0.5deg);
 }
 
+.scene-vertical-pass .clock-analog {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.5));
+}
+
+.scene-vertical-pass .clock-analog .analog-clock-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Phone-Battery Narrative Meter & Battery SVG Component (Task 05A) */
+.scene-vertical-pass .narrative-meter-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  position: relative;
+  z-index: var(--z-meter);
+  pointer-events: auto;
+}
+
+.battery-svg {
+  width: clamp(100px, 16vw, 138px);
+  height: auto;
+  overflow: visible;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 12px rgba(122, 59, 255, 0.35));
+}
+
+.battery-svg .battery-sticker-border {
+  fill: #EDE4D9;
+  stroke: #EDE4D9;
+  stroke-width: 6px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.meter-spray-label {
+  font-family: var(--font-handwriting, 'Permanent Marker', cursive) !important;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  transform: rotate(-2.5deg) !important;
+  display: inline-block !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9)) !important;
+}
+
+.battery-svg .battery-casing-body,
+.battery-svg .battery-terminal {
+  fill: #0B0B0B;
+}
+
+.battery-svg .battery-interior-track {
+  fill: #180D2B;
+}
+
+.battery-svg .battery-cell-empty {
+  fill: #130824;
+  stroke: rgba(122, 59, 255, 0.25);
+  stroke-width: 1px;
+}
+
+.battery-svg .battery-cell-active {
+  fill: #7A3BFF;
+}
+
+.battery-svg .battery-registration-mark {
+  stroke: #39EF88;
+}
+
+.scene-vertical-pass .meter-bar-label {
+  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  min-width: 4ch;
+  text-align: right;
+  line-height: 1;
+}
+
 .scene-vertical-pass .scene-composition {
   position: absolute;
   inset: 0;
@@ -2048,8 +2135,15 @@
   }
 
   .scene-vertical-pass .narrative-meter-wrapper {
-    gap: 0.5rem !important;
-    padding: 0.35rem 0.45rem !important;
+    gap: 0.35rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .scene-vertical-pass .battery-svg {
+    width: clamp(76px, 20vw, 98px) !important;
   }
 
   .scene-vertical-pass .meter-bar-track {
@@ -2059,6 +2153,7 @@
 
   .scene-vertical-pass .meter-bar-label {
     font-size: 0.95rem !important;
+    min-width: 3.5ch !important;
   }
 
   .scene-vertical-pass .clock-oversized {
@@ -2069,7 +2164,8 @@
   .scene-vertical-pass .clock-analog {
     width: 54px !important;
     height: 54px !important;
-    transform: scale(0.85);
+    transform: none;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
   }
 
   .scene-vertical-pass .scene-composition {

@@ -1,11 +1,21 @@
 import React from 'react';
 import { ClockVariant } from '../data/types';
+import { AnalogClockSvg, calculateHandAngles, AnalogClockSvgProps } from './AnalogClockSvg';
+
+export { AnalogClockSvg, calculateHandAngles };
+export type { AnalogClockSvgProps };
 
 export interface ClockProps {
   time?: string;
   variant?: ClockVariant;
   visible?: boolean;
   className?: string;
+  size?: number | string;
+  hourAngle?: number;
+  minuteAngle?: number;
+  hourHandRef?: React.Ref<SVGGElement>;
+  minuteHandRef?: React.Ref<SVGGElement>;
+  svgRef?: React.Ref<SVGSVGElement>;
 }
 
 /**
@@ -17,66 +27,40 @@ export const Clock: React.FC<ClockProps> = ({
   variant = 'digital',
   visible = true,
   className = '',
+  size,
+  hourAngle,
+  minuteAngle,
+  hourHandRef,
+  minuteHandRef,
+  svgRef,
 }) => {
   if (!visible) return null;
 
   if (variant === 'analog') {
-    // Render an editorial collage analog clock face
+    const customSize = typeof size === 'number' ? `${size}px` : size;
+
     return (
       <div
         className={`narrative-clock clock-analog ${className}`}
         aria-label={`Time: ${time}`}
         style={{
-          width: '80px',
-          height: '80px',
-          borderRadius: '50%',
-          border: '2px solid var(--color-ink)',
-          background: 'var(--color-paper)',
-          color: 'var(--color-ink)',
-          boxShadow: '0 4px 15px rgba(0,0,0,0.5)',
-          display: 'flex',
-          flexDirection: 'column',
+          width: customSize || '80px',
+          height: customSize || '80px',
+          display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative',
           zIndex: 'var(--z-clock)',
+          flexShrink: 0,
         }}
       >
-        <div style={{ position: 'absolute', top: 4, fontSize: '10px', fontWeight: 'bold' }}>12</div>
-        <div style={{ position: 'absolute', right: 6, fontSize: '10px', fontWeight: 'bold' }}>3</div>
-        <div style={{ position: 'absolute', bottom: 4, fontSize: '10px', fontWeight: 'bold' }}>6</div>
-        <div style={{ position: 'absolute', left: 6, fontSize: '10px', fontWeight: 'bold' }}>9</div>
-        {/* Clock Hands representation */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '2px',
-            height: '24px',
-            background: 'var(--color-ink)',
-            top: '16px',
-            transformOrigin: 'bottom center',
-            transform: 'rotate(-45deg)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            width: '2px',
-            height: '18px',
-            background: 'var(--color-purple)',
-            top: '22px',
-            transformOrigin: 'bottom center',
-            transform: 'rotate(120deg)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: 'var(--color-ink)',
-          }}
+        <AnalogClockSvg
+          ref={svgRef}
+          time={time}
+          hourAngle={hourAngle}
+          minuteAngle={minuteAngle}
+          hourHandRef={hourHandRef}
+          minuteHandRef={minuteHandRef}
         />
       </div>
     );

@@ -59,6 +59,15 @@ export const useSceneTimeline = (
         if (rebuildFill && options.sceneId === 'rebuild') {
           rebuildFill.style.width = '100%';
         }
+        const rebuildClip = el.querySelector<SVGRectElement>('.battery-clip-rect');
+        if (rebuildClip && options.sceneId === 'rebuild') {
+          rebuildClip.setAttribute('width', '112');
+          rebuildClip.style.width = '112px';
+        }
+        const rebuildSvg = el.querySelector<SVGSVGElement>('.battery-svg');
+        if (rebuildSvg && options.sceneId === 'rebuild') {
+          rebuildSvg.style.setProperty('--battery-fill', '100%');
+        }
         const rebuildLabel = el.querySelector<HTMLElement>('.meter-bar-label');
         if (rebuildLabel && options.sceneId === 'rebuild') {
           rebuildLabel.textContent = '100%';

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useSceneTimeline } from '../animation/useSceneTimeline';
 import { useCollageMotion } from '../animation/useCollageMotion';
 import { Panel } from '../components/Panel';
+import { Meter, BatterySvgHandle } from '../components/Meter';
 import { ASSET_MANIFEST } from '../data/assets';
 
 const assetSrc = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id)?.src ?? '';
@@ -20,7 +21,7 @@ export interface RebuildSceneProps {
 export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) => {
   const containerRef = useRef<HTMLElement>(null);
   const meterWrapperRef = useRef<HTMLDivElement>(null);
-  const meterFillRef = useRef<HTMLDivElement>(null);
+  const batteryRef = useRef<BatterySvgHandle>(null);
   const meterLabelRef = useRef<HTMLDivElement>(null);
   const panel1Ref = useRef<HTMLDivElement>(null);
   const panel2Ref = useRef<HTMLDivElement>(null);
@@ -48,9 +49,7 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         onUpdate: () => {
           const rounded = Math.round(meterTracker.val);
           // Direct DOM mutation — no React re-render
-          if (meterFillRef.current) {
-            meterFillRef.current.style.width = `${rounded}%`;
-          }
+          batteryRef.current?.setValue(rounded);
           if (meterLabelRef.current) {
             meterLabelRef.current.textContent = `${rounded}%`;
           }
@@ -210,63 +209,12 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
         >
           RECONSTRUCTION SEQUENCE
         </span>
-        {/* Inline meter — direct DOM for performance */}
-        <div
-          className="narrative-meter-wrapper"
-          role="progressbar"
-          aria-valuenow={0}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-label="Narrative control meter — rebuilding"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 'var(--space-md)',
-            background: 'rgba(11, 11, 11, 0.85)',
-            padding: '0.4rem 0.8rem',
-            border: '1px solid rgba(237, 228, 217, 0.25)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.6)',
-          }}
-        >
-          <div
-            className="meter-bar-track"
-            style={{
-              width: 'clamp(140px, 24vw, 240px)',
-              height: '16px',
-              background: 'rgba(237, 228, 217, 0.1)',
-              border: '1px solid var(--color-paper-muted)',
-              borderRadius: '12px',
-              padding: '2px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            <div
-              ref={meterFillRef}
-              className="meter-bar-fill"
-              style={{
-                height: '100%',
-                width: '0%',
-                background: 'linear-gradient(90deg, var(--color-purple) 0%, var(--color-green) 100%)',
-                borderRadius: '8px',
-                boxShadow: '0 0 10px var(--color-green-glow)',
-              }}
-            />
-          </div>
-          <div
-            ref={meterLabelRef}
-            className="meter-bar-label font-display"
-            style={{
-              fontSize: 'var(--text-lg)',
-              color: 'var(--color-paper)',
-              minWidth: '4ch',
-              textAlign: 'right',
-              letterSpacing: '0.04em',
-            }}
-          >
-            0%
-          </div>
-        </div>
+        <Meter
+          value={0}
+          mode="rebuild"
+          batteryRef={batteryRef}
+          labelRef={meterLabelRef}
+        />
       </div>
 
       {/* Plane B & D & E: 10 Reconnecting Secondary Collage Elements */}
