@@ -2258,11 +2258,11 @@
 
   /* Scene 09 Mobile Redesign */
   .scene-reveal {
-    height: 100svh !important;
-    min-height: 100svh !important;
-    max-height: 100svh !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
     padding: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .reveal-morning-frame {
@@ -2416,13 +2416,14 @@
 
   /* End Card Mobile Overrides (Task 04B) */
   .reveal-endcard-frame {
-    height: 100svh !important;
-    min-height: 100svh !important;
-    max-height: 100svh !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
-    padding-bottom: 0.25rem !important;
+    justify-content: flex-start !important;
+    padding-bottom: 1.5rem !important;
+    overflow: visible !important;
   }
 
   .endcard-checkerboard {
@@ -2443,80 +2444,79 @@
   }
 
   .endcard-billboard {
-    padding: 0.35rem 0.85rem !important;
-    gap: 0.25rem !important;
-    flex: 1 !important;
+    padding: 2rem 1rem 1.4rem 1rem !important;
+    gap: 0 !important;
+    flex: none !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
   }
 
   .endcard-kicker {
     flex-direction: column !important;
-    gap: 0.1rem !important;
+    gap: 0.15rem !important;
     font-size: 0.95rem !important;
     letter-spacing: 0.18em !important;
-    margin-bottom: 1.6rem !important;
+    margin-bottom: 1.35rem !important;
   }
 
   .endcard-headline-stage {
     position: relative !important;
     width: 100% !important;
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     margin: 0 !important;
   }
 
   .endcard-monumental-headline {
-    font-size: clamp(5.8rem, 38vw, 8.4rem) !important;
+    font-size: clamp(5.4rem, 33vw, 7.5rem) !important;
     line-height: 0.8 !important;
     letter-spacing: 0.08em !important;
     margin-right: -0.08em !important;
     transform: scaleY(1.22) !important;
     transform-origin: center !important;
-    margin: 0 !important;
+    margin: 0 0 0.85rem 0 !important;
     color: var(--color-green) !important;
     text-shadow: 3px 3px 0px #000000 !important;
   }
 
   .endcard-cta-lockup {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 10 !important;
-    margin: 0 !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0.85rem auto 0 auto !important;
     width: auto !important;
     display: flex !important;
     justify-content: center !important;
+    z-index: 10 !important;
   }
 
   .endcard-cta-lockup .brand-cta-pill {
-    width: clamp(280px, 80vw, 320px) !important;
-    min-height: 64px !important;
-    padding: 0.35rem 0.45rem 0.35rem 1.6rem !important;
-    gap: 0.85rem !important;
-    border: 2.5px solid var(--color-paper) !important;
+    width: clamp(270px, 78vw, 310px) !important;
+    min-height: 60px !important;
+    padding: 0.35rem 0.45rem 0.35rem 1.5rem !important;
+    gap: 0.75rem !important;
+    border: 2px solid var(--color-paper) !important;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.9) !important;
   }
 
   .endcard-cta-lockup .brand-cta-pill-label {
-    font-size: 1.55rem !important;
-    letter-spacing: 0.12em !important;
+    font-size: 1.5rem !important;
+    letter-spacing: 0.1em !important;
   }
 
   .endcard-cta-lockup .brand-cta-pill-circle {
-    width: 52px !important;
-    height: 52px !important;
+    width: 48px !important;
+    height: 48px !important;
   }
 
   .endcard-section-nav {
     flex-wrap: wrap !important;
-    gap: 0.35rem 0.65rem !important;
+    gap: 0.4rem 0.75rem !important;
     max-width: 320px !important;
-    margin: 1.6rem auto 0.4rem auto !important;
+    margin: 1.5rem auto 0.4rem auto !important;
   }
 
   .endcard-nav-link {
@@ -2524,31 +2524,22 @@
     padding: 0.2rem 0.35rem !important;
   }
 
-  .endcard-footer-grid {
-    grid-template-columns: 1fr !important;
+  .endcard-footer {
+    width: 100% !important;
+    border-top: 1px solid rgba(237, 228, 217, 0.2) !important;
   }
 
-  .footer-grid-left {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(237, 228, 217, 0.2) !important;
-    padding: 0.65rem 1rem !important;
-  }
-
-  .footer-narrative-quote {
-    font-size: 0.7rem !important;
-    line-height: 1.35 !important;
-    text-align: center !important;
-  }
-
+  .endcard-footer-grid,
+  .footer-grid-left,
   .footer-grid-right {
-    padding: 0.45rem 1rem !important;
+    display: none !important;
   }
 
   .endcard-footer-anchor {
     flex-direction: column !important;
-    gap: 0.5rem !important;
+    gap: 0.65rem !important;
     text-align: center !important;
-    padding: 0.55rem 1rem !important;
+    padding: 1.1rem 1rem !important;
   }
 
   .footer-anchor-center {
