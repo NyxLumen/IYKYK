@@ -20,6 +20,7 @@ export type ArtworkLayer = {
   exit?: ExitStyle;
   alt?: string;
   content?: React.ReactNode;
+  overlayText?: string;
 };
 
 type ArtworkConfig = {
@@ -88,21 +89,92 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
   'first-drink': {
     environment: 'environments.partyHallwayEntrance',
     layers: [
-      // Plane B: Hallway ink wash & wall brush
-      { assetId: 'textures.inkSmear01', className: 'drink-smear', plane: 'B', role: 'texture', entrance: 'fade-material', exit: 'fade-material' },
-      { assetId: 'graphics.brushPurple', className: 'drink-mark', plane: 'B', role: 'graphic', entrance: 'slide', exit: 'slide-right' },
-      // Plane C: Protagonist Hero (Left-weighted close-up holding drink)
-      { assetId: 'characters.close.firstDrink', className: 'drink-character', plane: 'C', role: 'protagonist', entrance: 'slide', exit: 'slide-right', alt: 'Faceless protagonist with their first drink' },
-      // Plane D: Glassware & entrance objects
-      { assetId: 'objects.bottleGlass01', className: 'drink-bottle', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-right' },
-      { assetId: 'objects.redCup01', className: 'drink-cup', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      { assetId: 'objects.glass01', className: 'drink-cocktail', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      { assetId: 'objects.phoneTime01', className: 'drink-phone', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-down' },
-      { assetId: 'objects.partyFlyer01', className: 'drink-flyer', plane: 'D', role: 'paper', entrance: 'slide', exit: 'slide-left' },
-      // Plane E: Foreground intervention stickers & tape
-      { assetId: 'graphics.speechBubble', className: 'drink-sticker', plane: 'E', role: 'graphic', entrance: 'stamp', exit: 'slide-up', alt: 'Just one more?' },
-      { assetId: 'graphics.arrowGreen', className: 'drink-arrow', plane: 'E', role: 'graphic', entrance: 'burst', exit: 'slide-right' },
-      { assetId: 'textures.clearTape01', className: 'drink-tape', plane: 'E', role: 'paper', entrance: 'stamp', exit: 'slide-down' },
+      // Plane B: Main green brush ribbon graphic with integrated "JUST ONE..." copy
+      {
+        assetId: 'graphics.targetGreen',
+        className: 'drink-target-green',
+        plane: 'B',
+        role: 'graphic',
+        entrance: 'slide',
+        exit: 'slide-left',
+        alt: 'Graphic target green ribbon brush with JUST ONE... copy',
+        overlayText: 'JUST ONE...',
+      },
+      // Plane C: Protagonist Hero (Center close-up holding drink)
+      {
+        assetId: 'characters.close.firstDrink',
+        className: 'drink-character',
+        plane: 'C',
+        role: 'protagonist',
+        entrance: 'slide',
+        exit: 'slide-right',
+        alt: 'Protagonist holding first drink',
+      },
+      // Plane D: Wall paper scrap, ambient graphics & mid-ground items
+      {
+        assetId: 'textures.crumpledPaperStrip01',
+        className: 'drink-paper-strip',
+        plane: 'D',
+        role: 'paper',
+        entrance: 'stamp',
+        exit: 'slide-left',
+        alt: 'Crumpled paper strip',
+      },
+      {
+        assetId: 'graphics.globePurple',
+        className: 'drink-globe',
+        plane: 'D',
+        role: 'graphic',
+        entrance: 'drop',
+        exit: 'slide-up',
+        alt: 'Wireframe purple globe',
+      },
+      {
+        assetId: 'objects.phoneAngle01',
+        className: 'drink-phone',
+        plane: 'D',
+        role: 'object',
+        entrance: 'slide',
+        exit: 'slide-right',
+        alt: 'Angled smartphone',
+      },
+      {
+        assetId: 'graphics.brushGreen',
+        className: 'drink-brush-green',
+        plane: 'B',
+        role: 'graphic',
+        entrance: 'slide',
+        exit: 'slide-right',
+        alt: 'Green brush paint splash',
+      },
+      // Plane E: Foreground tangible party stickers
+      {
+        assetId: 'objects.earbuds01',
+        className: 'drink-earbuds',
+        plane: 'E',
+        role: 'object',
+        entrance: 'drop',
+        exit: 'slide-left',
+        alt: 'Coiled wired earbuds',
+      },
+      {
+        assetId: 'objects.glass01',
+        className: 'drink-glass',
+        plane: 'E',
+        role: 'object',
+        entrance: 'slide',
+        exit: 'slide-down',
+        alt: 'Glass with drink and ice',
+      },
+      {
+        assetId: 'objects.redCup02',
+        className: 'drink-cup',
+        plane: 'E',
+        role: 'object',
+        entrance: 'burst',
+        exit: 'slide-right',
+        alt: 'Crinkled red party cup',
+      },
     ],
   },
   buzzed: {
@@ -262,6 +334,11 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
               loading={eager ? 'eager' : 'lazy'}
             />
             {layer.content}
+            {layer.overlayText && (
+              <span className="art-card-overlay-text" aria-hidden="true">
+                {layer.overlayText}
+              </span>
+            )}
           </div>
         </div>
       </figure>

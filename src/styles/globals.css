@@ -54,6 +54,7 @@ button {
   color: inherit;
 }
 
+/* Visually hidden screen reader utility */
 .sr-only {
   position: absolute;
   width: 1px;
