@@ -19,6 +19,7 @@ export type ArtworkLayer = {
   entrance?: EntranceStyle;
   exit?: ExitStyle;
   alt?: string;
+  content?: React.ReactNode;
 };
 
 type ArtworkConfig = {
@@ -41,19 +42,47 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
   plan: {
     environment: 'environments.bedroomStudyNight',
     layers: [
-      // Plane B: Material substrate & registration mark
-      { assetId: 'textures.paperFiber01', className: 'plan-fiber', plane: 'B', role: 'texture', entrance: 'fade-material', exit: 'fade-material' },
-      { assetId: 'graphics.barcodePurpleGreen', className: 'plan-mark', plane: 'B', role: 'graphic', entrance: 'stamp', exit: 'slide-down' },
-      // Plane C: Protagonist Hero (Right-weighted, approved close-up)
-      { assetId: 'characters.close.gettingReady', className: 'plan-character', plane: 'C', role: 'protagonist', entrance: 'drop', exit: 'slide-left', alt: 'Faceless protagonist getting ready' },
-      // Plane D: Desk study objects (slide down on departure)
-      { assetId: 'objects.booksStack01', className: 'plan-books', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      { assetId: 'objects.collegeBag01', className: 'plan-bag', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-right' },
-      { assetId: 'objects.notebook01', className: 'plan-notebook', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      { assetId: 'objects.stationery01', className: 'plan-stationery', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      // Plane E: Pinned notes & paper cutouts
-      { assetId: 'objects.timetable01', className: 'plan-timetable', plane: 'E', role: 'paper', entrance: 'stamp', exit: 'slide-up', alt: 'College timetable' },
-      { assetId: 'objects.partyFlyer01', className: 'plan-flyer', plane: 'E', role: 'paper', entrance: 'stamp', exit: 'slide-right', alt: 'Party flyer teaser' },
+      // Plane B: Backing study elements (behind character)
+      { assetId: 'objects.booksStack01', className: 'plan-books', plane: 'B', role: 'object', entrance: 'slide', exit: 'slide-down', alt: 'Stack of study books' },
+      { assetId: 'objects.timetable01', className: 'plan-timetable', plane: 'B', role: 'paper', entrance: 'stamp', exit: 'slide-left', alt: 'College timetable' },
+      { assetId: 'objects.collegeBag01', className: 'plan-bag', plane: 'B', role: 'object', entrance: 'slide', exit: 'slide-right', alt: 'Purple college backpack' },
+      // Plane C: Protagonist Hero (Primary visual anchor, left-center getting ready)
+      { assetId: 'characters.close.gettingReady', className: 'plan-character', plane: 'C', role: 'protagonist', entrance: 'drop', exit: 'slide-left', alt: 'Protagonist getting ready' },
+      // Plane D: Midground objects & cutouts
+      { assetId: 'objects.textbook01', className: 'plan-textbook', plane: 'D', role: 'object', entrance: 'stamp', exit: 'slide-down', alt: 'Upright pattern textbook' },
+      { assetId: 'objects.phoneNotification01', className: 'plan-phone', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-down', alt: 'Phone with chat notifications' },
+      { assetId: 'objects.partyFlyer01', className: 'plan-flyer', plane: 'D', role: 'paper', entrance: 'stamp', exit: 'slide-right', alt: 'Scattered party flyers' },
+      // Plane E: Foreground collage typography, badges & expressive mark
+      {
+        assetId: 'graphics.brushPurple',
+        className: 'plan-brush',
+        plane: 'E',
+        role: 'graphic',
+        entrance: 'slide',
+        exit: 'slide-right',
+        alt: "WE'RE GOOD affirmation",
+        content: (
+          <div className="plan-brush-text" aria-label="WE'RE GOOD">
+            <span>WE'RE GOOD</span>
+          </div>
+        ),
+      },
+      {
+        assetId: 'graphics.paperBadge',
+        className: 'plan-badge',
+        plane: 'E',
+        role: 'paper',
+        entrance: 'stamp',
+        exit: 'slide-right',
+        alt: "I'LL BE BACK EARLY statement badge",
+        content: (
+          <div className="plan-badge-text" aria-label="I'LL BE BACK EARLY">
+            <span className="plan-badge-line plan-badge-line-1">I'LL BE BACK</span>
+            <span className="plan-badge-line plan-badge-line-2">EARLY</span>
+          </div>
+        ),
+      },
+      { assetId: 'graphics.scribbleGreen', className: 'plan-scribble', plane: 'E', role: 'graphic', entrance: 'burst', exit: 'slide-up', alt: 'Neon green gestural scribble' },
     ],
   },
   'first-drink': {
@@ -232,6 +261,7 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
               alt={layer.alt ?? ''}
               loading={eager ? 'eager' : 'lazy'}
             />
+            {layer.content}
           </div>
         </div>
       </figure>
