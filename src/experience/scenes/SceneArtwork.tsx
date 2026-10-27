@@ -79,25 +79,19 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
   buzzed: {
     environment: 'environments.partyLivingRoomMaster',
     layers: [
-      // Plane B: Risograph halftone wash, tape, kinetic lightning & swirl
-      { assetId: 'textures.colorHalftone01', className: 'buzzed-halftone', plane: 'B', role: 'texture', entrance: 'fade-material', exit: 'fade-material' },
-      { assetId: 'textures.tapeLayered01', className: 'buzzed-tape', plane: 'B', role: 'paper', entrance: 'stamp', exit: 'slide-left' },
-      { assetId: 'graphics.swirlPurpleGreen', className: 'buzzed-mark', plane: 'B', role: 'graphic', entrance: 'burst', exit: 'slide-right' },
-      { assetId: 'graphics.lightningGreenPurple', className: 'buzzed-lightning', plane: 'B', role: 'graphic', entrance: 'burst', exit: 'slide-up' },
-      // Plane C: Protagonist Hero (Right-elevated posture)
-      { assetId: 'characters.close.buzzed', className: 'buzzed-character', plane: 'C', role: 'protagonist', entrance: 'slide', exit: 'slide-left', alt: 'Faceless protagonist socialising' },
-      // Plane D: Audio & party objects
-      { assetId: 'objects.speaker01', className: 'buzzed-speaker-box', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-down' },
-      { assetId: 'objects.speakerVibration01', className: 'buzzed-speaker', plane: 'D', role: 'object', entrance: 'burst', exit: 'slide-down' },
-      { assetId: 'objects.redCup02', className: 'buzzed-cup', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-right' },
-      { assetId: 'objects.earbuds01', className: 'buzzed-earbuds', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-left' },
-      { assetId: 'objects.partyLight01', className: 'buzzed-light', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down' },
-      { assetId: 'objects.phoneAngle01', className: 'buzzed-phone', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-right' },
-      // Plane E: Splatter, comic burst & foreground paper strip
-      { assetId: 'graphics.splatterPurpleGreen', className: 'buzzed-splatter', plane: 'E', role: 'graphic', entrance: 'burst', exit: 'slide-down' },
-      { assetId: 'graphics.comicBurstGreen', className: 'buzzed-burst', plane: 'E', role: 'graphic', entrance: 'stamp', exit: 'slide-up' },
-      { assetId: 'graphics.spiralGreen', className: 'buzzed-spiral', plane: 'E', role: 'graphic', entrance: 'burst', exit: 'slide-right' },
-      { assetId: 'textures.crumpledPaperStrip01', className: 'buzzed-paper-strip', plane: 'E', role: 'paper', entrance: 'slide', exit: 'slide-left' },
+      // Plane B: Physical material substrate & taped scrap
+      { assetId: 'textures.crumpledPaper01', className: 'buzzed-crumpled-paper', plane: 'B', role: 'texture', entrance: 'fade-material', exit: 'fade-material' },
+      { assetId: 'textures.tapeLayered01', className: 'buzzed-tape', plane: 'B', role: 'paper', entrance: 'stamp', exit: 'slide-left', alt: 'Taped paper fragment' },
+      // Plane C: Protagonist Hero (Right side, dominant, buzzed close-up)
+      { assetId: 'characters.close.buzzed', className: 'buzzed-character', plane: 'C', role: 'protagonist', entrance: 'slide', exit: 'slide-left', alt: 'Faceless protagonist buzzed at the party' },
+      // Plane D: Secondary props & narrative objects
+      { assetId: 'objects.redCup01', className: 'buzzed-cup', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-down', alt: 'Red party cup' },
+      { assetId: 'objects.speaker01', className: 'buzzed-speaker-box', plane: 'D', role: 'object', entrance: 'drop', exit: 'slide-down', alt: 'Party sound speaker' },
+      { assetId: 'objects.speakerVibration01', className: 'buzzed-speaker-vibration', plane: 'D', role: 'graphic', entrance: 'burst', exit: 'slide-down', alt: 'Speaker sound vibrations' },
+      { assetId: 'objects.clockFragment01', className: 'buzzed-clock', plane: 'D', role: 'object', entrance: 'slide', exit: 'slide-right', alt: 'Clock fragment showing progression of the night' },
+      // Plane E: Foreground scratches overlay & green-purple collage cluster with ONE MORE? copy
+      { assetId: 'textures.surfaceScratches01', className: 'buzzed-scratches', plane: 'E', role: 'texture', entrance: 'fade-material', exit: 'fade-material' },
+      { assetId: 'graphics.collageClusterGreenPurple', className: 'buzzed-cluster', plane: 'E', role: 'graphic', entrance: 'stamp', exit: 'slide-up', alt: 'Collage cluster' },
     ],
   },
   drunk: {
@@ -232,6 +226,11 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({ sceneId, composition
               alt={layer.alt ?? ''}
               loading={eager ? 'eager' : 'lazy'}
             />
+            {layer.className === 'buzzed-cluster' && (
+              <span className="buzzed-one-more-text" aria-label="ONE MORE?">
+                ONE MORE?
+              </span>
+            )}
           </div>
         </div>
       </figure>
