@@ -29,14 +29,14 @@ export const SCENE_REGISTRY: SceneConfig[] = [
   {
     id: 'first-drink',
     sceneNumber: '02',
-    title: 'JUST ONE',
+    title: 'JUST ONE...',
     time: '10:15 PM',
     meter: { value: 80, visible: true, mode: 'story' },
     clock: { time: '10:15 PM', variant: 'digital', visible: true },
     mood: 'Excited. Social. Still composed.',
     storyAction: 'The night begins. First drink. Everything still feels normal and exciting.',
     copy: {
-      headline: 'JUST ONE.',
+      headline: 'JUST ONE...',
       subhead: '10:15 PM // 80% CONTROL',
       note: '',
     },

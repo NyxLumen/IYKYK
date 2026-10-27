@@ -72,7 +72,7 @@ export const NarrativeScene: React.FC<NarrativeSceneProps> = ({ sceneId }) => {
           <p className="scene-description">{scene.storyAction}</p>
         </div>
       ) : (
-        <h2 className="sr-only">JUST ONE.</h2>
+        <h2 className="sr-only">JUST ONE...</h2>
       )}
       <span className="scene-edge-mark" aria-hidden="true">IYKYK / {scene.id.toUpperCase()}</span>
     </section>

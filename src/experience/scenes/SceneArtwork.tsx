@@ -60,16 +60,16 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
   'first-drink': {
     environment: 'environments.partyHallwayEntrance',
     layers: [
-      // Plane B: Main green brush graphic with integrated "JUST ONE" copy
+      // Plane B: Main green brush ribbon graphic with integrated "JUST ONE..." copy
       {
-        assetId: 'graphics.brushGreen',
-        className: 'drink-brush-green',
+        assetId: 'graphics.targetGreen',
+        className: 'drink-target-green',
         plane: 'B',
         role: 'graphic',
         entrance: 'slide',
         exit: 'slide-left',
-        alt: 'Graphic brush green with JUST ONE copy',
-        overlayText: 'JUST ONE',
+        alt: 'Graphic target green ribbon brush with JUST ONE... copy',
+        overlayText: 'JUST ONE...',
       },
       // Plane C: Protagonist Hero (Center close-up holding drink)
       {
@@ -110,8 +110,8 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
         alt: 'Angled smartphone',
       },
       {
-        assetId: 'graphics.targetGreen',
-        className: 'drink-target-green',
+        assetId: 'graphics.brushGreen',
+        className: 'drink-brush-green',
         plane: 'B',
         role: 'graphic',
         entrance: 'slide',
