@@ -910,107 +910,233 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Scene 03: BUZZED — Denser Diagonal Energy & Audio Vibration                */
-/* Protagonist buzzed close-up (Plane C: ~55vw Desktop, ~82vw Mobile)         */
+/* Scene 03: BUZZED — Exact Collage Reference Blueprint Implementation        */
+/* Layer list:                                                                */
+/*  1. ONE MORE? (Text on green cluster)                                      */
+/*  2. graphic-collage-cluster-green-purple 1 (Upper-left quadrant)           */
+/*  3. object-clock-fragment-01 1 (Lower-right edge, large, cropped)          */
+/*  4. texture-surface-scratches-01 1 (Full scene scratches overlay)          */
+/*  5. object-speaker-vibration-01 1 (Lower-middle-left, sound radiating)     */
+/*  6. texture-tape-layered-01 1 (Upper-right taped paper scrap)              */
+/*  7. object-speaker-01 1 (Lower-left speaker box, tilted)                   */
+/*  8. object-red-cup-01 1 (Far-left party cup)                               */
+/*  9. protagonist-close-buzzed 1 (Right side, dominant, ~50vw)               */
+/* 10. texture-crumpled-paper-01 1 (Bottom-left corner substrate)             */
+/* 11. env-party-living-room-master 1 (Full-bleed party background)           */
 /* -------------------------------------------------------------------------- */
-.scene-collage-buzzed .buzzed-halftone {
-  left: -2%;
-  top: 0%;
-  width: clamp(660px, 62vw, 960px);
-  height: clamp(460px, 54vh, 780px);
-  mix-blend-mode: screen;
-  opacity: 0.38;
-  mask-image: radial-gradient(circle at 30% 45%, black 35%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at 30% 45%, black 35%, transparent 80%);
+
+/* Section & Background Plate */
+.scene-buzzed {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background-color: #0b0b0b;
+}
+
+.scene-buzzed .buzzed-env {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
   pointer-events: none;
 }
+
+.scene-buzzed .buzzed-env img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.08) saturate(1.06);
+}
+
+.scene-buzzed .buzzed-env-atmosphere {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.34) 0%, rgba(11, 11, 11, 0.65) 100%);
+  pointer-events: none;
+}
+
+/* Plane B: Bottom-left crumpled paper substrate */
+.scene-collage-buzzed .buzzed-crumpled-paper {
+  position: absolute;
+  left: -3%;
+  bottom: -3%;
+  width: clamp(230px, 25vw, 370px);
+  transform: rotate(-15deg);
+  z-index: 10;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.scene-collage-buzzed .buzzed-crumpled-paper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+}
+
+/* Plane B: Upper-right taped scrap */
 .scene-collage-buzzed .buzzed-tape {
-  left: 6%;
-  top: 12%;
-  width: clamp(170px, 15vw, 240px);
-  transform: rotate(-8deg);
+  position: absolute;
+  right: 6.5%;
+  top: 7.5%;
+  width: clamp(210px, 23.5vw, 340px);
+  z-index: 12;
+  opacity: 0.95;
+  transform: rotate(0deg);
 }
-.scene-collage-buzzed .buzzed-mark {
-  right: 8%;
-  top: 8%;
-  width: clamp(180px, 16vw, 250px);
-  transform: rotate(10deg);
+
+.scene-collage-buzzed .buzzed-tape img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
 }
-.scene-collage-buzzed .buzzed-lightning {
-  left: 36%;
-  top: 10%;
-  width: clamp(140px, 12vw, 190px);
-  transform: rotate(-10deg);
-}
+
+/* Plane C: Large dominant protagonist on RIGHT SIDE */
 .scene-collage-buzzed .buzzed-character {
-  left: 62%;
-  top: 45%;
-  transform: translate(-50%, -45%);
-  width: clamp(650px, 55vw, 860px);
+  position: absolute;
+  right: 4.5%;
+  top: -1.2%;
+  bottom: auto;
+  left: auto;
+  width: clamp(520px, 49vw, 840px);
+  max-width: none;
+  z-index: 20;
+  transform: none;
 }
+
 .scene-collage-buzzed .buzzed-character img {
   width: 100%;
   height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
 }
-.scene-collage-buzzed .buzzed-speaker-box {
-  left: 4%;
-  bottom: 6%;
-  width: clamp(190px, 17vw, 260px);
-  transform: rotate(-4deg);
-}
-.scene-collage-buzzed .buzzed-speaker {
-  left: 18%;
-  bottom: 10%;
-  width: clamp(185px, 16vw, 255px);
-  transform: rotate(8deg);
-}
-.scene-collage-buzzed .buzzed-earbuds {
-  left: 32%;
-  bottom: 5%;
-  width: clamp(120px, 10vw, 160px);
-  transform: rotate(-14deg);
-}
+
+/* Plane D: Far-left red party cup */
 .scene-collage-buzzed .buzzed-cup {
-  right: 6%;
-  bottom: 10%;
-  width: clamp(135px, 11vw, 180px);
-  transform: rotate(14deg);
+  position: absolute;
+  left: 1.2%;
+  bottom: 23%;
+  width: clamp(75px, 8.5vw, 125px);
+  transform: rotate(-5deg);
+  z-index: 24;
 }
-.scene-collage-buzzed .buzzed-light {
-  right: 6%;
-  top: 12%;
-  width: clamp(155px, 13vw, 210px);
-  transform: rotate(-6deg);
+
+.scene-collage-buzzed .buzzed-cup img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
-.scene-collage-buzzed .buzzed-phone {
-  right: 18%;
-  bottom: 6%;
-  width: clamp(125px, 11vw, 165px);
-  transform: rotate(16deg);
+
+/* Plane D: Lower-left tilted PA speaker */
+.scene-collage-buzzed .buzzed-speaker-box {
+  position: absolute;
+  left: 14.5%;
+  bottom: 1.5%;
+  width: clamp(160px, 17.5vw, 250px);
+  transform: rotate(6.5deg);
+  z-index: 25;
 }
-.scene-collage-buzzed .buzzed-splatter {
-  right: 8%;
-  bottom: 22%;
-  width: clamp(170px, 15vw, 230px);
-  transform: rotate(12deg);
+
+.scene-collage-buzzed .buzzed-speaker-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
 }
-.scene-collage-buzzed .buzzed-burst {
-  left: 20%;
-  top: 18%;
-  width: clamp(150px, 13vw, 210px);
-  transform: rotate(10deg);
+
+/* Plane D: Speaker vibration soundwaves radiating rightward */
+.scene-collage-buzzed .buzzed-speaker-vibration {
+  position: absolute;
+  left: 25.5%;
+  bottom: 17%;
+  width: clamp(210px, 23.5vw, 340px);
+  z-index: 28;
 }
-.scene-collage-buzzed .buzzed-spiral {
-  right: 18%;
-  top: 22%;
-  width: clamp(140px, 12vw, 190px);
-  transform: rotate(-18deg);
+
+.scene-collage-buzzed .buzzed-speaker-vibration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
 }
-.scene-collage-buzzed .buzzed-paper-strip {
-  left: 6%;
-  bottom: 28%;
-  width: clamp(200px, 18vw, 280px);
-  transform: rotate(-6deg);
+
+/* Plane D: Clock fragment on lower-right edge, large and cropped */
+.scene-collage-buzzed .buzzed-clock {
+  position: absolute;
+  right: -1.5%;
+  bottom: -1.5%;
+  width: clamp(170px, 18.5vw, 270px);
+  z-index: 35;
+}
+
+.scene-collage-buzzed .buzzed-clock img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.65));
+}
+
+/* Plane E: Physical surface scratches overlay - reduced authentic scale over protagonist jacket */
+.scene-collage-buzzed .buzzed-scratches {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  left: auto;
+  width: clamp(380px, 46vw, 640px);
+  height: auto;
+  z-index: 30;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+.scene-collage-buzzed .buzzed-scratches img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Plane E: Green-purple collage cluster & ONE MORE? text */
+.scene-collage-buzzed .buzzed-cluster {
+  position: absolute;
+  left: 6.8%;
+  top: 1.5%;
+  width: clamp(300px, 33vw, 460px);
+  z-index: 45;
+}
+
+.scene-collage-buzzed .buzzed-cluster img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.5));
+}
+
+.scene-collage-buzzed .buzzed-one-more-text {
+  position: absolute;
+  left: 23%;
+  top: 39.5%;
+  width: auto;
+  transform: rotate(-2.8deg);
+  transform-origin: left center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.25rem, 0.85rem + 2.3vw, 3.15rem);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: #050505;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.25);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2457,22 +2583,63 @@
   .scene-collage-first-drink .drink-earbuds { left: 6%; bottom: 10%; width: 30vw; transform: rotate(-4deg); }
   .scene-collage-first-drink .drink-glass { left: 2%; bottom: 2%; width: 20vw; transform: rotate(-8deg); }
 
-  /* Scene 03: Buzzed Mobile */
-  .scene-collage-buzzed .buzzed-character { left: 50%; top: 43%; transform: translate(-50%, -43%); width: 78vw; }
-  .scene-collage-buzzed .buzzed-halftone { left: 0; top: 0; width: 100vw; height: 50vh; opacity: 0.25; }
-  .scene-collage-buzzed .buzzed-tape { left: 2%; top: 11%; width: 20vw; height: auto; }
-  .scene-collage-buzzed .buzzed-mark { right: 2%; top: 10%; width: 20vw; height: auto; }
-  .scene-collage-buzzed .buzzed-lightning { left: 50%; top: 9%; transform: translateX(-50%); width: 16vw; height: auto; }
-  .scene-collage-buzzed .buzzed-burst { left: 3%; top: 21%; width: 18vw; height: auto; }
-  .scene-collage-buzzed .buzzed-spiral { right: 3%; top: 21%; width: 17vw; height: auto; }
-  .scene-collage-buzzed .buzzed-speaker-box { left: -2%; bottom: 1%; width: 20vw; height: auto; }
-  .scene-collage-buzzed .buzzed-speaker { left: 2%; bottom: 15%; width: 17vw; height: auto; transform: rotate(-6deg); }
-  .scene-collage-buzzed .buzzed-earbuds { left: 2%; bottom: 26%; width: 15vw; height: auto; transform: rotate(10deg); }
-  .scene-collage-buzzed .buzzed-paper-strip { left: 2%; bottom: 37%; width: 20vw; height: auto; }
-  .scene-collage-buzzed .buzzed-cup { right: -2%; bottom: 1%; width: 18vw; height: auto; }
-  .scene-collage-buzzed .buzzed-phone { right: 2%; bottom: 14%; width: 16vw; height: auto; transform: rotate(-10deg); }
-  .scene-collage-buzzed .buzzed-light { right: 2%; bottom: 25%; width: 16vw; height: auto; }
-  .scene-collage-buzzed .buzzed-splatter { right: 2%; bottom: 36%; width: 18vw; height: auto; }
+  /* Scene 03: Buzzed Mobile — Preserving exact asymmetry & hierarchy */
+  .scene-collage-buzzed .buzzed-character {
+    right: -4%;
+    bottom: 0;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: clamp(340px, 76vw, 540px);
+    max-width: none;
+  }
+  .scene-collage-buzzed .buzzed-cluster {
+    left: 2%;
+    top: 4%;
+    width: clamp(230px, 58vw, 340px);
+  }
+  .scene-collage-buzzed .buzzed-one-more-text {
+    font-size: clamp(1.5rem, 0.8rem + 3.2vw, 2.35rem);
+    left: 23%;
+    top: 39.5%;
+    width: auto;
+  }
+  .scene-collage-buzzed .buzzed-tape {
+    right: 4%;
+    top: 6%;
+    width: clamp(140px, 30vw, 200px);
+  }
+  .scene-collage-buzzed .buzzed-crumpled-paper {
+    left: -5%;
+    bottom: -3%;
+    width: clamp(180px, 42vw, 280px);
+  }
+  .scene-collage-buzzed .buzzed-speaker-box {
+    left: 10%;
+    bottom: 2%;
+    width: clamp(120px, 28vw, 180px);
+  }
+  .scene-collage-buzzed .buzzed-speaker-vibration {
+    left: 21%;
+    bottom: 12%;
+    width: clamp(140px, 32vw, 210px);
+  }
+  .scene-collage-buzzed .buzzed-cup {
+    left: 1%;
+    bottom: 19%;
+    width: clamp(65px, 14vw, 95px);
+    transform: rotate(-5deg);
+  }
+  .scene-collage-buzzed .buzzed-clock {
+    right: -3%;
+    bottom: -2%;
+    width: clamp(140px, 32vw, 200px);
+  }
+  .scene-collage-buzzed .buzzed-scratches {
+    right: 0;
+    bottom: 0;
+    width: 65vw;
+  }
 
   /* Scene 04: Drunk Mobile */
   .scene-collage-drunk .drunk-character { left: 50%; top: 43%; transform: translate(-50%, -43%) rotate(-3deg); width: 78vw; }
