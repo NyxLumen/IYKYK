@@ -60,10 +60,10 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
         role: 'graphic',
         entrance: 'slide',
         exit: 'slide-right',
-        alt: 'WERE GOOD affirmation',
+        alt: "WE'RE GOOD affirmation",
         content: (
-          <div className="plan-brush-text" aria-label="WERE GOOD">
-            <span>WERE GOOD</span>
+          <div className="plan-brush-text" aria-label="WE'RE GOOD">
+            <span>WE'RE GOOD</span>
           </div>
         ),
       },
@@ -74,11 +74,11 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
         role: 'paper',
         entrance: 'stamp',
         exit: 'slide-right',
-        alt: 'ILL BE BACK EARLY statement badge',
+        alt: "I'LL BE BACK EARLY statement badge",
         content: (
-          <div className="plan-badge-text" aria-label="ILL BE BACK EARLY">
-            <span className="plan-badge-line">ILL BE BACK</span>
-            <span className="plan-badge-line">EARLY</span>
+          <div className="plan-badge-text" aria-label="I'LL BE BACK EARLY">
+            <span className="plan-badge-line plan-badge-line-1">I'LL BE BACK</span>
+            <span className="plan-badge-line plan-badge-line-2">EARLY</span>
           </div>
         ),
       },
