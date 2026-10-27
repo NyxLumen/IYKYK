@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAnimation } from '@/app/providers/AnimationProvider';
+import { getAsset } from '@/experience/data/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -217,18 +218,22 @@ export const HeroSection: React.FC = () => {
       {/* Main Character: Cutout waist-up crop centered in front of typography */}
       <div ref={characterRef} className="hero-character-wrap">
         <img
-          src="/production/source/assetsReady/characters/full/protagonist-full-getting-ready.png"
+          src={getAsset('characters.full.gettingReady').src}
+          srcSet={getAsset('characters.full.gettingReady').srcSet}
+          sizes="(max-width: 768px) 78vw, 42vw"
           alt="Faceless protagonist in jacket zipping up collar"
           className="hero-character-img"
           loading="eager"
-          decoding="sync"
+          decoding="async"
         />
       </div>
 
       {/* Graphic Elements: Sparse collage assets */}
       <div ref={lightningRef} className="hero-graphic hero-graphic-lightning" aria-hidden="true">
         <img
-          src="/production/source/assetsReady/graphics/graphic-lightning-green-purple.png"
+          src={getAsset('graphics.lightningGreenPurple').src}
+          srcSet={getAsset('graphics.lightningGreenPurple').srcSet}
+          sizes="(max-width: 768px) 24vw, 15vw"
           alt=""
           loading="eager"
           decoding="async"
@@ -237,7 +242,9 @@ export const HeroSection: React.FC = () => {
 
       <div ref={eyeRef} className="hero-graphic hero-graphic-eye" aria-hidden="true">
         <img
-          src="/production/source/assetsReady/graphics/graphic-eye-green.png"
+          src={getAsset('graphics.eyeGreen').src}
+          srcSet={getAsset('graphics.eyeGreen').srcSet}
+          sizes="(max-width: 768px) 20vw, 12vw"
           alt=""
           loading="eager"
           decoding="async"
@@ -246,7 +253,9 @@ export const HeroSection: React.FC = () => {
 
       <div ref={smileyRef} className="hero-graphic hero-graphic-smiley" aria-hidden="true">
         <img
-          src="/production/source/assetsReady/graphics/graphic-smiley-green.png"
+          src={getAsset('graphics.smileyGreen').src}
+          srcSet={getAsset('graphics.smileyGreen').srcSet}
+          sizes="(max-width: 768px) 20vw, 12vw"
           alt=""
           loading="eager"
           decoding="async"

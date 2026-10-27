@@ -1,0 +1,4143 @@
+[
+  {
+    "id": "characters.close.buzzed",
+    "kebabId": "char-close-buzzed",
+    "slug": "protagonist-close-buzzed",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 690,
+    "height": 1080,
+    "dimensions": {
+      "width": 690,
+      "height": 1080,
+      "aspectRatio": 0.6389
+    },
+    "fileSizeBytes": 150038,
+    "fileSizeKB": 146.52,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-buzzed/690.webp",
+    "srcSet": "/assets/characters/protagonist-close-buzzed/380.webp 380w, /assets/characters/protagonist-close-buzzed/640.webp 640w, /assets/characters/protagonist-close-buzzed/690.webp 690w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 595,
+        "src": "/assets/characters/protagonist-close-buzzed/380.webp",
+        "fileSizeBytes": 65420
+      },
+      {
+        "width": 640,
+        "height": 1002,
+        "src": "/assets/characters/protagonist-close-buzzed/640.webp",
+        "fileSizeBytes": 143962
+      },
+      {
+        "width": 690,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-close-buzzed/690.webp",
+        "fileSizeBytes": 150038
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Character asset: protagonist-close-buzzed"
+  },
+  {
+    "id": "characters.close.drunk",
+    "kebabId": "char-close-drunk",
+    "slug": "protagonist-close-drunk",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 874,
+    "height": 1080,
+    "dimensions": {
+      "width": 874,
+      "height": 1080,
+      "aspectRatio": 0.8093
+    },
+    "fileSizeBytes": 188314,
+    "fileSizeKB": 183.9,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-drunk/874.webp",
+    "srcSet": "/assets/characters/protagonist-close-drunk/380.webp 380w, /assets/characters/protagonist-close-drunk/640.webp 640w, /assets/characters/protagonist-close-drunk/874.webp 874w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 470,
+        "src": "/assets/characters/protagonist-close-drunk/380.webp",
+        "fileSizeBytes": 52704
+      },
+      {
+        "width": 640,
+        "height": 791,
+        "src": "/assets/characters/protagonist-close-drunk/640.webp",
+        "fileSizeBytes": 123678
+      },
+      {
+        "width": 874,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-close-drunk/874.webp",
+        "fileSizeBytes": 188314
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Character asset: protagonist-close-drunk"
+  },
+  {
+    "id": "characters.close.firstDrink",
+    "kebabId": "char-close-first-drink",
+    "slug": "protagonist-close-first-drink",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 682,
+    "height": 1080,
+    "dimensions": {
+      "width": 682,
+      "height": 1080,
+      "aspectRatio": 0.6315
+    },
+    "fileSizeBytes": 142830,
+    "fileSizeKB": 139.48,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-first-drink/682.webp",
+    "srcSet": "/assets/characters/protagonist-close-first-drink/380.webp 380w, /assets/characters/protagonist-close-first-drink/640.webp 640w, /assets/characters/protagonist-close-first-drink/682.webp 682w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 602,
+        "src": "/assets/characters/protagonist-close-first-drink/380.webp",
+        "fileSizeBytes": 63574
+      },
+      {
+        "width": 640,
+        "height": 1013,
+        "src": "/assets/characters/protagonist-close-first-drink/640.webp",
+        "fileSizeBytes": 140868
+      },
+      {
+        "width": 682,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-close-first-drink/682.webp",
+        "fileSizeBytes": 142830
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Character asset: protagonist-close-first-drink"
+  },
+  {
+    "id": "characters.close.gettingReady",
+    "kebabId": "char-close-getting-ready",
+    "slug": "protagonist-close-getting-ready",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 614,
+    "height": 1080,
+    "dimensions": {
+      "width": 614,
+      "height": 1080,
+      "aspectRatio": 0.5685
+    },
+    "fileSizeBytes": 112872,
+    "fileSizeKB": 110.23,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-getting-ready/614.webp",
+    "srcSet": "/assets/characters/protagonist-close-getting-ready/380.webp 380w, /assets/characters/protagonist-close-getting-ready/614.webp 614w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 668,
+        "src": "/assets/characters/protagonist-close-getting-ready/380.webp",
+        "fileSizeBytes": 59196
+      },
+      {
+        "width": 614,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-close-getting-ready/614.webp",
+        "fileSizeBytes": 112872
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Character asset: protagonist-close-getting-ready"
+  },
+  {
+    "id": "characters.close.partyPeak",
+    "kebabId": "char-close-party-peak",
+    "slug": "protagonist-close-party-peak",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 834,
+    "height": 1080,
+    "dimensions": {
+      "width": 834,
+      "height": 1080,
+      "aspectRatio": 0.7722
+    },
+    "fileSizeBytes": 177934,
+    "fileSizeKB": 173.76,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-party-peak/834.webp",
+    "srcSet": "/assets/characters/protagonist-close-party-peak/380.webp 380w, /assets/characters/protagonist-close-party-peak/640.webp 640w, /assets/characters/protagonist-close-party-peak/834.webp 834w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 492,
+        "src": "/assets/characters/protagonist-close-party-peak/380.webp",
+        "fileSizeBytes": 58160
+      },
+      {
+        "width": 640,
+        "height": 829,
+        "src": "/assets/characters/protagonist-close-party-peak/640.webp",
+        "fileSizeBytes": 130242
+      },
+      {
+        "width": 834,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-close-party-peak/834.webp",
+        "fileSizeBytes": 177934
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Character asset: protagonist-close-party-peak"
+  },
+  {
+    "id": "characters.close.passedOut",
+    "kebabId": "char-close-passed-out",
+    "slug": "protagonist-close-passed-out",
+    "category": "character",
+    "variant": "close",
+    "format": "WEBP",
+    "width": 1080,
+    "height": 708,
+    "dimensions": {
+      "width": 1080,
+      "height": 708,
+      "aspectRatio": 1.5254
+    },
+    "fileSizeBytes": 130802,
+    "fileSizeKB": 127.74,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-close-passed-out/1080.webp",
+    "srcSet": "/assets/characters/protagonist-close-passed-out/380.webp 380w, /assets/characters/protagonist-close-passed-out/640.webp 640w, /assets/characters/protagonist-close-passed-out/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 249,
+        "src": "/assets/characters/protagonist-close-passed-out/380.webp",
+        "fileSizeBytes": 27590
+      },
+      {
+        "width": 640,
+        "height": 420,
+        "src": "/assets/characters/protagonist-close-passed-out/640.webp",
+        "fileSizeBytes": 63018
+      },
+      {
+        "width": 1080,
+        "height": 708,
+        "src": "/assets/characters/protagonist-close-passed-out/1080.webp",
+        "fileSizeBytes": 130802
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out"
+    ],
+    "description": "Character asset: protagonist-close-passed-out"
+  },
+  {
+    "id": "characters.full.dancing",
+    "kebabId": "char-full-dancing",
+    "slug": "protagonist-full-dancing",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 668,
+    "height": 1080,
+    "dimensions": {
+      "width": 668,
+      "height": 1080,
+      "aspectRatio": 0.6185
+    },
+    "fileSizeBytes": 97070,
+    "fileSizeKB": 94.79,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-dancing/668.webp",
+    "srcSet": "/assets/characters/protagonist-full-dancing/380.webp 380w, /assets/characters/protagonist-full-dancing/640.webp 640w, /assets/characters/protagonist-full-dancing/668.webp 668w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 614,
+        "src": "/assets/characters/protagonist-full-dancing/380.webp",
+        "fileSizeBytes": 50694
+      },
+      {
+        "width": 640,
+        "height": 1035,
+        "src": "/assets/characters/protagonist-full-dancing/640.webp",
+        "fileSizeBytes": 106198
+      },
+      {
+        "width": 668,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-full-dancing/668.webp",
+        "fileSizeBytes": 97070
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Character asset: protagonist-full-dancing"
+  },
+  {
+    "id": "characters.full.drinking",
+    "kebabId": "char-full-drinking",
+    "slug": "protagonist-full-drinking",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 610,
+    "height": 1500,
+    "dimensions": {
+      "width": 610,
+      "height": 1500,
+      "aspectRatio": 0.4067
+    },
+    "fileSizeBytes": 110036,
+    "fileSizeKB": 107.46,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-drinking/610.webp",
+    "srcSet": "/assets/characters/protagonist-full-drinking/380.webp 380w, /assets/characters/protagonist-full-drinking/610.webp 610w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 934,
+        "src": "/assets/characters/protagonist-full-drinking/380.webp",
+        "fileSizeBytes": 67004
+      },
+      {
+        "width": 610,
+        "height": 1500,
+        "src": "/assets/characters/protagonist-full-drinking/610.webp",
+        "fileSizeBytes": 110036
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed",
+      "drunk"
+    ],
+    "description": "Character asset: protagonist-full-drinking"
+  },
+  {
+    "id": "characters.full.drunk",
+    "kebabId": "char-full-drunk",
+    "slug": "protagonist-full-drunk",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 555,
+    "height": 1080,
+    "dimensions": {
+      "width": 555,
+      "height": 1080,
+      "aspectRatio": 0.5139
+    },
+    "fileSizeBytes": 89598,
+    "fileSizeKB": 87.5,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-drunk/555.webp",
+    "srcSet": "/assets/characters/protagonist-full-drunk/380.webp 380w, /assets/characters/protagonist-full-drunk/555.webp 555w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 739,
+        "src": "/assets/characters/protagonist-full-drunk/380.webp",
+        "fileSizeBytes": 61000
+      },
+      {
+        "width": 555,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-full-drunk/555.webp",
+        "fileSizeBytes": 89598
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Character asset: protagonist-full-drunk"
+  },
+  {
+    "id": "characters.full.firstDrink",
+    "kebabId": "char-full-first-drink",
+    "slug": "protagonist-full-first-drink",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 610,
+    "height": 1500,
+    "dimensions": {
+      "width": 610,
+      "height": 1500,
+      "aspectRatio": 0.4067
+    },
+    "fileSizeBytes": 105374,
+    "fileSizeKB": 102.9,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-first-drink/610.webp",
+    "srcSet": "/assets/characters/protagonist-full-first-drink/380.webp 380w, /assets/characters/protagonist-full-first-drink/610.webp 610w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 934,
+        "src": "/assets/characters/protagonist-full-first-drink/380.webp",
+        "fileSizeBytes": 65188
+      },
+      {
+        "width": 610,
+        "height": 1500,
+        "src": "/assets/characters/protagonist-full-first-drink/610.webp",
+        "fileSizeBytes": 105374
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Character asset: protagonist-full-first-drink"
+  },
+  {
+    "id": "characters.full.gettingReady",
+    "kebabId": "char-full-getting-ready",
+    "slug": "protagonist-full-getting-ready",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 439,
+    "height": 1080,
+    "dimensions": {
+      "width": 439,
+      "height": 1080,
+      "aspectRatio": 0.4065
+    },
+    "fileSizeBytes": 80164,
+    "fileSizeKB": 78.29,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-getting-ready/439.webp",
+    "srcSet": "/assets/characters/protagonist-full-getting-ready/360.webp 360w, /assets/characters/protagonist-full-getting-ready/439.webp 439w",
+    "variants": [
+      {
+        "width": 360,
+        "height": 886,
+        "src": "/assets/characters/protagonist-full-getting-ready/360.webp",
+        "fileSizeBytes": 66340
+      },
+      {
+        "width": 439,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-full-getting-ready/439.webp",
+        "fileSizeBytes": 80164
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Character asset: protagonist-full-getting-ready"
+  },
+  {
+    "id": "characters.full.neutral",
+    "kebabId": "char-full-neutral",
+    "slug": "protagonist-full-neutral",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 610,
+    "height": 1500,
+    "dimensions": {
+      "width": 610,
+      "height": 1500,
+      "aspectRatio": 0.4067
+    },
+    "fileSizeBytes": 102444,
+    "fileSizeKB": 100.04,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-neutral/610.webp",
+    "srcSet": "/assets/characters/protagonist-full-neutral/380.webp 380w, /assets/characters/protagonist-full-neutral/610.webp 610w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 934,
+        "src": "/assets/characters/protagonist-full-neutral/380.webp",
+        "fileSizeBytes": 65408
+      },
+      {
+        "width": 610,
+        "height": 1500,
+        "src": "/assets/characters/protagonist-full-neutral/610.webp",
+        "fileSizeBytes": 102444
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "reveal"
+    ],
+    "description": "Character asset: protagonist-full-neutral"
+  },
+  {
+    "id": "characters.full.passedOut",
+    "kebabId": "char-full-passed-out",
+    "slug": "protagonist-full-passed-out",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 1080,
+    "height": 434,
+    "dimensions": {
+      "width": 1080,
+      "height": 434,
+      "aspectRatio": 2.4885
+    },
+    "fileSizeBytes": 72548,
+    "fileSizeKB": 70.85,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-passed-out/1080.webp",
+    "srcSet": "/assets/characters/protagonist-full-passed-out/380.webp 380w, /assets/characters/protagonist-full-passed-out/640.webp 640w, /assets/characters/protagonist-full-passed-out/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 153,
+        "src": "/assets/characters/protagonist-full-passed-out/380.webp",
+        "fileSizeBytes": 20764
+      },
+      {
+        "width": 640,
+        "height": 257,
+        "src": "/assets/characters/protagonist-full-passed-out/640.webp",
+        "fileSizeBytes": 42476
+      },
+      {
+        "width": 1080,
+        "height": 434,
+        "src": "/assets/characters/protagonist-full-passed-out/1080.webp",
+        "fileSizeBytes": 72548
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out"
+    ],
+    "description": "Character asset: protagonist-full-passed-out"
+  },
+  {
+    "id": "characters.full.socialising",
+    "kebabId": "char-full-socialising",
+    "slug": "protagonist-full-socialising",
+    "category": "character",
+    "variant": "full",
+    "format": "WEBP",
+    "width": 610,
+    "height": 1500,
+    "dimensions": {
+      "width": 610,
+      "height": 1500,
+      "aspectRatio": 0.4067
+    },
+    "fileSizeBytes": 100456,
+    "fileSizeKB": 98.1,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-full-socialising/610.webp",
+    "srcSet": "/assets/characters/protagonist-full-socialising/380.webp 380w, /assets/characters/protagonist-full-socialising/610.webp 610w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 934,
+        "src": "/assets/characters/protagonist-full-socialising/380.webp",
+        "fileSizeBytes": 64016
+      },
+      {
+        "width": 610,
+        "height": 1500,
+        "src": "/assets/characters/protagonist-full-socialising/610.webp",
+        "fileSizeBytes": 100456
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink",
+      "buzzed"
+    ],
+    "description": "Character asset: protagonist-full-socialising"
+  },
+  {
+    "id": "characters.rebuild.reassembled",
+    "kebabId": "char-rebuild-reassembled",
+    "slug": "protagonist-reassembled",
+    "category": "character",
+    "variant": "rebuild",
+    "format": "WEBP",
+    "width": 569,
+    "height": 1080,
+    "dimensions": {
+      "width": 569,
+      "height": 1080,
+      "aspectRatio": 0.5269
+    },
+    "fileSizeBytes": 115060,
+    "fileSizeKB": 112.36,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-reassembled/569.webp",
+    "srcSet": "/assets/characters/protagonist-reassembled/380.webp 380w, /assets/characters/protagonist-reassembled/569.webp 569w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 721,
+        "src": "/assets/characters/protagonist-reassembled/380.webp",
+        "fileSizeBytes": 69332
+      },
+      {
+        "width": 569,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-reassembled/569.webp",
+        "fileSizeBytes": 115060
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild",
+      "reveal"
+    ],
+    "description": "Character asset: protagonist-reassembled"
+  },
+  {
+    "id": "characters.rebuild.lower",
+    "kebabId": "char-rebuild-lower",
+    "slug": "protagonist-rebuild-lower",
+    "category": "character",
+    "variant": "rebuild",
+    "format": "WEBP",
+    "width": 570,
+    "height": 1080,
+    "dimensions": {
+      "width": 570,
+      "height": 1080,
+      "aspectRatio": 0.5278
+    },
+    "fileSizeBytes": 92434,
+    "fileSizeKB": 90.27,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-rebuild-lower/570.webp",
+    "srcSet": "/assets/characters/protagonist-rebuild-lower/380.webp 380w, /assets/characters/protagonist-rebuild-lower/570.webp 570w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 720,
+        "src": "/assets/characters/protagonist-rebuild-lower/380.webp",
+        "fileSizeBytes": 58198
+      },
+      {
+        "width": 570,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-rebuild-lower/570.webp",
+        "fileSizeBytes": 92434
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild"
+    ],
+    "description": "Character asset: protagonist-rebuild-lower"
+  },
+  {
+    "id": "characters.rebuild.upper",
+    "kebabId": "char-rebuild-upper",
+    "slug": "protagonist-rebuild-upper",
+    "category": "character",
+    "variant": "rebuild",
+    "format": "WEBP",
+    "width": 771,
+    "height": 1080,
+    "dimensions": {
+      "width": 771,
+      "height": 1080,
+      "aspectRatio": 0.7139
+    },
+    "fileSizeBytes": 156134,
+    "fileSizeKB": 152.47,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/characters/protagonist-rebuild-upper/771.webp",
+    "srcSet": "/assets/characters/protagonist-rebuild-upper/380.webp 380w, /assets/characters/protagonist-rebuild-upper/640.webp 640w, /assets/characters/protagonist-rebuild-upper/771.webp 771w",
+    "variants": [
+      {
+        "width": 380,
+        "height": 532,
+        "src": "/assets/characters/protagonist-rebuild-upper/380.webp",
+        "fileSizeBytes": 61614
+      },
+      {
+        "width": 640,
+        "height": 896,
+        "src": "/assets/characters/protagonist-rebuild-upper/640.webp",
+        "fileSizeBytes": 130208
+      },
+      {
+        "width": 771,
+        "height": 1080,
+        "src": "/assets/characters/protagonist-rebuild-upper/771.webp",
+        "fileSizeBytes": 156134
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild"
+    ],
+    "description": "Character asset: protagonist-rebuild-upper"
+  },
+  {
+    "id": "environments.bedroomMorningMessy",
+    "kebabId": "env-bedroom-morning-messy",
+    "slug": "env-bedroom-morning-messy",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 739572,
+    "fileSizeKB": 722.24,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-bedroom-morning-messy/1920.webp",
+    "srcSet": "/assets/environments/env-bedroom-morning-messy/768.webp 768w, /assets/environments/env-bedroom-morning-messy/1280.webp 1280w, /assets/environments/env-bedroom-morning-messy/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-bedroom-morning-messy/768.webp",
+        "fileSizeBytes": 106992
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-bedroom-morning-messy/1280.webp",
+        "fileSizeBytes": 333220
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-bedroom-morning-messy/1920.webp",
+        "fileSizeBytes": 739572
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out",
+      "question"
+    ],
+    "description": "Environment asset: env-bedroom-morning-messy"
+  },
+  {
+    "id": "environments.bedroomMorningTidy",
+    "kebabId": "env-bedroom-morning-tidy",
+    "slug": "env-bedroom-morning-tidy",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1072,
+    "dimensions": {
+      "width": 1920,
+      "height": 1072,
+      "aspectRatio": 1.791
+    },
+    "fileSizeBytes": 638232,
+    "fileSizeKB": 623.27,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-bedroom-morning-tidy/1920.webp",
+    "srcSet": "/assets/environments/env-bedroom-morning-tidy/768.webp 768w, /assets/environments/env-bedroom-morning-tidy/1280.webp 1280w, /assets/environments/env-bedroom-morning-tidy/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 429,
+        "src": "/assets/environments/env-bedroom-morning-tidy/768.webp",
+        "fileSizeBytes": 97886
+      },
+      {
+        "width": 1280,
+        "height": 715,
+        "src": "/assets/environments/env-bedroom-morning-tidy/1280.webp",
+        "fileSizeBytes": 302368
+      },
+      {
+        "width": 1920,
+        "height": 1072,
+        "src": "/assets/environments/env-bedroom-morning-tidy/1920.webp",
+        "fileSizeBytes": 638232
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild",
+      "reveal"
+    ],
+    "description": "Environment asset: env-bedroom-morning-tidy"
+  },
+  {
+    "id": "environments.bedroomStudyNight",
+    "kebabId": "env-bedroom-study-night",
+    "slug": "env-bedroom-study-night",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 742800,
+    "fileSizeKB": 725.39,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-bedroom-study-night/1920.webp",
+    "srcSet": "/assets/environments/env-bedroom-study-night/768.webp 768w, /assets/environments/env-bedroom-study-night/1280.webp 1280w, /assets/environments/env-bedroom-study-night/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-bedroom-study-night/768.webp",
+        "fileSizeBytes": 104036
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-bedroom-study-night/1280.webp",
+        "fileSizeBytes": 325284
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-bedroom-study-night/1920.webp",
+        "fileSizeBytes": 742800
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Environment asset: env-bedroom-study-night"
+  },
+  {
+    "id": "environments.partyCrowdPeak",
+    "kebabId": "env-party-crowd-peak",
+    "slug": "env-party-crowd-peak",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 627874,
+    "fileSizeKB": 613.16,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-party-crowd-peak/1920.webp",
+    "srcSet": "/assets/environments/env-party-crowd-peak/768.webp 768w, /assets/environments/env-party-crowd-peak/1280.webp 1280w, /assets/environments/env-party-crowd-peak/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-party-crowd-peak/768.webp",
+        "fileSizeBytes": 92326
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-party-crowd-peak/1280.webp",
+        "fileSizeBytes": 265462
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-party-crowd-peak/1920.webp",
+        "fileSizeBytes": 627874
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Environment asset: env-party-crowd-peak"
+  },
+  {
+    "id": "environments.partyHallwayEntrance",
+    "kebabId": "env-party-hallway-entrance",
+    "slug": "env-party-hallway-entrance",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 702490,
+    "fileSizeKB": 686.03,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-party-hallway-entrance/1920.webp",
+    "srcSet": "/assets/environments/env-party-hallway-entrance/768.webp 768w, /assets/environments/env-party-hallway-entrance/1280.webp 1280w, /assets/environments/env-party-hallway-entrance/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-party-hallway-entrance/768.webp",
+        "fileSizeBytes": 108182
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-party-hallway-entrance/1280.webp",
+        "fileSizeBytes": 322738
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-party-hallway-entrance/1920.webp",
+        "fileSizeBytes": 702490
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Environment asset: env-party-hallway-entrance"
+  },
+  {
+    "id": "environments.partyLivingRoomMaster",
+    "kebabId": "env-party-living-room-master",
+    "slug": "env-party-living-room-master",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 699900,
+    "fileSizeKB": 683.5,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-party-living-room-master/1920.webp",
+    "srcSet": "/assets/environments/env-party-living-room-master/768.webp 768w, /assets/environments/env-party-living-room-master/1280.webp 1280w, /assets/environments/env-party-living-room-master/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-party-living-room-master/768.webp",
+        "fileSizeBytes": 109808
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-party-living-room-master/1280.webp",
+        "fileSizeBytes": 308962
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-party-living-room-master/1920.webp",
+        "fileSizeBytes": 699900
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Environment asset: env-party-living-room-master"
+  },
+  {
+    "id": "environments.partyNearSpeakers",
+    "kebabId": "env-party-near-speakers",
+    "slug": "env-party-near-speakers",
+    "category": "environment",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1920,
+    "height": 1080,
+    "dimensions": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": 1.7778
+    },
+    "fileSizeBytes": 577678,
+    "fileSizeKB": 564.14,
+    "colorMode": "RGB",
+    "hasAlpha": false,
+    "hasTransparency": false,
+    "src": "/assets/environments/env-party-near-speakers/1920.webp",
+    "srcSet": "/assets/environments/env-party-near-speakers/768.webp 768w, /assets/environments/env-party-near-speakers/1280.webp 1280w, /assets/environments/env-party-near-speakers/1920.webp 1920w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 432,
+        "src": "/assets/environments/env-party-near-speakers/768.webp",
+        "fileSizeBytes": 102526
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/assets/environments/env-party-near-speakers/1280.webp",
+        "fileSizeBytes": 269144
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "src": "/assets/environments/env-party-near-speakers/1920.webp",
+        "fileSizeBytes": 577678
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Environment asset: env-party-near-speakers"
+  },
+  {
+    "id": "graphics.arrowGreen",
+    "kebabId": "gfx-arrow-green",
+    "slug": "graphic-arrow-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 589,
+    "height": 326,
+    "dimensions": {
+      "width": 589,
+      "height": 326,
+      "aspectRatio": 1.8067
+    },
+    "fileSizeBytes": 28742,
+    "fileSizeKB": 28.07,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-arrow-green/589.webp",
+    "srcSet": "/assets/graphics/graphic-arrow-green/320.webp 320w, /assets/graphics/graphic-arrow-green/589.webp 589w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 177,
+        "src": "/assets/graphics/graphic-arrow-green/320.webp",
+        "fileSizeBytes": 21368
+      },
+      {
+        "width": 589,
+        "height": 326,
+        "src": "/assets/graphics/graphic-arrow-green/589.webp",
+        "fileSizeBytes": 28742
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Graphic asset: graphic-arrow-green"
+  },
+  {
+    "id": "graphics.barcodePurpleGreen",
+    "kebabId": "gfx-barcode-purple-green",
+    "slug": "graphic-barcode-purple-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 630,
+    "height": 297,
+    "dimensions": {
+      "width": 630,
+      "height": 297,
+      "aspectRatio": 2.1212
+    },
+    "fileSizeBytes": 63154,
+    "fileSizeKB": 61.67,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-barcode-purple-green/630.webp",
+    "srcSet": "/assets/graphics/graphic-barcode-purple-green/320.webp 320w, /assets/graphics/graphic-barcode-purple-green/630.webp 630w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 151,
+        "src": "/assets/graphics/graphic-barcode-purple-green/320.webp",
+        "fileSizeBytes": 32848
+      },
+      {
+        "width": 630,
+        "height": 297,
+        "src": "/assets/graphics/graphic-barcode-purple-green/630.webp",
+        "fileSizeBytes": 63154
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Graphic asset: graphic-barcode-purple-green"
+  },
+  {
+    "id": "graphics.bracketGreenPurple",
+    "kebabId": "gfx-bracket-green-purple",
+    "slug": "graphic-bracket-green-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 555,
+    "height": 352,
+    "dimensions": {
+      "width": 555,
+      "height": 352,
+      "aspectRatio": 1.5767
+    },
+    "fileSizeBytes": 20390,
+    "fileSizeKB": 19.91,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-bracket-green-purple/555.webp",
+    "srcSet": "/assets/graphics/graphic-bracket-green-purple/320.webp 320w, /assets/graphics/graphic-bracket-green-purple/555.webp 555w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 203,
+        "src": "/assets/graphics/graphic-bracket-green-purple/320.webp",
+        "fileSizeBytes": 15206
+      },
+      {
+        "width": 555,
+        "height": 352,
+        "src": "/assets/graphics/graphic-bracket-green-purple/555.webp",
+        "fileSizeBytes": 20390
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "rebuild"
+    ],
+    "description": "Graphic asset: graphic-bracket-green-purple"
+  },
+  {
+    "id": "graphics.brushGreen",
+    "kebabId": "gfx-brush-green",
+    "slug": "graphic-brush-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 626,
+    "height": 343,
+    "dimensions": {
+      "width": 626,
+      "height": 343,
+      "aspectRatio": 1.8251
+    },
+    "fileSizeBytes": 49002,
+    "fileSizeKB": 47.85,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-brush-green/626.webp",
+    "srcSet": "/assets/graphics/graphic-brush-green/480.webp 480w, /assets/graphics/graphic-brush-green/626.webp 626w",
+    "variants": [
+      {
+        "width": 480,
+        "height": 263,
+        "src": "/assets/graphics/graphic-brush-green/480.webp",
+        "fileSizeBytes": 49890
+      },
+      {
+        "width": 626,
+        "height": 343,
+        "src": "/assets/graphics/graphic-brush-green/626.webp",
+        "fileSizeBytes": 49002
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Graphic asset: graphic-brush-green"
+  },
+  {
+    "id": "graphics.brushPurple",
+    "kebabId": "gfx-brush-purple",
+    "slug": "graphic-brush-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 555,
+    "height": 229,
+    "dimensions": {
+      "width": 555,
+      "height": 229,
+      "aspectRatio": 2.4236
+    },
+    "fileSizeBytes": 35632,
+    "fileSizeKB": 34.8,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-brush-purple/555.webp",
+    "srcSet": "/assets/graphics/graphic-brush-purple/480.webp 480w, /assets/graphics/graphic-brush-purple/555.webp 555w",
+    "variants": [
+      {
+        "width": 480,
+        "height": 198,
+        "src": "/assets/graphics/graphic-brush-purple/480.webp",
+        "fileSizeBytes": 42488
+      },
+      {
+        "width": 555,
+        "height": 229,
+        "src": "/assets/graphics/graphic-brush-purple/555.webp",
+        "fileSizeBytes": 35632
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Graphic asset: graphic-brush-purple"
+  },
+  {
+    "id": "graphics.brushstrokeGreen",
+    "kebabId": "gfx-brushstroke-green",
+    "slug": "graphic-brushstroke-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 402,
+    "height": 395,
+    "dimensions": {
+      "width": 402,
+      "height": 395,
+      "aspectRatio": 1.0177
+    },
+    "fileSizeBytes": 43094,
+    "fileSizeKB": 42.08,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-brushstroke-green/402.webp",
+    "srcSet": "/assets/graphics/graphic-brushstroke-green/320.webp 320w, /assets/graphics/graphic-brushstroke-green/402.webp 402w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 314,
+        "src": "/assets/graphics/graphic-brushstroke-green/320.webp",
+        "fileSizeBytes": 56766
+      },
+      {
+        "width": 402,
+        "height": 395,
+        "src": "/assets/graphics/graphic-brushstroke-green/402.webp",
+        "fileSizeBytes": 43094
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild"
+    ],
+    "description": "Graphic asset: graphic-brushstroke-green"
+  },
+  {
+    "id": "graphics.collageClusterGreenPurple",
+    "kebabId": "gfx-collage-cluster-green-purple",
+    "slug": "graphic-collage-cluster-green-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 357,
+    "height": 357,
+    "dimensions": {
+      "width": 357,
+      "height": 357,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 34130,
+    "fileSizeKB": 33.33,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-collage-cluster-green-purple/357.webp",
+    "srcSet": "/assets/graphics/graphic-collage-cluster-green-purple/357.webp 357w",
+    "variants": [
+      {
+        "width": 357,
+        "height": 357,
+        "src": "/assets/graphics/graphic-collage-cluster-green-purple/357.webp",
+        "fileSizeBytes": 34130
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Graphic asset: graphic-collage-cluster-green-purple"
+  },
+  {
+    "id": "graphics.comicBurstGreen",
+    "kebabId": "gfx-comic-burst-green",
+    "slug": "graphic-comic-burst-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 471,
+    "height": 431,
+    "dimensions": {
+      "width": 471,
+      "height": 431,
+      "aspectRatio": 1.0928
+    },
+    "fileSizeBytes": 57782,
+    "fileSizeKB": 56.43,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-comic-burst-green/471.webp",
+    "srcSet": "/assets/graphics/graphic-comic-burst-green/320.webp 320w, /assets/graphics/graphic-comic-burst-green/471.webp 471w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 293,
+        "src": "/assets/graphics/graphic-comic-burst-green/320.webp",
+        "fileSizeBytes": 42928
+      },
+      {
+        "width": 471,
+        "height": 431,
+        "src": "/assets/graphics/graphic-comic-burst-green/471.webp",
+        "fileSizeBytes": 57782
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Graphic asset: graphic-comic-burst-green"
+  },
+  {
+    "id": "graphics.crossGreen",
+    "kebabId": "gfx-cross-green",
+    "slug": "graphic-cross-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 426,
+    "height": 406,
+    "dimensions": {
+      "width": 426,
+      "height": 406,
+      "aspectRatio": 1.0493
+    },
+    "fileSizeBytes": 32540,
+    "fileSizeKB": 31.78,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-cross-green/426.webp",
+    "srcSet": "/assets/graphics/graphic-cross-green/320.webp 320w, /assets/graphics/graphic-cross-green/426.webp 426w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 305,
+        "src": "/assets/graphics/graphic-cross-green/320.webp",
+        "fileSizeBytes": 33568
+      },
+      {
+        "width": 426,
+        "height": 406,
+        "src": "/assets/graphics/graphic-cross-green/426.webp",
+        "fileSizeBytes": 32540
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out"
+    ],
+    "description": "Graphic asset: graphic-cross-green"
+  },
+  {
+    "id": "graphics.crownGreen",
+    "kebabId": "gfx-crown-green",
+    "slug": "graphic-crown-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 500,
+    "height": 435,
+    "dimensions": {
+      "width": 500,
+      "height": 435,
+      "aspectRatio": 1.1494
+    },
+    "fileSizeBytes": 48984,
+    "fileSizeKB": 47.84,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-crown-green/500.webp",
+    "srcSet": "/assets/graphics/graphic-crown-green/320.webp 320w, /assets/graphics/graphic-crown-green/500.webp 500w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 278,
+        "src": "/assets/graphics/graphic-crown-green/320.webp",
+        "fileSizeBytes": 33274
+      },
+      {
+        "width": 500,
+        "height": 435,
+        "src": "/assets/graphics/graphic-crown-green/500.webp",
+        "fileSizeBytes": 48984
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak",
+      "reveal"
+    ],
+    "description": "Graphic asset: graphic-crown-green"
+  },
+  {
+    "id": "graphics.eyeGreen",
+    "kebabId": "gfx-eye-green",
+    "slug": "graphic-eye-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 461,
+    "height": 275,
+    "dimensions": {
+      "width": 461,
+      "height": 275,
+      "aspectRatio": 1.6764
+    },
+    "fileSizeBytes": 27334,
+    "fileSizeKB": 26.69,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-eye-green/461.webp",
+    "srcSet": "/assets/graphics/graphic-eye-green/320.webp 320w, /assets/graphics/graphic-eye-green/461.webp 461w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 191,
+        "src": "/assets/graphics/graphic-eye-green/320.webp",
+        "fileSizeBytes": 19658
+      },
+      {
+        "width": 461,
+        "height": 275,
+        "src": "/assets/graphics/graphic-eye-green/461.webp",
+        "fileSizeBytes": 27334
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Graphic asset: graphic-eye-green"
+  },
+  {
+    "id": "graphics.globePurple",
+    "kebabId": "gfx-globe-purple",
+    "slug": "graphic-globe-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 443,
+    "height": 400,
+    "dimensions": {
+      "width": 443,
+      "height": 400,
+      "aspectRatio": 1.1075
+    },
+    "fileSizeBytes": 37528,
+    "fileSizeKB": 36.65,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-globe-purple/443.webp",
+    "srcSet": "/assets/graphics/graphic-globe-purple/320.webp 320w, /assets/graphics/graphic-globe-purple/443.webp 443w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 289,
+        "src": "/assets/graphics/graphic-globe-purple/320.webp",
+        "fileSizeBytes": 31092
+      },
+      {
+        "width": 443,
+        "height": 400,
+        "src": "/assets/graphics/graphic-globe-purple/443.webp",
+        "fileSizeBytes": 37528
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild",
+      "reveal"
+    ],
+    "description": "Graphic asset: graphic-globe-purple"
+  },
+  {
+    "id": "graphics.lightningGreenPurple",
+    "kebabId": "gfx-lightning-green-purple",
+    "slug": "graphic-lightning-green-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 306,
+    "height": 469,
+    "dimensions": {
+      "width": 306,
+      "height": 469,
+      "aspectRatio": 0.6525
+    },
+    "fileSizeBytes": 15622,
+    "fileSizeKB": 15.26,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-lightning-green-purple/306.webp",
+    "srcSet": "/assets/graphics/graphic-lightning-green-purple/306.webp 306w",
+    "variants": [
+      {
+        "width": 306,
+        "height": 469,
+        "src": "/assets/graphics/graphic-lightning-green-purple/306.webp",
+        "fileSizeBytes": 15622
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Graphic asset: graphic-lightning-green-purple"
+  },
+  {
+    "id": "graphics.paintstrokeGreen",
+    "kebabId": "gfx-paintstroke-green",
+    "slug": "graphic-paintstroke-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 536,
+    "height": 293,
+    "dimensions": {
+      "width": 536,
+      "height": 293,
+      "aspectRatio": 1.8294
+    },
+    "fileSizeBytes": 47874,
+    "fileSizeKB": 46.75,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-paintstroke-green/536.webp",
+    "srcSet": "/assets/graphics/graphic-paintstroke-green/320.webp 320w, /assets/graphics/graphic-paintstroke-green/536.webp 536w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 175,
+        "src": "/assets/graphics/graphic-paintstroke-green/320.webp",
+        "fileSizeBytes": 28752
+      },
+      {
+        "width": 536,
+        "height": 293,
+        "src": "/assets/graphics/graphic-paintstroke-green/536.webp",
+        "fileSizeBytes": 47874
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild"
+    ],
+    "description": "Graphic asset: graphic-paintstroke-green"
+  },
+  {
+    "id": "graphics.paperBadge",
+    "kebabId": "gfx-paper-badge",
+    "slug": "graphic-paper-badge",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 759,
+    "height": 320,
+    "dimensions": {
+      "width": 759,
+      "height": 320,
+      "aspectRatio": 2.3719
+    },
+    "fileSizeBytes": 48650,
+    "fileSizeKB": 47.51,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-paper-badge/759.webp",
+    "srcSet": "/assets/graphics/graphic-paper-badge/480.webp 480w, /assets/graphics/graphic-paper-badge/759.webp 759w",
+    "variants": [
+      {
+        "width": 480,
+        "height": 202,
+        "src": "/assets/graphics/graphic-paper-badge/480.webp",
+        "fileSizeBytes": 27496
+      },
+      {
+        "width": 759,
+        "height": 320,
+        "src": "/assets/graphics/graphic-paper-badge/759.webp",
+        "fileSizeBytes": 48650
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "reveal"
+    ],
+    "description": "Graphic asset: graphic-paper-badge"
+  },
+  {
+    "id": "graphics.scribbleGreen",
+    "kebabId": "gfx-scribble-green",
+    "slug": "graphic-scribble-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 678,
+    "height": 332,
+    "dimensions": {
+      "width": 678,
+      "height": 332,
+      "aspectRatio": 2.0422
+    },
+    "fileSizeBytes": 44346,
+    "fileSizeKB": 43.31,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-scribble-green/678.webp",
+    "srcSet": "/assets/graphics/graphic-scribble-green/320.webp 320w, /assets/graphics/graphic-scribble-green/678.webp 678w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 157,
+        "src": "/assets/graphics/graphic-scribble-green/320.webp",
+        "fileSizeBytes": 28902
+      },
+      {
+        "width": 678,
+        "height": 332,
+        "src": "/assets/graphics/graphic-scribble-green/678.webp",
+        "fileSizeBytes": 44346
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Graphic asset: graphic-scribble-green"
+  },
+  {
+    "id": "graphics.smileyGreen",
+    "kebabId": "gfx-smiley-green",
+    "slug": "graphic-smiley-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 412,
+    "height": 371,
+    "dimensions": {
+      "width": 412,
+      "height": 371,
+      "aspectRatio": 1.1105
+    },
+    "fileSizeBytes": 24424,
+    "fileSizeKB": 23.85,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-smiley-green/412.webp",
+    "srcSet": "/assets/graphics/graphic-smiley-green/320.webp 320w, /assets/graphics/graphic-smiley-green/412.webp 412w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 288,
+        "src": "/assets/graphics/graphic-smiley-green/320.webp",
+        "fileSizeBytes": 33170
+      },
+      {
+        "width": 412,
+        "height": 371,
+        "src": "/assets/graphics/graphic-smiley-green/412.webp",
+        "fileSizeBytes": 24424
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Graphic asset: graphic-smiley-green"
+  },
+  {
+    "id": "graphics.speechBubble",
+    "kebabId": "gfx-speech-bubble",
+    "slug": "graphic-speech-bubble",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 457,
+    "height": 408,
+    "dimensions": {
+      "width": 457,
+      "height": 408,
+      "aspectRatio": 1.1201
+    },
+    "fileSizeBytes": 20718,
+    "fileSizeKB": 20.23,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-speech-bubble/457.webp",
+    "srcSet": "/assets/graphics/graphic-speech-bubble/320.webp 320w, /assets/graphics/graphic-speech-bubble/457.webp 457w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 286,
+        "src": "/assets/graphics/graphic-speech-bubble/320.webp",
+        "fileSizeBytes": 17580
+      },
+      {
+        "width": 457,
+        "height": 408,
+        "src": "/assets/graphics/graphic-speech-bubble/457.webp",
+        "fileSizeBytes": 20718
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Graphic asset: graphic-speech-bubble"
+  },
+  {
+    "id": "graphics.spiralGreen",
+    "kebabId": "gfx-spiral-green",
+    "slug": "graphic-spiral-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 405,
+    "height": 429,
+    "dimensions": {
+      "width": 405,
+      "height": 429,
+      "aspectRatio": 0.9441
+    },
+    "fileSizeBytes": 53462,
+    "fileSizeKB": 52.21,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-spiral-green/405.webp",
+    "srcSet": "/assets/graphics/graphic-spiral-green/320.webp 320w, /assets/graphics/graphic-spiral-green/405.webp 405w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 339,
+        "src": "/assets/graphics/graphic-spiral-green/320.webp",
+        "fileSizeBytes": 67682
+      },
+      {
+        "width": 405,
+        "height": 429,
+        "src": "/assets/graphics/graphic-spiral-green/405.webp",
+        "fileSizeBytes": 53462
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Graphic asset: graphic-spiral-green"
+  },
+  {
+    "id": "graphics.splatterPurpleGreen",
+    "kebabId": "gfx-splatter-purple-green",
+    "slug": "graphic-splatter-purple-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 599,
+    "height": 324,
+    "dimensions": {
+      "width": 599,
+      "height": 324,
+      "aspectRatio": 1.8488
+    },
+    "fileSizeBytes": 77190,
+    "fileSizeKB": 75.38,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-splatter-purple-green/599.webp",
+    "srcSet": "/assets/graphics/graphic-splatter-purple-green/320.webp 320w, /assets/graphics/graphic-splatter-purple-green/599.webp 599w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 173,
+        "src": "/assets/graphics/graphic-splatter-purple-green/320.webp",
+        "fileSizeBytes": 43236
+      },
+      {
+        "width": 599,
+        "height": 324,
+        "src": "/assets/graphics/graphic-splatter-purple-green/599.webp",
+        "fileSizeBytes": 77190
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Graphic asset: graphic-splatter-purple-green"
+  },
+  {
+    "id": "graphics.starburstPurple",
+    "kebabId": "gfx-starburst-purple",
+    "slug": "graphic-starburst-purple",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 487,
+    "height": 467,
+    "dimensions": {
+      "width": 487,
+      "height": 467,
+      "aspectRatio": 1.0428
+    },
+    "fileSizeBytes": 27302,
+    "fileSizeKB": 26.66,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-starburst-purple/487.webp",
+    "srcSet": "/assets/graphics/graphic-starburst-purple/320.webp 320w, /assets/graphics/graphic-starburst-purple/487.webp 487w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 307,
+        "src": "/assets/graphics/graphic-starburst-purple/320.webp",
+        "fileSizeBytes": 29098
+      },
+      {
+        "width": 487,
+        "height": 467,
+        "src": "/assets/graphics/graphic-starburst-purple/487.webp",
+        "fileSizeBytes": 27302
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Graphic asset: graphic-starburst-purple"
+  },
+  {
+    "id": "graphics.starsGreen",
+    "kebabId": "gfx-stars-green",
+    "slug": "graphic-stars-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 483,
+    "height": 248,
+    "dimensions": {
+      "width": 483,
+      "height": 248,
+      "aspectRatio": 1.9476
+    },
+    "fileSizeBytes": 24480,
+    "fileSizeKB": 23.91,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-stars-green/483.webp",
+    "srcSet": "/assets/graphics/graphic-stars-green/320.webp 320w, /assets/graphics/graphic-stars-green/483.webp 483w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 164,
+        "src": "/assets/graphics/graphic-stars-green/320.webp",
+        "fileSizeBytes": 27542
+      },
+      {
+        "width": 483,
+        "height": 248,
+        "src": "/assets/graphics/graphic-stars-green/483.webp",
+        "fileSizeBytes": 24480
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak",
+      "reveal"
+    ],
+    "description": "Graphic asset: graphic-stars-green"
+  },
+  {
+    "id": "graphics.swirlPurpleGreen",
+    "kebabId": "gfx-swirl-purple-green",
+    "slug": "graphic-swirl-purple-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 423,
+    "height": 418,
+    "dimensions": {
+      "width": 423,
+      "height": 418,
+      "aspectRatio": 1.012
+    },
+    "fileSizeBytes": 53890,
+    "fileSizeKB": 52.63,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-swirl-purple-green/423.webp",
+    "srcSet": "/assets/graphics/graphic-swirl-purple-green/320.webp 320w, /assets/graphics/graphic-swirl-purple-green/423.webp 423w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 316,
+        "src": "/assets/graphics/graphic-swirl-purple-green/320.webp",
+        "fileSizeBytes": 51028
+      },
+      {
+        "width": 423,
+        "height": 418,
+        "src": "/assets/graphics/graphic-swirl-purple-green/423.webp",
+        "fileSizeBytes": 53890
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Graphic asset: graphic-swirl-purple-green"
+  },
+  {
+    "id": "graphics.targetGreen",
+    "kebabId": "gfx-target-green",
+    "slug": "graphic-target-green",
+    "category": "graphic",
+    "variant": null,
+    "format": "WEBP",
+    "width": 677,
+    "height": 220,
+    "dimensions": {
+      "width": 677,
+      "height": 220,
+      "aspectRatio": 3.0773
+    },
+    "fileSizeBytes": 35690,
+    "fileSizeKB": 34.85,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/graphics/graphic-target-green/677.webp",
+    "srcSet": "/assets/graphics/graphic-target-green/480.webp 480w, /assets/graphics/graphic-target-green/677.webp 677w",
+    "variants": [
+      {
+        "width": 480,
+        "height": 156,
+        "src": "/assets/graphics/graphic-target-green/480.webp",
+        "fileSizeBytes": 29224
+      },
+      {
+        "width": 677,
+        "height": 220,
+        "src": "/assets/graphics/graphic-target-green/677.webp",
+        "fileSizeBytes": 35690
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Graphic asset: graphic-target-green"
+  },
+  {
+    "id": "objects.alarmAnalog01",
+    "kebabId": "obj-alarm-analog-01",
+    "slug": "object-alarm-analog-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 825,
+    "height": 1080,
+    "dimensions": {
+      "width": 825,
+      "height": 1080,
+      "aspectRatio": 0.7639
+    },
+    "fileSizeBytes": 155292,
+    "fileSizeKB": 151.65,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-alarm-analog-01/825.webp",
+    "srcSet": "/assets/objects/object-alarm-analog-01/320.webp 320w, /assets/objects/object-alarm-analog-01/825.webp 825w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 419,
+        "src": "/assets/objects/object-alarm-analog-01/320.webp",
+        "fileSizeBytes": 43638
+      },
+      {
+        "width": 825,
+        "height": 1080,
+        "src": "/assets/objects/object-alarm-analog-01/825.webp",
+        "fileSizeBytes": 155292
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Object asset: object-alarm-analog-01"
+  },
+  {
+    "id": "objects.alarmDigital0758",
+    "kebabId": "obj-alarm-digital-0758",
+    "slug": "object-alarm-digital-0758",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 748,
+    "dimensions": {
+      "width": 1080,
+      "height": 748,
+      "aspectRatio": 1.4439
+    },
+    "fileSizeBytes": 183942,
+    "fileSizeKB": 179.63,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-alarm-digital-0758/1080.webp",
+    "srcSet": "/assets/objects/object-alarm-digital-0758/320.webp 320w, /assets/objects/object-alarm-digital-0758/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 222,
+        "src": "/assets/objects/object-alarm-digital-0758/320.webp",
+        "fileSizeBytes": 27680
+      },
+      {
+        "width": 1080,
+        "height": 748,
+        "src": "/assets/objects/object-alarm-digital-0758/1080.webp",
+        "fileSizeBytes": 183942
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out"
+    ],
+    "description": "Object asset: object-alarm-digital-0758"
+  },
+  {
+    "id": "objects.booksStack01",
+    "kebabId": "obj-books-stack-01",
+    "slug": "object-books-stack-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 204362,
+    "fileSizeKB": 199.57,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-books-stack-01/1080.webp",
+    "srcSet": "/assets/objects/object-books-stack-01/320.webp 320w, /assets/objects/object-books-stack-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-books-stack-01/320.webp",
+        "fileSizeBytes": 42212
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-books-stack-01/1080.webp",
+        "fileSizeBytes": 204362
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "reveal"
+    ],
+    "description": "Object asset: object-books-stack-01"
+  },
+  {
+    "id": "objects.bottleGlass01",
+    "kebabId": "obj-bottle-glass-01",
+    "slug": "object-bottle-glass-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 682,
+    "height": 1080,
+    "dimensions": {
+      "width": 682,
+      "height": 1080,
+      "aspectRatio": 0.6315
+    },
+    "fileSizeBytes": 115948,
+    "fileSizeKB": 113.23,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-bottle-glass-01/682.webp",
+    "srcSet": "/assets/objects/object-bottle-glass-01/320.webp 320w, /assets/objects/object-bottle-glass-01/682.webp 682w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 507,
+        "src": "/assets/objects/object-bottle-glass-01/320.webp",
+        "fileSizeBytes": 44600
+      },
+      {
+        "width": 682,
+        "height": 1080,
+        "src": "/assets/objects/object-bottle-glass-01/682.webp",
+        "fileSizeBytes": 115948
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Object asset: object-bottle-glass-01"
+  },
+  {
+    "id": "objects.clockFragment01",
+    "kebabId": "obj-clock-fragment-01",
+    "slug": "object-clock-fragment-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 683,
+    "height": 1080,
+    "dimensions": {
+      "width": 683,
+      "height": 1080,
+      "aspectRatio": 0.6324
+    },
+    "fileSizeBytes": 168216,
+    "fileSizeKB": 164.27,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-clock-fragment-01/683.webp",
+    "srcSet": "/assets/objects/object-clock-fragment-01/320.webp 320w, /assets/objects/object-clock-fragment-01/683.webp 683w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 506,
+        "src": "/assets/objects/object-clock-fragment-01/320.webp",
+        "fileSizeBytes": 52832
+      },
+      {
+        "width": 683,
+        "height": 1080,
+        "src": "/assets/objects/object-clock-fragment-01/683.webp",
+        "fileSizeBytes": 168216
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Object asset: object-clock-fragment-01"
+  },
+  {
+    "id": "objects.clockFragment02",
+    "kebabId": "obj-clock-fragment-02",
+    "slug": "object-clock-fragment-02",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 250988,
+    "fileSizeKB": 245.11,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-clock-fragment-02/1080.webp",
+    "srcSet": "/assets/objects/object-clock-fragment-02/320.webp 320w, /assets/objects/object-clock-fragment-02/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-clock-fragment-02/320.webp",
+        "fileSizeBytes": 42834
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-clock-fragment-02/1080.webp",
+        "fileSizeBytes": 250988
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Object asset: object-clock-fragment-02"
+  },
+  {
+    "id": "objects.collegeBag01",
+    "kebabId": "obj-college-bag-01",
+    "slug": "object-college-bag-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 959,
+    "height": 1080,
+    "dimensions": {
+      "width": 959,
+      "height": 1080,
+      "aspectRatio": 0.888
+    },
+    "fileSizeBytes": 183954,
+    "fileSizeKB": 179.64,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-college-bag-01/959.webp",
+    "srcSet": "/assets/objects/object-college-bag-01/320.webp 320w, /assets/objects/object-college-bag-01/959.webp 959w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 360,
+        "src": "/assets/objects/object-college-bag-01/320.webp",
+        "fileSizeBytes": 46584
+      },
+      {
+        "width": 959,
+        "height": 1080,
+        "src": "/assets/objects/object-college-bag-01/959.webp",
+        "fileSizeBytes": 183954
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "rebuild",
+      "reveal"
+    ],
+    "description": "Object asset: object-college-bag-01"
+  },
+  {
+    "id": "objects.confetti01",
+    "kebabId": "obj-confetti-01",
+    "slug": "object-confetti-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 799,
+    "dimensions": {
+      "width": 1080,
+      "height": 799,
+      "aspectRatio": 1.3517
+    },
+    "fileSizeBytes": 145156,
+    "fileSizeKB": 141.75,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-confetti-01/1080.webp",
+    "srcSet": "/assets/objects/object-confetti-01/320.webp 320w, /assets/objects/object-confetti-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 237,
+        "src": "/assets/objects/object-confetti-01/320.webp",
+        "fileSizeBytes": 33392
+      },
+      {
+        "width": 1080,
+        "height": 799,
+        "src": "/assets/objects/object-confetti-01/1080.webp",
+        "fileSizeBytes": 145156
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Object asset: object-confetti-01"
+  },
+  {
+    "id": "objects.crushedCup01",
+    "kebabId": "obj-crushed-cup-01",
+    "slug": "object-crushed-cup-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 715,
+    "dimensions": {
+      "width": 1080,
+      "height": 715,
+      "aspectRatio": 1.5105
+    },
+    "fileSizeBytes": 144480,
+    "fileSizeKB": 141.09,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-crushed-cup-01/1080.webp",
+    "srcSet": "/assets/objects/object-crushed-cup-01/320.webp 320w, /assets/objects/object-crushed-cup-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 212,
+        "src": "/assets/objects/object-crushed-cup-01/320.webp",
+        "fileSizeBytes": 28608
+      },
+      {
+        "width": 1080,
+        "height": 715,
+        "src": "/assets/objects/object-crushed-cup-01/1080.webp",
+        "fileSizeBytes": 144480
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak",
+      "passed-out"
+    ],
+    "description": "Object asset: object-crushed-cup-01"
+  },
+  {
+    "id": "objects.deskItem01",
+    "kebabId": "obj-desk-item-01",
+    "slug": "object-desk-item-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 867,
+    "height": 1080,
+    "dimensions": {
+      "width": 867,
+      "height": 1080,
+      "aspectRatio": 0.8028
+    },
+    "fileSizeBytes": 141108,
+    "fileSizeKB": 137.8,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-desk-item-01/867.webp",
+    "srcSet": "/assets/objects/object-desk-item-01/320.webp 320w, /assets/objects/object-desk-item-01/867.webp 867w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 399,
+        "src": "/assets/objects/object-desk-item-01/320.webp",
+        "fileSizeBytes": 42418
+      },
+      {
+        "width": 867,
+        "height": 1080,
+        "src": "/assets/objects/object-desk-item-01/867.webp",
+        "fileSizeBytes": 141108
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Object asset: object-desk-item-01"
+  },
+  {
+    "id": "objects.deskLamp01",
+    "kebabId": "obj-desk-lamp-01",
+    "slug": "object-desk-lamp-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 113586,
+    "fileSizeKB": 110.92,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-desk-lamp-01/1080.webp",
+    "srcSet": "/assets/objects/object-desk-lamp-01/320.webp 320w, /assets/objects/object-desk-lamp-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-desk-lamp-01/320.webp",
+        "fileSizeBytes": 28666
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-desk-lamp-01/1080.webp",
+        "fileSizeBytes": 113586
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Object asset: object-desk-lamp-01"
+  },
+  {
+    "id": "objects.discoBall01",
+    "kebabId": "obj-disco-ball-01",
+    "slug": "object-disco-ball-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 918,
+    "height": 1080,
+    "dimensions": {
+      "width": 918,
+      "height": 1080,
+      "aspectRatio": 0.85
+    },
+    "fileSizeBytes": 221794,
+    "fileSizeKB": 216.6,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-disco-ball-01/918.webp",
+    "srcSet": "/assets/objects/object-disco-ball-01/320.webp 320w, /assets/objects/object-disco-ball-01/918.webp 918w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 376,
+        "src": "/assets/objects/object-disco-ball-01/320.webp",
+        "fileSizeBytes": 45086
+      },
+      {
+        "width": 918,
+        "height": 1080,
+        "src": "/assets/objects/object-disco-ball-01/918.webp",
+        "fileSizeBytes": 221794
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Object asset: object-disco-ball-01"
+  },
+  {
+    "id": "objects.earbuds01",
+    "kebabId": "obj-earbuds-01",
+    "slug": "object-earbuds-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 876,
+    "height": 1080,
+    "dimensions": {
+      "width": 876,
+      "height": 1080,
+      "aspectRatio": 0.8111
+    },
+    "fileSizeBytes": 114652,
+    "fileSizeKB": 111.96,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-earbuds-01/876.webp",
+    "srcSet": "/assets/objects/object-earbuds-01/320.webp 320w, /assets/objects/object-earbuds-01/876.webp 876w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 395,
+        "src": "/assets/objects/object-earbuds-01/320.webp",
+        "fileSizeBytes": 37284
+      },
+      {
+        "width": 876,
+        "height": 1080,
+        "src": "/assets/objects/object-earbuds-01/876.webp",
+        "fileSizeBytes": 114652
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink",
+      "passed-out"
+    ],
+    "description": "Object asset: object-earbuds-01"
+  },
+  {
+    "id": "objects.foldedPaper01",
+    "kebabId": "obj-folded-paper-01",
+    "slug": "object-folded-paper-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 192844,
+    "fileSizeKB": 188.32,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-folded-paper-01/1080.webp",
+    "srcSet": "/assets/objects/object-folded-paper-01/320.webp 320w, /assets/objects/object-folded-paper-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-folded-paper-01/320.webp",
+        "fileSizeBytes": 40036
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-folded-paper-01/1080.webp",
+        "fileSizeBytes": 192844
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "plan",
+      "rebuild"
+    ],
+    "description": "Object asset: object-folded-paper-01"
+  },
+  {
+    "id": "objects.glass01",
+    "kebabId": "obj-glass-01",
+    "slug": "object-glass-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 137280,
+    "fileSizeKB": 134.06,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-glass-01/1080.webp",
+    "srcSet": "/assets/objects/object-glass-01/320.webp 320w, /assets/objects/object-glass-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-glass-01/320.webp",
+        "fileSizeBytes": 32228
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-glass-01/1080.webp",
+        "fileSizeBytes": 137280
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Object asset: object-glass-01"
+  },
+  {
+    "id": "objects.notebook01",
+    "kebabId": "obj-notebook-01",
+    "slug": "object-notebook-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 172448,
+    "fileSizeKB": 168.41,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-notebook-01/1080.webp",
+    "srcSet": "/assets/objects/object-notebook-01/320.webp 320w, /assets/objects/object-notebook-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-notebook-01/320.webp",
+        "fileSizeBytes": 36300
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-notebook-01/1080.webp",
+        "fileSizeBytes": 172448
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "rebuild"
+    ],
+    "description": "Object asset: object-notebook-01"
+  },
+  {
+    "id": "objects.partyFlyer01",
+    "kebabId": "obj-party-flyer-01",
+    "slug": "object-party-flyer-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 706,
+    "dimensions": {
+      "width": 1080,
+      "height": 706,
+      "aspectRatio": 1.5297
+    },
+    "fileSizeBytes": 152110,
+    "fileSizeKB": 148.54,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-party-flyer-01/1080.webp",
+    "srcSet": "/assets/objects/object-party-flyer-01/320.webp 320w, /assets/objects/object-party-flyer-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 209,
+        "src": "/assets/objects/object-party-flyer-01/320.webp",
+        "fileSizeBytes": 30268
+      },
+      {
+        "width": 1080,
+        "height": 706,
+        "src": "/assets/objects/object-party-flyer-01/1080.webp",
+        "fileSizeBytes": 152110
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Object asset: object-party-flyer-01"
+  },
+  {
+    "id": "objects.partyLight01",
+    "kebabId": "obj-party-light-01",
+    "slug": "object-party-light-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 872,
+    "height": 1080,
+    "dimensions": {
+      "width": 872,
+      "height": 1080,
+      "aspectRatio": 0.8074
+    },
+    "fileSizeBytes": 196758,
+    "fileSizeKB": 192.15,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-party-light-01/872.webp",
+    "srcSet": "/assets/objects/object-party-light-01/320.webp 320w, /assets/objects/object-party-light-01/872.webp 872w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 396,
+        "src": "/assets/objects/object-party-light-01/320.webp",
+        "fileSizeBytes": 48168
+      },
+      {
+        "width": 872,
+        "height": 1080,
+        "src": "/assets/objects/object-party-light-01/872.webp",
+        "fileSizeBytes": 196758
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk",
+      "party-peak"
+    ],
+    "description": "Object asset: object-party-light-01"
+  },
+  {
+    "id": "objects.phoneAngle01",
+    "kebabId": "obj-phone-angle-01",
+    "slug": "object-phone-angle-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 837,
+    "height": 1080,
+    "dimensions": {
+      "width": 837,
+      "height": 1080,
+      "aspectRatio": 0.775
+    },
+    "fileSizeBytes": 181836,
+    "fileSizeKB": 177.57,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-phone-angle-01/837.webp",
+    "srcSet": "/assets/objects/object-phone-angle-01/320.webp 320w, /assets/objects/object-phone-angle-01/837.webp 837w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 413,
+        "src": "/assets/objects/object-phone-angle-01/320.webp",
+        "fileSizeBytes": 43048
+      },
+      {
+        "width": 837,
+        "height": 1080,
+        "src": "/assets/objects/object-phone-angle-01/837.webp",
+        "fileSizeBytes": 181836
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Object asset: object-phone-angle-01"
+  },
+  {
+    "id": "objects.phoneFront01",
+    "kebabId": "obj-phone-front-01",
+    "slug": "object-phone-front-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 652,
+    "height": 1080,
+    "dimensions": {
+      "width": 652,
+      "height": 1080,
+      "aspectRatio": 0.6037
+    },
+    "fileSizeBytes": 192494,
+    "fileSizeKB": 187.98,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-phone-front-01/652.webp",
+    "srcSet": "/assets/objects/object-phone-front-01/320.webp 320w, /assets/objects/object-phone-front-01/652.webp 652w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 530,
+        "src": "/assets/objects/object-phone-front-01/320.webp",
+        "fileSizeBytes": 62718
+      },
+      {
+        "width": 652,
+        "height": 1080,
+        "src": "/assets/objects/object-phone-front-01/652.webp",
+        "fileSizeBytes": 192494
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "passed-out"
+    ],
+    "description": "Object asset: object-phone-front-01"
+  },
+  {
+    "id": "objects.phoneNotification01",
+    "kebabId": "obj-phone-notification-01",
+    "slug": "object-phone-notification-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 717,
+    "height": 1080,
+    "dimensions": {
+      "width": 717,
+      "height": 1080,
+      "aspectRatio": 0.6639
+    },
+    "fileSizeBytes": 159812,
+    "fileSizeKB": 156.07,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-phone-notification-01/717.webp",
+    "srcSet": "/assets/objects/object-phone-notification-01/320.webp 320w, /assets/objects/object-phone-notification-01/717.webp 717w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 482,
+        "src": "/assets/objects/object-phone-notification-01/320.webp",
+        "fileSizeBytes": 51690
+      },
+      {
+        "width": 717,
+        "height": 1080,
+        "src": "/assets/objects/object-phone-notification-01/717.webp",
+        "fileSizeBytes": 159812
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Object asset: object-phone-notification-01"
+  },
+  {
+    "id": "objects.phoneTime01",
+    "kebabId": "obj-phone-time-01",
+    "slug": "object-phone-time-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 861,
+    "height": 1080,
+    "dimensions": {
+      "width": 861,
+      "height": 1080,
+      "aspectRatio": 0.7972
+    },
+    "fileSizeBytes": 191062,
+    "fileSizeKB": 186.58,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-phone-time-01/861.webp",
+    "srcSet": "/assets/objects/object-phone-time-01/320.webp 320w, /assets/objects/object-phone-time-01/861.webp 861w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 401,
+        "src": "/assets/objects/object-phone-time-01/320.webp",
+        "fileSizeBytes": 45186
+      },
+      {
+        "width": 861,
+        "height": 1080,
+        "src": "/assets/objects/object-phone-time-01/861.webp",
+        "fileSizeBytes": 191062
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Object asset: object-phone-time-01"
+  },
+  {
+    "id": "objects.redCup01",
+    "kebabId": "obj-red-cup-01",
+    "slug": "object-red-cup-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 153100,
+    "fileSizeKB": 149.51,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-red-cup-01/1080.webp",
+    "srcSet": "/assets/objects/object-red-cup-01/320.webp 320w, /assets/objects/object-red-cup-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-red-cup-01/320.webp",
+        "fileSizeBytes": 33130
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-red-cup-01/1080.webp",
+        "fileSizeBytes": 153100
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Object asset: object-red-cup-01"
+  },
+  {
+    "id": "objects.redCup02",
+    "kebabId": "obj-red-cup-02",
+    "slug": "object-red-cup-02",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 148120,
+    "fileSizeKB": 144.65,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-red-cup-02/1080.webp",
+    "srcSet": "/assets/objects/object-red-cup-02/320.webp 320w, /assets/objects/object-red-cup-02/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-red-cup-02/320.webp",
+        "fileSizeBytes": 30902
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-red-cup-02/1080.webp",
+        "fileSizeBytes": 148120
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Object asset: object-red-cup-02"
+  },
+  {
+    "id": "objects.speaker01",
+    "kebabId": "obj-speaker-01",
+    "slug": "object-speaker-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 810,
+    "height": 1080,
+    "dimensions": {
+      "width": 810,
+      "height": 1080,
+      "aspectRatio": 0.75
+    },
+    "fileSizeBytes": 314852,
+    "fileSizeKB": 307.47,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-speaker-01/810.webp",
+    "srcSet": "/assets/objects/object-speaker-01/320.webp 320w, /assets/objects/object-speaker-01/810.webp 810w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 427,
+        "src": "/assets/objects/object-speaker-01/320.webp",
+        "fileSizeBytes": 59462
+      },
+      {
+        "width": 810,
+        "height": 1080,
+        "src": "/assets/objects/object-speaker-01/810.webp",
+        "fileSizeBytes": 314852
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Object asset: object-speaker-01"
+  },
+  {
+    "id": "objects.speakerVibration01",
+    "kebabId": "obj-speaker-vibration-01",
+    "slug": "object-speaker-vibration-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 952,
+    "dimensions": {
+      "width": 1080,
+      "height": 952,
+      "aspectRatio": 1.1345
+    },
+    "fileSizeBytes": 132174,
+    "fileSizeKB": 129.08,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-speaker-vibration-01/1080.webp",
+    "srcSet": "/assets/objects/object-speaker-vibration-01/320.webp 320w, /assets/objects/object-speaker-vibration-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 282,
+        "src": "/assets/objects/object-speaker-vibration-01/320.webp",
+        "fileSizeBytes": 29812
+      },
+      {
+        "width": 1080,
+        "height": 952,
+        "src": "/assets/objects/object-speaker-vibration-01/1080.webp",
+        "fileSizeBytes": 132174
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Object asset: object-speaker-vibration-01"
+  },
+  {
+    "id": "objects.stationery01",
+    "kebabId": "obj-stationery-01",
+    "slug": "object-stationery-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 690,
+    "height": 1080,
+    "dimensions": {
+      "width": 690,
+      "height": 1080,
+      "aspectRatio": 0.6389
+    },
+    "fileSizeBytes": 115034,
+    "fileSizeKB": 112.34,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-stationery-01/690.webp",
+    "srcSet": "/assets/objects/object-stationery-01/320.webp 320w, /assets/objects/object-stationery-01/690.webp 690w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 501,
+        "src": "/assets/objects/object-stationery-01/320.webp",
+        "fileSizeBytes": 50382
+      },
+      {
+        "width": 690,
+        "height": 1080,
+        "src": "/assets/objects/object-stationery-01/690.webp",
+        "fileSizeBytes": 115034
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan"
+    ],
+    "description": "Object asset: object-stationery-01"
+  },
+  {
+    "id": "objects.stickerPaper01",
+    "kebabId": "obj-sticker-paper-01",
+    "slug": "object-sticker-paper-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 135408,
+    "fileSizeKB": 132.23,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-sticker-paper-01/1080.webp",
+    "srcSet": "/assets/objects/object-sticker-paper-01/320.webp 320w, /assets/objects/object-sticker-paper-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-sticker-paper-01/320.webp",
+        "fileSizeBytes": 35480
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-sticker-paper-01/1080.webp",
+        "fileSizeBytes": 135408
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "plan",
+      "first-drink"
+    ],
+    "description": "Object asset: object-sticker-paper-01"
+  },
+  {
+    "id": "objects.streamers01",
+    "kebabId": "obj-streamers-01",
+    "slug": "object-streamers-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 718,
+    "dimensions": {
+      "width": 1080,
+      "height": 718,
+      "aspectRatio": 1.5042
+    },
+    "fileSizeBytes": 125570,
+    "fileSizeKB": 122.63,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-streamers-01/1080.webp",
+    "srcSet": "/assets/objects/object-streamers-01/320.webp 320w, /assets/objects/object-streamers-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 213,
+        "src": "/assets/objects/object-streamers-01/320.webp",
+        "fileSizeBytes": 28078
+      },
+      {
+        "width": 1080,
+        "height": 718,
+        "src": "/assets/objects/object-streamers-01/1080.webp",
+        "fileSizeBytes": 125570
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Object asset: object-streamers-01"
+  },
+  {
+    "id": "objects.tapeRoll01",
+    "kebabId": "obj-tape-roll-01",
+    "slug": "object-tape-roll-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 184298,
+    "fileSizeKB": 179.98,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-tape-roll-01/1080.webp",
+    "srcSet": "/assets/objects/object-tape-roll-01/320.webp 320w, /assets/objects/object-tape-roll-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-tape-roll-01/320.webp",
+        "fileSizeBytes": 35408
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-tape-roll-01/1080.webp",
+        "fileSizeBytes": 184298
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink",
+      "rebuild"
+    ],
+    "description": "Object asset: object-tape-roll-01"
+  },
+  {
+    "id": "objects.textbook01",
+    "kebabId": "obj-textbook-01",
+    "slug": "object-textbook-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 173880,
+    "fileSizeKB": 169.8,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-textbook-01/1080.webp",
+    "srcSet": "/assets/objects/object-textbook-01/320.webp 320w, /assets/objects/object-textbook-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-textbook-01/320.webp",
+        "fileSizeBytes": 36736
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-textbook-01/1080.webp",
+        "fileSizeBytes": 173880
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "reveal"
+    ],
+    "description": "Object asset: object-textbook-01"
+  },
+  {
+    "id": "objects.timetable01",
+    "kebabId": "obj-timetable-01",
+    "slug": "object-timetable-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 130910,
+    "fileSizeKB": 127.84,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-timetable-01/1080.webp",
+    "srcSet": "/assets/objects/object-timetable-01/320.webp 320w, /assets/objects/object-timetable-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 320,
+        "src": "/assets/objects/object-timetable-01/320.webp",
+        "fileSizeBytes": 34690
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/objects/object-timetable-01/1080.webp",
+        "fileSizeBytes": 130910
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "rebuild"
+    ],
+    "description": "Object asset: object-timetable-01"
+  },
+  {
+    "id": "objects.tornPaper01",
+    "kebabId": "obj-torn-paper-01",
+    "slug": "object-torn-paper-01",
+    "category": "object",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 810,
+    "dimensions": {
+      "width": 1080,
+      "height": 810,
+      "aspectRatio": 1.3333
+    },
+    "fileSizeBytes": 165102,
+    "fileSizeKB": 161.23,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/objects/object-torn-paper-01/1080.webp",
+    "srcSet": "/assets/objects/object-torn-paper-01/320.webp 320w, /assets/objects/object-torn-paper-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 320,
+        "height": 240,
+        "src": "/assets/objects/object-torn-paper-01/320.webp",
+        "fileSizeBytes": 34696
+      },
+      {
+        "width": 1080,
+        "height": 810,
+        "src": "/assets/objects/object-torn-paper-01/1080.webp",
+        "fileSizeBytes": 165102
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Object asset: object-torn-paper-01"
+  },
+  {
+    "id": "textures.clearTape01",
+    "kebabId": "tex-clear-tape-01",
+    "slug": "texture-clear-tape-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 406,
+    "dimensions": {
+      "width": 1080,
+      "height": 406,
+      "aspectRatio": 2.6601
+    },
+    "fileSizeBytes": 68628,
+    "fileSizeKB": 67.02,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-clear-tape-01/1080.webp",
+    "srcSet": "/assets/textures/texture-clear-tape-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 1080,
+        "height": 406,
+        "src": "/assets/textures/texture-clear-tape-01/1080.webp",
+        "fileSizeBytes": 68628
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "rebuild"
+    ],
+    "description": "Texture asset: texture-clear-tape-01"
+  },
+  {
+    "id": "textures.colorHalftone01",
+    "kebabId": "tex-color-halftone-01",
+    "slug": "texture-color-halftone-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 714,
+    "dimensions": {
+      "width": 1080,
+      "height": 714,
+      "aspectRatio": 1.5126
+    },
+    "fileSizeBytes": 270310,
+    "fileSizeKB": 263.97,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-color-halftone-01/1080.webp",
+    "srcSet": "/assets/textures/texture-color-halftone-01/768.webp 768w, /assets/textures/texture-color-halftone-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 508,
+        "src": "/assets/textures/texture-color-halftone-01/768.webp",
+        "fileSizeBytes": 240074
+      },
+      {
+        "width": 1080,
+        "height": 714,
+        "src": "/assets/textures/texture-color-halftone-01/1080.webp",
+        "fileSizeBytes": 270310
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Texture asset: texture-color-halftone-01"
+  },
+  {
+    "id": "textures.crumpledPaper01",
+    "kebabId": "tex-crumpled-paper-01",
+    "slug": "texture-crumpled-paper-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 218772,
+    "fileSizeKB": 213.64,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-crumpled-paper-01/1080.webp",
+    "srcSet": "/assets/textures/texture-crumpled-paper-01/768.webp 768w, /assets/textures/texture-crumpled-paper-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 768,
+        "src": "/assets/textures/texture-crumpled-paper-01/768.webp",
+        "fileSizeBytes": 138998
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-crumpled-paper-01/1080.webp",
+        "fileSizeBytes": 218772
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Texture asset: texture-crumpled-paper-01"
+  },
+  {
+    "id": "textures.crumpledPaperStrip01",
+    "kebabId": "tex-crumpled-paper-strip-01",
+    "slug": "texture-crumpled-paper-strip-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 447,
+    "dimensions": {
+      "width": 1080,
+      "height": 447,
+      "aspectRatio": 2.4161
+    },
+    "fileSizeBytes": 90080,
+    "fileSizeKB": 87.97,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-crumpled-paper-strip-01/1080.webp",
+    "srcSet": "/assets/textures/texture-crumpled-paper-strip-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 1080,
+        "height": 447,
+        "src": "/assets/textures/texture-crumpled-paper-strip-01/1080.webp",
+        "fileSizeBytes": 90080
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "passed-out"
+    ],
+    "description": "Texture asset: texture-crumpled-paper-strip-01"
+  },
+  {
+    "id": "textures.halftoneDots01",
+    "kebabId": "tex-halftone-dots-01",
+    "slug": "texture-halftone-dots-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 873,
+    "dimensions": {
+      "width": 1080,
+      "height": 873,
+      "aspectRatio": 1.2371
+    },
+    "fileSizeBytes": 374138,
+    "fileSizeKB": 365.37,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-halftone-dots-01/1080.webp",
+    "srcSet": "/assets/textures/texture-halftone-dots-01/768.webp 768w, /assets/textures/texture-halftone-dots-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 621,
+        "src": "/assets/textures/texture-halftone-dots-01/768.webp",
+        "fileSizeBytes": 237102
+      },
+      {
+        "width": 1080,
+        "height": 873,
+        "src": "/assets/textures/texture-halftone-dots-01/1080.webp",
+        "fileSizeBytes": 374138
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Texture asset: texture-halftone-dots-01"
+  },
+  {
+    "id": "textures.inkContamination01",
+    "kebabId": "tex-ink-contamination-01",
+    "slug": "texture-ink-contamination-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 176000,
+    "fileSizeKB": 171.88,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-ink-contamination-01/1080.webp",
+    "srcSet": "/assets/textures/texture-ink-contamination-01/768.webp 768w, /assets/textures/texture-ink-contamination-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 768,
+        "src": "/assets/textures/texture-ink-contamination-01/768.webp",
+        "fileSizeBytes": 177778
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-ink-contamination-01/1080.webp",
+        "fileSizeBytes": 176000
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Texture asset: texture-ink-contamination-01"
+  },
+  {
+    "id": "textures.inkDrag01",
+    "kebabId": "tex-ink-drag-01",
+    "slug": "texture-ink-drag-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 776,
+    "height": 1080,
+    "dimensions": {
+      "width": 776,
+      "height": 1080,
+      "aspectRatio": 0.7185
+    },
+    "fileSizeBytes": 176112,
+    "fileSizeKB": 171.98,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-ink-drag-01/776.webp",
+    "srcSet": "/assets/textures/texture-ink-drag-01/768.webp 768w, /assets/textures/texture-ink-drag-01/776.webp 776w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 1069,
+        "src": "/assets/textures/texture-ink-drag-01/768.webp",
+        "fileSizeBytes": 220596
+      },
+      {
+        "width": 776,
+        "height": 1080,
+        "src": "/assets/textures/texture-ink-drag-01/776.webp",
+        "fileSizeBytes": 176112
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Texture asset: texture-ink-drag-01"
+  },
+  {
+    "id": "textures.inkSmear01",
+    "kebabId": "tex-ink-smear-01",
+    "slug": "texture-ink-smear-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 894,
+    "dimensions": {
+      "width": 1080,
+      "height": 894,
+      "aspectRatio": 1.2081
+    },
+    "fileSizeBytes": 321584,
+    "fileSizeKB": 314.05,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-ink-smear-01/1080.webp",
+    "srcSet": "/assets/textures/texture-ink-smear-01/768.webp 768w, /assets/textures/texture-ink-smear-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 636,
+        "src": "/assets/textures/texture-ink-smear-01/768.webp",
+        "fileSizeBytes": 243676
+      },
+      {
+        "width": 1080,
+        "height": 894,
+        "src": "/assets/textures/texture-ink-smear-01/1080.webp",
+        "fileSizeBytes": 321584
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Texture asset: texture-ink-smear-01"
+  },
+  {
+    "id": "textures.paperFiber01",
+    "kebabId": "tex-paper-fiber-01",
+    "slug": "texture-paper-fiber-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 907,
+    "dimensions": {
+      "width": 1080,
+      "height": 907,
+      "aspectRatio": 1.1907
+    },
+    "fileSizeBytes": 104818,
+    "fileSizeKB": 102.36,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-paper-fiber-01/1080.webp",
+    "srcSet": "/assets/textures/texture-paper-fiber-01/768.webp 768w, /assets/textures/texture-paper-fiber-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 645,
+        "src": "/assets/textures/texture-paper-fiber-01/768.webp",
+        "fileSizeBytes": 72376
+      },
+      {
+        "width": 1080,
+        "height": 907,
+        "src": "/assets/textures/texture-paper-fiber-01/1080.webp",
+        "fileSizeBytes": 104818
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "question",
+      "reveal"
+    ],
+    "description": "Texture asset: texture-paper-fiber-01"
+  },
+  {
+    "id": "textures.paperInkSpeckle01",
+    "kebabId": "tex-paper-ink-speckle-01",
+    "slug": "texture-paper-ink-speckle-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 897,
+    "dimensions": {
+      "width": 1080,
+      "height": 897,
+      "aspectRatio": 1.204
+    },
+    "fileSizeBytes": 390138,
+    "fileSizeKB": 380.99,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-paper-ink-speckle-01/1080.webp",
+    "srcSet": "/assets/textures/texture-paper-ink-speckle-01/768.webp 768w, /assets/textures/texture-paper-ink-speckle-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 638,
+        "src": "/assets/textures/texture-paper-ink-speckle-01/768.webp",
+        "fileSizeBytes": 236740
+      },
+      {
+        "width": 1080,
+        "height": 897,
+        "src": "/assets/textures/texture-paper-ink-speckle-01/1080.webp",
+        "fileSizeBytes": 390138
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "rebuild"
+    ],
+    "description": "Texture asset: texture-paper-ink-speckle-01"
+  },
+  {
+    "id": "textures.paperRecycled01",
+    "kebabId": "tex-paper-recycled-01",
+    "slug": "texture-paper-recycled-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 887,
+    "dimensions": {
+      "width": 1080,
+      "height": 887,
+      "aspectRatio": 1.2176
+    },
+    "fileSizeBytes": 273060,
+    "fileSizeKB": 266.66,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-paper-recycled-01/1080.webp",
+    "srcSet": "/assets/textures/texture-paper-recycled-01/768.webp 768w, /assets/textures/texture-paper-recycled-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 631,
+        "src": "/assets/textures/texture-paper-recycled-01/768.webp",
+        "fileSizeBytes": 160634
+      },
+      {
+        "width": 1080,
+        "height": 887,
+        "src": "/assets/textures/texture-paper-recycled-01/1080.webp",
+        "fileSizeBytes": 273060
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "first-drink"
+    ],
+    "description": "Texture asset: texture-paper-recycled-01"
+  },
+  {
+    "id": "textures.photocopyEdge01",
+    "kebabId": "tex-photocopy-edge-01",
+    "slug": "texture-photocopy-edge-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 903,
+    "dimensions": {
+      "width": 1080,
+      "height": 903,
+      "aspectRatio": 1.196
+    },
+    "fileSizeBytes": 355832,
+    "fileSizeKB": 347.49,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-photocopy-edge-01/1080.webp",
+    "srcSet": "/assets/textures/texture-photocopy-edge-01/768.webp 768w, /assets/textures/texture-photocopy-edge-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 642,
+        "src": "/assets/textures/texture-photocopy-edge-01/768.webp",
+        "fileSizeBytes": 219510
+      },
+      {
+        "width": 1080,
+        "height": 903,
+        "src": "/assets/textures/texture-photocopy-edge-01/1080.webp",
+        "fileSizeBytes": 355832
+      }
+    ],
+    "preload": true,
+    "sceneIds": [
+      "plan",
+      "passed-out",
+      "reveal"
+    ],
+    "description": "Texture asset: texture-photocopy-edge-01"
+  },
+  {
+    "id": "textures.photocopyGrime01",
+    "kebabId": "tex-photocopy-grime-01",
+    "slug": "texture-photocopy-grime-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 176762,
+    "fileSizeKB": 172.62,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-photocopy-grime-01/1080.webp",
+    "srcSet": "/assets/textures/texture-photocopy-grime-01/768.webp 768w, /assets/textures/texture-photocopy-grime-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 768,
+        "src": "/assets/textures/texture-photocopy-grime-01/768.webp",
+        "fileSizeBytes": 145172
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-photocopy-grime-01/1080.webp",
+        "fileSizeBytes": 176762
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Texture asset: texture-photocopy-grime-01"
+  },
+  {
+    "id": "textures.scanLines01",
+    "kebabId": "tex-scan-lines-01",
+    "slug": "texture-scan-lines-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 537,
+    "dimensions": {
+      "width": 1080,
+      "height": 537,
+      "aspectRatio": 2.0112
+    },
+    "fileSizeBytes": 156890,
+    "fileSizeKB": 153.21,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-scan-lines-01/1080.webp",
+    "srcSet": "/assets/textures/texture-scan-lines-01/768.webp 768w, /assets/textures/texture-scan-lines-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 382,
+        "src": "/assets/textures/texture-scan-lines-01/768.webp",
+        "fileSizeBytes": 133262
+      },
+      {
+        "width": 1080,
+        "height": 537,
+        "src": "/assets/textures/texture-scan-lines-01/1080.webp",
+        "fileSizeBytes": 156890
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Texture asset: texture-scan-lines-01"
+  },
+  {
+    "id": "textures.surfaceScratches01",
+    "kebabId": "tex-surface-scratches-01",
+    "slug": "texture-surface-scratches-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 737,
+    "dimensions": {
+      "width": 1080,
+      "height": 737,
+      "aspectRatio": 1.4654
+    },
+    "fileSizeBytes": 37720,
+    "fileSizeKB": 36.84,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-surface-scratches-01/1080.webp",
+    "srcSet": "/assets/textures/texture-surface-scratches-01/768.webp 768w, /assets/textures/texture-surface-scratches-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 524,
+        "src": "/assets/textures/texture-surface-scratches-01/768.webp",
+        "fileSizeBytes": 70088
+      },
+      {
+        "width": 1080,
+        "height": 737,
+        "src": "/assets/textures/texture-surface-scratches-01/1080.webp",
+        "fileSizeBytes": 37720
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Texture asset: texture-surface-scratches-01"
+  },
+  {
+    "id": "textures.tapeLayered01",
+    "kebabId": "tex-tape-layered-01",
+    "slug": "texture-tape-layered-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 151528,
+    "fileSizeKB": 147.98,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-tape-layered-01/1080.webp",
+    "srcSet": "/assets/textures/texture-tape-layered-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-tape-layered-01/1080.webp",
+        "fileSizeBytes": 151528
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "buzzed"
+    ],
+    "description": "Texture asset: texture-tape-layered-01"
+  },
+  {
+    "id": "textures.tornPaperFragment01",
+    "kebabId": "tex-torn-paper-fragment-01",
+    "slug": "texture-torn-paper-fragment-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 106466,
+    "fileSizeKB": 103.97,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-torn-paper-fragment-01/1080.webp",
+    "srcSet": "/assets/textures/texture-torn-paper-fragment-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-torn-paper-fragment-01/1080.webp",
+        "fileSizeBytes": 106466
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "drunk"
+    ],
+    "description": "Texture asset: texture-torn-paper-fragment-01"
+  },
+  {
+    "id": "textures.tornPaperLarge01",
+    "kebabId": "tex-torn-paper-large-01",
+    "slug": "texture-torn-paper-large-01",
+    "category": "texture",
+    "variant": null,
+    "format": "WEBP",
+    "width": 1080,
+    "height": 1080,
+    "dimensions": {
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": 1.0
+    },
+    "fileSizeBytes": 83400,
+    "fileSizeKB": 81.45,
+    "colorMode": "RGBA",
+    "hasAlpha": true,
+    "hasTransparency": true,
+    "src": "/assets/textures/texture-torn-paper-large-01/1080.webp",
+    "srcSet": "/assets/textures/texture-torn-paper-large-01/768.webp 768w, /assets/textures/texture-torn-paper-large-01/1080.webp 1080w",
+    "variants": [
+      {
+        "width": 768,
+        "height": 768,
+        "src": "/assets/textures/texture-torn-paper-large-01/768.webp",
+        "fileSizeBytes": 49238
+      },
+      {
+        "width": 1080,
+        "height": 1080,
+        "src": "/assets/textures/texture-torn-paper-large-01/1080.webp",
+        "fileSizeBytes": 83400
+      }
+    ],
+    "preload": false,
+    "sceneIds": [
+      "party-peak"
+    ],
+    "description": "Texture asset: texture-torn-paper-large-01"
+  }
+]

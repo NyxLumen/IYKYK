@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAnimation } from '@/app/providers/AnimationProvider';
+import { assets } from '@/experience/data/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -539,16 +540,22 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateBedroomRef} className="env-plate env-plate-bedroom">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-bedroom-study-night.png"
+            src={assets.environments.bedroomStudyNight.src}
+            srcSet={assets.environments.bedroomStudyNight.srcSet}
+            sizes="100vw"
             alt=""
             loading="eager"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-paper-fiber"
-            src="/production/source/assetsReady/textures/texture-paper-fiber-01.png"
+            src={assets.textures.paperFiber01.src}
+            srcSet={assets.textures.paperFiber01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="eager"
+            decoding="async"
           />
         </div>
 
@@ -556,22 +563,32 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateHallwayRef} className="env-plate env-plate-hallway">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-party-hallway-entrance.png"
+            src={assets.environments.partyHallwayEntrance.src}
+            srcSet={assets.environments.partyHallwayEntrance.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-photocopy-grime"
-            src="/production/source/assetsReady/textures/texture-photocopy-grime-01.png"
+            src={assets.textures.photocopyGrime01.src}
+            srcSet={assets.textures.photocopyGrime01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
           <img
             className="env-texture-plate env-texture-halftone-dots"
-            src="/production/source/assetsReady/textures/texture-halftone-dots-01.png"
+            src={assets.textures.halftoneDots01.src}
+            srcSet={assets.textures.halftoneDots01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -579,22 +596,32 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateLivingRoomRef} className="env-plate env-plate-livingroom">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-party-living-room-master.png"
+            src={assets.environments.partyLivingRoomMaster.src}
+            srcSet={assets.environments.partyLivingRoomMaster.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-ink-speckle"
-            src="/production/source/assetsReady/textures/texture-paper-ink-speckle-01.png"
+            src={assets.textures.paperInkSpeckle01.src}
+            srcSet={assets.textures.paperInkSpeckle01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
           <img
             className="env-texture-plate env-texture-photocopy-edge"
-            src="/production/source/assetsReady/textures/texture-photocopy-edge-01.png"
+            src={assets.textures.photocopyEdge01.src}
+            srcSet={assets.textures.photocopyEdge01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -602,22 +629,32 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateSpeakersRef} className="env-plate env-plate-speakers">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-party-near-speakers.png"
+            src={assets.environments.partyNearSpeakers.src}
+            srcSet={assets.environments.partyNearSpeakers.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-ink-contamination"
-            src="/production/source/assetsReady/textures/texture-ink-contamination-01.png"
+            src={assets.textures.inkContamination01.src}
+            srcSet={assets.textures.inkContamination01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
           <img
             className="env-texture-plate env-texture-surface-scratches"
-            src="/production/source/assetsReady/textures/texture-surface-scratches-01.png"
+            src={assets.textures.surfaceScratches01.src}
+            srcSet={assets.textures.surfaceScratches01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -625,22 +662,32 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateCrowdRef} className="env-plate env-plate-crowd">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-party-crowd-peak.png"
+            src={assets.environments.partyCrowdPeak.src}
+            srcSet={assets.environments.partyCrowdPeak.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-photocopy-grime"
-            src="/production/source/assetsReady/textures/texture-photocopy-grime-01.png"
+            src={assets.textures.photocopyGrime01.src}
+            srcSet={assets.textures.photocopyGrime01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
           <img
             className="env-texture-plate env-texture-color-halftone"
-            src="/production/source/assetsReady/textures/texture-color-halftone-01.png"
+            src={assets.textures.colorHalftone01.src}
+            srcSet={assets.textures.colorHalftone01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -648,16 +695,22 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateMessyRef} className="env-plate env-plate-messy">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-bedroom-morning-messy.png"
+            src={assets.environments.bedroomMorningMessy.src}
+            srcSet={assets.environments.bedroomMorningMessy.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-paper-recycled"
-            src="/production/source/assetsReady/textures/texture-paper-recycled-01.png"
+            src={assets.textures.paperRecycled01.src}
+            srcSet={assets.textures.paperRecycled01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -665,16 +718,22 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         <div ref={plateTidyRef} className="env-plate env-plate-tidy">
           <img
             className="env-plate-art"
-            src="/production/source/assetsReady/environments/env-bedroom-morning-tidy.png"
+            src={assets.environments.bedroomMorningTidy.src}
+            srcSet={assets.environments.bedroomMorningTidy.srcSet}
+            sizes="100vw"
             alt=""
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
           <img
             className="env-texture-plate env-texture-paper-fiber-clean"
-            src="/production/source/assetsReady/textures/texture-paper-fiber-01.png"
+            src={assets.textures.paperFiber01.src}
+            srcSet={assets.textures.paperFiber01.srcSet}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

@@ -6,6 +6,7 @@ import { Meter, BatterySvgHandle } from '../components/Meter';
 import { ASSET_MANIFEST } from '../data/assets';
 
 const assetSrc = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id)?.src ?? '';
+const getRebuildAsset = (id: string) => ASSET_MANIFEST.find((asset) => asset.id === id);
 
 export interface RebuildSceneProps {
   id?: string;
@@ -294,8 +295,12 @@ export const RebuildScene: React.FC<RebuildSceneProps> = ({ id = 'rebuild' }) =>
       {/* Reassembled Protagonist DOM Figure */}
       <div ref={protagonistRef} className="rebuild-protagonist-wrapper" aria-hidden="true">
         <img
-          src="/production/source/assetsReady/characters/rebuild/protagonist-reassembled.png"
+          src={getRebuildAsset('characters.rebuild.reassembled')?.src ?? ''}
+          srcSet={getRebuildAsset('characters.rebuild.reassembled')?.srcSet}
+          sizes="clamp(260px, 72vw, 680px)"
           alt="Protagonist reassembled"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

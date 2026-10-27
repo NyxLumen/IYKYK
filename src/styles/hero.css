@@ -38,7 +38,7 @@
   z-index: 2;
   opacity: 0.08;
   mix-blend-mode: screen;
-  background-image: url('/production/source/assetsReady/textures/texture-photocopy-grime-01.png');
+  background-image: url('/assets/textures/texture-photocopy-grime-01/1080.webp');
   background-size: cover;
   background-position: center center;
   pointer-events: none;

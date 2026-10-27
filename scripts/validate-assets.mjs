@@ -25,6 +25,8 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const ASSETS_DIR = path.resolve(REPO_ROOT, 'production/source/assetsReady');
 const INVENTORY_FILE = path.resolve(REPO_ROOT, 'production/assets-inventory.json');
 const MANIFEST_TS_FILE = path.resolve(REPO_ROOT, 'src/experience/data/assets.ts');
+const PUBLIC_ASSETS_DIR = path.resolve(REPO_ROOT, 'public/assets');
+const RUNTIME_MANIFEST_FILE = path.resolve(REPO_ROOT, 'public/assets/manifest.json');
 
 const VALID_CATEGORIES = new Set(['character', 'environment', 'object', 'graphic', 'texture', 'brand']);
 const VALID_CHARACTER_VARIANTS = new Set(['close', 'full', 'rebuild']);
@@ -159,9 +161,64 @@ for (const diskRel of diskFileRelPaths) {
 const preloadMatches = manifestTsContent.match(/preload:\s*true/g) || [];
 preloadCount = preloadMatches.length;
 
+// 5. Validate Runtime WebP Delivery (public/assets/)
+console.log('🌐 Validating generated runtime assets (public/assets/)...');
+let totalRuntimeVariants = 0;
+let totalRuntimeBytes = 0;
+
+if (!fs.existsSync(PUBLIC_ASSETS_DIR)) {
+  logError(`Runtime assets directory missing: ${PUBLIC_ASSETS_DIR}`);
+} else if (!fs.existsSync(RUNTIME_MANIFEST_FILE)) {
+  logError(`Runtime manifest file missing: ${RUNTIME_MANIFEST_FILE}`);
+} else {
+  const runtimeAssets = JSON.parse(fs.readFileSync(RUNTIME_MANIFEST_FILE, 'utf-8'));
+  console.log(`📦 Runtime manifest entries: ${runtimeAssets.length}`);
+
+  for (const ra of runtimeAssets) {
+    if (!ra.src.startsWith('/assets/')) {
+      logError(`Runtime asset ${ra.id} has invalid src (must start with /assets/): ${ra.src}`);
+    }
+    const mainRuntimeFile = path.resolve(REPO_ROOT, 'public' + ra.src);
+    if (!fs.existsSync(mainRuntimeFile)) {
+      logError(`Runtime asset ${ra.id} file missing on disk: ${mainRuntimeFile}`);
+    }
+
+    if (!Array.isArray(ra.variants) || ra.variants.length === 0) {
+      logError(`Runtime asset ${ra.id} has no responsive variants`);
+    } else {
+      for (const variant of ra.variants) {
+        totalRuntimeVariants++;
+        const variantDiskPath = path.resolve(REPO_ROOT, 'public' + variant.src);
+        if (!fs.existsSync(variantDiskPath)) {
+          logError(`Runtime variant missing on disk: ${variantDiskPath}`);
+        } else {
+          totalRuntimeBytes += fs.statSync(variantDiskPath).size;
+        }
+      }
+    }
+  }
+}
+
+// 6. Check that src/ has 0 remaining /production/source/assetsReady references
+function checkNoSourceAssetRefs(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      checkNoSourceAssetRefs(full);
+    } else if (/\.(tsx?|jsx?|css|html)$/.test(entry.name)) {
+      const content = fs.readFileSync(full, 'utf-8');
+      if (content.includes('/production/source/assetsReady')) {
+        logError(`Legacy source asset reference found in runtime code: ${path.relative(REPO_ROOT, full)}`);
+      }
+    }
+  }
+}
+checkNoSourceAssetRefs(path.resolve(REPO_ROOT, 'src'));
+
 // Output Results
 console.log('--- Manifest Breakdown ---');
-console.log(`Total Assets: ${assets.length}`);
+console.log(`Total Source Assets: ${assets.length}`);
 for (const [cat, count] of Object.entries(categoryCounts)) {
   console.log(`  - ${cat.padEnd(12)}: ${count}`);
 }
@@ -171,6 +228,8 @@ for (const [varName, count] of Object.entries(variantCounts)) {
 }
 console.log(`Preload Assets: ${preloadCount} (Scene 01 + Core Textures/Marks)`);
 console.log(`Transparent / Alpha Cutouts: ${transparentCount}`);
+console.log(`Runtime Variants Generated: ${totalRuntimeVariants}`);
+console.log(`Runtime Payload Size: ${(totalRuntimeBytes / (1024 * 1024)).toFixed(2)} MB`);
 console.log('---------------------------\n');
 
 if (errors.length > 0) {

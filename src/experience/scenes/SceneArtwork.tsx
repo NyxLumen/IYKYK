@@ -2,8 +2,8 @@ import React from "react";
 import { ASSET_MANIFEST } from "../data/assets";
 import type { SceneId } from "../data/types";
 
-const assetSrc = (id: string) =>
-	ASSET_MANIFEST.find((asset) => asset.id === id)?.src ?? "";
+const getArtworkAsset = (id: string) =>
+	ASSET_MANIFEST.find((asset) => asset.id === id || asset.kebabId === id || asset.slug === id);
 
 type StorySceneId = Extract<
 	SceneId,
@@ -796,6 +796,7 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 	const planeELayers = artwork.layers.filter((l) => l.plane === "E");
 
 	const renderLayer = (layer: ArtworkLayer) => {
+		const asset = getArtworkAsset(layer.assetId);
 		const isTexture = layer.role === "texture";
 		const isProtagonist = layer.role === "protagonist";
 
@@ -811,9 +812,12 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 					aria-hidden="true"
 				>
 					<img
-						src={assetSrc(layer.assetId)}
+						src={asset?.src ?? ""}
+						srcSet={asset?.srcSet}
+						sizes="100vw"
 						alt=""
 						loading={eager ? "eager" : "lazy"}
+						decoding="async"
 					/>
 				</div>
 			);
@@ -831,9 +835,12 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 				<div className="motion-pointer-layer">
 					<div className="motion-ambient-layer">
 						<img
-							src={assetSrc(layer.assetId)}
+							src={asset?.src ?? ""}
+							srcSet={asset?.srcSet}
+							sizes={isProtagonist ? "(max-width: 720px) 78vw, 55vw" : "(max-width: 720px) 35vw, 25vw"}
 							alt={layer.alt ?? ""}
 							loading={eager ? "eager" : "lazy"}
+							decoding="async"
 						/>
 						{layer.content}
 						{layer.overlayText && (

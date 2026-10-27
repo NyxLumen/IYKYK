@@ -33,11 +33,20 @@ export interface AssetDimensions {
   aspectRatio: number;
 }
 
+export interface AssetVariantFile {
+  width: number;
+  height: number;
+  src: string;
+  fileSizeBytes?: number;
+}
+
 export interface AssetDefinition {
   id: string;
   kebabId: string;
   slug: string;
   src: string;
+  srcSet?: string;
+  variants?: AssetVariantFile[];
   category: AssetCategory;
   variant?: AssetVariant;
   description?: string;
