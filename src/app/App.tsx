@@ -4,6 +4,7 @@ import { Experience } from '@/experience/Experience';
 import { ComponentVerificationView } from '@/experience/components/ComponentVerificationView';
 import { ComicComponentsPlayground } from '@/pages/ComicComponentsPlayground';
 import { NarrativeScene } from '@/experience/scenes/NarrativeScene';
+import { Scene03Buzzed } from '@/experience/scenes/Scene03Buzzed';
 import { RebuildScene } from '@/experience/scenes/RebuildScene';
 
 export const App: React.FC = () => {
@@ -32,6 +33,13 @@ export const App: React.FC = () => {
       return (
         <ExperienceShell>
           <RebuildScene />
+        </ExperienceShell>
+      );
+    }
+    if (sceneParam === 'buzzed') {
+      return (
+        <ExperienceShell>
+          <Scene03Buzzed />
         </ExperienceShell>
       );
     }
