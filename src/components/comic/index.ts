@@ -1,6 +1,7 @@
-export { ComicAction } from './ComicAction';
+export { ComicAction, PopArtLabel } from './ComicAction';
 export type {
   ComicActionProps,
+  PopArtLabelProps,
   ComicActionSize,
   ComicActionVariant,
   ComicActionVariantColors,
