@@ -34,7 +34,7 @@
   /* Typography Stacks (design.md Section 04) */
   --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
   --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-handwriting: 'Permanent Marker', 'Caveat', cursive;
+  --font-handwriting: 'Finger Paint', cursive;
 
   /* Type Scale */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);

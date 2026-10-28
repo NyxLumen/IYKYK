@@ -1,0 +1,307 @@
+/**
+ * ComicComponentsPlayground.css
+ * Styling for the dedicated Comic-Book Components Preview Playground.
+ */
+
+.comic-playground {
+  min-height: 100vh;
+  background-color: #0B0B0B;
+  color: #EDE4D9;
+  font-family: var(--font-body, 'Space Grotesk', -apple-system, sans-serif);
+  padding: clamp(1rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.comic-playground__header {
+  border-bottom: 1px solid rgba(237, 228, 217, 0.15);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comic-playground__badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  background-color: #39EF88;
+  color: #0B0B0B;
+  font-family: var(--font-display, 'Bebas Neue', Anton, sans-serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  border-radius: 2px;
+}
+
+.comic-playground__title {
+  font-family: var(--font-display, 'Bebas Neue', Anton, sans-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1;
+}
+
+.comic-playground__subtitle {
+  color: rgba(237, 228, 217, 0.7);
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  max-width: 800px;
+}
+
+/* Nav & Filter Tabs */
+.comic-playground__nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.comic-playground__tab-btn {
+  background: rgba(237, 228, 217, 0.08);
+  color: #EDE4D9;
+  border: 1px solid rgba(237, 228, 217, 0.2);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-display, 'Bebas Neue', Anton, sans-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.comic-playground__tab-btn:hover {
+  background: rgba(237, 228, 217, 0.16);
+}
+
+.comic-playground__tab-btn--active {
+  background: #7A3BFF;
+  border-color: #39EF88;
+  color: #FFFFFF;
+}
+
+/* Width Simulation Toolbar */
+.comic-playground__viewport-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(237, 228, 217, 0.04);
+  border: 1px dashed rgba(237, 228, 217, 0.2);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.comic-playground__viewport-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(237, 228, 217, 0.6);
+}
+
+.comic-playground__vp-btn {
+  background: transparent;
+  color: #EDE4D9;
+  border: 1px solid rgba(237, 228, 217, 0.3);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.comic-playground__vp-btn:hover {
+  background: rgba(237, 228, 217, 0.15);
+}
+
+.comic-playground__vp-btn--active {
+  background: #39EF88;
+  color: #0B0B0B;
+  border-color: #39EF88;
+  font-weight: 700;
+}
+
+/* Sections */
+.comic-playground__section {
+  margin-bottom: 3.5rem;
+}
+
+.comic-playground__section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(237, 228, 217, 0.12);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.comic-playground__section-title {
+  font-family: var(--font-display, 'Bebas Neue', Anton, sans-serif);
+  font-size: 1.85rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+  color: #39EF88;
+}
+
+.comic-playground__section-desc {
+  font-size: 0.9rem;
+  color: rgba(237, 228, 217, 0.65);
+}
+
+/* Preview Stage Frame */
+.comic-playground__stage {
+  background: #141414;
+  border: 1px solid rgba(237, 228, 217, 0.12);
+  border-radius: 4px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  transition: max-width 0.25s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comic-playground__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.comic-playground__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(237, 228, 217, 0.08);
+  padding: 1.25rem;
+  border-radius: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.comic-playground__card-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(237, 228, 217, 0.5);
+  font-weight: 600;
+}
+
+/* Live Customizer Studio */
+.comic-playground__studio {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  gap: 2rem;
+  background: #141414;
+  border: 1px solid rgba(237, 228, 217, 0.12);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .comic-playground__studio {
+    grid-template-columns: 1fr;
+  }
+}
+
+.comic-playground__controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(237, 228, 217, 0.08);
+  padding: 1.25rem;
+  border-radius: 4px;
+}
+
+.comic-playground__control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.comic-playground__control-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(237, 228, 217, 0.8);
+}
+
+.comic-playground__input,
+.comic-playground__select,
+.comic-playground__textarea {
+  background: #0B0B0B;
+  border: 1px solid rgba(237, 228, 217, 0.25);
+  color: #EDE4D9;
+  padding: 0.5rem 0.65rem;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.comic-playground__input:focus,
+.comic-playground__select:focus,
+.comic-playground__textarea:focus {
+  border-color: #39EF88;
+  outline: none;
+}
+
+.comic-playground__color-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comic-playground__color-picker {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(237, 228, 217, 0.3);
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+.comic-playground__color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.comic-playground__color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.comic-playground__studio-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: #0B0B0B;
+  border: 1px dashed rgba(237, 228, 217, 0.15);
+  border-radius: 4px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.comic-playground__code-box {
+  margin-top: 1.5rem;
+  background: #050505;
+  border: 1px solid rgba(237, 228, 217, 0.1);
+  padding: 0.85rem 1rem;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #39EF88;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre-wrap;
+}
