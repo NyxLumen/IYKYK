@@ -565,9 +565,9 @@
 /* Exact composition & sizing from visual specification reference             */
 /* -------------------------------------------------------------------------- */
 .scene-collage-plan .plan-character {
-  left: 9.8%;
-  top: 4.5%;
-  width: clamp(380px, 44.8vw, 760px);
+  left: 10.5%;
+  top: 1.8%;
+  width: clamp(390px, 45.2vw, 780px);
   height: auto;
   z-index: 30;
 }
@@ -578,58 +578,58 @@
 }
 
 .scene-collage-plan .plan-books {
-  left: 9.8%;
-  top: 15.1%;
-  width: clamp(150px, 17.5vw, 290px);
-  transform: rotate(8deg);
+  left: 6.8%;
+  top: 10.5%;
+  width: clamp(140px, 16.0vw, 280px);
+  transform: rotate(6deg);
   z-index: 10;
 }
 
 .scene-collage-plan .plan-timetable {
-  left: 1.4%;
-  top: 57.5%;
-  width: clamp(180px, 21.6vw, 360px);
+  left: 1.0%;
+  top: 52.5%;
+  width: clamp(210px, 24.5vw, 390px);
   transform: rotate(8deg);
   z-index: 12;
 }
 
 .scene-collage-plan .plan-bag {
-  left: 44.0%;
-  top: 63.5%;
-  width: clamp(170px, 19.9vw, 330px);
-  transform: rotate(2deg);
+  left: 43.5%;
+  top: 64.0%;
+  width: clamp(160px, 17.8vw, 300px);
+  transform: rotate(4deg);
   z-index: 14;
 }
 
 .scene-collage-plan .plan-textbook {
-  left: 1.2%;
-  top: 27.2%;
-  width: clamp(170px, 20.1vw, 340px);
+  left: 1.8%;
+  top: 28.5%;
+  width: clamp(155px, 17.5vw, 300px);
   transform: rotate(6deg);
   z-index: 32;
 }
 
 .scene-collage-plan .plan-flyer {
-  left: 71.1%;
-  top: 68.5%;
-  width: clamp(250px, 28.7vw, 480px);
+  left: 71.2%;
+  top: 67.5%;
+  width: clamp(255px, 28.2vw, 470px);
   transform: rotate(0deg);
   z-index: 34;
 }
 
 .scene-collage-plan .plan-scribble {
-  left: 53.2%;
-  top: 4.5%;
-  width: clamp(180px, 21.8vw, 360px);
+  left: 51.5%;
+  top: 0%;
+  width: clamp(200px, 24.0vw, 390px);
   filter: none !important;
   z-index: 46;
 }
 
 /* Primary Headline: Pop Art Label (Cream Paper) */
 .scene-collage-plan .plan-headline {
-  left: 56.8%;
-  top: 25.8%;
-  width: clamp(400px, 41.5vw, 680px);
+  left: 56.7%;
+  top: 25.4%;
+  width: clamp(400px, 41.2vw, 680px);
   z-index: 42;
 }
 .scene-collage-plan .plan-headline .comic-action-wrapper {
@@ -647,22 +647,23 @@
   --comic-action-dot-r: 7.5px;
   --comic-action-dot-w: 52px;
   --comic-action-dot-h: 46px;
-  font-size: clamp(1.95rem, 1.7rem + 1.15vw, 2.85rem);
-  padding: clamp(1.05rem, 2.4vh, 1.35rem) clamp(1.2rem, 2.0vw, 2.2rem);
+  --comic-action-letter-spacing: 0.02em;
+  font-size: clamp(1.65rem, 1.45rem + 0.7vw, 2.35rem);
+  padding: clamp(1.15rem, 2.6vh, 1.5rem) clamp(1.2rem, 2.0vw, 2.2rem);
   white-space: nowrap;
 }
 
 /* Supporting Label: Pop Art Label (Purple) */
 .scene-collage-plan .plan-supporting {
-  left: 67.0%;
-  top: 40.5%;
+  left: 66.8%;
+  top: 40.8%;
   width: clamp(206px, 21.6vw, 340px);
   z-index: 44;
 }
 .scene-collage-plan .plan-supporting .comic-action-wrapper {
   width: 100%;
   padding-left: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   padding-top: 2px;
   padding-right: 2px;
 }
@@ -670,11 +671,14 @@
   width: 100%;
   --comic-action-border-width: 6px;
   --comic-action-shadow-x: -10px;
-  --comic-action-shadow-y: 10px;
+  --comic-action-shadow-y: 12px;
   --comic-action-dot-r: 4.5px;
   --comic-action-dot-w: 30px;
   --comic-action-dot-h: 28px;
-  font-size: clamp(1.35rem, 1.18rem + 0.72vw, 1.85rem);
+  --comic-action-bg: #6839C2;
+  --comic-action-pattern: #8B52E8;
+  --comic-action-letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 1.25rem + 0.6vw, 1.85rem);
   padding: clamp(0.62rem, 1.5vh, 0.88rem) clamp(1.1rem, 1.6vw, 1.8rem);
   white-space: nowrap;
 }

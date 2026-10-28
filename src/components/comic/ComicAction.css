@@ -37,7 +37,7 @@
   font-family: var(--font-handwriting, 'Finger Paint', cursive);
   font-weight: 700;
   text-transform: var(--comic-action-text-transform, uppercase);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--comic-action-letter-spacing, 0.08em);
   line-height: 1.08;
   word-break: break-word;
   overflow-wrap: break-word;
