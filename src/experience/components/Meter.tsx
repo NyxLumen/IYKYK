@@ -21,7 +21,7 @@ export interface MeterProps {
  * Street Art / Spray-Can Aesthetics:
  * - Floats directly without an enclosing black box or border card.
  * - Battery and percentage appear as if sprayed directly onto the collage substrate.
- * - Percentage styled with handwritten spray-paint typography ('Permanent Marker') and aerosol glow.
+ * - Percentage styled with handwritten spray-paint typography ('Finger Paint') and aerosol glow.
  */
 export const Meter: React.FC<MeterProps> = ({
   value = 100,
@@ -69,7 +69,7 @@ export const Meter: React.FC<MeterProps> = ({
         ref={labelRef}
         className="meter-bar-label meter-spray-label"
         style={{
-          fontFamily: "var(--font-handwriting, 'Permanent Marker', cursive)",
+          fontFamily: "var(--font-handwriting, 'Finger Paint', cursive)",
           fontSize: 'clamp(1.35rem, 2.4vw, 1.85rem)',
           lineHeight: 1,
           color: clamped === 0 ? 'var(--color-purple, #7A3BFF)' : 'var(--color-paper, #EDE4D9)',

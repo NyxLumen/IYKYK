@@ -1,0 +1,109 @@
+/**
+ * ComicBubble.css
+ * Styling for the organic hand-drawn speech bubble component.
+ * Features:
+ * - Scalable vector silhouette with organic curves
+ * - Seamlessly integrated pointed tail (bottom-left, bottom-right, or none)
+ * - Subtle inner perimeter decorative dots that never obscure text
+ * - Hand-inked double stroke / underside shadow matching the reference
+ * - Fluid auto-wrapping typography
+ * - Pure CSS custom property support
+ */
+
+.comic-bubble-wrapper {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  vertical-align: middle;
+  padding: 4px;
+}
+
+.comic-bubble__container {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Background SVG holding the organic bubble path, ink shadow, and decorative dots */
+.comic-bubble__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* HTML content container holding the accessible text */
+.comic-bubble__content {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: auto;
+  min-width: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* Expressive comic typography */
+  font-family: var(--comic-bubble-font, var(--font-handwriting, 'Finger Paint', cursive));
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--comic-bubble-text, #0B0B0B);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  user-select: text;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Size Presets & Content Spacing                                              */
+/* -------------------------------------------------------------------------- */
+
+/* Small Size */
+.comic-bubble--small .comic-bubble__content {
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.18rem);
+  padding: 16px 26px 30px 26px;
+  min-width: 90px;
+}
+.comic-bubble--small.comic-bubble--tail-none .comic-bubble__content {
+  padding-bottom: 16px;
+}
+
+/* Medium Size (Default) */
+.comic-bubble--medium .comic-bubble__content {
+  font-size: clamp(1.4rem, 1.2rem + 0.7vw, 1.75rem);
+  padding: 24px 38px 42px 38px;
+  min-width: 140px;
+}
+.comic-bubble--medium.comic-bubble--tail-none .comic-bubble__content {
+  padding-bottom: 24px;
+}
+
+/* Large Size */
+.comic-bubble--large .comic-bubble__content {
+  font-size: clamp(1.85rem, 1.55rem + 1vw, 2.45rem);
+  padding: 34px 52px 56px 52px;
+  min-width: 190px;
+}
+.comic-bubble--large.comic-bubble--tail-none .comic-bubble__content {
+  padding-bottom: 34px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced Motion Support                                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .comic-bubble-wrapper,
+  .comic-bubble__container,
+  .comic-bubble__svg {
+    transition: none !important;
+  }
+}

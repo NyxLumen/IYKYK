@@ -2,10 +2,20 @@ import React from 'react';
 import { ExperienceShell } from '@/experience/ExperienceShell';
 import { Experience } from '@/experience/Experience';
 import { ComponentVerificationView } from '@/experience/components/ComponentVerificationView';
+import { ComicComponentsPlayground } from '@/pages/ComicComponentsPlayground';
 import { NarrativeScene } from '@/experience/scenes/NarrativeScene';
 import { RebuildScene } from '@/experience/scenes/RebuildScene';
 
 export const App: React.FC = () => {
+  const isComicComponentsDev =
+    typeof window !== 'undefined' &&
+    (window.location.pathname.startsWith('/dev/comic-components') ||
+      window.location.search.includes('comic-components'));
+
+  if (isComicComponentsDev) {
+    return <ComicComponentsPlayground />;
+  }
+
   const isVerificationMode =
     typeof window !== 'undefined' &&
     (window.location.search.includes('verify') || window.location.search.includes('preview=components'));
