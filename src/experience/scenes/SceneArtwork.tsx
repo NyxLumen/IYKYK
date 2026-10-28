@@ -161,7 +161,7 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				customComponent: (
 					<PopArtLabel
 						variant="purple"
-						size="small"
+						size="medium"
 						text="We're good"
 						textTransform="none"
 						className="plan-supporting-label"
