@@ -335,7 +335,7 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				exit: "slide-right",
 				alt: "Clock fragment showing progression of the night",
 			},
-			// Plane E: Foreground scratches overlay, Pop Art Label headline & decorative collage cluster
+			// Plane E: Foreground scratches overlay & Pop Art Label headline
 			{
 				assetId: "textures.surfaceScratches01",
 				className: "buzzed-scratches",
@@ -361,15 +361,6 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 						Maybe<br />One more?
 					</PopArtLabel>
 				),
-			},
-			{
-				assetId: "graphics.collageClusterGreenPurple",
-				className: "buzzed-cluster",
-				plane: "E",
-				role: "graphic",
-				entrance: "stamp",
-				exit: "slide-up",
-				alt: "Decorative collage cluster",
 			},
 		],
 	},

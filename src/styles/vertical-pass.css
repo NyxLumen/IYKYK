@@ -1144,23 +1144,6 @@
   text-align: center;
 }
 
-/* Plane E: Decorative green-purple collage cluster in left-center */
-.scene-collage-buzzed .buzzed-cluster {
-  position: absolute;
-  left: 0%;
-  top: 36%;
-  width: clamp(170px, 18.5vw, 270px);
-  z-index: 15;
-  opacity: 0.95;
-}
-
-.scene-collage-buzzed .buzzed-cluster img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-}
-
 /* -------------------------------------------------------------------------- */
 /* Scene 04: DRUNK — Distortion, Shattered Time & Crowd Clutter               */
 /* Protagonist drunk close-up (Plane C: ~54vw Desktop, ~80vw Mobile)           */
@@ -2629,13 +2612,6 @@
     font-size: clamp(1.15rem, 4.4vw, 1.6rem);
     border-width: 7px;
     box-shadow: -8px 8px 0px 0px #0B0B0B;
-  }
-  .scene-collage-buzzed .buzzed-cluster {
-    left: 2%;
-    bottom: 24%;
-    top: auto;
-    width: clamp(110px, 28vw, 160px);
-    z-index: 15;
   }
   .scene-collage-buzzed .buzzed-tape {
     right: 2%;
