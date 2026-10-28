@@ -69,22 +69,22 @@ export const Scene00Opening: React.FC<Scene00OpeningProps> = ({ standalone = fal
 
         tl.fromTo(
           bag,
-          { opacity: 0, y: 35, rotate: -12 },
-          { opacity: 1, y: 0, rotate: -6, duration: 0.6 },
+          { opacity: 0, y: 35 },
+          { opacity: 1, y: 0, duration: 0.6 },
           0.15
         );
 
         tl.fromTo(
           lamp,
-          { opacity: 0, y: 35, rotate: 10 },
-          { opacity: 1, y: 0, rotate: 4, duration: 0.6 },
+          { opacity: 0, y: 35 },
+          { opacity: 1, y: 0, duration: 0.6 },
           0.2
         );
 
         tl.fromTo(
           lightning,
-          { opacity: 0, scale: 0.6, rotate: -24 },
-          { opacity: 1, scale: 1, rotate: -14, duration: 0.5, ease: 'back.out(1.8)' },
+          { opacity: 0, scale: 0.6, rotate: -26 },
+          { opacity: 1, scale: 1, rotate: -18, duration: 0.5, ease: 'back.out(1.8)' },
           0.28
         );
 
@@ -106,7 +106,7 @@ export const Scene00Opening: React.FC<Scene00OpeningProps> = ({ standalone = fal
       });
 
       // Phase 1: Comic panel entrance (0.00 -> 0.35)
-      // Pop Art Label stamps into view as the primary headline
+      // Pop Art Label stamps into view as the primary headline centered
       tl.fromTo(
         label,
         { opacity: 0, scale: 0.9, y: -25 },
@@ -117,24 +117,24 @@ export const Scene00Opening: React.FC<Scene00OpeningProps> = ({ standalone = fal
       // Backpack settles on the floor
       tl.fromTo(
         bag,
-        { opacity: 0, y: 40, rotate: -14 },
-        { opacity: 1, y: 0, rotate: -6, duration: 0.3, ease: 'power2.out' },
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
         0.08
       );
 
       // Desk lamp anchors to the study desk
       tl.fromTo(
         lamp,
-        { opacity: 0, y: 40, rotate: 10 },
-        { opacity: 1, y: 0, rotate: 4, duration: 0.3, ease: 'power2.out' },
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
         0.1
       );
 
       // Lightning crackles into upper-right corner pointing back to headline
       tl.fromTo(
         lightning,
-        { opacity: 0, scale: 0.5, rotate: -24 },
-        { opacity: 1, scale: 1, rotate: -14, duration: 0.25, ease: 'back.out(1.8)' },
+        { opacity: 0, scale: 0.5, rotate: -28 },
+        { opacity: 1, scale: 1, rotate: -18, duration: 0.25, ease: 'back.out(1.8)' },
         0.14
       );
 
@@ -185,12 +185,12 @@ export const Scene00Opening: React.FC<Scene00OpeningProps> = ({ standalone = fal
 
       {/* 2. Structured composition frame */}
       <div ref={compositionRef} className="scene-0-composition">
-        {/* Main Comic Pop Art Label (Focal point: slightly above visual center, intentional offset) */}
+        {/* Main Comic Pop Art Label (Focal point: centered vertically and horizontally) */}
         <div ref={labelRef} className="scene-0-label-wrap">
           <PopArtLabel
             variant="cream"
             size="large"
-            rotation={-1.8}
+            rotation={0}
             className="scene-0-pop-art-label"
           >
             <span className="scene-0-headline-line">FINALLY BACK FROM</span>{' '}

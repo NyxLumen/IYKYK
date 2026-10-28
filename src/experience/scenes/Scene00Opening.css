@@ -2,11 +2,11 @@
  * Scene00Opening.css
  * Styling for Scene 0: Comic-Book Opening establishing card.
  *
- * Visual hierarchy:
- * 1. Main headline: "FINALLY BACK FROM COLLEGE" (Pop Art Label)
+ * Visual hierarchy & geometry (strictly matching reference):
+ * 1. Main headline: "FINALLY BACK FROM COLLEGE" (Pop Art Label centered vertically & horizontally)
  * 2. Protagonist's bedroom/study environment (env-bedroom-study-night)
- * 3. College backpack and desk lamp stickers (contextual details)
- * 4. Lightning graphic (finishing comic accent directing attention)
+ * 3. College backpack and desk lamp stickers (large contextual details anchoring bottom corners)
+ * 4. Lightning graphic (punchy comic accent in upper-right)
  */
 
 .scene-0 {
@@ -38,7 +38,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  filter: contrast(1.04) brightness(0.97) saturate(1.04);
+  filter: brightness(0.5) contrast(1.06);
 }
 
 /* Subtle atmosphere overlay: maintains grain & muted tones without muddying */
@@ -46,10 +46,10 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 50% 45%,
-    rgba(11, 11, 11, 0.08) 0%,
-    rgba(11, 11, 11, 0.35) 75%,
-    rgba(11, 11, 11, 0.6) 100%
+    circle at 50% 50%,
+    rgba(11, 11, 11, 0.1) 0%,
+    rgba(11, 11, 11, 0.38) 75%,
+    rgba(11, 11, 11, 0.65) 100%
   );
   pointer-events: none;
 }
@@ -66,16 +66,16 @@
   pointer-events: none;
 }
 
-/* 3. Pop Art Label container (Focal point: slightly above visual center, intentional offset) */
+/* 3. Pop Art Label container (Centered both vertically and horizontally) */
 .scene-0-label-wrap {
   position: absolute;
-  top: 36%;
-  left: 47%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 25;
   text-align: center;
   width: auto;
-  max-width: min(90vw, 680px);
+  max-width: min(92vw, 760px);
   pointer-events: auto;
 }
 
@@ -91,14 +91,14 @@
 
 /* Custom lettering refinement for Scene 0 Pop Art Label */
 .scene-0-pop-art-label .comic-action__panel {
-  padding: clamp(0.85rem, 1.4vw, 1.35rem) clamp(2.2rem, 3.8vw, 3.8rem);
-  font-size: clamp(1.4rem, 1.15rem + 1vw, 2.15rem);
+  padding: clamp(1rem, 2.2vh, 1.85rem) clamp(2.4rem, 4.4vw, 4.8rem);
+  font-size: clamp(1.55rem, 1.2rem + 1.25vw, 2.45rem);
   letter-spacing: 0.06em;
-  line-height: 1.15;
+  line-height: 1.18;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* 4. Supporting sticker assets */
+/* 4. Supporting sticker assets strictly scaled to match the reference image */
 .scene-0-sticker {
   position: absolute;
   display: block;
@@ -116,46 +116,47 @@
   transform: translateZ(0);
 }
 
-/* Lower-left: College Backpack sticker (dropped into room by bed) */
+/* Lower-left: College Backpack sticker */
+/* Reference: width ~22.5vw, height ~37.4vh, positioned near lower-left edge */
 .scene-0-sticker-bag {
-  bottom: clamp(5%, 7vh, 12%);
-  left: clamp(4%, 7vw, 11%);
-  width: clamp(155px, 17vw, 275px);
+  bottom: clamp(10px, 2.5vh, 26px);
+  left: clamp(14px, 2.8vw, 34px);
+  width: clamp(210px, 22.8vw, 380px);
   z-index: 12;
-  transform: rotate(-7deg);
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.7));
 }
 
 .scene-0-sticker-bag:hover {
-  transform: rotate(-5deg) scale(1.02);
+  transform: scale(1.02);
 }
 
-/* Lower-right: Desk Lamp sticker (connected to study desk) */
+/* Lower-right: Desk Lamp sticker */
+/* Reference: width ~24.5vw, height ~34.5vh, positioned near lower-right edge */
 .scene-0-sticker-lamp {
-  bottom: clamp(4%, 6vh, 10%);
-  right: clamp(4%, 7vw, 11%);
-  width: clamp(170px, 19vw, 295px);
+  bottom: clamp(10px, 2.5vh, 26px);
+  right: clamp(10px, 1.8vw, 26px);
+  width: clamp(220px, 24.5vw, 400px);
   z-index: 12;
-  transform: rotate(3deg);
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.7));
 }
 
 .scene-0-sticker-lamp:hover {
-  transform: rotate(1deg) scale(1.02);
+  transform: scale(1.02);
 }
 
-/* Upper-right: Lightning graphic (accent directing attention back toward headline) */
+/* Upper-right: Lightning graphic */
+/* Reference: width ~15.5vw, height ~24.4vh, positioned in upper right near corkboard */
 .scene-0-sticker-lightning {
-  top: clamp(8%, 11vh, 16%);
-  right: clamp(9%, 15vw, 22%);
-  width: clamp(75px, 7.5vw, 120px);
+  top: clamp(16px, 4.5vh, 38px);
+  right: clamp(20px, 5.5vw, 60px);
+  width: clamp(115px, 15.2vw, 240px);
   z-index: 18;
-  transform: rotate(-12deg);
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+  transform: rotate(-18deg);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
 }
 
 .scene-0-sticker-lightning:hover {
-  transform: rotate(-8deg) scale(1.05);
+  transform: rotate(-14deg) scale(1.04);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -164,29 +165,33 @@
 
 @media (max-width: 1024px) {
   .scene-0-label-wrap {
-    top: 35%;
-    left: 49%;
+    top: 50%;
+    left: 50%;
+  }
+  .scene-0-pop-art-label .comic-action__panel {
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    padding: clamp(0.8rem, 1.8vh, 1.2rem) clamp(1.8rem, 3.5vw, 2.8rem);
   }
   .scene-0-sticker-bag {
-    left: clamp(3%, 5vw, 8%);
-    bottom: clamp(3%, 5vh, 8%);
-    width: clamp(140px, 22vw, 210px);
+    left: clamp(10px, 2vw, 20px);
+    bottom: clamp(8px, 1.8vh, 18px);
+    width: clamp(170px, 25vw, 250px);
   }
   .scene-0-sticker-lamp {
-    right: clamp(3%, 5vw, 8%);
-    bottom: clamp(3%, 5vh, 8%);
-    width: clamp(150px, 24vw, 230px);
+    right: clamp(8px, 1.6vw, 18px);
+    bottom: clamp(8px, 1.8vh, 18px);
+    width: clamp(180px, 26vw, 270px);
   }
   .scene-0-sticker-lightning {
-    top: clamp(6%, 9vh, 13%);
-    right: clamp(5%, 11vw, 15%);
-    width: clamp(65px, 9.5vw, 100px);
+    top: clamp(12px, 3vh, 25px);
+    right: clamp(14px, 4vw, 32px);
+    width: clamp(90px, 15vw, 150px);
   }
 }
 
 @media (max-width: 640px) {
   .scene-0-label-wrap {
-    top: 32%;
+    top: 48%;
     left: 50%;
     max-width: 92vw;
   }
@@ -194,8 +199,8 @@
     --comic-action-border-width: 8px;
     --comic-action-shadow-x: -10px;
     --comic-action-shadow-y: 9px;
-    font-size: clamp(1rem, 4.2vw, 1.2rem);
-    padding: 0.6rem 1.3rem;
+    font-size: clamp(1.05rem, 4.4vw, 1.25rem);
+    padding: 0.65rem 1.4rem;
     letter-spacing: 0.04em;
   }
   .scene-0-headline-line {
@@ -203,19 +208,19 @@
     white-space: nowrap;
   }
   .scene-0-sticker-bag {
-    left: 4%;
-    bottom: clamp(12px, 2.8vh, 24px);
-    width: clamp(110px, 30vw, 140px);
+    left: 3%;
+    bottom: clamp(6px, 1.5vh, 14px);
+    width: clamp(130px, 35vw, 175px);
   }
   .scene-0-sticker-lamp {
-    right: 4%;
-    bottom: clamp(12px, 2.8vh, 24px);
-    width: clamp(115px, 32vw, 145px);
+    right: 2%;
+    bottom: clamp(6px, 1.5vh, 14px);
+    width: clamp(135px, 37vw, 185px);
   }
   .scene-0-sticker-lightning {
-    top: 6%;
-    right: 7%;
-    width: clamp(50px, 13vw, 75px);
+    top: 4%;
+    right: 5%;
+    width: clamp(65px, 18vw, 100px);
   }
 }
 
