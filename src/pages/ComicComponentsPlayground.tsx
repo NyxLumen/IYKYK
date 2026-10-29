@@ -401,7 +401,8 @@ export const ComicComponentsPlayground: React.FC = () => {
                     <option value="yellow">Yellow (Default Reference)</option>
                     <option value="purple">Purple (Electric)</option>
                     <option value="green">Green (Acid Punch)</option>
-                    <option value="cream">Cream (Vintage)</option>
+                    <option value="cream">Cream / White (Subtle Dots)</option>
+                    <option value="white">White</option>
                   </select>
                 </div>
 

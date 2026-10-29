@@ -1,4 +1,5 @@
 import React from "react";
+import { ComicAction } from "../../components/comic";
 import { ASSET_MANIFEST } from "../data/assets";
 import type { SceneId } from "../data/types";
 import { PopArtLabel } from "@/components/comic";
@@ -173,17 +174,6 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 	"first-drink": {
 		environment: "environments.partyHallwayEntrance",
 		layers: [
-			// Plane B: Main green brush ribbon graphic with integrated "JUST ONE..." copy
-			{
-				assetId: "graphics.targetGreen",
-				className: "drink-target-green",
-				plane: "B",
-				role: "graphic",
-				entrance: "slide",
-				exit: "slide-left",
-				alt: "Graphic target green ribbon brush with JUST ONE... copy",
-				overlayText: "JUST ONE...",
-			},
 			// Plane C: Protagonist Hero (Center close-up holding drink)
 			{
 				assetId: "characters.close.firstDrink",
@@ -225,13 +215,27 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 			{
 				assetId: "graphics.brushGreen",
 				className: "drink-brush-green",
-				plane: "B",
+				plane: "D",
 				role: "graphic",
 				entrance: "slide",
 				exit: "slide-right",
 				alt: "Green brush paint splash",
 			},
-			// Plane E: Foreground tangible party stickers
+			// Plane E: Foreground tangible party stickers & Pop Art headline label
+			{
+				assetId: "components.comicAction",
+				className: "drink-pop-art-label",
+				plane: "E",
+				role: "graphic",
+				entrance: "stamp",
+				exit: "slide-left",
+				alt: "JUST ONE pop art headline label",
+				content: (
+					<ComicAction variant="green" size="large" rotation={0}>
+						JUST ONE...
+					</ComicAction>
+				),
+			},
 			{
 				assetId: "objects.earbuds01",
 				className: "drink-earbuds",
@@ -329,7 +333,7 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				exit: "slide-right",
 				alt: "Clock fragment showing progression of the night",
 			},
-			// Plane E: Foreground scratches overlay & green-purple collage cluster with ONE MORE? copy
+			// Plane E: Foreground scratches overlay & Pop Art Label headline
 			{
 				assetId: "textures.surfaceScratches01",
 				className: "buzzed-scratches",
@@ -339,13 +343,22 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				exit: "fade-material",
 			},
 			{
-				assetId: "graphics.collageClusterGreenPurple",
-				className: "buzzed-cluster",
+				className: "buzzed-headline",
 				plane: "E",
 				role: "graphic",
 				entrance: "stamp",
-				exit: "slide-up",
-				alt: "Collage cluster",
+				exit: "slide-left",
+				alt: "Maybe one more? Pop Art Label",
+				customComponent: (
+					<PopArtLabel
+						variant="yellow"
+						size="large"
+						textTransform="none"
+						className="buzzed-headline-label"
+					>
+						Maybe<br />One more?
+					</PopArtLabel>
+				),
 			},
 		],
 	},
@@ -784,7 +797,7 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 	compositionRef,
 }) => {
 	const artwork = SCENE_ARTWORK[sceneId];
-	const eager = sceneId === "plan";
+	const eager = sceneId === "plan" || sceneId === "first-drink";
 
 	const planeBLayers = artwork.layers.filter((l) => l.plane === "B");
 	const planeCLayers = artwork.layers.filter((l) => l.plane === "C");
@@ -850,23 +863,20 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 			>
 				<div className="motion-pointer-layer">
 					<div className="motion-ambient-layer">
-						<img
-							src={asset?.src ?? ""}
-							srcSet={asset?.srcSet}
-							sizes={isProtagonist ? "(max-width: 720px) 78vw, 55vw" : "(max-width: 720px) 35vw, 25vw"}
-							alt={layer.alt ?? ""}
-							loading={eager ? "eager" : "lazy"}
-							decoding="async"
-						/>
+						{asset?.src && (
+							<img
+								src={asset.src}
+								srcSet={asset.srcSet}
+								sizes={isProtagonist ? "(max-width: 720px) 78vw, 55vw" : "(max-width: 720px) 35vw, 25vw"}
+								alt={layer.alt ?? ""}
+								loading={eager ? "eager" : "lazy"}
+								decoding="async"
+							/>
+						)}
 						{layer.content}
 						{layer.overlayText && (
 							<span className="art-card-overlay-text" aria-hidden="true">
 								{layer.overlayText}
-							</span>
-						)}
-						{layer.className === "buzzed-cluster" && (
-							<span className="buzzed-one-more-text" aria-label="ONE MORE?">
-								ONE MORE?
 							</span>
 						)}
 					</div>

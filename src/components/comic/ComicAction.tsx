@@ -2,7 +2,7 @@ import React from 'react';
 import './ComicAction.css';
 
 export type ComicActionSize = 'small' | 'medium' | 'large';
-export type ComicActionVariant = 'yellow' | 'purple' | 'green' | 'cream';
+export type ComicActionVariant = 'yellow' | 'purple' | 'green' | 'cream' | 'white';
 
 export interface ComicActionVariantColors {
   backgroundColor: string;
@@ -40,7 +40,14 @@ export const COMIC_ACTION_VARIANTS: Record<ComicActionVariant, ComicActionVarian
     textColor: '#0B0B0B',
     borderColor: '#0B0B0B',
     shadowColor: '#0B0B0B',
-    patternColor: '#B8A99A',
+    patternColor: '#DDD4C7',
+  },
+  white: {
+    backgroundColor: '#EDE4D9',
+    textColor: '#0B0B0B',
+    borderColor: '#0B0B0B',
+    shadowColor: '#0B0B0B',
+    patternColor: '#DDD4C7',
   },
 };
 
