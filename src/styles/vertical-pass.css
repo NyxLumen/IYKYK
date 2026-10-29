@@ -655,31 +655,31 @@
 
 /* Supporting Label: Pop Art Label (Purple) */
 .scene-collage-plan .plan-supporting {
-  left: 66.8%;
-  top: 40.8%;
-  width: clamp(206px, 21.6vw, 340px);
+  left: 65.5%;
+  top: 38.0%;
+  width: clamp(235px, 24.5vw, 390px);
   z-index: 44;
 }
 .scene-collage-plan .plan-supporting .comic-action-wrapper {
   width: 100%;
-  padding-left: 12px;
+  padding-left: 14px;
   padding-bottom: 14px;
   padding-top: 2px;
   padding-right: 2px;
 }
 .scene-collage-plan .plan-supporting .comic-action__panel {
   width: 100%;
-  --comic-action-border-width: 6px;
-  --comic-action-shadow-x: -10px;
-  --comic-action-shadow-y: 12px;
+  --comic-action-border-width: 7px;
+  --comic-action-shadow-x: -11px;
+  --comic-action-shadow-y: 11px;
   --comic-action-dot-r: 4.5px;
   --comic-action-dot-w: 30px;
   --comic-action-dot-h: 28px;
   --comic-action-bg: #6839C2;
   --comic-action-pattern: #8B52E8;
   --comic-action-letter-spacing: 0.02em;
-  font-size: clamp(1.4rem, 1.25rem + 0.6vw, 1.85rem);
-  padding: clamp(0.62rem, 1.5vh, 0.88rem) clamp(1.1rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.52rem, 1.36rem + 0.72vw, 2.05rem);
+  padding: clamp(0.72rem, 1.7vh, 0.98rem) clamp(1.25rem, 1.8vw, 2.0rem);
   white-space: nowrap;
 }
 
@@ -2567,14 +2567,14 @@
   }
   .scene-collage-plan .plan-supporting {
     left: auto;
-    right: 6%;
-    top: 17%;
+    right: 5%;
+    top: 13.5%;
     width: auto;
     z-index: 44;
   }
   .scene-collage-plan .plan-supporting .comic-action__panel {
-    font-size: clamp(0.85rem, 3.4vw, 1.1rem);
-    padding: 0.35rem 0.9rem;
+    font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+    padding: 0.45rem 1.1rem;
     --comic-action-border-width: 5px;
     --comic-action-shadow-x: -6px;
     --comic-action-shadow-y: 6px;
