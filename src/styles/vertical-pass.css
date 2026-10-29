@@ -729,15 +729,7 @@
   max-width: none;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(4px 0 0 #ffffff)
-          drop-shadow(-4px 0 0 #ffffff)
-          drop-shadow(0 4px 0 #ffffff)
-          drop-shadow(0 -4px 0 #ffffff)
-          drop-shadow(3px 3px 0 #ffffff)
-          drop-shadow(-3px -3px 0 #ffffff)
-          drop-shadow(3px -3px 0 #ffffff)
-          drop-shadow(-3px 3px 0 #ffffff)
-          drop-shadow(0 22px 38px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 22px 38px rgba(0, 0, 0, 0.65));
 }
 
 /* Pop Art Headline Label (Plane E): ComicAction Pop Art component */
@@ -800,15 +792,7 @@
 .scene-collage-first-drink .drink-phone img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(3.5px 0 0 #ffffff)
-          drop-shadow(-3.5px 0 0 #ffffff)
-          drop-shadow(0 3.5px 0 #ffffff)
-          drop-shadow(0 -3.5px 0 #ffffff)
-          drop-shadow(2.5px 2.5px 0 #ffffff)
-          drop-shadow(-2.5px -2.5px 0 #ffffff)
-          drop-shadow(2.5px -2.5px 0 #ffffff)
-          drop-shadow(-2.5px 2.5px 0 #ffffff)
-          drop-shadow(0 14px 24px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.5));
 }
 
 /* Lower green brush paint splash (Plane D): graphic-brush-green sweeping over lower body */
@@ -838,15 +822,7 @@
 .scene-collage-first-drink .drink-cup img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(3.5px 0 0 #ffffff)
-          drop-shadow(-3.5px 0 0 #ffffff)
-          drop-shadow(0 3.5px 0 #ffffff)
-          drop-shadow(0 -3.5px 0 #ffffff)
-          drop-shadow(2.5px 2.5px 0 #ffffff)
-          drop-shadow(-2.5px -2.5px 0 #ffffff)
-          drop-shadow(2.5px -2.5px 0 #ffffff)
-          drop-shadow(-2.5px 2.5px 0 #ffffff)
-          drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
 }
 
 .scene-collage-first-drink .drink-earbuds {
@@ -861,15 +837,7 @@
 .scene-collage-first-drink .drink-earbuds img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(3.5px 0 0 #ffffff)
-          drop-shadow(-3.5px 0 0 #ffffff)
-          drop-shadow(0 3.5px 0 #ffffff)
-          drop-shadow(0 -3.5px 0 #ffffff)
-          drop-shadow(2.5px 2.5px 0 #ffffff)
-          drop-shadow(-2.5px -2.5px 0 #ffffff)
-          drop-shadow(2.5px -2.5px 0 #ffffff)
-          drop-shadow(-2.5px 2.5px 0 #ffffff)
-          drop-shadow(0 16px 26px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.55));
 }
 
 .scene-collage-first-drink .drink-glass {
@@ -883,15 +851,7 @@
 .scene-collage-first-drink .drink-glass img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(3.5px 0 0 #ffffff)
-          drop-shadow(-3.5px 0 0 #ffffff)
-          drop-shadow(0 3.5px 0 #ffffff)
-          drop-shadow(0 -3.5px 0 #ffffff)
-          drop-shadow(2.5px 2.5px 0 #ffffff)
-          drop-shadow(-2.5px -2.5px 0 #ffffff)
-          drop-shadow(2.5px -2.5px 0 #ffffff)
-          drop-shadow(-2.5px 2.5px 0 #ffffff)
-          drop-shadow(0 16px 24px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.55));
 }
 
 /* -------------------------------------------------------------------------- */
