@@ -84,6 +84,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
         };
 
         return {
+          scene0: getTop('#scene-0'),
           plan: getTop('#scene-plan'),
           firstDrink: getTop('#scene-first-drink'),
           buzzed: getTop('#scene-buzzed'),
@@ -132,7 +133,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           } else if (sy >= pos.firstDrink) {
             setPlate(hallway, 1.0);
             setAtmosphere('radial-gradient(circle at 50% 50%, rgba(122, 59, 255, 0.28) 0%, rgba(11, 11, 11, 0.62) 100%)');
-          } else if (sy >= pos.plan) {
+          } else if (sy >= (pos.scene0 || pos.plan)) {
             setPlate(bedroom, 1.0);
             setAtmosphere('radial-gradient(circle at center, rgba(11, 11, 11, 0.42) 0%, rgba(11, 11, 11, 0.75) 100%)');
           } else {
@@ -476,6 +477,18 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
             const alphaRim = 0.75 - 0.13 * t;
             setAtmosphere(`radial-gradient(circle at 50% 50%, rgba(122, 59, 255, ${alphaP.toFixed(2)}) 0%, rgba(11, 11, 11, ${alphaRim.toFixed(2)}) 100%)`);
           }
+        } else if (positions.scene0 && sy >= positions.scene0) {
+          // ================================================================
+          // SCENE 00: COMIC OPENING (Establishing Card - Bedroom study)
+          // ================================================================
+          setPlate(hallway, 0);
+          setPlate(livingRoom, 0);
+          setPlate(speakers, 0);
+          setPlate(crowd, 0);
+          setPlate(messy, 0);
+          setPlate(tidy, 0);
+          setPlate(bedroom, 1.0, 'none');
+          setAtmosphere('radial-gradient(circle at center, rgba(11, 11, 11, 0.42) 0%, rgba(11, 11, 11, 0.75) 100%)');
         } else {
           // ================================================================
           // HERO: OPENING COVER POSTER (Pure Ink-Black field -> transition to bedroom)
@@ -487,7 +500,7 @@ export const ContinuousBackground: React.FC<ContinuousBackgroundProps> = ({ clas
           setPlate(messy, 0);
           setPlate(tidy, 0);
 
-          const heroDist = Math.max(1, positions.plan);
+          const heroDist = Math.max(1, positions.scene0 || positions.plan);
           const pHero = Math.min(1, Math.max(0, sy / heroDist));
 
           if (pHero < 0.45) {

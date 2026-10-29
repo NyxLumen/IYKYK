@@ -2,7 +2,7 @@ import React from 'react';
 import './ComicAction.css';
 
 export type ComicActionSize = 'small' | 'medium' | 'large';
-export type ComicActionVariant = 'yellow' | 'purple' | 'green' | 'cream';
+export type ComicActionVariant = 'yellow' | 'purple' | 'green' | 'cream' | 'white';
 
 export interface ComicActionVariantColors {
   backgroundColor: string;
@@ -40,13 +40,24 @@ export const COMIC_ACTION_VARIANTS: Record<ComicActionVariant, ComicActionVarian
     textColor: '#0B0B0B',
     borderColor: '#0B0B0B',
     shadowColor: '#0B0B0B',
-    patternColor: '#B8A99A',
+    patternColor: '#DDD4C7',
+  },
+  white: {
+    backgroundColor: '#EDE4D9',
+    textColor: '#0B0B0B',
+    borderColor: '#0B0B0B',
+    shadowColor: '#0B0B0B',
+    patternColor: '#DDD4C7',
   },
 };
 
 export interface ComicActionProps extends React.HTMLAttributes<HTMLElement> {
   /** Text or React children rendered within the action panel */
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  /** Direct text property */
+  text?: string;
+  /** Text transform override */
+  textTransform?: React.CSSProperties['textTransform'];
   /** Size preset: 'small' | 'medium' | 'large' (default: 'medium') */
   size?: ComicActionSize;
   /** Named visual color variant (default: 'yellow') */
@@ -80,6 +91,8 @@ export interface ComicActionProps extends React.HTMLAttributes<HTMLElement> {
  */
 export const ComicAction: React.FC<ComicActionProps> = ({
   children,
+  text,
+  textTransform,
   size = 'medium',
   variant = 'yellow',
   backgroundColor,
@@ -108,18 +121,34 @@ export const ComicAction: React.FC<ComicActionProps> = ({
     ['--comic-action-shadow' as string]: resolvedShadow,
     ['--comic-action-pattern' as string]: resolvedPattern,
     ['--comic-action-rotation' as string]: `${rotation}deg`,
+    ...(textTransform ? { ['--comic-action-text-transform' as string]: textTransform } : {}),
     ...style,
   };
 
   return (
-    <div className={`comic-action-wrapper ${className}`.trim()}>
+    <div
+      className={`comic-action-wrapper pop-art-label ${className}`.trim()}
+      data-comic-component="pop-art-label"
+    >
       <Component
-        className={`comic-action__panel comic-action--${size}`}
+        className={`comic-action__panel comic-action--${size} label-face`}
+        data-layer="label-face"
         style={dynamicStyles}
         {...restProps}
       >
-        <span className="comic-action__content">{children}</span>
+        <span
+          className="comic-action__content label-text"
+          data-layer="label-text"
+        >
+          {text ?? children}
+        </span>
       </Component>
     </div>
   );
 };
+
+/**
+ * Reusable Pop Art Label component alias matching design specification
+ */
+export const PopArtLabel = ComicAction;
+export type PopArtLabelProps = ComicActionProps;

@@ -2,6 +2,7 @@ import React from "react";
 import { ComicAction } from "../../components/comic";
 import { ASSET_MANIFEST } from "../data/assets";
 import type { SceneId } from "../data/types";
+import { PopArtLabel } from "@/components/comic";
 
 const getArtworkAsset = (id: string) =>
 	ASSET_MANIFEST.find((asset) => asset.id === id || asset.kebabId === id || asset.slug === id);
@@ -35,7 +36,7 @@ export type ExitStyle =
 	| "fade-material";
 
 export type ArtworkLayer = {
-	assetId: string;
+	assetId?: string;
 	className: string;
 	plane: DepthPlane;
 	role: AssetRole;
@@ -44,6 +45,7 @@ export type ArtworkLayer = {
 	alt?: string;
 	content?: React.ReactNode;
 	overlayText?: string;
+	customComponent?: React.ReactNode;
 };
 
 type ArtworkConfig = {
@@ -337,7 +339,7 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				exit: "slide-right",
 				alt: "Clock fragment showing progression of the night",
 			},
-			// Plane E: Foreground scratches overlay & green-purple collage cluster with ONE MORE? copy
+			// Plane E: Foreground scratches overlay & Pop Art Label headline
 			{
 				assetId: "textures.surfaceScratches01",
 				className: "buzzed-scratches",
@@ -347,13 +349,22 @@ const SCENE_ARTWORK: Record<StorySceneId, ArtworkConfig> = {
 				exit: "fade-material",
 			},
 			{
-				assetId: "graphics.collageClusterGreenPurple",
-				className: "buzzed-cluster",
+				className: "buzzed-headline",
 				plane: "E",
 				role: "graphic",
 				entrance: "stamp",
-				exit: "slide-up",
-				alt: "Collage cluster",
+				exit: "slide-left",
+				alt: "Maybe one more? Pop Art Label",
+				customComponent: (
+					<PopArtLabel
+						variant="yellow"
+						size="large"
+						textTransform="none"
+						className="buzzed-headline-label"
+					>
+						Maybe<br />One more?
+					</PopArtLabel>
+				),
 			},
 		],
 	},
@@ -800,7 +811,7 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 	const planeELayers = artwork.layers.filter((l) => l.plane === "E");
 
 	const renderLayer = (layer: ArtworkLayer) => {
-		const asset = getArtworkAsset(layer.assetId);
+		const asset = layer.assetId ? getArtworkAsset(layer.assetId) : undefined;
 		const isTexture = layer.role === "texture";
 		const isProtagonist = layer.role === "protagonist";
 
@@ -824,6 +835,26 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 						decoding="async"
 					/>
 				</div>
+			);
+		}
+
+		if (layer.customComponent) {
+			return (
+				<figure
+					className={`scene-layer art-card ${layer.className} ${isProtagonist ? "art-card-protagonist" : ""}`}
+					key={layer.className}
+					data-plane={layer.plane}
+					data-role={layer.role}
+					data-entrance={layer.entrance ?? "slide"}
+					data-exit={layer.exit ?? "slide-down"}
+					aria-label={layer.alt}
+				>
+					<div className="motion-pointer-layer">
+						<div className="motion-ambient-layer">
+							{layer.customComponent}
+						</div>
+					</div>
+				</figure>
 			);
 		}
 
@@ -852,11 +883,6 @@ export const SceneArtwork: React.FC<SceneArtworkProps> = ({
 						{layer.overlayText && (
 							<span className="art-card-overlay-text" aria-hidden="true">
 								{layer.overlayText}
-							</span>
-						)}
-						{layer.className === "buzzed-cluster" && (
-							<span className="buzzed-one-more-text" aria-label="ONE MORE?">
-								ONE MORE?
 							</span>
 						)}
 					</div>
